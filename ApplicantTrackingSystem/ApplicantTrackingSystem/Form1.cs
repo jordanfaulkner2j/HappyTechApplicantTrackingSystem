@@ -25,5 +25,10 @@ namespace ApplicantTrackingSystem
             DataSet ds = DBConnection.getInstanceOfDBConnection().getDataSet("SELECT * FROM Employees");
             dgvEmployees.DataSource = ds.Tables[0];
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
