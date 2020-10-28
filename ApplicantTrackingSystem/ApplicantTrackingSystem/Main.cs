@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,8 @@ namespace ApplicantTrackingSystem
         public Main()
         {
             InitializeComponent();
+            // open applications page on start
+            applicationsToolStripMenuItem.PerformClick();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,6 +30,9 @@ namespace ApplicantTrackingSystem
         {
             // display page with list of applications
             pageApplications.BringToFront();
+
+            // update list of applications from the database
+            pageApplications.GetApplicationTable();
         }
 
         private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,7 +41,7 @@ namespace ApplicantTrackingSystem
             pageEmployees.BringToFront();
 
             // update list of employees from the database
-            pageEmployees.UpdateFromDatabse();
+            pageEmployees.GetEmployeeTable();
         }
     }
 }

@@ -34,13 +34,14 @@
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(217, 86);
+            this.dgvEmployees.Location = new System.Drawing.Point(26, 60);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployees.Name = "dgvEmployees";
-            this.dgvEmployees.RowHeadersWidth = 82;
+            this.dgvEmployees.RowHeadersWidth = 100;
             this.dgvEmployees.RowTemplate.Height = 33;
-            this.dgvEmployees.Size = new System.Drawing.Size(551, 252);
+            this.dgvEmployees.Size = new System.Drawing.Size(932, 337);
             this.dgvEmployees.TabIndex = 4;
             // 
             // UserControlEmployees

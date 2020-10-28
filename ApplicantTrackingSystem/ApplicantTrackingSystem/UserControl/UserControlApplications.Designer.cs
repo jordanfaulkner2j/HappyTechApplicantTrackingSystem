@@ -28,35 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.dgvApplications = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // dgvApplications
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(327, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Page for Applications";
+            this.dgvApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApplications.Location = new System.Drawing.Point(26, 60);
+            this.dgvApplications.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvApplications.Name = "dgvApplications";
+            this.dgvApplications.RowHeadersWidth = 100;
+            this.dgvApplications.RowTemplate.Height = 33;
+            this.dgvApplications.Size = new System.Drawing.Size(932, 337);
+            this.dgvApplications.TabIndex = 5;
             // 
             // UserControlApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvApplications);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlApplications";
             this.Size = new System.Drawing.Size(984, 425);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvApplications;
     }
 }
