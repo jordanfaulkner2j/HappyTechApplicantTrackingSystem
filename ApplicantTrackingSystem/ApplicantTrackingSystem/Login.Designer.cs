@@ -28,20 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogIn = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(92, 28);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // textBoxEmail
             // 
@@ -50,15 +46,19 @@
             this.textBoxEmail.Size = new System.Drawing.Size(200, 29);
             this.textBoxEmail.TabIndex = 1;
             this.textBoxEmail.Text = "Employee Email";
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(42, 224);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(200, 29);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.Text = "Password";
+            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
+            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
             // 
             // buttonLogIn
             // 
@@ -70,6 +70,22 @@
             this.buttonLogIn.UseVisualStyleBackColor = true;
             this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::ApplicantTrackingSystem.Properties.Resources.Logo;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(55, 28);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(175, 100);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -80,13 +96,15 @@
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.pictureBoxLogo);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HappyTech Employee Login";
+            this.Text = "Login Page";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,5 +116,6 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogIn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

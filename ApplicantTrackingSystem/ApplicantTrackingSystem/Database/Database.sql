@@ -71,6 +71,7 @@ CREATE TABLE `application_for_job_position` (
 CREATE TABLE `comment` (
   `comment_id` int(3) NOT NULL COMMENT '1 to 999',
   `section_id` int(2) NOT NULL,
+  `code` VARCHAR(4) NOT NULL COMMENT '2 letters for identifying section and 2 digits for comment',
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -85,7 +86,7 @@ CREATE TABLE `employee` (
   `user_id` int(5) NOT NULL,
   `job_title` varchar(25) NOT NULL,
   `photo` blob DEFAULT NULL COMMENT 'file',
-  `password` varchar(128) NOT NULL COMMENT 'hash size for the MD5 algorithm is 128 bits',
+  `password` varchar(256) NOT NULL COMMENT 'hash size for the SHA256 algorithm is 256 bits',
   `administrator` bit(1) NOT NULL COMMENT 'set to 1 for admin rights'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -196,7 +197,8 @@ ALTER TABLE `application_for_job_position`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`),
-  ADD KEY `section_id` (`section_id`);
+  ADD KEY `section_id` (`section_id`),
+  ADD UNIQUE KEY `code` (`code`);
 
 --
 -- Indexes for table `employee`

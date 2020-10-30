@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace ApplicantTrackingSystem
 {
@@ -53,6 +54,7 @@ namespace ApplicantTrackingSystem
             // create an empty dataSet
             DataSet dataSet = new DataSet();
 
+            // establish connection with the database and once stopped using, destroy objects
             using (connectToDatabase = new MySqlConnection(connectionString))
             {
                 // open connection to the database
@@ -64,6 +66,36 @@ namespace ApplicantTrackingSystem
             }
 
             return dataSet;
+        }
+
+        /// <summary>
+        /// retrieve hash for employee's password
+        /// </summary>
+        /// <param name="employeeEmail">employee's email is used as search string</param>
+        /// <returns>password hash or null if invalid employee email</returns>
+        public string GetPasswordHash(string employeeEmail)
+        {
+            // establish connection with the database and once stopped using, destroy objects
+            using (connectToDatabase = new MySqlConnection(connectionString))
+            {
+                // open connection to the database
+                connectToDatabase.Open();
+
+                // command containing search query and connection string
+                MySqlCommand command = new MySqlCommand(string.Format("SELECT employee.password FROM employee INNER JOIN user ON employee.user_id = user.user_id WHERE user.email_address = '{0}';", employeeEmail), connectToDatabase);
+                // execute search query
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                // if record available, read it
+                if (dataReader.Read())
+                {
+                    // return the value of password attribute
+                    return dataReader["password"].ToString();
+                }
+            }
+
+            // else return null
+            return null;
         }
     }
 }

@@ -68,6 +68,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginValidation.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,24 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlMyProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserControlMyProfile.Designer.cs">
+      <DependentUpon>UserControlMyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserControlTemplates.Designer.cs">
+      <DependentUpon>UserControlTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlCreateEditTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserControlCreateEditTemplate.Designer.cs">
+      <DependentUpon>UserControlCreateEditTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UserControlEmployees.cs">
       <SubType>UserControl</SubType>
@@ -108,20 +127,28 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControl\UserControlMyProfile.resx">
+      <DependentUpon>UserControlMyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UserControlTemplates.resx">
+      <DependentUpon>UserControlTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UserControlCreateEditTemplate.resx">
+      <DependentUpon>UserControlCreateEditTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UserControlEmployees.resx">
       <DependentUpon>UserControlEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UserControlApplications.resx">
       <DependentUpon>UserControlApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -134,6 +161,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

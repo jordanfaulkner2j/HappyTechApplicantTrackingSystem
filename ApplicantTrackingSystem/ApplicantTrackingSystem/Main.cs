@@ -16,14 +16,21 @@ namespace ApplicantTrackingSystem
         public Main()
         {
             InitializeComponent();
+
             // open applications page on start
             applicationsToolStripMenuItem.PerformClick();
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createNewTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // close current form
-            this.Close();
+            // display page with form for creating templates
+            pageCreateEditTemplate.BringToFront();
+        }
+
+        private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // display page with list of existing templates
+            pageTemplates.BringToFront();
         }
 
         private void applicationsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +49,18 @@ namespace ApplicantTrackingSystem
 
             // update list of employees from the database
             pageEmployees.GetEmployeeTable();
+        }
+
+        private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // display my profile's settings
+            pageMyProfile.BringToFront();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // close current form
+            this.Close();
         }
     }
 }

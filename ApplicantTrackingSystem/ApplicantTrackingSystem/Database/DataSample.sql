@@ -2,19 +2,21 @@
 -- Table data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Mrs', 'Diamond', NULL, 'Block', 'scottie71@example.net', '00447529120397', NULL);
+
+INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Dr', 'Admin', NULL, 'Admin', 'admin@example.com', '00447777777777', NULL);
 INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Ms', 'Krista', NULL, 'Emmerich', 'allie15@example.com', '00447589229143', NULL);
-INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Mrs', 'Vance', NULL, 'Abbott', 'kautzer.selmer@example.net', '00447593726494', NULL);
+INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Mrs', 'Vance', NULL, 'Abbott', 'kautzer.selmer@example.com', '00447593726494', NULL);
 INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Dr', 'Jordon', NULL, 'Kuhn', 'jamie.rolfson@example.net', '00447938752124', NULL);
+INSERT INTO `user` (`user_id`, `title`, `first_name`, `middle_names`, `last_name`, `email_address`, `mobile_number`, `work_number`) VALUES (NULL, 'Mrs', 'Diamond', NULL, 'Block', 'scottie71@example.net', '00447529120397', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table data for table `employee`
 --
-
-INSERT INTO `employee` (`employee_id`, `user_id`, `job_title`, `photo`, `password`, `administrator`) VALUES (NULL, '1', 'HappyTech Administrator', NULL, MD5('password'), b'1');
-INSERT INTO `employee` (`employee_id`, `user_id`, `job_title`, `photo`, `password`, `administrator`) VALUES (NULL, '2', 'Personnel Manager', NULL, MD5('password'), b'0');
+INSERT INTO `employee` (`employee_id`, `user_id`, `job_title`, `photo`, `password`, `administrator`) VALUES (NULL, '1', 'HappyTech Administrator', NULL, 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f', b'1');
+INSERT INTO `employee` (`employee_id`, `user_id`, `job_title`, `photo`, `password`, `administrator`) VALUES (NULL, '2', 'HappyTech Line Manager', NULL, 'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a', b'1');
+INSERT INTO `employee` (`employee_id`, `user_id`, `job_title`, `photo`, `password`, `administrator`) VALUES (NULL, '3', 'Personnel Manager', NULL, 'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a', b'0');
 
 -- --------------------------------------------------------
 
@@ -75,9 +77,10 @@ INSERT INTO `template` (`template_id`, `title`, `header`, `footer`) VALUES (NULL
 -- Table data for table `comment`
 --
 
-INSERT INTO `comment` (`comment_id`, `section_id`, `comment`) VALUES (NULL, '1', 'Resume file missing.');
-INSERT INTO `comment` (`comment_id`, `section_id`, `comment`) VALUES (NULL, '2', 'Arrived late to the interview.');
-INSERT INTO `comment` (`comment_id`, `section_id`, `comment`) VALUES (NULL, '3', 'Good logical thinking.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'RE01', 'Resume file missing.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'RE02', 'No references available.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '2', 'IN01', 'Arrived late to the interview.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '3', 'TI01', 'Good logical thinking.');
 
 -- --------------------------------------------------------
 
