@@ -77,10 +77,10 @@ INSERT INTO `template` (`template_id`, `title`, `header`, `footer`) VALUES (NULL
 -- Table data for table `comment`
 --
 
-INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'RE01', 'Resume file missing.');
-INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'RE02', 'No references available.');
-INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '2', 'IN01', 'Arrived late to the interview.');
-INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '3', 'TI01', 'Good logical thinking.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'R01', 'Resume file missing.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '1', 'R02', 'No references available.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '2', 'I01', 'Arrived late to the interview.');
+INSERT INTO `comment` (`comment_id`, `section_id`, `code`, `comment`) VALUES (NULL, '3', 'T01', 'Good logical thinking.');
 
 -- --------------------------------------------------------
 

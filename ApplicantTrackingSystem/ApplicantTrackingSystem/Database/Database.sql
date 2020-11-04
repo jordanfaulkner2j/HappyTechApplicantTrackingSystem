@@ -71,7 +71,7 @@ CREATE TABLE `application_for_job_position` (
 CREATE TABLE `comment` (
   `comment_id` int(3) NOT NULL COMMENT '1 to 999',
   `section_id` int(2) NOT NULL,
-  `code` VARCHAR(4) NOT NULL COMMENT '2 letters for identifying section and 2 digits for comment',
+  `code` VARCHAR(3) NOT NULL COMMENT '1 letter for identifying section and 2 digits for numbering',
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -244,7 +244,8 @@ ALTER TABLE `template`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email_address` (`email_address`);
 
 --
 -- AUTO_INCREMENT for table `applicant`

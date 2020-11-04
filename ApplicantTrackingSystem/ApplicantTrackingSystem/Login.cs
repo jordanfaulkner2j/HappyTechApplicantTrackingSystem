@@ -19,30 +19,45 @@ namespace ApplicantTrackingSystem
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            // validate login credentials
-            if (LoginValidation.ValidateCredentials(textBoxEmail.Text, textBoxPassword.Text))
+            // store content of text box in a variable for later use
+            string employeeEmail = textBoxEmail.Text;
+
+            // store results of validation as boolean values (bool emailValid, bool passwordValid)
+            var validationOutput = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
+
+            // if both email and password are valid, continue to main application
+            if (validationOutput.emailValid && validationOutput.passowrdValid)
             {
                 // hide current form
                 this.Hide();
+
+                // create main form and open it
+                using (Main MainApplication = new Main(employeeEmail))
+                    MainApplication.ShowDialog();
+
+                // once main application closes, open login page again
+                this.Show();
 
                 // set default values for text boxes
                 textBoxEmail.Text = "Employee Email";
                 textBoxPassword.Text = "Password";
                 // enable password visibility with null character
                 textBoxPassword.PasswordChar = '\0';
-
-                // create main form and open it
-                using (Main MainApplication = new Main())
-                    MainApplication.ShowDialog();
-
-                // once main application closes, open login page again
-                this.Show();
             }
-            // else if credentials invalid
+            // else if email invalid
+            else if (!validationOutput.emailValid)
+            {
+                MessageBox.Show("Email address incorrect!\nPlease use your full address.", "Invalid Email Address");
+            }
+            // else if password invalid
+            else if (!validationOutput.passowrdValid)
+            {
+                MessageBox.Show("Incorrect password!\nPlease try again or contact your manager.", "Invalid Password");
+            }
+            // in case of any inexpected errors
             else
             {
-                // return error message
-                MessageBox.Show("Please try again or contact your administrator.", "Invalid Credentials");
+                MessageBox.Show("Please report this error to your manager.", "Unexpected Error");
             }
         }
 

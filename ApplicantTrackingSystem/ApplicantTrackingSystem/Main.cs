@@ -13,9 +13,22 @@ namespace ApplicantTrackingSystem
 {
     public partial class Main : Form
     {
-        public Main()
+        public Main(string employeeEmail)
         {
             InitializeComponent();
+
+            // retrieve query and attribute name from class of queries
+            var retrieveAdminRightsQuery = DatabaseQueries.IsEmployeeAdmin(employeeEmail);
+
+            // if employee has admin privileges, show menu item for managing employees
+            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrieveAdminRightsQuery.sqlQuery, retrieveAdminRightsQuery.attributeName) == "1")
+            {
+                manageEmployeesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                manageEmployeesToolStripMenuItem.Visible = false;
+            }
 
             // open applications page on start
             applicationsToolStripMenuItem.PerformClick();
@@ -31,6 +44,9 @@ namespace ApplicantTrackingSystem
         {
             // display page with list of existing templates
             pageTemplates.BringToFront();
+
+            // update list of applications from the database
+            pageTemplates.UpdateTemplatesTable();
         }
 
         private void applicationsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,7 +55,7 @@ namespace ApplicantTrackingSystem
             pageApplications.BringToFront();
 
             // update list of applications from the database
-            pageApplications.GetApplicationTable();
+            pageApplications.UpdateApplicationsTable();
         }
 
         private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,7 +64,7 @@ namespace ApplicantTrackingSystem
             pageEmployees.BringToFront();
 
             // update list of employees from the database
-            pageEmployees.GetEmployeeTable();
+            pageEmployees.UpdateEmployeesTable();
         }
 
         private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)

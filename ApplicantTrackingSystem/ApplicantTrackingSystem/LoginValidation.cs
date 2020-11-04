@@ -14,20 +14,31 @@ namespace ApplicantTrackingSystem
         /// </summary>
         /// <param name="enteredEmail">search for password hash using employee's email</param>
         /// <param name="enteredPassword">calculate hash and compare with hash stored in database</param>
-        /// <returns>true if password entered is correct</returns>
-        public static Boolean ValidateCredentials(string enteredEmail, string enteredPassword)
+        /// <returns>boolean value for emailValid and passwordValid</returns>
+        public static (Boolean emailValid, Boolean passowrdValid) ValidateCredentials(string enteredEmail, string enteredPassword)
         {
-            // retrieve hash from database
-            string hashedPassword = DatabaseConnection.GetInstanceOfDatabaseConnection().GetPasswordHash(enteredEmail);
+            // retrieve query and attribute name from class of queries
+            var retrievePasswordQuery = DatabaseQueries.GetEmployeePassword(enteredEmail);
 
-            // if hash retrieved from database matches with calculated hash of entered password, return true
-            if (hashedPassword == HashPassword(enteredPassword))
+            // retrieve hash from database (entered password never leaves the application)
+            string hashedPassword = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrievePasswordQuery.sqlQuery, retrievePasswordQuery.attributeName);
+
+            // if hash returns null due to no available records based on the query, email address entered is invalid
+            if (hashedPassword == null)
             {
-                return true;
+                return (false, false);
             }
             else
-            {
-                return false;
+            {   // if password hashes match, return true for both values
+                if (hashedPassword == HashPassword(enteredPassword))
+                {
+                    return (true, true);
+                }
+                // else return false for passwordValid
+                else
+                {
+                    return (true, false);
+                }
             }
         }
 
