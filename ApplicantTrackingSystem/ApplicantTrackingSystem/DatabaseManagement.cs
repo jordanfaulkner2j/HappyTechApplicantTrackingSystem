@@ -4,21 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace ApplicantTrackingSystem
 {
     class DatabaseManagement
     {
         //private object of the class itself
-        private static DatabaseManagement instance;
+        private static DatabaseManagement _instance;
 
         // connection string for the database
-        private const string connectionString = "datasource = localhost; port = 3306; username = root; password = ; database = applicant_tracking_system;";
+        private string dbConnectionString;
 
         // connection to the database
-        private MySqlConnection connectToDatabase;
+        private SqlConnection connectToDB;
+        private DatabaseManagement()
+        {
+             dbConnectionString = Properties.Settings.Default.connectionString;
+        }
 
         /// <summary>
         /// constructor, create a unique object of the class itself
@@ -27,12 +31,12 @@ namespace ApplicantTrackingSystem
         public static DatabaseManagement GetInstanceOfDatabaseConnection()
         {
             // if connection to the database has not been established, create new
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new DatabaseManagement();
+                _instance = new DatabaseManagement();
             }
 
-            return instance;
+            return _instance;
         }
 
         // returns a data set based on the query sent as parameter
@@ -47,13 +51,13 @@ namespace ApplicantTrackingSystem
             DataSet dataSet = new DataSet();
 
             // establish connection with the database and once stopped using, destroy objects
-            using (connectToDatabase = new MySqlConnection(connectionString))
+            using (connectToDB = new SqlConnection(dbConnectionString))
             {
                 // open connection to the database
-                connectToDatabase.Open();
+                connectToDB.Open();
 
                 // create the object dataAdapter to send a query to the database
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlQuery, connectToDatabase);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, connectToDB);
                 // fill in the dataSet
                 dataAdapter.Fill(dataSet);
             }
@@ -70,15 +74,15 @@ namespace ApplicantTrackingSystem
         public string GetSingleAttribute(string sqlQuery, string returnAttribute)
         {
             // establish connection with the database and once stopped using, destroy objects
-            using (connectToDatabase = new MySqlConnection(connectionString))
+            using (connectToDB = new SqlConnection(dbConnectionString))
             {
                 // open connection to the database
-                connectToDatabase.Open();
+                connectToDB.Open();
 
                 // command containing search query and connection string
-                MySqlCommand command = new MySqlCommand(sqlQuery, connectToDatabase);
+                SqlCommand command = new SqlCommand(sqlQuery, connectToDB);
                 // execute search query
-                MySqlDataReader dataReader = command.ExecuteReader();
+                SqlDataReader dataReader = command.ExecuteReader();
 
                 // if record available, read it
                 if (dataReader.Read())

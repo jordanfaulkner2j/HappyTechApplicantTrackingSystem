@@ -22,5 +22,17 @@ namespace ApplicantTrackingSystem.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jordan Faulkner\\sou" +
+            "rce\\repos\\HappyTechApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrac" +
+            "kingSystem\\Database.mdf\";Integrated Security=True;Connect Timeout=30")]
+        public string connectionString {
+            get {
+                return ((string)(this["connectionString"]));
+            }
+        }
     }
 }

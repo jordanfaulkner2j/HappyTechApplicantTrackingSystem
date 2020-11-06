@@ -56,7 +56,7 @@
             this.panelWelcome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelWelcome.Location = new System.Drawing.Point(0, 0);
             this.panelWelcome.Name = "panelWelcome";
-            this.panelWelcome.Size = new System.Drawing.Size(984, 100);
+            this.panelWelcome.Size = new System.Drawing.Size(1910, 100);
             this.panelWelcome.TabIndex = 0;
             // 
             // pictureBoxLogo
@@ -77,9 +77,9 @@
             this.panelBody.Controls.Add(this.pageTemplates);
             this.panelBody.Controls.Add(this.pageCreateEditTemplate);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBody.Location = new System.Drawing.Point(0, 136);
+            this.panelBody.Location = new System.Drawing.Point(0, 474);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(984, 425);
+            this.panelBody.Size = new System.Drawing.Size(1910, 425);
             this.panelBody.TabIndex = 2;
             // 
             // pageMyProfile
@@ -130,21 +130,21 @@
             // templatesToolStripMenuItem
             // 
             this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
-            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
+            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.templatesToolStripMenuItem.Text = "Templates";
             this.templatesToolStripMenuItem.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(107, 26);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.applicationsToolStripMenuItem.Text = "Applications";
             this.applicationsToolStripMenuItem.Click += new System.EventHandler(this.applicationsToolStripMenuItem_Click);
             // 
             // myProfileSettingsToolStripMenuItem
             // 
             this.myProfileSettingsToolStripMenuItem.Name = "myProfileSettingsToolStripMenuItem";
-            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
             this.myProfileSettingsToolStripMenuItem.Text = "My Profile Settings";
             this.myProfileSettingsToolStripMenuItem.Click += new System.EventHandler(this.myProfileSettingsToolStripMenuItem_Click);
             // 
@@ -153,7 +153,7 @@
             this.logOutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.logOutToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -162,6 +162,8 @@
             this.menuBar.AutoSize = false;
             this.menuBar.Dock = System.Windows.Forms.DockStyle.None;
             this.menuBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBar.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewTemplateToolStripMenuItem,
             this.templatesToolStripMenuItem,
@@ -179,22 +181,22 @@
             // 
             this.createNewTemplateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.createNewTemplateToolStripMenuItem.Name = "createNewTemplateToolStripMenuItem";
-            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
             this.createNewTemplateToolStripMenuItem.Text = "Create New Template";
             this.createNewTemplateToolStripMenuItem.Click += new System.EventHandler(this.createNewTemplateToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(443, 26);
             this.manageEmployeesToolStripMenuItem.Text = "Manage Employee Accounts";
             this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1910, 899);
             this.Controls.Add(this.panelWelcome);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.panelBody);

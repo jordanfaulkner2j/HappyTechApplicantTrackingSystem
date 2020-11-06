@@ -15,7 +15,7 @@ namespace ApplicantTrackingSystem
         /// <param name="enteredEmail">search for password hash using employee's email</param>
         /// <param name="enteredPassword">calculate hash and compare with hash stored in database</param>
         /// <returns>boolean value for emailValid and passwordValid</returns>
-        public static (Boolean emailValid, Boolean passowrdValid) ValidateCredentials(string enteredEmail, string enteredPassword)
+        public static (Boolean emailValid, Boolean passwordValid) ValidateCredentials(string enteredEmail, string enteredPassword)
         {
             // retrieve query and attribute name from class of queries
             var retrievePasswordQuery = DatabaseQueries.GetEmployeePassword(enteredEmail);

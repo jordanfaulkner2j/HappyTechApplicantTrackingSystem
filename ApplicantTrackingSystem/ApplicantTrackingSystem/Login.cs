@@ -26,7 +26,7 @@ namespace ApplicantTrackingSystem
             var validationOutput = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
 
             // if both email and password are valid, continue to main application
-            if (validationOutput.emailValid && validationOutput.passowrdValid)
+            if (validationOutput.emailValid && validationOutput.passwordValid)
             {
                 // hide current form
                 this.Hide();
@@ -50,7 +50,7 @@ namespace ApplicantTrackingSystem
                 MessageBox.Show("Email address incorrect!\nPlease use your full address.", "Invalid Email Address");
             }
             // else if password invalid
-            else if (!validationOutput.passowrdValid)
+            else if (!validationOutput.passwordValid)
             {
                 MessageBox.Show("Incorrect password!\nPlease try again or contact your manager.", "Invalid Password");
             }
