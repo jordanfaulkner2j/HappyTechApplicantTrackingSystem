@@ -919,7 +919,7 @@
             // 
             this.pnlDiscard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDiscard.Controls.Add(this.btnDiscardChanges);
-            this.pnlDiscard.Location = new System.Drawing.Point(935, 629);
+            this.pnlDiscard.Location = new System.Drawing.Point(983, 643);
             this.pnlDiscard.Name = "pnlDiscard";
             this.pnlDiscard.Size = new System.Drawing.Size(433, 65);
             this.pnlDiscard.TabIndex = 16;
@@ -958,7 +958,7 @@
             // 
             this.pnlSaveTemplate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSaveTemplate.Controls.Add(this.btnSaveTemplate);
-            this.pnlSaveTemplate.Location = new System.Drawing.Point(1544, 629);
+            this.pnlSaveTemplate.Location = new System.Drawing.Point(1492, 642);
             this.pnlSaveTemplate.Name = "pnlSaveTemplate";
             this.pnlSaveTemplate.Size = new System.Drawing.Size(431, 65);
             this.pnlSaveTemplate.TabIndex = 17;
