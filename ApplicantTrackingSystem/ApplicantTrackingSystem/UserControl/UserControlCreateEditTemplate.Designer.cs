@@ -919,9 +919,9 @@
             // 
             this.pnlDiscard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDiscard.Controls.Add(this.btnDiscardChanges);
-            this.pnlDiscard.Location = new System.Drawing.Point(998, 629);
+            this.pnlDiscard.Location = new System.Drawing.Point(935, 629);
             this.pnlDiscard.Name = "pnlDiscard";
-            this.pnlDiscard.Size = new System.Drawing.Size(370, 65);
+            this.pnlDiscard.Size = new System.Drawing.Size(433, 65);
             this.pnlDiscard.TabIndex = 16;
             // 
             // btnDiscardChanges
@@ -934,7 +934,7 @@
             this.btnDiscardChanges.ForeColor = System.Drawing.Color.White;
             this.btnDiscardChanges.Location = new System.Drawing.Point(-2, -1);
             this.btnDiscardChanges.Name = "btnDiscardChanges";
-            this.btnDiscardChanges.Size = new System.Drawing.Size(368, 63);
+            this.btnDiscardChanges.Size = new System.Drawing.Size(433, 63);
             this.btnDiscardChanges.TabIndex = 0;
             this.btnDiscardChanges.Text = "DISCARD CHANGES";
             this.btnDiscardChanges.UseVisualStyleBackColor = false;
@@ -949,7 +949,7 @@
             this.btnSaveTemplate.ForeColor = System.Drawing.Color.White;
             this.btnSaveTemplate.Location = new System.Drawing.Point(-2, -2);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(391, 65);
+            this.btnSaveTemplate.Size = new System.Drawing.Size(431, 65);
             this.btnSaveTemplate.TabIndex = 1;
             this.btnSaveTemplate.Text = "SAVE TEMPLATE AS...";
             this.btnSaveTemplate.UseVisualStyleBackColor = false;
@@ -960,7 +960,7 @@
             this.pnlSaveTemplate.Controls.Add(this.btnSaveTemplate);
             this.pnlSaveTemplate.Location = new System.Drawing.Point(1544, 629);
             this.pnlSaveTemplate.Name = "pnlSaveTemplate";
-            this.pnlSaveTemplate.Size = new System.Drawing.Size(392, 65);
+            this.pnlSaveTemplate.Size = new System.Drawing.Size(431, 65);
             this.pnlSaveTemplate.TabIndex = 17;
             // 
             // UserControlCreateTemplate
