@@ -46,13 +46,13 @@
             // 
             // UserControlTemplates
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvTemplates);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlTemplates";
-            this.Size = new System.Drawing.Size(984, 425);
+            this.Size = new System.Drawing.Size(1975, 750);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).EndInit();
             this.ResumeLayout(false);
 

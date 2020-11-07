@@ -41,9 +41,10 @@
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Arial", 12F);
             this.textBoxEmail.Location = new System.Drawing.Point(42, 175);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(200, 29);
+            this.textBoxEmail.Size = new System.Drawing.Size(200, 44);
             this.textBoxEmail.TabIndex = 1;
             this.textBoxEmail.Text = "Employee Email";
             this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
@@ -51,9 +52,10 @@
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Arial", 12F);
             this.textBoxPassword.Location = new System.Drawing.Point(42, 224);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(200, 29);
+            this.textBoxPassword.Size = new System.Drawing.Size(200, 44);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.Text = "Password";
             this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
@@ -62,6 +64,7 @@
             // 
             // buttonLogIn
             // 
+            this.buttonLogIn.Font = new System.Drawing.Font("Arial", 12F);
             this.buttonLogIn.Location = new System.Drawing.Point(92, 284);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(100, 30);
@@ -88,7 +91,7 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 361);
             this.Controls.Add(this.buttonLogIn);

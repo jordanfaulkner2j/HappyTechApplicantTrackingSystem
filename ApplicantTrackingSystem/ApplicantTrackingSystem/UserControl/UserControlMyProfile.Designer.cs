@@ -34,22 +34,22 @@
             // labelToBeDeleted
             // 
             this.labelToBeDeleted.AutoSize = true;
-            this.labelToBeDeleted.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelToBeDeleted.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.labelToBeDeleted.Location = new System.Drawing.Point(262, 190);
             this.labelToBeDeleted.Name = "labelToBeDeleted";
-            this.labelToBeDeleted.Size = new System.Drawing.Size(461, 45);
+            this.labelToBeDeleted.Size = new System.Drawing.Size(971, 75);
             this.labelToBeDeleted.TabIndex = 0;
             this.labelToBeDeleted.Text = "Page with my profile\'s settings";
             // 
             // UserControlMyProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelToBeDeleted);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlMyProfile";
-            this.Size = new System.Drawing.Size(984, 425);
+            this.Size = new System.Drawing.Size(1975, 750);
             this.ResumeLayout(false);
             this.PerformLayout();
 

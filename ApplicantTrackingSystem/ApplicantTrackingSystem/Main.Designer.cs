@@ -32,11 +32,6 @@
             this.panelWelcome = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.pageMyProfile = new ApplicantTrackingSystem.UserControlMyProfile();
-            this.pageEmployees = new ApplicantTrackingSystem.UserControlEmployees();
-            this.pageApplications = new ApplicantTrackingSystem.UserControlApplications();
-            this.pageTemplates = new ApplicantTrackingSystem.UserControlTemplates();
-            this.pageCreateEditTemplate = new ApplicantTrackingSystem.UserControlCreateTemplate();
             this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myProfileSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +39,11 @@
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.createNewTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageCreateEditTemplate = new ApplicantTrackingSystem.UserControlCreateTemplate();
+            this.pageMyProfile = new ApplicantTrackingSystem.UserControlMyProfile();
+            this.pageEmployees = new ApplicantTrackingSystem.UserControlEmployees();
+            this.pageApplications = new ApplicantTrackingSystem.UserControlApplications();
+            this.pageTemplates = new ApplicantTrackingSystem.UserControlTemplates();
             this.panelWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelBody.SuspendLayout();
@@ -56,7 +56,7 @@
             this.panelWelcome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelWelcome.Location = new System.Drawing.Point(0, 0);
             this.panelWelcome.Name = "panelWelcome";
-            this.panelWelcome.Size = new System.Drawing.Size(1910, 100);
+            this.panelWelcome.Size = new System.Drawing.Size(1974, 100);
             this.panelWelcome.TabIndex = 0;
             // 
             // pictureBoxLogo
@@ -71,80 +71,34 @@
             // 
             // panelBody
             // 
-            this.panelBody.Controls.Add(this.pageMyProfile);
             this.panelBody.Controls.Add(this.pageEmployees);
             this.panelBody.Controls.Add(this.pageApplications);
             this.panelBody.Controls.Add(this.pageTemplates);
-            this.panelBody.Controls.Add(this.pageCreateEditTemplate);
+            this.panelBody.Controls.Add(this.pageMyProfile);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBody.Location = new System.Drawing.Point(0, 474);
+            this.panelBody.Location = new System.Drawing.Point(0, 504);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1910, 425);
+            this.panelBody.Size = new System.Drawing.Size(1974, 425);
             this.panelBody.TabIndex = 2;
-            // 
-            // pageMyProfile
-            // 
-            this.pageMyProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageMyProfile.Location = new System.Drawing.Point(0, 0);
-            this.pageMyProfile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pageMyProfile.Name = "pageMyProfile";
-            this.pageMyProfile.Size = new System.Drawing.Size(984, 425);
-            this.pageMyProfile.TabIndex = 4;
-            // 
-            // pageEmployees
-            // 
-            this.pageEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageEmployees.Location = new System.Drawing.Point(0, 0);
-            this.pageEmployees.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pageEmployees.Name = "pageEmployees";
-            this.pageEmployees.Size = new System.Drawing.Size(984, 425);
-            this.pageEmployees.TabIndex = 3;
-            // 
-            // pageApplications
-            // 
-            this.pageApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageApplications.Location = new System.Drawing.Point(0, 0);
-            this.pageApplications.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pageApplications.Name = "pageApplications";
-            this.pageApplications.Size = new System.Drawing.Size(984, 425);
-            this.pageApplications.TabIndex = 2;
-            // 
-            // pageTemplates
-            // 
-            this.pageTemplates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageTemplates.Location = new System.Drawing.Point(0, 0);
-            this.pageTemplates.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pageTemplates.Name = "pageTemplates";
-            this.pageTemplates.Size = new System.Drawing.Size(984, 425);
-            this.pageTemplates.TabIndex = 1;
-            // 
-            // pageCreateEditTemplate
-            // 
-            this.pageCreateEditTemplate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageCreateEditTemplate.Location = new System.Drawing.Point(0, 0);
-            this.pageCreateEditTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pageCreateEditTemplate.Name = "pageCreateEditTemplate";
-            this.pageCreateEditTemplate.Size = new System.Drawing.Size(984, 425);
-            this.pageCreateEditTemplate.TabIndex = 0;
             // 
             // templatesToolStripMenuItem
             // 
             this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
-            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(177, 68);
             this.templatesToolStripMenuItem.Text = "Templates";
             this.templatesToolStripMenuItem.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(204, 68);
             this.applicationsToolStripMenuItem.Text = "Applications";
             this.applicationsToolStripMenuItem.Click += new System.EventHandler(this.applicationsToolStripMenuItem_Click);
             // 
             // myProfileSettingsToolStripMenuItem
             // 
             this.myProfileSettingsToolStripMenuItem.Name = "myProfileSettingsToolStripMenuItem";
-            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
+            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(299, 68);
             this.myProfileSettingsToolStripMenuItem.Text = "My Profile Settings";
             this.myProfileSettingsToolStripMenuItem.Click += new System.EventHandler(this.myProfileSettingsToolStripMenuItem_Click);
             // 
@@ -153,7 +107,7 @@
             this.logOutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.logOutToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(148, 68);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -161,7 +115,7 @@
             // 
             this.menuBar.AutoSize = false;
             this.menuBar.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBar.Font = new System.Drawing.Font("Arial", 12F);
             this.menuBar.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -173,7 +127,7 @@
             this.logOutToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 103);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(984, 30);
+            this.menuBar.Size = new System.Drawing.Size(1974, 72);
             this.menuBar.TabIndex = 1;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -181,25 +135,71 @@
             // 
             this.createNewTemplateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.createNewTemplateToolStripMenuItem.Name = "createNewTemplateToolStripMenuItem";
-            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(344, 26);
+            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(335, 68);
             this.createNewTemplateToolStripMenuItem.Text = "Create New Template";
             this.createNewTemplateToolStripMenuItem.Click += new System.EventHandler(this.createNewTemplateToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(443, 26);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(433, 68);
             this.manageEmployeesToolStripMenuItem.Text = "Manage Employee Accounts";
             this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem_Click);
+            // 
+            // pageCreateEditTemplate
+            // 
+            this.pageCreateEditTemplate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageCreateEditTemplate.Location = new System.Drawing.Point(1, 174);
+            this.pageCreateEditTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pageCreateEditTemplate.Name = "pageCreateEditTemplate";
+            this.pageCreateEditTemplate.Size = new System.Drawing.Size(1974, 755);
+            this.pageCreateEditTemplate.TabIndex = 0;
+            // 
+            // pageMyProfile
+            // 
+            this.pageMyProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageMyProfile.Location = new System.Drawing.Point(0, -330);
+            this.pageMyProfile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pageMyProfile.Name = "pageMyProfile";
+            this.pageMyProfile.Size = new System.Drawing.Size(1975, 750);
+            this.pageMyProfile.TabIndex = 4;
+            // 
+            // pageEmployees
+            // 
+            this.pageEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageEmployees.Location = new System.Drawing.Point(0, -330);
+            this.pageEmployees.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pageEmployees.Name = "pageEmployees";
+            this.pageEmployees.Size = new System.Drawing.Size(1975, 755);
+            this.pageEmployees.TabIndex = 3;
+            // 
+            // pageApplications
+            // 
+            this.pageApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageApplications.Location = new System.Drawing.Point(0, -330);
+            this.pageApplications.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pageApplications.Name = "pageApplications";
+            this.pageApplications.Size = new System.Drawing.Size(1975, 755);
+            this.pageApplications.TabIndex = 2;
+            // 
+            // pageTemplates
+            // 
+            this.pageTemplates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageTemplates.Location = new System.Drawing.Point(0, -330);
+            this.pageTemplates.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pageTemplates.Name = "pageTemplates";
+            this.pageTemplates.Size = new System.Drawing.Size(1975, 755);
+            this.pageTemplates.TabIndex = 1;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1910, 899);
+            this.ClientSize = new System.Drawing.Size(1974, 929);
             this.Controls.Add(this.panelWelcome);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.panelBody);
+            this.Controls.Add(this.pageCreateEditTemplate);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
