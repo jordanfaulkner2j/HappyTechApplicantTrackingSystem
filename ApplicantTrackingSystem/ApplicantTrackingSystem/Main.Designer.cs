@@ -44,6 +44,7 @@
             this.pageEmployees = new ApplicantTrackingSystem.UserControlEmployees();
             this.pageApplications = new ApplicantTrackingSystem.UserControlApplications();
             this.pageTemplates = new ApplicantTrackingSystem.UserControlTemplates();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelBody.SuspendLayout();
@@ -191,11 +192,20 @@
             this.pageTemplates.Size = new System.Drawing.Size(1975, 755);
             this.pageTemplates.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Location = new System.Drawing.Point(1, 174);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1974, 755);
+            this.panel1.TabIndex = 5;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1974, 929);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelWelcome);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.panelBody);
@@ -232,5 +242,6 @@
         private UserControlApplications pageApplications;
         private UserControlTemplates pageTemplates;
         private UserControlCreateTemplate pageCreateEditTemplate;
+        private System.Windows.Forms.Panel panel1;
     }
 }
