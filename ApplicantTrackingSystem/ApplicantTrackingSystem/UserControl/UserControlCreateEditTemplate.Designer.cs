@@ -146,7 +146,7 @@
             // 
             this.lblComments.AutoSize = true;
             this.lblComments.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblComments.Location = new System.Drawing.Point(38, 26);
+            this.lblComments.Location = new System.Drawing.Point(38, 34);
             this.lblComments.Name = "lblComments";
             this.lblComments.Size = new System.Drawing.Size(181, 37);
             this.lblComments.TabIndex = 0;
@@ -676,7 +676,7 @@
             // 
             this.lblPreview.AutoSize = true;
             this.lblPreview.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPreview.Location = new System.Drawing.Point(36, 26);
+            this.lblPreview.Location = new System.Drawing.Point(36, 34);
             this.lblPreview.Name = "lblPreview";
             this.lblPreview.Size = new System.Drawing.Size(138, 37);
             this.lblPreview.TabIndex = 0;

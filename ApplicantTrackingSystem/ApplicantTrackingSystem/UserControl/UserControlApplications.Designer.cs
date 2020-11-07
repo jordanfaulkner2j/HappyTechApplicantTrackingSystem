@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvApplications = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,19 +44,10 @@
             this.dgvApplications.Size = new System.Drawing.Size(1973, 746);
             this.dgvApplications.TabIndex = 5;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Location = new System.Drawing.Point(0, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1972, 744);
-            this.panel1.TabIndex = 6;
-            // 
             // UserControlApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvApplications);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -71,6 +61,5 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvApplications;
-        private System.Windows.Forms.Panel panel1;
     }
 }
