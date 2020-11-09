@@ -969,6 +969,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.pnlSaveTemplate);
             this.Controls.Add(this.pnlDiscard);
             this.Controls.Add(this.pnlPreview);
