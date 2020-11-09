@@ -12,29 +12,66 @@ namespace ApplicantTrackingSystem
 {
     public partial class Login : Form
     {
+        // constant values for default text box fields
+        private const string DEFAULT_EMAIL_TEXT = "Employee Email";
+        private const string DEFAULT_PASSWORT_TEXT = "Password";
+        // constant values for file names
+        private const string LOG_FILE = "eventLog.csv";
+        private const string MAIL_LOG_FILE = "mailLog.txt";
+        // constant value for maximum number of items in combo box
+        private const int MAIL_LOG_FILE_MAX = 3;
+
         public Login()
         {
             InitializeComponent();
+            LoadDefaultSettings();
+        }
+
+        private void LoadDefaultSettings()
+        {
+            // set default values for text boxes
+            comboBoxEmail.Text = DEFAULT_EMAIL_TEXT;
+            textBoxPassword.Text = DEFAULT_PASSWORT_TEXT;
+
+            // enable password visibility with null character
+            textBoxPassword.PasswordChar = '\0';
+
+            // clear recent emails from combo text box
+            comboBoxEmail.Items.Clear();
+
+            // add last three cached email addresses to combo text box
+            for (int i = 1; i <= MAIL_LOG_FILE_MAX; i++)
+            {
+                string line = FileWriter.GetLine(MAIL_LOG_FILE, i);
+
+                if (line != null)
+                {
+                    comboBoxEmail.Items.Add(line);
+                }
+            }
+
+            //change focus to login button
+            buttonLogIn.Focus();
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            // check if password was not left blank before continuing
-            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
-            {
-                errorProvider.SetError(textBoxPassword, "Password must not be blank!");
-                return;
-            }
-
             // store employees email for later use
-            string employeeEmail = textBoxEmail.Text;
+            string employeeEmail = comboBoxEmail.Text;
             // validate email and store any error messages received
-            string errorMessage = LoginValidation.ValidateEmail(textBoxEmail.Text);
+            string errorMessage = LoginValidation.ValidateEmail(comboBoxEmail.Text);
 
             // if error message returned, turn the flag on
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
-                errorProvider.SetError(textBoxEmail, errorMessage);
+                errorProvider.SetError(comboBoxEmail, errorMessage);
+                return;
+            }
+
+            // check if password was not left blank before continuing
+            if (string.IsNullOrWhiteSpace(textBoxPassword.Text) || textBoxPassword.PasswordChar != '*')
+            {
+                errorProvider.SetError(textBoxPassword, "Password must not be blank!");
                 return;
             }
 
@@ -44,6 +81,14 @@ namespace ApplicantTrackingSystem
             // if both email and password are valid, continue to main application
             if (validationOutput.emailValid && validationOutput.passwordValid)
             {
+                // add logon entry to log file
+                FileWriter.Write(LOG_FILE, string.Format("login, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+
+                // if email address already occurs in the log file, delete it
+                FileWriter.DeleteLine(MAIL_LOG_FILE, FileWriter.ContainsLine(MAIL_LOG_FILE, employeeEmail));
+                // insert email address at the beginning of the file
+                FileWriter.InsertAtBeginning(MAIL_LOG_FILE, employeeEmail);
+
                 // hide current form
                 this.Hide();
 
@@ -51,19 +96,19 @@ namespace ApplicantTrackingSystem
                 using (Main MainApplication = new Main(employeeEmail))
                     MainApplication.ShowDialog();
 
+                // add logoff entry to log file
+                FileWriter.Write(LOG_FILE, string.Format("logout, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+
                 // once main application closes, open login page again
                 this.Show();
 
-                // set default values for text boxes
-                textBoxEmail.Text = "Employee Email";
-                textBoxPassword.Text = "Password";
-                // enable password visibility with null character
-                textBoxPassword.PasswordChar = '\0';
+                // load default settings of the form
+                LoadDefaultSettings();
             }
             // else if email incorrect
             else if (!validationOutput.emailValid)
             {
-                errorProvider.SetError(textBoxEmail, "Email address incorrect!");
+                errorProvider.SetError(comboBoxEmail, "Email address incorrect!");
             }
             // else if password incorrect
             else if (!validationOutput.passwordValid)
@@ -77,16 +122,16 @@ namespace ApplicantTrackingSystem
             }
         }
 
-        private void textBoxEmail_Enter(object sender, EventArgs e)
+        private void comboBoxEmail_Enter(object sender, EventArgs e)
         {
             // if text box is set to default, clear its content
-            if (textBoxEmail.Text == "Employee Email")
+            if (comboBoxEmail.Text == DEFAULT_EMAIL_TEXT)
             {
-                textBoxEmail.Clear();
+                comboBoxEmail.ResetText();
             }
 
             // clear error message if flagged
-            errorProvider.SetError(textBoxEmail, string.Empty);
+            errorProvider.SetError(comboBoxEmail, string.Empty);
         }
 
         /*
@@ -152,5 +197,11 @@ namespace ApplicantTrackingSystem
             }
         }
         */
+
+        private void linkLabelForgotPassword_Click(object sender, EventArgs e)
+        {
+            // display bow with a message when user clicks on forgot password
+            MessageBox.Show("Please contact your manager.", "Forgot Password");
+        }
     }
 }

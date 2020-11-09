@@ -39,7 +39,7 @@ namespace ApplicantTrackingSystem
         /// <returns>sqlQuery, attributeName</returns>
         public static (string sqlQuery, string attributeName) GetEmployeePassword(string employeeEmail)
         {
-            return (string.Format("{0} WHERE users.email_address = '{1}'", DatabaseQueries.PASSWORD, employeeEmail), "password");
+            return (string.Format("{0} WHERE users.email_address = '{1}'", PASSWORD, employeeEmail), "password");
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApplicantTrackingSystem
         /// <returns>sqlQuery, attributeName</returns>
         public static (string sqlQuery, string attributeName) IsEmployeeAdmin(string employeeEmail)
         {
-            return (string.Format("{0} WHERE users.email_address = '{1}'", DatabaseQueries.IS_ADMIN, employeeEmail), "administrator");
+            return (string.Format("{0} WHERE users.email_address = '{1}'", IS_ADMIN, employeeEmail), "administrator");
         }
     }
 }
