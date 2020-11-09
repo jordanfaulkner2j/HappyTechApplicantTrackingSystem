@@ -122,10 +122,10 @@
             // 
             this.pageCreateEditTemplate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pageCreateEditTemplate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageCreateEditTemplate.Location = new System.Drawing.Point(0, 0);
+            this.pageCreateEditTemplate.Location = new System.Drawing.Point(0, 41);
             this.pageCreateEditTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pageCreateEditTemplate.Name = "pageCreateEditTemplate";
-            this.pageCreateEditTemplate.Size = new System.Drawing.Size(968, 425);
+            this.pageCreateEditTemplate.Size = new System.Drawing.Size(968, 384);
             this.pageCreateEditTemplate.TabIndex = 0;
             // 
             // templatesToolStripMenuItem
@@ -138,14 +138,14 @@
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(107, 26);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.applicationsToolStripMenuItem.Text = "Applications";
             this.applicationsToolStripMenuItem.Click += new System.EventHandler(this.applicationsToolStripMenuItem_Click);
             // 
             // myProfileSettingsToolStripMenuItem
             // 
             this.myProfileSettingsToolStripMenuItem.Name = "myProfileSettingsToolStripMenuItem";
-            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.myProfileSettingsToolStripMenuItem.Text = "My Profile Settings";
             this.myProfileSettingsToolStripMenuItem.Click += new System.EventHandler(this.myProfileSettingsToolStripMenuItem_Click);
             // 
@@ -154,7 +154,7 @@
             this.logOutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.logOutToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -162,7 +162,7 @@
             // 
             this.menuBar.AutoSize = false;
             this.menuBar.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBar.Font = new System.Drawing.Font("Arial", 12F);
             this.menuBar.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewTemplateToolStripMenuItem,
@@ -181,14 +181,14 @@
             // 
             this.createNewTemplateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.createNewTemplateToolStripMenuItem.Name = "createNewTemplateToolStripMenuItem";
-            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.createNewTemplateToolStripMenuItem.Text = "Create New Template";
             this.createNewTemplateToolStripMenuItem.Click += new System.EventHandler(this.createNewTemplateToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.manageEmployeesToolStripMenuItem.Text = "Manage Employee Accounts";
             this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem_Click);
             // 
