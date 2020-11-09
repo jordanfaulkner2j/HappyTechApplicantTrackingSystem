@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelWelcome = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.panelBody = new System.Windows.Forms.Panel();
-            this.pageEmployees = new ApplicantTrackingSystem.UserControlEmployees();
-            this.pageApplications = new ApplicantTrackingSystem.UserControlApplications();
-            this.pageTemplates = new ApplicantTrackingSystem.UserControlTemplates();
-            this.pageMyProfile = new ApplicantTrackingSystem.UserControlMyProfile();
             this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myProfileSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,10 +39,15 @@
             this.createNewTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageCreateEditTemplate = new ApplicantTrackingSystem.UserControlCreateTemplate();
+            this.pageApplications = new ApplicantTrackingSystem.UserControlApplications();
+            this.pageMyProfile = new ApplicantTrackingSystem.UserControlMyProfile();
+            this.pageEmployees = new ApplicantTrackingSystem.UserControlEmployees();
+            this.pageTemplates = new ApplicantTrackingSystem.UserControlTemplates();
+            this.panelBody = new System.Windows.Forms.Panel();
             this.panelWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            this.panelBody.SuspendLayout();
             this.menuBar.SuspendLayout();
+            this.panelBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelWelcome
@@ -70,55 +70,6 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 3;
             this.pictureBoxLogo.TabStop = false;
-            // 
-            // panelBody
-            // 
-            this.panelBody.Controls.Add(this.pageTemplates);
-            this.panelBody.Controls.Add(this.pageEmployees);
-            this.panelBody.Controls.Add(this.pageMyProfile);
-            this.panelBody.Controls.Add(this.pageApplications);
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBody.Location = new System.Drawing.Point(0, 144);
-            this.panelBody.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1974, 785);
-            this.panelBody.TabIndex = 2;
-            // 
-            // pageEmployees
-            // 
-            this.pageEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageEmployees.Location = new System.Drawing.Point(0, 0);
-            this.pageEmployees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pageEmployees.Name = "pageEmployees";
-            this.pageEmployees.Size = new System.Drawing.Size(1975, 785);
-            this.pageEmployees.TabIndex = 3;
-            // 
-            // pageApplications
-            // 
-            this.pageApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageApplications.Location = new System.Drawing.Point(0, 0);
-            this.pageApplications.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pageApplications.Name = "pageApplications";
-            this.pageApplications.Size = new System.Drawing.Size(1975, 785);
-            this.pageApplications.TabIndex = 2;
-            // 
-            // pageTemplates
-            // 
-            this.pageTemplates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageTemplates.Location = new System.Drawing.Point(0, 0);
-            this.pageTemplates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pageTemplates.Name = "pageTemplates";
-            this.pageTemplates.Size = new System.Drawing.Size(1975, 785);
-            this.pageTemplates.TabIndex = 1;
-            // 
-            // pageMyProfile
-            // 
-            this.pageMyProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageMyProfile.Location = new System.Drawing.Point(0, 0);
-            this.pageMyProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pageMyProfile.Name = "pageMyProfile";
-            this.pageMyProfile.Size = new System.Drawing.Size(1975, 785);
-            this.pageMyProfile.TabIndex = 4;
             // 
             // templatesToolStripMenuItem
             // 
@@ -195,15 +146,64 @@
             this.pageCreateEditTemplate.Size = new System.Drawing.Size(1975, 785);
             this.pageCreateEditTemplate.TabIndex = 0;
             // 
+            // pageApplications
+            // 
+            this.pageApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageApplications.Location = new System.Drawing.Point(0, 0);
+            this.pageApplications.Margin = new System.Windows.Forms.Padding(4);
+            this.pageApplications.Name = "pageApplications";
+            this.pageApplications.Size = new System.Drawing.Size(1975, 785);
+            this.pageApplications.TabIndex = 2;
+            // 
+            // pageMyProfile
+            // 
+            this.pageMyProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageMyProfile.Location = new System.Drawing.Point(0, 0);
+            this.pageMyProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.pageMyProfile.Name = "pageMyProfile";
+            this.pageMyProfile.Size = new System.Drawing.Size(1975, 785);
+            this.pageMyProfile.TabIndex = 4;
+            // 
+            // pageEmployees
+            // 
+            this.pageEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageEmployees.Location = new System.Drawing.Point(0, 0);
+            this.pageEmployees.Margin = new System.Windows.Forms.Padding(4);
+            this.pageEmployees.Name = "pageEmployees";
+            this.pageEmployees.Size = new System.Drawing.Size(1975, 785);
+            this.pageEmployees.TabIndex = 3;
+            // 
+            // pageTemplates
+            // 
+            this.pageTemplates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageTemplates.Location = new System.Drawing.Point(0, 0);
+            this.pageTemplates.Margin = new System.Windows.Forms.Padding(4);
+            this.pageTemplates.Name = "pageTemplates";
+            this.pageTemplates.Size = new System.Drawing.Size(1975, 785);
+            this.pageTemplates.TabIndex = 1;
+            // 
+            // panelBody
+            // 
+            this.panelBody.Controls.Add(this.pageTemplates);
+            this.panelBody.Controls.Add(this.pageEmployees);
+            this.panelBody.Controls.Add(this.pageMyProfile);
+            this.panelBody.Controls.Add(this.pageApplications);
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBody.Location = new System.Drawing.Point(0, 144);
+            this.panelBody.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(1974, 785);
+            this.panelBody.TabIndex = 2;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1974, 929);
             this.Controls.Add(this.panelBody);
-            this.Controls.Add(this.pageCreateEditTemplate);
             this.Controls.Add(this.panelWelcome);
             this.Controls.Add(this.menuBar);
+            this.Controls.Add(this.pageCreateEditTemplate);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -212,9 +212,9 @@
             this.Text = "Applicant Tracking System";
             this.panelWelcome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            this.panelBody.ResumeLayout(false);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.panelBody.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -222,7 +222,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelWelcome;
-        private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem applicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem myProfileSettingsToolStripMenuItem;
@@ -231,10 +230,11 @@
         private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.ToolStripMenuItem createNewTemplateToolStripMenuItem;
+        private UserControlCreateTemplate pageCreateEditTemplate;
+        private UserControlApplications pageApplications;
         private UserControlMyProfile pageMyProfile;
         private UserControlEmployees pageEmployees;
-        private UserControlApplications pageApplications;
         private UserControlTemplates pageTemplates;
-        private UserControlCreateTemplate pageCreateEditTemplate;
+        private System.Windows.Forms.Panel panelBody;
     }
 }
