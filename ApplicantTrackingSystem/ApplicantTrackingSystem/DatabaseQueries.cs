@@ -26,6 +26,9 @@ namespace ApplicantTrackingSystem
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
+        // attribute called comment
+        public static string GET_COMMENT = "SELECT comment FROM comment WHERE code = " + UserControlCreateTemplate.headerCode;
+
         /// <summary>
         /// insert queries
         /// </summary>

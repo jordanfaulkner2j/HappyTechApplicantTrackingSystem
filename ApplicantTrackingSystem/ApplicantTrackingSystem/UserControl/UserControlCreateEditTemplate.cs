@@ -17,7 +17,7 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
         public string defaultHeaderText = "Select some codes from the 'Header' section...";
-        public string headerCode;
+        public static string headerCode;
 
         private void cbxH01_CheckStateChanged(object sender, EventArgs e)
         {
