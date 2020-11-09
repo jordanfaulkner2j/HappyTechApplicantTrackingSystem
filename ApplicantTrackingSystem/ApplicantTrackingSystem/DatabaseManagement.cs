@@ -15,14 +15,10 @@ namespace ApplicantTrackingSystem
         private static DatabaseManagement _instance;
 
         // connection string for the database
-        private string dbConnectionString;
+        private string dbConnectionString = Properties.Settings.Default.connectionString;
 
         // connection to the database
         private SqlConnection connectToDB;
-        private DatabaseManagement()
-        {
-             dbConnectionString = Properties.Settings.Default.connectionString;
-        }
 
         /// <summary>
         /// constructor, create a unique object of the class itself
@@ -39,12 +35,11 @@ namespace ApplicantTrackingSystem
             return _instance;
         }
 
-        // returns a data set based on the query sent as parameter
         /// <summary>
-        /// create a data set containing the requested records
+        /// create a data set containing requested records
         /// </summary>
         /// <param name="sqlQuery">query written in standard database query language</param>
-        /// <returns>data set based on the query</returns>
+        /// <returns>data set based on the query sent as a parameter</returns>
         public DataSet GetDataSet(string sqlQuery)
         {
             // create an empty dataSet
@@ -66,7 +61,7 @@ namespace ApplicantTrackingSystem
         }
 
         /// <summary>
-        /// retrieve single attribute from table
+        /// retrieve single attribute from table in database
         /// </summary>
         /// <param name="sqlQuery">search query</param>
         /// <param name="returnAttribute">name of the attribute to return</param>

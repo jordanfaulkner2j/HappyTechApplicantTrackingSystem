@@ -43,17 +43,41 @@ namespace ApplicantTrackingSystem
         }
 
         /// <summary>
+        /// validate entered email address
+        /// </summary>
+        /// <param name="emailAddress">email address to be validated</param>
+        /// <returns>error message or null if valid</returns>
+        public static string ValidateEmail(string emailAddress)
+        {
+            // check if email was not left blank
+            if (string.IsNullOrWhiteSpace(emailAddress))
+            {
+                return "Missing email address!";
+            }
+
+            // check if email address contains character @
+            foreach (char character in emailAddress)
+            {
+                if (character == '@')
+                {
+                    return null;
+                }
+            }
+            return "Please use your full email address.";
+        }
+
+        /// <summary>
         /// calculate hash on enetered string
         /// </summary>
-        /// <param name="password">string to hash</param>
+        /// <param name="plaintextpassword">plaintext to hash</param>
         /// <returns>hash as string in hexidecimal format</returns>
-        private static string HashPassword(string password)
+        private static string HashPassword(string plaintextPassword)
         {
             // create SHA256 object
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // generate hash and return its byte array
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(plaintextPassword));
 
                 // convert byte array to string in hexidecimal format
                 StringBuilder builder = new StringBuilder();

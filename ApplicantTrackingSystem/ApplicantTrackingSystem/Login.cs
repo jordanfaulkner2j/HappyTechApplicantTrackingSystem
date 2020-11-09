@@ -19,8 +19,24 @@ namespace ApplicantTrackingSystem
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            // store content of text box in a variable for later use
+            // check if password was not left blank before continuing
+            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            {
+                errorProvider.SetError(textBoxPassword, "Password must not be blank!");
+                return;
+            }
+
+            // store employees email for later use
             string employeeEmail = textBoxEmail.Text;
+            // validate email and store any error messages received
+            string errorMessage = LoginValidation.ValidateEmail(textBoxEmail.Text);
+
+            // if error message returned, turn the flag on
+            if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                errorProvider.SetError(textBoxEmail, errorMessage);
+                return;
+            }
 
             // store results of validation as boolean values (bool emailValid, bool passwordValid)
             var validationOutput = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
@@ -44,15 +60,15 @@ namespace ApplicantTrackingSystem
                 // enable password visibility with null character
                 textBoxPassword.PasswordChar = '\0';
             }
-            // else if email invalid
+            // else if email incorrect
             else if (!validationOutput.emailValid)
             {
-                MessageBox.Show("Email address incorrect!\nPlease use your full address.", "Invalid Email Address");
+                errorProvider.SetError(textBoxEmail, "Email address incorrect!");
             }
-            // else if password invalid
+            // else if password incorrect
             else if (!validationOutput.passwordValid)
             {
-                MessageBox.Show("Incorrect password!\nPlease try again or contact your manager.", "Invalid Password");
+                errorProvider.SetError(textBoxPassword, "Password incorrect!");
             }
             // in case of any inexpected errors
             else
@@ -63,18 +79,17 @@ namespace ApplicantTrackingSystem
 
         private void textBoxEmail_Enter(object sender, EventArgs e)
         {
-            // if text box is empty or set to default, clear its content
-            if (string.IsNullOrWhiteSpace(textBoxEmail.Text) || textBoxEmail.Text == "Employee Email")
+            // if text box is set to default, clear its content
+            if (textBoxEmail.Text == "Employee Email")
             {
                 textBoxEmail.Clear();
             }
 
-            // set font to default black color
-            textBoxEmail.ForeColor = Color.Black;
-            // clear error message
+            // clear error message if flagged
             errorProvider.SetError(textBoxEmail, string.Empty);
         }
 
+        /*
         private void textBoxEmail_Leave(object sender, EventArgs e)
         {
             // disable login button until text box content is validated
@@ -103,6 +118,7 @@ namespace ApplicantTrackingSystem
                 errorProvider.SetError(textBoxEmail, "Please enter your full email address.");
             }
         }
+        */
 
         private void textBoxPassword_Enter(object sender, EventArgs e)
         {
@@ -113,10 +129,11 @@ namespace ApplicantTrackingSystem
                 textBoxPassword.PasswordChar = '*';
             }
 
-            // clear error message once entered
+            // clear error message if flagged
             errorProvider.SetError(textBoxPassword, string.Empty);
         }
 
+        /*
         private void textBoxPassword_Leave(object sender, EventArgs e)
         {
             // disable login button until text box content is validated
@@ -134,21 +151,6 @@ namespace ApplicantTrackingSystem
                 buttonLogIn.Enabled = true;
             }
         }
-
-        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            // if user presses enter key once finished typing password
-            if (e.KeyCode == Keys.Enter)
-            {
-                // check for missing credentials
-                textBoxPassword_Leave(this, null);
-
-                // if no errors active and login enabled, proceed with login
-                if (buttonLogIn.Enabled == true)
-                {
-                    buttonLogIn.PerformClick();
-                }
-            }
-        }
+        */
     }
 }
