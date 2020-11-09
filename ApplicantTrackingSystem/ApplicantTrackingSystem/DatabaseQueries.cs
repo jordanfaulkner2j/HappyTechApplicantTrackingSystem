@@ -12,7 +12,7 @@ namespace ApplicantTrackingSystem
         /// search queries
         /// </summary>
         // table of employees (id, full name, email address, job title, administrator privileges)
-        public const string EMPLOYEES = "SELECT employee.employee_id, users.first_name, users.middle_names, users.last_name, users.email_address, employee.job_title, employee.administrator FROM employee INNER JOIN user ON employee.user_id = users.user_id";
+        public const string EMPLOYEES = "SELECT employee.employee_id, users.first_name, users.middle_names, users.last_name, users.email_address, employee.job_title, employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
         // table of applicants (id, full name, email address, job position, date submitted, checkboxes for interviewed, feedback given and feedback sent)
         public const string APPLICANTS = "SELECT applicant.applicant_id, users.first_name, users.middle_names, users.last_name, users.email_address, job_position.title, applications.date_submitted, applications.interviewed, applications.feedback_left, applications.feedback_sent FROM((((applicant INNER JOIN users ON applicant.user_id = users.user_id) INNER JOIN applications ON applicant.applicant_id = applications.applicant_id) INNER JOIN application_for_job_position on applications.application_id = application_for_job_position.application_id) INNER JOIN job_position on application_for_job_position.job_position_id = job_position.job_position_id)";

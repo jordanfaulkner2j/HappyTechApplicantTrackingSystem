@@ -87,7 +87,7 @@
             // pageEmployees
             // 
             this.pageEmployees.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageEmployees.Location = new System.Drawing.Point(0, -184);
+            this.pageEmployees.Location = new System.Drawing.Point(0, 0);
             this.pageEmployees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageEmployees.Name = "pageEmployees";
             this.pageEmployees.Size = new System.Drawing.Size(1975, 785);

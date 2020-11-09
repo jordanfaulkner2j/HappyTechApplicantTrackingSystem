@@ -21,7 +21,7 @@ namespace ApplicantTrackingSystem
             var retrieveAdminRightsQuery = DatabaseQueries.IsEmployeeAdmin(employeeEmail);
 
             // if employee has admin privileges, show menu item for managing employees
-            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrieveAdminRightsQuery.sqlQuery, retrieveAdminRightsQuery.attributeName) == "1")
+            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrieveAdminRightsQuery.sqlQuery, retrieveAdminRightsQuery.attributeName) == "True")
             {
                 manageEmployeesToolStripMenuItem.Visible = true;
             }
