@@ -48,10 +48,8 @@
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.lblWorkPride = new System.Windows.Forms.Label();
             this.pnlService = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.lblService = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.H01 = new System.Windows.Forms.CheckedListBox();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblComments = new System.Windows.Forms.Label();
             this.pnlPreview = new System.Windows.Forms.Panel();
@@ -84,6 +82,8 @@
             this.btnDiscardChanges = new System.Windows.Forms.Button();
             this.btnSaveTemplate = new System.Windows.Forms.Button();
             this.pnlSaveTemplate = new System.Windows.Forms.Panel();
+            this.clbHeader = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.pnlComments.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.pnlOrganisation.SuspendLayout();
@@ -131,31 +131,32 @@
             this.pnlFooter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlFooter.Controls.Add(this.checkedListBox7);
             this.pnlFooter.Controls.Add(this.lblFooter);
-            this.pnlFooter.Location = new System.Drawing.Point(20, 680);
+            this.pnlFooter.Location = new System.Drawing.Point(20, 588);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(312, 76);
+            this.pnlFooter.Size = new System.Drawing.Size(312, 65);
             this.pnlFooter.TabIndex = 10;
             // 
             // checkedListBox7
             // 
             this.checkedListBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox7.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox7.FormattingEnabled = true;
             this.checkedListBox7.Items.AddRange(new object[] {
-            "F01 - Kind regards, HappyTech Recruiting Team",
-            "F02 - Best wishes for the future, HappyTech Recrui..."});
-            this.checkedListBox7.Location = new System.Drawing.Point(7, 17);
+            "Enable",
+            "Disable"});
+            this.checkedListBox7.Location = new System.Drawing.Point(9, 24);
             this.checkedListBox7.Name = "checkedListBox7";
-            this.checkedListBox7.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox7.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox7.TabIndex = 3;
             // 
             // lblFooter
             // 
             this.lblFooter.AutoSize = true;
-            this.lblFooter.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblFooter.Location = new System.Drawing.Point(5, 4);
+            this.lblFooter.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblFooter.Location = new System.Drawing.Point(6, 6);
             this.lblFooter.Name = "lblFooter";
-            this.lblFooter.Size = new System.Drawing.Size(30, 10);
+            this.lblFooter.Size = new System.Drawing.Size(43, 14);
             this.lblFooter.TabIndex = 2;
             this.lblFooter.Text = "Footer";
             // 
@@ -165,32 +166,32 @@
             this.pnlOrganisation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlOrganisation.Controls.Add(this.checkedListBox6);
             this.pnlOrganisation.Controls.Add(this.lblOrganisation);
-            this.pnlOrganisation.Location = new System.Drawing.Point(20, 592);
+            this.pnlOrganisation.Location = new System.Drawing.Point(20, 503);
             this.pnlOrganisation.Name = "pnlOrganisation";
-            this.pnlOrganisation.Size = new System.Drawing.Size(312, 82);
+            this.pnlOrganisation.Size = new System.Drawing.Size(312, 71);
             this.pnlOrganisation.TabIndex = 9;
             // 
             // checkedListBox6
             // 
             this.checkedListBox6.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox6.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox6.FormattingEnabled = true;
             this.checkedListBox6.Items.AddRange(new object[] {
-            "O01 - When it comes to organisation, you appear as...",
-            "O02 - You are likely to focus on a limited number of...",
-            "O03 - You seek out new challenges and activities as..."});
-            this.checkedListBox6.Location = new System.Drawing.Point(7, 18);
+            "Enable",
+            "Disable"});
+            this.checkedListBox6.Location = new System.Drawing.Point(7, 29);
             this.checkedListBox6.Name = "checkedListBox6";
-            this.checkedListBox6.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox6.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox6.TabIndex = 3;
             // 
             // lblOrganisation
             // 
             this.lblOrganisation.AutoSize = true;
-            this.lblOrganisation.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblOrganisation.Location = new System.Drawing.Point(5, 4);
+            this.lblOrganisation.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblOrganisation.Location = new System.Drawing.Point(4, 8);
             this.lblOrganisation.Name = "lblOrganisation";
-            this.lblOrganisation.Size = new System.Drawing.Size(53, 10);
+            this.lblOrganisation.Size = new System.Drawing.Size(77, 14);
             this.lblOrganisation.TabIndex = 2;
             this.lblOrganisation.Text = "Organisation";
             // 
@@ -200,32 +201,32 @@
             this.pnlSelfExpectations.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSelfExpectations.Controls.Add(this.checkedListBox5);
             this.pnlSelfExpectations.Controls.Add(this.lblSelfExpectations);
-            this.pnlSelfExpectations.Location = new System.Drawing.Point(20, 502);
+            this.pnlSelfExpectations.Location = new System.Drawing.Point(20, 419);
             this.pnlSelfExpectations.Name = "pnlSelfExpectations";
-            this.pnlSelfExpectations.Size = new System.Drawing.Size(312, 84);
+            this.pnlSelfExpectations.Size = new System.Drawing.Size(312, 71);
             this.pnlSelfExpectations.TabIndex = 8;
             // 
             // checkedListBox5
             // 
             this.checkedListBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox5.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox5.FormattingEnabled = true;
             this.checkedListBox5.Items.AddRange(new object[] {
-            "X01 - As someone who has a more flexible approach...",
-            "X02 - You are likely to have clear expectations of tho...",
-            "X03 - You prefer to invest your time in your own tas..."});
-            this.checkedListBox5.Location = new System.Drawing.Point(7, 19);
+            "Enable",
+            "Disable"});
+            this.checkedListBox5.Location = new System.Drawing.Point(7, 29);
             this.checkedListBox5.Name = "checkedListBox5";
-            this.checkedListBox5.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox5.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox5.TabIndex = 3;
             // 
             // lblSelfExpectations
             // 
             this.lblSelfExpectations.AutoSize = true;
-            this.lblSelfExpectations.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblSelfExpectations.Location = new System.Drawing.Point(5, 6);
+            this.lblSelfExpectations.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblSelfExpectations.Location = new System.Drawing.Point(6, 9);
             this.lblSelfExpectations.Name = "lblSelfExpectations";
-            this.lblSelfExpectations.Size = new System.Drawing.Size(69, 10);
+            this.lblSelfExpectations.Size = new System.Drawing.Size(101, 14);
             this.lblSelfExpectations.TabIndex = 2;
             this.lblSelfExpectations.Text = "Self Expectations";
             // 
@@ -235,32 +236,32 @@
             this.pnlAdaptability.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlAdaptability.Controls.Add(this.checkedListBox4);
             this.pnlAdaptability.Controls.Add(this.lblAdaptability);
-            this.pnlAdaptability.Location = new System.Drawing.Point(20, 412);
+            this.pnlAdaptability.Location = new System.Drawing.Point(20, 339);
             this.pnlAdaptability.Name = "pnlAdaptability";
-            this.pnlAdaptability.Size = new System.Drawing.Size(312, 84);
+            this.pnlAdaptability.Size = new System.Drawing.Size(312, 68);
             this.pnlAdaptability.TabIndex = 7;
             // 
             // checkedListBox4
             // 
             this.checkedListBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox4.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox4.FormattingEnabled = true;
             this.checkedListBox4.Items.AddRange(new object[] {
-            "A01 - It can take you some time to adjust to new situ...",
-            "A02 - You are probably comfortable with routine and...",
-            "A03 - You generally prefer taking on new and innova..."});
-            this.checkedListBox4.Location = new System.Drawing.Point(7, 20);
+            "Enable",
+            "Disable"});
+            this.checkedListBox4.Location = new System.Drawing.Point(7, 29);
             this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox4.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox4.TabIndex = 3;
             // 
             // lblAdaptability
             // 
             this.lblAdaptability.AutoSize = true;
-            this.lblAdaptability.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblAdaptability.Location = new System.Drawing.Point(5, 4);
+            this.lblAdaptability.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblAdaptability.Location = new System.Drawing.Point(6, 9);
             this.lblAdaptability.Name = "lblAdaptability";
-            this.lblAdaptability.Size = new System.Drawing.Size(111, 10);
+            this.lblAdaptability.Size = new System.Drawing.Size(167, 14);
             this.lblAdaptability.TabIndex = 2;
             this.lblAdaptability.Text = "Adaptability Towards Change";
             // 
@@ -270,32 +271,32 @@
             this.pnlCooperationTeamwork.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCooperationTeamwork.Controls.Add(this.checkedListBox3);
             this.pnlCooperationTeamwork.Controls.Add(this.lblCooperationTeamwork);
-            this.pnlCooperationTeamwork.Location = new System.Drawing.Point(20, 324);
+            this.pnlCooperationTeamwork.Location = new System.Drawing.Point(20, 261);
             this.pnlCooperationTeamwork.Name = "pnlCooperationTeamwork";
-            this.pnlCooperationTeamwork.Size = new System.Drawing.Size(312, 82);
+            this.pnlCooperationTeamwork.Size = new System.Drawing.Size(312, 66);
             this.pnlCooperationTeamwork.TabIndex = 6;
             // 
             // checkedListBox3
             // 
             this.checkedListBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox3.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox3.FormattingEnabled = true;
             this.checkedListBox3.Items.AddRange(new object[] {
-            "C01 - Being tolerant of other people, you enjoy listen...",
-            "C02 - You enjoy co-operating with others and worki...",
-            "C03 - Whilst you demonstrate the ability to work wi..."});
-            this.checkedListBox3.Location = new System.Drawing.Point(7, 19);
+            "Enable",
+            "Disable"});
+            this.checkedListBox3.Location = new System.Drawing.Point(7, 27);
             this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox3.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox3.TabIndex = 3;
             // 
             // lblCooperationTeamwork
             // 
             this.lblCooperationTeamwork.AutoSize = true;
-            this.lblCooperationTeamwork.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblCooperationTeamwork.Location = new System.Drawing.Point(5, 6);
+            this.lblCooperationTeamwork.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblCooperationTeamwork.Location = new System.Drawing.Point(6, 7);
             this.lblCooperationTeamwork.Name = "lblCooperationTeamwork";
-            this.lblCooperationTeamwork.Size = new System.Drawing.Size(110, 10);
+            this.lblCooperationTeamwork.Size = new System.Drawing.Size(165, 14);
             this.lblCooperationTeamwork.TabIndex = 2;
             this.lblCooperationTeamwork.Text = "Co-Operation and Teamwork";
             // 
@@ -305,32 +306,32 @@
             this.pnlWorkPride.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlWorkPride.Controls.Add(this.checkedListBox2);
             this.pnlWorkPride.Controls.Add(this.lblWorkPride);
-            this.pnlWorkPride.Location = new System.Drawing.Point(20, 238);
+            this.pnlWorkPride.Location = new System.Drawing.Point(20, 180);
             this.pnlWorkPride.Name = "pnlWorkPride";
-            this.pnlWorkPride.Size = new System.Drawing.Size(312, 80);
+            this.pnlWorkPride.Size = new System.Drawing.Size(312, 69);
             this.pnlWorkPride.TabIndex = 5;
             // 
             // checkedListBox2
             // 
             this.checkedListBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox2.Font = new System.Drawing.Font("Arial", 8F);
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Items.AddRange(new object[] {
-            "W01 - You appear more focused on the performance...",
-            "W02 - You typically prefer to follow instructions, rat...",
-            "W03 - You prefer to complete tasks and approach w..."});
-            this.checkedListBox2.Location = new System.Drawing.Point(7, 18);
+            "Enable",
+            "Disable"});
+            this.checkedListBox2.Location = new System.Drawing.Point(7, 27);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(285, 49);
+            this.checkedListBox2.Size = new System.Drawing.Size(285, 30);
             this.checkedListBox2.TabIndex = 3;
             // 
             // lblWorkPride
             // 
             this.lblWorkPride.AutoSize = true;
-            this.lblWorkPride.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblWorkPride.Location = new System.Drawing.Point(5, 5);
+            this.lblWorkPride.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblWorkPride.Location = new System.Drawing.Point(6, 7);
             this.lblWorkPride.Name = "lblWorkPride";
-            this.lblWorkPride.Size = new System.Drawing.Size(47, 10);
+            this.lblWorkPride.Size = new System.Drawing.Size(68, 14);
             this.lblWorkPride.TabIndex = 2;
             this.lblWorkPride.Text = "Work Pride";
             // 
@@ -340,32 +341,18 @@
             this.pnlService.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlService.Controls.Add(this.checkedListBox1);
             this.pnlService.Controls.Add(this.lblService);
-            this.pnlService.Location = new System.Drawing.Point(20, 150);
+            this.pnlService.Location = new System.Drawing.Point(20, 107);
             this.pnlService.Name = "pnlService";
-            this.pnlService.Size = new System.Drawing.Size(312, 82);
+            this.pnlService.Size = new System.Drawing.Size(312, 63);
             this.pnlService.TabIndex = 4;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 8F);
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "S01 - You are likely to be as supportive and helpful...",
-            "S02 - Empathising with other people comes as eas...",
-            "S03 - You appear reasonably optimistic and resilie..."});
-            this.checkedListBox1.Location = new System.Drawing.Point(7, 22);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(285, 49);
-            this.checkedListBox1.TabIndex = 3;
             // 
             // lblService
             // 
             this.lblService.AutoSize = true;
-            this.lblService.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblService.Location = new System.Drawing.Point(5, 5);
+            this.lblService.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblService.Location = new System.Drawing.Point(4, 7);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(32, 10);
+            this.lblService.Size = new System.Drawing.Size(48, 14);
             this.lblService.TabIndex = 2;
             this.lblService.Text = "Service";
             // 
@@ -373,46 +360,30 @@
             // 
             this.pnlHeader.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlHeader.Controls.Add(this.H01);
+            this.pnlHeader.Controls.Add(this.clbHeader);
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Location = new System.Drawing.Point(20, 32);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(312, 112);
+            this.pnlHeader.Size = new System.Drawing.Size(312, 67);
             this.pnlHeader.TabIndex = 1;
-            // 
-            // H01
-            // 
-            this.H01.BackColor = System.Drawing.SystemColors.Control;
-            this.H01.Font = new System.Drawing.Font("Arial", 8F);
-            this.H01.FormattingEnabled = true;
-            this.H01.Items.AddRange(new object[] {
-            "H01 - Thank you for applying for a position at Happ...",
-            "H02 - I am emailing you to inform you that your CV...",
-            "H03 - I am emailing you to inform you that your CV...",
-            "H04 - We would like to invite you for an interview.",
-            "H05 - Unfortunately, we cannot offer you a position..."});
-            this.H01.Location = new System.Drawing.Point(7, 18);
-            this.H01.Name = "H01";
-            this.H01.Size = new System.Drawing.Size(285, 79);
-            this.H01.TabIndex = 3;
             // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblHeader.Location = new System.Drawing.Point(5, 5);
+            this.lblHeader.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblHeader.Location = new System.Drawing.Point(4, 7);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(31, 10);
+            this.lblHeader.Size = new System.Drawing.Size(46, 14);
             this.lblHeader.TabIndex = 2;
             this.lblHeader.Text = "Header";
             // 
             // lblComments
             // 
             this.lblComments.AutoSize = true;
-            this.lblComments.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblComments.Location = new System.Drawing.Point(18, 10);
+            this.lblComments.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblComments.Location = new System.Drawing.Point(21, 8);
             this.lblComments.Name = "lblComments";
-            this.lblComments.Size = new System.Drawing.Size(46, 10);
+            this.lblComments.Size = new System.Drawing.Size(82, 16);
             this.lblComments.TabIndex = 0;
             this.lblComments.Text = "Comments";
             // 
@@ -449,20 +420,20 @@
             // tbxFooter
             // 
             this.tbxFooter.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxFooter.Location = new System.Drawing.Point(8, 17);
+            this.tbxFooter.Location = new System.Drawing.Point(8, 26);
             this.tbxFooter.Multiline = true;
             this.tbxFooter.Name = "tbxFooter";
-            this.tbxFooter.Size = new System.Drawing.Size(445, 140);
+            this.tbxFooter.Size = new System.Drawing.Size(445, 131);
             this.tbxFooter.TabIndex = 3;
             this.tbxFooter.Text = "Select some codes from the \'Footer\' section...";
             // 
             // lblFooterPreview
             // 
             this.lblFooterPreview.AutoSize = true;
-            this.lblFooterPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblFooterPreview.Location = new System.Drawing.Point(7, 4);
+            this.lblFooterPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblFooterPreview.Location = new System.Drawing.Point(9, 6);
             this.lblFooterPreview.Name = "lblFooterPreview";
-            this.lblFooterPreview.Size = new System.Drawing.Size(30, 10);
+            this.lblFooterPreview.Size = new System.Drawing.Size(43, 14);
             this.lblFooterPreview.TabIndex = 2;
             this.lblFooterPreview.Text = "Footer";
             // 
@@ -480,20 +451,20 @@
             // tbxOrganisation
             // 
             this.tbxOrganisation.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxOrganisation.Location = new System.Drawing.Point(7, 22);
+            this.tbxOrganisation.Location = new System.Drawing.Point(7, 27);
             this.tbxOrganisation.Multiline = true;
             this.tbxOrganisation.Name = "tbxOrganisation";
-            this.tbxOrganisation.Size = new System.Drawing.Size(446, 140);
+            this.tbxOrganisation.Size = new System.Drawing.Size(446, 135);
             this.tbxOrganisation.TabIndex = 3;
             this.tbxOrganisation.Text = "Select some codes from the \'Organisation\' section...";
             // 
             // lblOrganisationPreview
             // 
             this.lblOrganisationPreview.AutoSize = true;
-            this.lblOrganisationPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblOrganisationPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblOrganisationPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblOrganisationPreview.Location = new System.Drawing.Point(7, 6);
             this.lblOrganisationPreview.Name = "lblOrganisationPreview";
-            this.lblOrganisationPreview.Size = new System.Drawing.Size(53, 10);
+            this.lblOrganisationPreview.Size = new System.Drawing.Size(77, 14);
             this.lblOrganisationPreview.TabIndex = 2;
             this.lblOrganisationPreview.Text = "Organisation";
             // 
@@ -511,26 +482,27 @@
             // tbxSelfExpectations
             // 
             this.tbxSelfExpectations.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxSelfExpectations.Location = new System.Drawing.Point(8, 21);
+            this.tbxSelfExpectations.Location = new System.Drawing.Point(8, 33);
             this.tbxSelfExpectations.Multiline = true;
             this.tbxSelfExpectations.Name = "tbxSelfExpectations";
-            this.tbxSelfExpectations.Size = new System.Drawing.Size(445, 140);
+            this.tbxSelfExpectations.Size = new System.Drawing.Size(445, 128);
             this.tbxSelfExpectations.TabIndex = 3;
             this.tbxSelfExpectations.Text = "Select some codes from the \'Self Expectations\' section...";
             // 
             // lblSelfExpectationsPreview
             // 
             this.lblSelfExpectationsPreview.AutoSize = true;
-            this.lblSelfExpectationsPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblSelfExpectationsPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblSelfExpectationsPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblSelfExpectationsPreview.Location = new System.Drawing.Point(9, 10);
             this.lblSelfExpectationsPreview.Name = "lblSelfExpectationsPreview";
-            this.lblSelfExpectationsPreview.Size = new System.Drawing.Size(69, 10);
+            this.lblSelfExpectationsPreview.Size = new System.Drawing.Size(101, 14);
             this.lblSelfExpectationsPreview.TabIndex = 2;
             this.lblSelfExpectationsPreview.Text = "Self Expectations";
             // 
             // panel12
             // 
             this.panel12.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.tbxAdaptability);
             this.panel12.Controls.Add(this.lblAdaptabilityPreview);
             this.panel12.Location = new System.Drawing.Point(20, 713);
@@ -541,20 +513,20 @@
             // tbxAdaptability
             // 
             this.tbxAdaptability.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxAdaptability.Location = new System.Drawing.Point(10, 18);
+            this.tbxAdaptability.Location = new System.Drawing.Point(10, 27);
             this.tbxAdaptability.Multiline = true;
             this.tbxAdaptability.Name = "tbxAdaptability";
-            this.tbxAdaptability.Size = new System.Drawing.Size(445, 140);
+            this.tbxAdaptability.Size = new System.Drawing.Size(445, 131);
             this.tbxAdaptability.TabIndex = 3;
             this.tbxAdaptability.Text = "Select some codes from the \'Adaptability Towards Change\' section...";
             // 
             // lblAdaptabilityPreview
             // 
             this.lblAdaptabilityPreview.AutoSize = true;
-            this.lblAdaptabilityPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblAdaptabilityPreview.Location = new System.Drawing.Point(8, 5);
+            this.lblAdaptabilityPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblAdaptabilityPreview.Location = new System.Drawing.Point(9, 7);
             this.lblAdaptabilityPreview.Name = "lblAdaptabilityPreview";
-            this.lblAdaptabilityPreview.Size = new System.Drawing.Size(111, 10);
+            this.lblAdaptabilityPreview.Size = new System.Drawing.Size(167, 14);
             this.lblAdaptabilityPreview.TabIndex = 2;
             this.lblAdaptabilityPreview.Text = "Adaptability Towards Change";
             // 
@@ -572,20 +544,20 @@
             // tbxCooperationTeamwork
             // 
             this.tbxCooperationTeamwork.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxCooperationTeamwork.Location = new System.Drawing.Point(7, 23);
+            this.tbxCooperationTeamwork.Location = new System.Drawing.Point(7, 31);
             this.tbxCooperationTeamwork.Multiline = true;
             this.tbxCooperationTeamwork.Name = "tbxCooperationTeamwork";
-            this.tbxCooperationTeamwork.Size = new System.Drawing.Size(446, 140);
+            this.tbxCooperationTeamwork.Size = new System.Drawing.Size(446, 132);
             this.tbxCooperationTeamwork.TabIndex = 3;
             this.tbxCooperationTeamwork.Text = "Select some codes from the \'Co-Operation and Teamwork\' section...";
             // 
             // lblCooperationTeamworkPreview
             // 
             this.lblCooperationTeamworkPreview.AutoSize = true;
-            this.lblCooperationTeamworkPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblCooperationTeamworkPreview.Location = new System.Drawing.Point(5, 7);
+            this.lblCooperationTeamworkPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblCooperationTeamworkPreview.Location = new System.Drawing.Point(7, 8);
             this.lblCooperationTeamworkPreview.Name = "lblCooperationTeamworkPreview";
-            this.lblCooperationTeamworkPreview.Size = new System.Drawing.Size(110, 10);
+            this.lblCooperationTeamworkPreview.Size = new System.Drawing.Size(165, 14);
             this.lblCooperationTeamworkPreview.TabIndex = 2;
             this.lblCooperationTeamworkPreview.Text = "Co-Operation and Teamwork";
             // 
@@ -603,20 +575,20 @@
             // tbxWorkPride
             // 
             this.tbxWorkPride.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxWorkPride.Location = new System.Drawing.Point(7, 17);
+            this.tbxWorkPride.Location = new System.Drawing.Point(7, 28);
             this.tbxWorkPride.Multiline = true;
             this.tbxWorkPride.Name = "tbxWorkPride";
-            this.tbxWorkPride.Size = new System.Drawing.Size(446, 140);
+            this.tbxWorkPride.Size = new System.Drawing.Size(446, 129);
             this.tbxWorkPride.TabIndex = 3;
             this.tbxWorkPride.Text = "Select some codes from the \'Work Pride\' section...";
             // 
             // lblWorkPridePreview
             // 
             this.lblWorkPridePreview.AutoSize = true;
-            this.lblWorkPridePreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblWorkPridePreview.Location = new System.Drawing.Point(5, 4);
+            this.lblWorkPridePreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblWorkPridePreview.Location = new System.Drawing.Point(7, 7);
             this.lblWorkPridePreview.Name = "lblWorkPridePreview";
-            this.lblWorkPridePreview.Size = new System.Drawing.Size(47, 10);
+            this.lblWorkPridePreview.Size = new System.Drawing.Size(68, 14);
             this.lblWorkPridePreview.TabIndex = 2;
             this.lblWorkPridePreview.Text = "Work Pride";
             // 
@@ -634,20 +606,20 @@
             // tbxService
             // 
             this.tbxService.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxService.Location = new System.Drawing.Point(7, 19);
+            this.tbxService.Location = new System.Drawing.Point(7, 31);
             this.tbxService.Multiline = true;
             this.tbxService.Name = "tbxService";
-            this.tbxService.Size = new System.Drawing.Size(446, 140);
+            this.tbxService.Size = new System.Drawing.Size(446, 128);
             this.tbxService.TabIndex = 3;
             this.tbxService.Text = "Select some codes from the \'Service\' section...";
             // 
             // lblServicePreview
             // 
             this.lblServicePreview.AutoSize = true;
-            this.lblServicePreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblServicePreview.Location = new System.Drawing.Point(5, 6);
+            this.lblServicePreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblServicePreview.Location = new System.Drawing.Point(6, 7);
             this.lblServicePreview.Name = "lblServicePreview";
-            this.lblServicePreview.Size = new System.Drawing.Size(32, 10);
+            this.lblServicePreview.Size = new System.Drawing.Size(48, 14);
             this.lblServicePreview.TabIndex = 2;
             this.lblServicePreview.Text = "Service";
             // 
@@ -665,30 +637,30 @@
             // tbxHeader
             // 
             this.tbxHeader.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxHeader.Location = new System.Drawing.Point(7, 18);
+            this.tbxHeader.Location = new System.Drawing.Point(7, 30);
             this.tbxHeader.Multiline = true;
             this.tbxHeader.Name = "tbxHeader";
-            this.tbxHeader.Size = new System.Drawing.Size(446, 115);
-            this.tbxHeader.TabIndex = 3;
+            this.tbxHeader.Size = new System.Drawing.Size(446, 106);
+            this.tbxHeader.TabIndex = 4;
             this.tbxHeader.Text = "Select some codes from the \'Header\' section...";
             // 
             // lblHeaderPreview
             // 
             this.lblHeaderPreview.AutoSize = true;
-            this.lblHeaderPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblHeaderPreview.Location = new System.Drawing.Point(6, 5);
+            this.lblHeaderPreview.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.lblHeaderPreview.Location = new System.Drawing.Point(6, 8);
             this.lblHeaderPreview.Name = "lblHeaderPreview";
-            this.lblHeaderPreview.Size = new System.Drawing.Size(31, 10);
+            this.lblHeaderPreview.Size = new System.Drawing.Size(46, 14);
             this.lblHeaderPreview.TabIndex = 2;
             this.lblHeaderPreview.Text = "Header";
             // 
             // lblPreview
             // 
             this.lblPreview.AutoSize = true;
-            this.lblPreview.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold);
-            this.lblPreview.Location = new System.Drawing.Point(18, 10);
+            this.lblPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPreview.Location = new System.Drawing.Point(19, 8);
             this.lblPreview.Name = "lblPreview";
-            this.lblPreview.Size = new System.Drawing.Size(33, 10);
+            this.lblPreview.Size = new System.Drawing.Size(65, 16);
             this.lblPreview.TabIndex = 0;
             this.lblPreview.Text = "Preview";
             // 
@@ -696,9 +668,9 @@
             // 
             this.pnlDiscard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDiscard.Controls.Add(this.btnDiscardChanges);
-            this.pnlDiscard.Location = new System.Drawing.Point(489, 324);
+            this.pnlDiscard.Location = new System.Drawing.Point(491, 330);
             this.pnlDiscard.Name = "pnlDiscard";
-            this.pnlDiscard.Size = new System.Drawing.Size(200, 44);
+            this.pnlDiscard.Size = new System.Drawing.Size(200, 38);
             this.pnlDiscard.TabIndex = 16;
             // 
             // btnDiscardChanges
@@ -711,7 +683,7 @@
             this.btnDiscardChanges.ForeColor = System.Drawing.Color.White;
             this.btnDiscardChanges.Location = new System.Drawing.Point(-2, -2);
             this.btnDiscardChanges.Name = "btnDiscardChanges";
-            this.btnDiscardChanges.Size = new System.Drawing.Size(200, 44);
+            this.btnDiscardChanges.Size = new System.Drawing.Size(200, 38);
             this.btnDiscardChanges.TabIndex = 0;
             this.btnDiscardChanges.Text = "DISCARD CHANGES";
             this.btnDiscardChanges.UseVisualStyleBackColor = false;
@@ -726,7 +698,7 @@
             this.btnSaveTemplate.ForeColor = System.Drawing.Color.White;
             this.btnSaveTemplate.Location = new System.Drawing.Point(-2, -2);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(200, 44);
+            this.btnSaveTemplate.Size = new System.Drawing.Size(200, 38);
             this.btnSaveTemplate.TabIndex = 1;
             this.btnSaveTemplate.Text = "SAVE TEMPLATE AS...";
             this.btnSaveTemplate.UseVisualStyleBackColor = false;
@@ -735,10 +707,38 @@
             // 
             this.pnlSaveTemplate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSaveTemplate.Controls.Add(this.btnSaveTemplate);
-            this.pnlSaveTemplate.Location = new System.Drawing.Point(721, 324);
+            this.pnlSaveTemplate.Location = new System.Drawing.Point(721, 330);
             this.pnlSaveTemplate.Name = "pnlSaveTemplate";
-            this.pnlSaveTemplate.Size = new System.Drawing.Size(200, 44);
+            this.pnlSaveTemplate.Size = new System.Drawing.Size(200, 38);
             this.pnlSaveTemplate.TabIndex = 17;
+            // 
+            // clbHeader
+            // 
+            this.clbHeader.BackColor = System.Drawing.SystemColors.Control;
+            this.clbHeader.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbHeader.Font = new System.Drawing.Font("Arial", 8F);
+            this.clbHeader.FormattingEnabled = true;
+            this.clbHeader.Items.AddRange(new object[] {
+            "Enable",
+            "Disable"});
+            this.clbHeader.Location = new System.Drawing.Point(9, 27);
+            this.clbHeader.Name = "clbHeader";
+            this.clbHeader.Size = new System.Drawing.Size(285, 30);
+            this.clbHeader.TabIndex = 4;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 8F);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Enable",
+            "Disable"});
+            this.checkedListBox1.Location = new System.Drawing.Point(7, 24);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(285, 30);
+            this.checkedListBox1.TabIndex = 5;
             // 
             // UserControlCreateTemplate
             // 
@@ -824,14 +824,12 @@
         private System.Windows.Forms.TextBox tbxService;
         private System.Windows.Forms.Label lblServicePreview;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox tbxHeader;
         private System.Windows.Forms.Label lblHeaderPreview;
         private System.Windows.Forms.Label lblPreview;
         private System.Windows.Forms.Panel pnlDiscard;
         private System.Windows.Forms.Button btnDiscardChanges;
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.Panel pnlSaveTemplate;
-        private System.Windows.Forms.CheckedListBox H01;
         private System.Windows.Forms.Panel pnlCooperationTeamwork;
         private System.Windows.Forms.CheckedListBox checkedListBox3;
         private System.Windows.Forms.Label lblCooperationTeamwork;
@@ -839,7 +837,6 @@
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Label lblWorkPride;
         private System.Windows.Forms.Panel pnlService;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label lblService;
         private System.Windows.Forms.Panel pnlAdaptability;
         private System.Windows.Forms.CheckedListBox checkedListBox4;
@@ -853,5 +850,8 @@
         private System.Windows.Forms.Panel pnlSelfExpectations;
         private System.Windows.Forms.CheckedListBox checkedListBox5;
         private System.Windows.Forms.Label lblSelfExpectations;
+        private System.Windows.Forms.TextBox tbxHeader;
+        private System.Windows.Forms.CheckedListBox clbHeader;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

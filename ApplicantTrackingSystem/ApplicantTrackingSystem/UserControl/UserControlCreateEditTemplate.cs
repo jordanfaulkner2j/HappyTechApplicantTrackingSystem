@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ApplicantTrackingSystem
 {
@@ -17,34 +18,11 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
         public string defaultHeaderText = "Select some codes from the 'Header' section...";
-        public static string headerCode;
-
-        private void cbxH01_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (headerCode == "H01")
-            {
-                tbxHeader.Text = defaultHeaderText;
-                headerCode = "";
-            }
-            else
-            {
-                tbxHeader.Text = "Code H01 has been selected.";
-                headerCode = "H01";
-            }
-        }
-
-        private void cbxH02_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (headerCode == "H02")
-            {
-                tbxHeader.Text = defaultHeaderText;
-                headerCode = "";
-            }
-            else
-            {
-                tbxHeader.Text = "Code H02 has been selected.";
-                headerCode = "H02";
-            }
-        }
+        // select either enable or disable
+        // click on save template button
+        // ask user for name of template
+        // insert the name of the template as title into the template data table
+        // if section has enabled box ticked, set value of section to 1 and insert it into the template data table
+        // if section has disabled box ticked, set value of section to 0 and insert it into the template data table
     }
 }
