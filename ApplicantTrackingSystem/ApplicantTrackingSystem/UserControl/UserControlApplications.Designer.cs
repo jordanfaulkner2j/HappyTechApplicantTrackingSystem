@@ -30,6 +30,7 @@
         {
             this.dgvApplications = new System.Windows.Forms.DataGridView();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +57,21 @@
             this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
             this.textBoxFirstName.Enter += new System.EventHandler(this.textBoxFirstName_Enter);
             // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName.Location = new System.Drawing.Point(255, 197);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(207, 34);
+            this.textBoxLastName.TabIndex = 7;
+            this.textBoxLastName.Text = "Search Last Name";
+            this.textBoxLastName.TextChanged += new System.EventHandler(this.textBoxLastName_TextChanged);
+            this.textBoxLastName.Enter += new System.EventHandler(this.textBoxLastName_Enter);
+            // 
             // UserControlApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.dgvApplications);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,5 +88,6 @@
 
         private System.Windows.Forms.DataGridView dgvApplications;
         private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox textBoxLastName;
     }
 }
