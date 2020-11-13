@@ -40,5 +40,22 @@ namespace ApplicantTrackingSystem
             }
         }
 
+
+        private void textBoxLastName_TextChanged(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgvApplications.DataSource;
+            bs.Filter = string.Format("CONVERT(" + dgvApplications.Columns[3].DataPropertyName + ", System.String) like '%" + textBoxLastName.Text.Replace("'", "''") + "%'");
+            dgvApplications.DataSource = bs;
+        }
+        private void textBoxLastName_Enter(object sender, EventArgs e)
+        {
+            // if text box is set to default, clear its content
+            if (textBoxLastName.Text == "Search Last Name")
+            {
+                textBoxLastName.Clear();
+            }
+
+        }
     }
 }
