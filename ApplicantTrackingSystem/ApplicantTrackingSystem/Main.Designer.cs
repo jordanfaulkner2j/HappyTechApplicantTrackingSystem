@@ -131,21 +131,21 @@
             // templatesToolStripMenuItem
             // 
             this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
-            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.templatesToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
             this.templatesToolStripMenuItem.Text = "Templates";
             this.templatesToolStripMenuItem.Click += new System.EventHandler(this.templatesToolStripMenuItem_Click);
             // 
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.applicationsToolStripMenuItem.Text = "Applications";
             this.applicationsToolStripMenuItem.Click += new System.EventHandler(this.applicationsToolStripMenuItem_Click);
             // 
             // myProfileSettingsToolStripMenuItem
             // 
             this.myProfileSettingsToolStripMenuItem.Name = "myProfileSettingsToolStripMenuItem";
-            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.myProfileSettingsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.myProfileSettingsToolStripMenuItem.Text = "My Profile Settings";
             this.myProfileSettingsToolStripMenuItem.Click += new System.EventHandler(this.myProfileSettingsToolStripMenuItem_Click);
             // 
@@ -154,7 +154,7 @@
             this.logOutToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.logOutToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(95, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -181,20 +181,20 @@
             // 
             this.createNewTemplateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.createNewTemplateToolStripMenuItem.Name = "createNewTemplateToolStripMenuItem";
-            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
+            this.createNewTemplateToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.createNewTemplateToolStripMenuItem.Text = "Create New Template";
             this.createNewTemplateToolStripMenuItem.Click += new System.EventHandler(this.createNewTemplateToolStripMenuItem_Click);
             // 
             // manageEmployeesToolStripMenuItem
             // 
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(273, 26);
+            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.manageEmployeesToolStripMenuItem.Text = "Manage Employee Accounts";
             this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 522);
             this.Controls.Add(this.panelWelcome);
@@ -231,7 +231,7 @@
         private UserControlMyProfile pageMyProfile;
         private UserControlEmployees pageEmployees;
         private UserControlApplications pageApplications;
-        private UserControlTemplates pageTemplates;
         private UserControlCreateTemplate pageCreateEditTemplate;
+        private UserControlTemplates pageTemplates;
     }
 }
