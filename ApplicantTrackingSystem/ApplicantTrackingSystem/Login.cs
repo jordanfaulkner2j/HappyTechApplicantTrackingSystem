@@ -76,10 +76,10 @@ namespace ApplicantTrackingSystem
             }
 
             // store results of validation as boolean values (bool emailValid, bool passwordValid)
-            var validationOutput = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
+            var (emailValid, passwordValid) = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
 
             // if both email and password are valid, continue to main application
-            if (validationOutput.emailValid && validationOutput.passwordValid)
+            if (emailValid && passwordValid)
             {
                 // add logon entry to log file
                 FileWriter.Write(LOG_FILE, string.Format("login, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
@@ -106,12 +106,12 @@ namespace ApplicantTrackingSystem
                 LoadDefaultSettings();
             }
             // else if email incorrect
-            else if (!validationOutput.emailValid)
+            else if (!emailValid)
             {
                 errorProvider.SetError(comboBoxEmail, "Email address incorrect!");
             }
             // else if password incorrect
-            else if (!validationOutput.passwordValid)
+            else if (!passwordValid)
             {
                 errorProvider.SetError(textBoxPassword, "Password incorrect!");
             }

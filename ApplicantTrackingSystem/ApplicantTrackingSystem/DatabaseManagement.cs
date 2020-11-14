@@ -15,7 +15,7 @@ namespace ApplicantTrackingSystem
         private static DatabaseManagement _instance;
 
         // connection string for the database
-        private string dbConnectionString = Properties.Settings.Default.connectionString;
+        private readonly string dbConnectionString = Properties.Settings.Default.connectionString;
 
         // connection to the database
         private SqlConnection connectToDB;
@@ -65,8 +65,8 @@ namespace ApplicantTrackingSystem
         /// </summary>
         /// <param name="sqlQuery">search query</param>
         /// <param name="returnAttribute">name of the attribute to return</param>
-        /// <returns>attribute or null if no records found based on the query</returns>
-        public string GetSingleAttribute(string sqlQuery, string returnAttribute)
+        /// <returns>dynamic attribute or null if no records found based on the query</returns>
+        public dynamic GetSingleAttribute(string sqlQuery, string returnAttribute)
         {
             // establish connection with the database and once stopped using, destroy objects
             using (connectToDB = new SqlConnection(dbConnectionString))
@@ -83,12 +83,31 @@ namespace ApplicantTrackingSystem
                 if (dataReader.Read())
                 {
                     // return the value of the requested attribute
-                    return dataReader[returnAttribute].ToString();
+                    return dataReader[returnAttribute];
                 }
             }
 
             // else return null
             return null;
+        }
+
+        /// <summary>
+        /// insert, update or delete record
+        /// </summary>
+        /// <param name="sqlQuery">update query</param>
+        public void UpdateRecord(string sqlQuery)
+        {
+            // establish connection with the database and once stopped using, destroy objects
+            using (connectToDB = new SqlConnection(dbConnectionString))
+            {
+                // open connection to the database
+                connectToDB.Open();
+
+                // command containing search query and connection string
+                SqlCommand command = new SqlCommand(sqlQuery, connectToDB);
+                // execute query
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

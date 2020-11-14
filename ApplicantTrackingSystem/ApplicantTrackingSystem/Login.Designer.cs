@@ -82,6 +82,8 @@
             // 
             // comboBoxEmail
             // 
+            this.comboBoxEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEmail.FormattingEnabled = true;
             this.errorProvider.SetIconPadding(this.comboBoxEmail, -20);

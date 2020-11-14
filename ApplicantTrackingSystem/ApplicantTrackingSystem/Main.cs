@@ -18,10 +18,10 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
 
             // retrieve query and attribute name from class of queries
-            var retrieveAdminRightsQuery = DatabaseQueries.IsEmployeeAdmin(employeeEmail);
+            var retrievedQuery = DatabaseQueries.IsEmployeeAdmin(employeeEmail);
 
             // if employee has admin privileges, show menu item for managing employees
-            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrieveAdminRightsQuery.sqlQuery, retrieveAdminRightsQuery.attributeName) == "True")
+            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrievedQuery.sqlQuery, retrievedQuery.attributeName))
             {
                 manageEmployeesToolStripMenuItem.Visible = true;
             }
@@ -29,6 +29,12 @@ namespace ApplicantTrackingSystem
             {
                 manageEmployeesToolStripMenuItem.Visible = false;
             }
+
+            // retrieve query and attribute name from class of queries for employee's full name
+            retrievedQuery = DatabaseQueries.GetEmployeeName(employeeEmail);
+
+            // display employee's name on application
+            labelEmployeeName.Text = "Welcome "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrievedQuery.sqlQuery, retrievedQuery.attributeName);
 
             // open applications page on start
             applicationsToolStripMenuItem.PerformClick();
@@ -77,6 +83,11 @@ namespace ApplicantTrackingSystem
         {
             // close current form
             this.Close();
+        }
+
+        private void pageCreateEditTemplate_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
