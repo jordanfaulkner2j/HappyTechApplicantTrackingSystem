@@ -13,15 +13,27 @@ namespace ApplicantTrackingSystem
 {
     public partial class Main : Form
     {
+        // private string of the employee currently logged in
+        private static string loggedInEmployeeEmail;
+
+        public static string employeeEmail
+        {
+            get
+            {
+                // function which returns the content of the string if another class requests it
+                return loggedInEmployeeEmail;
+            }
+        }
+
         public Main(string employeeEmail)
         {
             InitializeComponent();
 
-            // retrieve query and attribute name from class of queries
-            var retrieveAdminRightsQuery = DatabaseQueries.IsEmployeeAdmin(employeeEmail);
+            // store signed employee's email
+            loggedInEmployeeEmail = employeeEmail;
 
             // if employee has admin privileges, show menu item for managing employees
-            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrieveAdminRightsQuery.sqlQuery, retrieveAdminRightsQuery.attributeName) == "True")
+            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.IS_ADMIN, loggedInEmployeeEmail)))
             {
                 manageEmployeesToolStripMenuItem.Visible = true;
             }
@@ -29,6 +41,9 @@ namespace ApplicantTrackingSystem
             {
                 manageEmployeesToolStripMenuItem.Visible = false;
             }
+
+            // display employee's name on application
+            labelEmployeeName.Text = "Welcome "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.EMPLOYEE_NAME, loggedInEmployeeEmail));
 
             // open applications page on start
             applicationsToolStripMenuItem.PerformClick();

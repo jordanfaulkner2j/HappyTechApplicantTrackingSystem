@@ -12,38 +12,88 @@ namespace ApplicantTrackingSystem
 {
     public partial class Login : Form
     {
+        // constant values for default text box fields
+        private const string DEFAULT_EMAIL_TEXT = "Employee Email";
+        private const string DEFAULT_PASSWORT_TEXT = "Password";
+        // constant values for file names
+        private const string LOG_FILE = "eventLog.csv";
+        private const string MAIL_LOG_FILE = "mailLog.txt";
+        // constant value for maximum number of items in combo box
+        private const int MAIL_LOG_FILE_MAX = 3;
+
         public Login()
         {
             InitializeComponent();
+            LoadDefaultSettings();
+        }
+
+        private void LoadDefaultSettings()
+        {
+            // set default values for text boxes
+            comboBoxEmail.Text = DEFAULT_EMAIL_TEXT;
+            textBoxPassword.Text = DEFAULT_PASSWORT_TEXT;
+
+            // enable password visibility with null character
+            textBoxPassword.PasswordChar = '\0';
+
+            // clear recent emails from combo text box
+            comboBoxEmail.Items.Clear();
+
+            // add last three cached email addresses to combo text box
+            for (int i = 1; i <= MAIL_LOG_FILE_MAX; i++)
+            {
+                string line = FileWriter.GetLine(MAIL_LOG_FILE, i);
+
+                if (line != null)
+                {
+                    comboBoxEmail.Items.Add(line);
+                }
+            }
+
+            // dispose of current image the box is set to (prevents memory leak)
+            pictureBoxPasswordVisibility.Image.Dispose();
+            // set image to password visible
+            pictureBoxPasswordVisibility.Image = Properties.Resources.showPassword;
+
+            //change focus to login button
+            buttonLogIn.Focus();
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+            // store employees email for later use
+            string employeeEmail = comboBoxEmail.Text;
+            // validate email and store any error messages received
+            string errorMessage = LoginValidation.ValidateEmail(comboBoxEmail.Text);
+
+            // if error message returned, turn the flag on
+            if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                errorProvider.SetError(comboBoxEmail, errorMessage);
+                return;
+            }
+
             // check if password was not left blank before continuing
-            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            if (string.IsNullOrWhiteSpace(textBoxPassword.Text) || textBoxPassword.PasswordChar != '*')
             {
                 errorProvider.SetError(textBoxPassword, "Password must not be blank!");
                 return;
             }
 
-            // store employees email for later use
-            string employeeEmail = textBoxEmail.Text;
-            // validate email and store any error messages received
-            string errorMessage = LoginValidation.ValidateEmail(textBoxEmail.Text);
-
-            // if error message returned, turn the flag on
-            if (!string.IsNullOrWhiteSpace(errorMessage))
-            {
-                errorProvider.SetError(textBoxEmail, errorMessage);
-                return;
-            }
-
             // store results of validation as boolean values (bool emailValid, bool passwordValid)
-            var validationOutput = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
+            var (emailValid, passwordValid) = LoginValidation.ValidateCredentials(employeeEmail, textBoxPassword.Text);
 
             // if both email and password are valid, continue to main application
-            if (validationOutput.emailValid && validationOutput.passwordValid)
+            if (emailValid && passwordValid)
             {
+                // add logon entry to log file
+                FileWriter.Write(LOG_FILE, string.Format("login, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+
+                // if email address already occurs in the log file, delete it
+                FileWriter.DeleteLine(MAIL_LOG_FILE, FileWriter.ContainsLine(MAIL_LOG_FILE, employeeEmail));
+                // insert email address at the beginning of the file
+                FileWriter.InsertAtBeginning(MAIL_LOG_FILE, employeeEmail);
+
                 // hide current form
                 this.Hide();
 
@@ -51,22 +101,22 @@ namespace ApplicantTrackingSystem
                 using (Main MainApplication = new Main(employeeEmail))
                     MainApplication.ShowDialog();
 
+                // add logoff entry to log file
+                FileWriter.Write(LOG_FILE, string.Format("logout, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+
                 // once main application closes, open login page again
                 this.Show();
 
-                // set default values for text boxes
-                textBoxEmail.Text = "Employee Email";
-                textBoxPassword.Text = "Password";
-                // enable password visibility with null character
-                textBoxPassword.PasswordChar = '\0';
+                // load default settings of the form
+                LoadDefaultSettings();
             }
             // else if email incorrect
-            else if (!validationOutput.emailValid)
+            else if (!emailValid)
             {
-                errorProvider.SetError(textBoxEmail, "Email address incorrect!");
+                errorProvider.SetError(comboBoxEmail, "Email address incorrect!");
             }
             // else if password incorrect
-            else if (!validationOutput.passwordValid)
+            else if (!passwordValid)
             {
                 errorProvider.SetError(textBoxPassword, "Password incorrect!");
             }
@@ -77,16 +127,16 @@ namespace ApplicantTrackingSystem
             }
         }
 
-        private void textBoxEmail_Enter(object sender, EventArgs e)
+        private void comboBoxEmail_Enter(object sender, EventArgs e)
         {
             // if text box is set to default, clear its content
-            if (textBoxEmail.Text == "Employee Email")
+            if (comboBoxEmail.Text == DEFAULT_EMAIL_TEXT)
             {
-                textBoxEmail.Clear();
+                comboBoxEmail.ResetText();
             }
 
             // clear error message if flagged
-            errorProvider.SetError(textBoxEmail, string.Empty);
+            errorProvider.SetError(comboBoxEmail, string.Empty);
         }
 
         /*
@@ -122,11 +172,17 @@ namespace ApplicantTrackingSystem
 
         private void textBoxPassword_Enter(object sender, EventArgs e)
         {
-            // if password is not censored, clear content of text box and disable visibility
-            if (textBoxPassword.PasswordChar != '*')
+            // if password is set to default, clear content of text box
+            if (textBoxPassword.Text == DEFAULT_PASSWORT_TEXT && textBoxPassword.PasswordChar != '*')
             {
+                // clear content of text box
                 textBoxPassword.Clear();
+                // disable password visibility
                 textBoxPassword.PasswordChar = '*';
+                // dispose of current image the box is set to (prevents memory leak)
+                pictureBoxPasswordVisibility.Image.Dispose();
+                // set image icon to password hidden
+                pictureBoxPasswordVisibility.Image = Properties.Resources.hidePassword;
             }
 
             // clear error message if flagged
@@ -152,5 +208,30 @@ namespace ApplicantTrackingSystem
             }
         }
         */
+
+        private void pictureBoxPasswordVisibility_Click(object sender, EventArgs e)
+        {
+            // dispose of current image the box is set to (prevents memory leak)
+            pictureBoxPasswordVisibility.Image.Dispose();
+
+            // if password is hidden, set password character to null and change image icon
+            if (textBoxPassword.PasswordChar == '*')
+            {
+                textBoxPassword.PasswordChar = '\0';
+                pictureBoxPasswordVisibility.Image = Properties.Resources.showPassword;
+            }
+            // else censor password and change image icon
+            else
+            {
+                textBoxPassword.PasswordChar = '*';
+                pictureBoxPasswordVisibility.Image = Properties.Resources.hidePassword;
+            }
+        }
+
+        private void linkLabelForgotPassword_Click(object sender, EventArgs e)
+        {
+            // display bow with a message when user clicks on forgot password
+            MessageBox.Show("Please contact your manager.", "Forgot Password");
+        }
     }
 }

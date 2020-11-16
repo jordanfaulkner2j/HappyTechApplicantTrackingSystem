@@ -17,11 +17,8 @@ namespace ApplicantTrackingSystem
         /// <returns>boolean value for emailValid and passwordValid</returns>
         public static (Boolean emailValid, Boolean passwordValid) ValidateCredentials(string enteredEmail, string enteredPassword)
         {
-            // retrieve query and attribute name from class of queries
-            var retrievePasswordQuery = DatabaseQueries.GetEmployeePassword(enteredEmail);
-
             // retrieve hash from database (entered password never leaves the application)
-            string hashedPassword = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(retrievePasswordQuery.sqlQuery, retrievePasswordQuery.attributeName);
+            string hashedPassword = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.EMPLOYEE_PASSWORD, enteredEmail));
 
             // if hash returns null due to no available records based on the query, email address entered is invalid
             if (hashedPassword == null)
@@ -29,7 +26,8 @@ namespace ApplicantTrackingSystem
                 return (false, false);
             }
             else
-            {   // if password hashes match, return true for both values
+            {
+                // if password hashes match, return true for both values
                 if (hashedPassword == HashPassword(enteredPassword))
                 {
                     return (true, true);
@@ -55,6 +53,7 @@ namespace ApplicantTrackingSystem
                 return "Missing email address!";
             }
 
+            /*
             // check if email address contains character @
             foreach (char character in emailAddress)
             {
@@ -64,20 +63,39 @@ namespace ApplicantTrackingSystem
                 }
             }
             return "Please use your full email address.";
+            */
+
+            // check if email address contains character @
+            for (int i = 0; i < emailAddress.Length; i++)
+            {
+                if (emailAddress[i] == '@')
+                {
+                    // after @ character found, check if it is followed by domain containing dot
+                    for (int j = i+1; j < emailAddress.Length; j++)
+                    {
+                        if (emailAddress[j] == '.')
+                        {
+                            return null;
+                        }
+                    }
+                    break;
+                }
+            }
+            return "Please use your full email address.";
         }
 
         /// <summary>
         /// calculate hash on enetered string
         /// </summary>
-        /// <param name="plaintextpassword">plaintext to hash</param>
+        /// <param name="plainTextPassword">plaintext to hash</param>
         /// <returns>hash as string in hexidecimal format</returns>
-        private static string HashPassword(string plaintextPassword)
+        private static string HashPassword(string plainTextPassword)
         {
             // create SHA256 object
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // generate hash and return its byte array
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(plaintextPassword));
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(plainTextPassword));
 
                 // convert byte array to string in hexidecimal format
                 StringBuilder builder = new StringBuilder();
