@@ -45,8 +45,8 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.clbApplicationResult = new System.Windows.Forms.CheckedListBox();
             this.lblApplicationResult = new System.Windows.Forms.Label();
-            this.lblApplicationType = new System.Windows.Forms.Label();
-            this.clbHeader = new System.Windows.Forms.CheckedListBox();
+            this.lblTemplateType = new System.Windows.Forms.Label();
+            this.clbTemplateType = new System.Windows.Forms.CheckedListBox();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblSections = new System.Windows.Forms.Label();
             this.pnlPreview = new System.Windows.Forms.Panel();
@@ -257,8 +257,8 @@
             this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlHeader.Controls.Add(this.clbApplicationResult);
             this.pnlHeader.Controls.Add(this.lblApplicationResult);
-            this.pnlHeader.Controls.Add(this.lblApplicationType);
-            this.pnlHeader.Controls.Add(this.clbHeader);
+            this.pnlHeader.Controls.Add(this.lblTemplateType);
+            this.pnlHeader.Controls.Add(this.clbTemplateType);
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Location = new System.Drawing.Point(20, 32);
             this.pnlHeader.Name = "pnlHeader";
@@ -289,30 +289,31 @@
             this.lblApplicationResult.TabIndex = 6;
             this.lblApplicationResult.Text = "Application Was:";
             // 
-            // lblApplicationType
+            // lblTemplateType
             // 
-            this.lblApplicationType.AutoSize = true;
-            this.lblApplicationType.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblApplicationType.Location = new System.Drawing.Point(4, 30);
-            this.lblApplicationType.Name = "lblApplicationType";
-            this.lblApplicationType.Size = new System.Drawing.Size(115, 16);
-            this.lblApplicationType.TabIndex = 5;
-            this.lblApplicationType.Text = "Feedback Is For:";
+            this.lblTemplateType.AutoSize = true;
+            this.lblTemplateType.Font = new System.Drawing.Font("Arial", 10F);
+            this.lblTemplateType.Location = new System.Drawing.Point(4, 30);
+            this.lblTemplateType.Name = "lblTemplateType";
+            this.lblTemplateType.Size = new System.Drawing.Size(109, 16);
+            this.lblTemplateType.TabIndex = 5;
+            this.lblTemplateType.Text = "Template Is For:";
             // 
-            // clbHeader
+            // clbTemplateType
             // 
-            this.clbHeader.BackColor = System.Drawing.SystemColors.Control;
-            this.clbHeader.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clbHeader.Font = new System.Drawing.Font("Arial", 10F);
-            this.clbHeader.FormattingEnabled = true;
-            this.clbHeader.Items.AddRange(new object[] {
+            this.clbTemplateType.BackColor = System.Drawing.SystemColors.Control;
+            this.clbTemplateType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbTemplateType.Font = new System.Drawing.Font("Arial", 10F);
+            this.clbTemplateType.FormattingEnabled = true;
+            this.clbTemplateType.Items.AddRange(new object[] {
             "CV",
             "Interview",
             "Technical Interview"});
-            this.clbHeader.Location = new System.Drawing.Point(7, 49);
-            this.clbHeader.Name = "clbHeader";
-            this.clbHeader.Size = new System.Drawing.Size(303, 54);
-            this.clbHeader.TabIndex = 4;
+            this.clbTemplateType.Location = new System.Drawing.Point(7, 49);
+            this.clbTemplateType.Name = "clbTemplateType";
+            this.clbTemplateType.Size = new System.Drawing.Size(303, 54);
+            this.clbTemplateType.TabIndex = 4;
+            this.clbTemplateType.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbTemplateTypeItemCheck);
             // 
             // lblHeader
             // 
@@ -491,6 +492,7 @@
             this.tbxApplicantName.Size = new System.Drawing.Size(298, 23);
             this.tbxApplicantName.TabIndex = 2;
             this.tbxApplicantName.Text = "Enter a name...";
+            this.tbxApplicantName.Click += new System.EventHandler(this.tbxApplicantName_Click);
             // 
             // lblApplicantName
             // 
@@ -674,7 +676,7 @@
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.Panel pnlSaveTemplate;
         private System.Windows.Forms.TextBox tbxHeader;
-        private System.Windows.Forms.CheckedListBox clbHeader;
+        private System.Windows.Forms.CheckedListBox clbTemplateType;
         private System.Windows.Forms.Panel pnlNaming;
         private System.Windows.Forms.Label lblTemplateName;
         private System.Windows.Forms.TextBox tbxTemplateName;
@@ -692,7 +694,7 @@
         private System.Windows.Forms.Label lblUnderstanding;
         private System.Windows.Forms.CheckedListBox clbApplicationResult;
         private System.Windows.Forms.Label lblApplicationResult;
-        private System.Windows.Forms.Label lblApplicationType;
+        private System.Windows.Forms.Label lblTemplateType;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label lblFooterPreview;
