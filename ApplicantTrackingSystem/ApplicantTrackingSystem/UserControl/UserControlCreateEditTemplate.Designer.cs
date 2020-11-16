@@ -30,15 +30,41 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCreateTemplate));
             this.pnlComments = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
+            this.lblQuestions = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.lblImpression = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.lblUnderstanding = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.clbFooter = new System.Windows.Forms.CheckedListBox();
             this.lblFooter = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.clbApplicationResult = new System.Windows.Forms.CheckedListBox();
+            this.lblApplicationResult = new System.Windows.Forms.Label();
+            this.lblApplicationType = new System.Windows.Forms.Label();
             this.clbHeader = new System.Windows.Forms.CheckedListBox();
             this.lblHeader = new System.Windows.Forms.Label();
             this.lblSections = new System.Windows.Forms.Label();
             this.pnlPreview = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lblFooterPreview = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblQuestionsPreview = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblImpressionPreview = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblUnderstandingPreview = new System.Windows.Forms.Label();
             this.pnlHeaderPreview = new System.Windows.Forms.Panel();
+            this.tbxApplicantName = new System.Windows.Forms.TextBox();
+            this.lblApplicantName = new System.Windows.Forms.Label();
             this.tbxHeader = new System.Windows.Forms.TextBox();
             this.lblHeaderPreview = new System.Windows.Forms.Label();
             this.lblPreview = new System.Windows.Forms.Label();
@@ -49,47 +75,21 @@
             this.pnlNaming = new System.Windows.Forms.Panel();
             this.lblTemplateName = new System.Windows.Forms.Label();
             this.tbxTemplateName = new System.Windows.Forms.TextBox();
-            this.lblApplicationType = new System.Windows.Forms.Label();
-            this.lblApplicationResult = new System.Windows.Forms.Label();
-            this.clbApplicationResult = new System.Windows.Forms.CheckedListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.lblUnderstanding = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.lblImpression = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
-            this.lblQuestions = new System.Windows.Forms.Label();
-            this.lblApplicantName = new System.Windows.Forms.Label();
-            this.tbxApplicantName = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblUnderstandingPreview = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblImpressionPreview = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.lblQuestionsPreview = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lblFooterPreview = new System.Windows.Forms.Label();
             this.pnlComments.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlPreview.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pnlHeaderPreview.SuspendLayout();
             this.pnlDiscard.SuspendLayout();
             this.pnlSaveTemplate.SuspendLayout();
             this.pnlNaming.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlComments
@@ -107,6 +107,114 @@
             this.pnlComments.Name = "pnlComments";
             this.pnlComments.Size = new System.Drawing.Size(372, 350);
             this.pnlComments.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.checkedListBox3);
+            this.panel3.Controls.Add(this.lblQuestions);
+            this.panel3.Location = new System.Drawing.Point(20, 410);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(312, 84);
+            this.panel3.TabIndex = 10;
+            // 
+            // checkedListBox3
+            // 
+            this.checkedListBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox3.Font = new System.Drawing.Font("Arial", 9F);
+            this.checkedListBox3.FormattingEnabled = true;
+            this.checkedListBox3.Items.AddRange(new object[] {
+            "Q01 - Applicant could not answer many questions",
+            "Q02 - Applicant could answer some questions",
+            "Q03 - Applicant could answer most questions"});
+            this.checkedListBox3.Location = new System.Drawing.Point(7, 28);
+            this.checkedListBox3.Name = "checkedListBox3";
+            this.checkedListBox3.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox3.TabIndex = 4;
+            // 
+            // lblQuestions
+            // 
+            this.lblQuestions.AutoSize = true;
+            this.lblQuestions.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblQuestions.Location = new System.Drawing.Point(4, 7);
+            this.lblQuestions.Name = "lblQuestions";
+            this.lblQuestions.Size = new System.Drawing.Size(149, 16);
+            this.lblQuestions.TabIndex = 2;
+            this.lblQuestions.Text = "Applicant Questions";
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.checkedListBox1);
+            this.panel2.Controls.Add(this.lblImpression);
+            this.panel2.Location = new System.Drawing.Point(20, 320);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(312, 84);
+            this.panel2.TabIndex = 9;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 9F);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "I01 - Applicant did not seem to be prepared",
+            "I02 - Applicant was quite prepared",
+            "I03 - Applicant was very prepared and focused"});
+            this.checkedListBox1.Location = new System.Drawing.Point(7, 28);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox1.TabIndex = 4;
+            // 
+            // lblImpression
+            // 
+            this.lblImpression.AutoSize = true;
+            this.lblImpression.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblImpression.Location = new System.Drawing.Point(4, 7);
+            this.lblImpression.Name = "lblImpression";
+            this.lblImpression.Size = new System.Drawing.Size(172, 16);
+            this.lblImpression.TabIndex = 2;
+            this.lblImpression.Text = "Impression of Applicant";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.checkedListBox2);
+            this.panel1.Controls.Add(this.lblUnderstanding);
+            this.panel1.Location = new System.Drawing.Point(20, 224);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(312, 84);
+            this.panel1.TabIndex = 8;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox2.Font = new System.Drawing.Font("Arial", 9F);
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "U01 - Little understanding of HappyTech\'s values",
+            "U02 - Some understanding of HappyTech\'s values",
+            "U03 - Great understanding of HappyTech\'s values"});
+            this.checkedListBox2.Location = new System.Drawing.Point(7, 28);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox2.TabIndex = 4;
+            // 
+            // lblUnderstanding
+            // 
+            this.lblUnderstanding.AutoSize = true;
+            this.lblUnderstanding.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUnderstanding.Location = new System.Drawing.Point(4, 7);
+            this.lblUnderstanding.Name = "lblUnderstanding";
+            this.lblUnderstanding.Size = new System.Drawing.Size(210, 16);
+            this.lblUnderstanding.TabIndex = 2;
+            this.lblUnderstanding.Text = "Understanding of HappyTech";
             // 
             // pnlFooter
             // 
@@ -158,6 +266,40 @@
             this.pnlHeader.Size = new System.Drawing.Size(312, 182);
             this.pnlHeader.TabIndex = 1;
             // 
+            // clbApplicationResult
+            // 
+            this.clbApplicationResult.BackColor = System.Drawing.SystemColors.Control;
+            this.clbApplicationResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbApplicationResult.Font = new System.Drawing.Font("Arial", 10F);
+            this.clbApplicationResult.FormattingEnabled = true;
+            this.clbApplicationResult.Items.AddRange(new object[] {
+            "Successful",
+            "Unsuccessful"});
+            this.clbApplicationResult.Location = new System.Drawing.Point(7, 137);
+            this.clbApplicationResult.Name = "clbApplicationResult";
+            this.clbApplicationResult.Size = new System.Drawing.Size(303, 36);
+            this.clbApplicationResult.TabIndex = 7;
+            // 
+            // lblApplicationResult
+            // 
+            this.lblApplicationResult.AutoSize = true;
+            this.lblApplicationResult.Font = new System.Drawing.Font("Arial", 10F);
+            this.lblApplicationResult.Location = new System.Drawing.Point(6, 115);
+            this.lblApplicationResult.Name = "lblApplicationResult";
+            this.lblApplicationResult.Size = new System.Drawing.Size(112, 16);
+            this.lblApplicationResult.TabIndex = 6;
+            this.lblApplicationResult.Text = "Application Was:";
+            // 
+            // lblApplicationType
+            // 
+            this.lblApplicationType.AutoSize = true;
+            this.lblApplicationType.Font = new System.Drawing.Font("Arial", 10F);
+            this.lblApplicationType.Location = new System.Drawing.Point(4, 30);
+            this.lblApplicationType.Name = "lblApplicationType";
+            this.lblApplicationType.Size = new System.Drawing.Size(115, 16);
+            this.lblApplicationType.TabIndex = 5;
+            this.lblApplicationType.Text = "Feedback Is For:";
+            // 
             // clbHeader
             // 
             this.clbHeader.BackColor = System.Drawing.SystemColors.Control;
@@ -172,7 +314,6 @@
             this.clbHeader.Name = "clbHeader";
             this.clbHeader.Size = new System.Drawing.Size(303, 54);
             this.clbHeader.TabIndex = 4;
-            this.clbHeader.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbHeader_ItemCheck);
             // 
             // lblHeader
             // 
@@ -210,6 +351,126 @@
             this.pnlPreview.Size = new System.Drawing.Size(524, 251);
             this.pnlPreview.TabIndex = 15;
             // 
+            // panel7
+            // 
+            this.panel7.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.textBox4);
+            this.panel7.Controls.Add(this.lblFooterPreview);
+            this.panel7.Location = new System.Drawing.Point(20, 633);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(465, 137);
+            this.panel7.TabIndex = 12;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox4.Location = new System.Drawing.Point(9, 27);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(446, 97);
+            this.textBox4.TabIndex = 4;
+            // 
+            // lblFooterPreview
+            // 
+            this.lblFooterPreview.AutoSize = true;
+            this.lblFooterPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFooterPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblFooterPreview.Name = "lblFooterPreview";
+            this.lblFooterPreview.Size = new System.Drawing.Size(55, 16);
+            this.lblFooterPreview.TabIndex = 2;
+            this.lblFooterPreview.Text = "Footer";
+            // 
+            // panel6
+            // 
+            this.panel6.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.textBox3);
+            this.panel6.Controls.Add(this.lblQuestionsPreview);
+            this.panel6.Location = new System.Drawing.Point(20, 490);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(465, 137);
+            this.panel6.TabIndex = 11;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox3.Location = new System.Drawing.Point(9, 27);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(446, 97);
+            this.textBox3.TabIndex = 4;
+            // 
+            // lblQuestionsPreview
+            // 
+            this.lblQuestionsPreview.AutoSize = true;
+            this.lblQuestionsPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblQuestionsPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblQuestionsPreview.Name = "lblQuestionsPreview";
+            this.lblQuestionsPreview.Size = new System.Drawing.Size(149, 16);
+            this.lblQuestionsPreview.TabIndex = 2;
+            this.lblQuestionsPreview.Text = "Applicant Questions";
+            // 
+            // panel5
+            // 
+            this.panel5.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.lblImpressionPreview);
+            this.panel5.Location = new System.Drawing.Point(20, 347);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(465, 137);
+            this.panel5.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox1.Location = new System.Drawing.Point(9, 27);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(446, 97);
+            this.textBox1.TabIndex = 4;
+            // 
+            // lblImpressionPreview
+            // 
+            this.lblImpressionPreview.AutoSize = true;
+            this.lblImpressionPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblImpressionPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblImpressionPreview.Name = "lblImpressionPreview";
+            this.lblImpressionPreview.Size = new System.Drawing.Size(172, 16);
+            this.lblImpressionPreview.TabIndex = 2;
+            this.lblImpressionPreview.Text = "Impression of Applicant";
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScrollMargin = new System.Drawing.Size(0, 25);
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.lblUnderstandingPreview);
+            this.panel4.Location = new System.Drawing.Point(20, 204);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(465, 137);
+            this.panel4.TabIndex = 9;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial", 10F);
+            this.textBox2.Location = new System.Drawing.Point(9, 27);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(446, 97);
+            this.textBox2.TabIndex = 4;
+            // 
+            // lblUnderstandingPreview
+            // 
+            this.lblUnderstandingPreview.AutoSize = true;
+            this.lblUnderstandingPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUnderstandingPreview.Location = new System.Drawing.Point(6, 6);
+            this.lblUnderstandingPreview.Name = "lblUnderstandingPreview";
+            this.lblUnderstandingPreview.Size = new System.Drawing.Size(210, 16);
+            this.lblUnderstandingPreview.TabIndex = 2;
+            this.lblUnderstandingPreview.Text = "Understanding of HappyTech";
+            // 
             // pnlHeaderPreview
             // 
             this.pnlHeaderPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
@@ -222,6 +483,25 @@
             this.pnlHeaderPreview.Name = "pnlHeaderPreview";
             this.pnlHeaderPreview.Size = new System.Drawing.Size(465, 166);
             this.pnlHeaderPreview.TabIndex = 1;
+            // 
+            // tbxApplicantName
+            // 
+            this.tbxApplicantName.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbxApplicantName.Location = new System.Drawing.Point(122, 24);
+            this.tbxApplicantName.Name = "tbxApplicantName";
+            this.tbxApplicantName.Size = new System.Drawing.Size(298, 23);
+            this.tbxApplicantName.TabIndex = 2;
+            this.tbxApplicantName.Text = "Enter a name...";
+            // 
+            // lblApplicantName
+            // 
+            this.lblApplicantName.AutoSize = true;
+            this.lblApplicantName.Font = new System.Drawing.Font("Arial", 10F);
+            this.lblApplicantName.Location = new System.Drawing.Point(6, 27);
+            this.lblApplicantName.Name = "lblApplicantName";
+            this.lblApplicantName.Size = new System.Drawing.Size(110, 16);
+            this.lblApplicantName.TabIndex = 8;
+            this.lblApplicantName.Text = "Applicant Name:";
             // 
             // tbxHeader
             // 
@@ -334,287 +614,6 @@
             this.tbxTemplateName.Click += new System.EventHandler(this.tbxTemplateName_Click);
             this.tbxTemplateName.MouseLeave += new System.EventHandler(this.tbxTemplateName_MouseLeave);
             // 
-            // lblApplicationType
-            // 
-            this.lblApplicationType.AutoSize = true;
-            this.lblApplicationType.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblApplicationType.Location = new System.Drawing.Point(4, 30);
-            this.lblApplicationType.Name = "lblApplicationType";
-            this.lblApplicationType.Size = new System.Drawing.Size(115, 16);
-            this.lblApplicationType.TabIndex = 5;
-            this.lblApplicationType.Text = "Feedback Is For:";
-            // 
-            // lblApplicationResult
-            // 
-            this.lblApplicationResult.AutoSize = true;
-            this.lblApplicationResult.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblApplicationResult.Location = new System.Drawing.Point(6, 115);
-            this.lblApplicationResult.Name = "lblApplicationResult";
-            this.lblApplicationResult.Size = new System.Drawing.Size(112, 16);
-            this.lblApplicationResult.TabIndex = 6;
-            this.lblApplicationResult.Text = "Application Was:";
-            // 
-            // clbApplicationResult
-            // 
-            this.clbApplicationResult.BackColor = System.Drawing.SystemColors.Control;
-            this.clbApplicationResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clbApplicationResult.Font = new System.Drawing.Font("Arial", 10F);
-            this.clbApplicationResult.FormattingEnabled = true;
-            this.clbApplicationResult.Items.AddRange(new object[] {
-            "Successful",
-            "Unsuccessful"});
-            this.clbApplicationResult.Location = new System.Drawing.Point(7, 137);
-            this.clbApplicationResult.Name = "clbApplicationResult";
-            this.clbApplicationResult.Size = new System.Drawing.Size(303, 36);
-            this.clbApplicationResult.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.checkedListBox2);
-            this.panel1.Controls.Add(this.lblUnderstanding);
-            this.panel1.Location = new System.Drawing.Point(20, 224);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 84);
-            this.panel1.TabIndex = 8;
-            // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox2.Font = new System.Drawing.Font("Arial", 9F);
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
-            "U01 - Little understanding of HappyTech\'s values",
-            "U02 - Some understanding of HappyTech\'s values",
-            "U03 - Great understanding of HappyTech\'s values"});
-            this.checkedListBox2.Location = new System.Drawing.Point(7, 28);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(303, 54);
-            this.checkedListBox2.TabIndex = 4;
-            // 
-            // lblUnderstanding
-            // 
-            this.lblUnderstanding.AutoSize = true;
-            this.lblUnderstanding.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUnderstanding.Location = new System.Drawing.Point(4, 7);
-            this.lblUnderstanding.Name = "lblUnderstanding";
-            this.lblUnderstanding.Size = new System.Drawing.Size(210, 16);
-            this.lblUnderstanding.TabIndex = 2;
-            this.lblUnderstanding.Text = "Understanding of HappyTech";
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.checkedListBox1);
-            this.panel2.Controls.Add(this.lblImpression);
-            this.panel2.Location = new System.Drawing.Point(20, 320);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(312, 84);
-            this.panel2.TabIndex = 9;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.Font = new System.Drawing.Font("Arial", 9F);
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "I01 - Applicant did not seem to be prepared",
-            "I02 - Applicant was quite prepared",
-            "I03 - Applicant was very prepared and focused"});
-            this.checkedListBox1.Location = new System.Drawing.Point(7, 28);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(303, 48);
-            this.checkedListBox1.TabIndex = 4;
-            // 
-            // lblImpression
-            // 
-            this.lblImpression.AutoSize = true;
-            this.lblImpression.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImpression.Location = new System.Drawing.Point(4, 7);
-            this.lblImpression.Name = "lblImpression";
-            this.lblImpression.Size = new System.Drawing.Size(172, 16);
-            this.lblImpression.TabIndex = 2;
-            this.lblImpression.Text = "Impression of Applicant";
-            // 
-            // panel3
-            // 
-            this.panel3.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.checkedListBox3);
-            this.panel3.Controls.Add(this.lblQuestions);
-            this.panel3.Location = new System.Drawing.Point(20, 410);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(312, 84);
-            this.panel3.TabIndex = 10;
-            // 
-            // checkedListBox3
-            // 
-            this.checkedListBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox3.Font = new System.Drawing.Font("Arial", 9F);
-            this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Items.AddRange(new object[] {
-            "Q01 - Applicant could not answer many questions",
-            "Q02 - Applicant could answer some questions",
-            "Q03 - Applicant could answer most questions"});
-            this.checkedListBox3.Location = new System.Drawing.Point(7, 28);
-            this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(303, 48);
-            this.checkedListBox3.TabIndex = 4;
-            // 
-            // lblQuestions
-            // 
-            this.lblQuestions.AutoSize = true;
-            this.lblQuestions.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblQuestions.Location = new System.Drawing.Point(4, 7);
-            this.lblQuestions.Name = "lblQuestions";
-            this.lblQuestions.Size = new System.Drawing.Size(149, 16);
-            this.lblQuestions.TabIndex = 2;
-            this.lblQuestions.Text = "Applicant Questions";
-            // 
-            // lblApplicantName
-            // 
-            this.lblApplicantName.AutoSize = true;
-            this.lblApplicantName.Font = new System.Drawing.Font("Arial", 10F);
-            this.lblApplicantName.Location = new System.Drawing.Point(6, 27);
-            this.lblApplicantName.Name = "lblApplicantName";
-            this.lblApplicantName.Size = new System.Drawing.Size(110, 16);
-            this.lblApplicantName.TabIndex = 8;
-            this.lblApplicantName.Text = "Applicant Name:";
-            // 
-            // tbxApplicantName
-            // 
-            this.tbxApplicantName.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxApplicantName.Location = new System.Drawing.Point(122, 24);
-            this.tbxApplicantName.Name = "tbxApplicantName";
-            this.tbxApplicantName.Size = new System.Drawing.Size(298, 23);
-            this.tbxApplicantName.TabIndex = 2;
-            this.tbxApplicantName.Text = "Enter a name...";
-            // 
-            // panel4
-            // 
-            this.panel4.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.lblUnderstandingPreview);
-            this.panel4.Location = new System.Drawing.Point(20, 204);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(465, 137);
-            this.panel4.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox2.Location = new System.Drawing.Point(9, 27);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(446, 97);
-            this.textBox2.TabIndex = 4;
-            // 
-            // lblUnderstandingPreview
-            // 
-            this.lblUnderstandingPreview.AutoSize = true;
-            this.lblUnderstandingPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUnderstandingPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblUnderstandingPreview.Name = "lblUnderstandingPreview";
-            this.lblUnderstandingPreview.Size = new System.Drawing.Size(210, 16);
-            this.lblUnderstandingPreview.TabIndex = 2;
-            this.lblUnderstandingPreview.Text = "Understanding of HappyTech";
-            // 
-            // panel5
-            // 
-            this.panel5.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.lblImpressionPreview);
-            this.panel5.Location = new System.Drawing.Point(20, 347);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(465, 137);
-            this.panel5.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox1.Location = new System.Drawing.Point(9, 27);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(446, 97);
-            this.textBox1.TabIndex = 4;
-            // 
-            // lblImpressionPreview
-            // 
-            this.lblImpressionPreview.AutoSize = true;
-            this.lblImpressionPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImpressionPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblImpressionPreview.Name = "lblImpressionPreview";
-            this.lblImpressionPreview.Size = new System.Drawing.Size(172, 16);
-            this.lblImpressionPreview.TabIndex = 2;
-            this.lblImpressionPreview.Text = "Impression of Applicant";
-            // 
-            // panel6
-            // 
-            this.panel6.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel6.Controls.Add(this.textBox3);
-            this.panel6.Controls.Add(this.lblQuestionsPreview);
-            this.panel6.Location = new System.Drawing.Point(20, 490);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(465, 137);
-            this.panel6.TabIndex = 11;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox3.Location = new System.Drawing.Point(9, 27);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(446, 97);
-            this.textBox3.TabIndex = 4;
-            // 
-            // lblQuestionsPreview
-            // 
-            this.lblQuestionsPreview.AutoSize = true;
-            this.lblQuestionsPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblQuestionsPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblQuestionsPreview.Name = "lblQuestionsPreview";
-            this.lblQuestionsPreview.Size = new System.Drawing.Size(149, 16);
-            this.lblQuestionsPreview.TabIndex = 2;
-            this.lblQuestionsPreview.Text = "Applicant Questions";
-            // 
-            // panel7
-            // 
-            this.panel7.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.textBox4);
-            this.panel7.Controls.Add(this.lblFooterPreview);
-            this.panel7.Location = new System.Drawing.Point(20, 633);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(465, 137);
-            this.panel7.TabIndex = 12;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox4.Location = new System.Drawing.Point(9, 27);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(446, 97);
-            this.textBox4.TabIndex = 4;
-            // 
-            // lblFooterPreview
-            // 
-            this.lblFooterPreview.AutoSize = true;
-            this.lblFooterPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFooterPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblFooterPreview.Name = "lblFooterPreview";
-            this.lblFooterPreview.Size = new System.Drawing.Size(55, 16);
-            this.lblFooterPreview.TabIndex = 2;
-            this.lblFooterPreview.Text = "Footer";
-            // 
             // UserControlCreateTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -631,32 +630,32 @@
             this.Size = new System.Drawing.Size(968, 384);
             this.pnlComments.ResumeLayout(false);
             this.pnlComments.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlPreview.ResumeLayout(false);
             this.pnlPreview.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pnlHeaderPreview.ResumeLayout(false);
             this.pnlHeaderPreview.PerformLayout();
             this.pnlDiscard.ResumeLayout(false);
             this.pnlSaveTemplate.ResumeLayout(false);
             this.pnlNaming.ResumeLayout(false);
             this.pnlNaming.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }

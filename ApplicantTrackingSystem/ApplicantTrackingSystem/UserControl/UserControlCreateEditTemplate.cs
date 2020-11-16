@@ -14,28 +14,9 @@ namespace ApplicantTrackingSystem
     public partial class UserControlCreateTemplate : UserControl
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
-        public string sectionDisabledText = "THIS SECTION HAS NOT BEEN ENABLED";
-        public string sectionEnabledText = "THIS SECTION HAS BEEN ENABLED";
-        bool enableHeaderSection = false;
-        bool enableServiceSection = false;
-        bool enableWorkPrideSection = false;
-        bool enableCooperation_TeamworkSection = false;
-        bool enableAdaptabilitySection = false;
-        bool enableSelfExpectationsSection = false;
-        bool enableOrganisationSection = false;
-        bool enableFooterSection = false;
         public UserControlCreateTemplate()
         {
             InitializeComponent();
-            tbxHeader.Text = sectionDisabledText;
-            tbxService.Text = sectionDisabledText;
-            tbxWorkPride.Text = sectionDisabledText;
-            tbxCooperation_Teamwork.Text = sectionDisabledText;
-            tbxAdaptability.Text = sectionDisabledText;
-            tbxSelfExpectations.Text = sectionDisabledText;
-            tbxOrganisation.Text = sectionDisabledText;
-            tbxAdditionalComments.Text = "THIS SECTION IS ENABLED BY DEFAULT AND CANNOT BE DISABLED.";
-            tbxFooter.Text = sectionDisabledText;
         }
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
@@ -70,126 +51,6 @@ namespace ApplicantTrackingSystem
             if (result == DialogResult.Yes)
             {
                 // bring the templates page to the front
-            }
-        }
-        // check if employee has selected the header section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbHeader_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbHeader.GetItemChecked(0) == false)
-                {
-                    enableHeaderSection = true;
-                tbxHeader.Text = sectionEnabledText;
-            }
-            else if (clbHeader.GetItemChecked(0) == true)
-            {
-                enableHeaderSection = false;
-                tbxHeader.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the service section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbService_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbService.GetItemChecked(0) == false)
-            {
-                enableServiceSection = true;
-                tbxService.Text = sectionEnabledText;
-            }
-            else if (clbService.GetItemChecked(0) == true)
-            {
-                enableServiceSection = false;
-                tbxService.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the work pride section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbWorkPride_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbWorkPride.GetItemChecked(0) == false)
-            {
-                enableWorkPrideSection = true;
-                tbxWorkPride.Text = sectionEnabledText;
-            }
-            else if (clbWorkPride.GetItemChecked(0) == true)
-            {
-                enableWorkPrideSection = false;
-                tbxWorkPride.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the co-operation and teamwork section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbCooperation_Teamwork_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbCooperation_Teamwork.GetItemChecked(0) == false)
-            {
-                enableCooperation_TeamworkSection = true;
-                tbxCooperation_Teamwork.Text = sectionEnabledText;
-            }
-            else if (clbCooperation_Teamwork.GetItemChecked(0) == true)
-            {
-                enableCooperation_TeamworkSection = false;
-                tbxCooperation_Teamwork.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the adaptability towards change section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbAdaptability_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbAdaptability.GetItemChecked(0) == false)
-            {
-                enableAdaptabilitySection = true;
-                tbxAdaptability.Text = sectionEnabledText;
-            }
-            else if (clbAdaptability.GetItemChecked(0) == true)
-            {
-                enableAdaptabilitySection = false;
-                tbxAdaptability.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the self expectations section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbSelfExpectations_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbSelfExpectations.GetItemChecked(0) == false)
-            {
-                enableSelfExpectationsSection = true;
-                tbxSelfExpectations.Text = sectionEnabledText;
-            }
-            else if (clbSelfExpectations.GetItemChecked(0) == true)
-            {
-                enableSelfExpectationsSection = false;
-                tbxSelfExpectations.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the organisation section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbOrganisation_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbOrganisation.GetItemChecked(0) == false)
-            {
-                enableOrganisationSection = true;
-                tbxOrganisation.Text = sectionEnabledText;
-            }
-            else if (clbOrganisation.GetItemChecked(0) == true)
-            {
-                enableOrganisationSection = false;
-                tbxOrganisation.Text = sectionDisabledText;
-            }
-        }
-        // check if employee has selected the footer section checkbox
-        // if they have, mark the section as enabled and show it in the preview
-        private void clbFooter_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (clbFooter.GetItemChecked(0) == false)
-            {
-                enableFooterSection = true;
-                tbxFooter.Text = sectionEnabledText;
-            }
-            else if (clbFooter.GetItemChecked(0) == true)
-            {
-                enableFooterSection = false;
-                tbxFooter.Text = sectionDisabledText;
             }
         }
         // clear the template name text box when the employee clicks on it so they can name the template
