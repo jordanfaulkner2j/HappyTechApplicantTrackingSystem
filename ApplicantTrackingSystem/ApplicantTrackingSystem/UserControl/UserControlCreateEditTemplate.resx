@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="tbxHeader.Text" xml:space="preserve">
+    <value>Dear [ApplicantName],
+Thank you for applying for a position at HappyTech. I am emailing
+you to inform you that your [applicationType] has been further reviewed
+and your application was [applicationSuccess]. The feedback from this is
+as follows:</value>
+  </data>
 </root>
