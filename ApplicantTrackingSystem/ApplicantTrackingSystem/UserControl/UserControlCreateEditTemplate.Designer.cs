@@ -240,7 +240,6 @@
             this.clbFooter.Name = "clbFooter";
             this.clbFooter.Size = new System.Drawing.Size(285, 36);
             this.clbFooter.TabIndex = 4;
-            this.clbFooter.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbFooter_ItemCheck);
             // 
             // lblFooter
             // 

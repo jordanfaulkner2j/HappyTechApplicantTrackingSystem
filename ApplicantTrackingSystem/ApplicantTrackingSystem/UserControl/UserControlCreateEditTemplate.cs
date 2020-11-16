@@ -53,6 +53,21 @@ namespace ApplicantTrackingSystem
                 // bring the templates page to the front
             }
         }
+        // check if employee has selected the footer section checkbox
+        // if they have, mark the section as enabled and show it in the preview
+        private void clbFooter_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (clbFooter.GetItemChecked(0) == false)
+            {
+                enableFooterSection = true;
+                tbxFooter.Text = sectionEnabledText;
+            }
+            else if (clbFooter.GetItemChecked(0) == true)
+            {
+                enableFooterSection = false;
+                tbxFooter.Text = sectionDisabledText;
+            }
+        }
         // clear the template name text box when the employee clicks on it so they can name the template
         // should only clear if the text box has the default text
         private void tbxTemplateName_Click(object sender, EventArgs e)
