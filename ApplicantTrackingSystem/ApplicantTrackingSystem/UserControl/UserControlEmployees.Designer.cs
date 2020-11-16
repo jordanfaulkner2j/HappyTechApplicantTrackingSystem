@@ -40,8 +40,11 @@
             this.dgvEmployees.Location = new System.Drawing.Point(0, 0);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 100;
             this.dgvEmployees.RowTemplate.Height = 33;
+            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.Size = new System.Drawing.Size(968, 384);
             this.dgvEmployees.TabIndex = 4;
             // 

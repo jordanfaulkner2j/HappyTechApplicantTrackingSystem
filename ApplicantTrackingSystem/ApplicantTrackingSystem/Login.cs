@@ -50,6 +50,11 @@ namespace ApplicantTrackingSystem
                 }
             }
 
+            // dispose of current image the box is set to (prevents memory leak)
+            pictureBoxPasswordVisibility.Image.Dispose();
+            // set image to password visible
+            pictureBoxPasswordVisibility.Image = Properties.Resources.showPassword;
+
             //change focus to login button
             buttonLogIn.Focus();
         }
@@ -167,11 +172,17 @@ namespace ApplicantTrackingSystem
 
         private void textBoxPassword_Enter(object sender, EventArgs e)
         {
-            // if password is not censored, clear content of text box and disable visibility
-            if (textBoxPassword.PasswordChar != '*')
+            // if password is set to default, clear content of text box
+            if (textBoxPassword.Text == DEFAULT_PASSWORT_TEXT && textBoxPassword.PasswordChar != '*')
             {
+                // clear content of text box
                 textBoxPassword.Clear();
+                // disable password visibility
                 textBoxPassword.PasswordChar = '*';
+                // dispose of current image the box is set to (prevents memory leak)
+                pictureBoxPasswordVisibility.Image.Dispose();
+                // set image icon to password hidden
+                pictureBoxPasswordVisibility.Image = Properties.Resources.hidePassword;
             }
 
             // clear error message if flagged
@@ -197,6 +208,25 @@ namespace ApplicantTrackingSystem
             }
         }
         */
+
+        private void pictureBoxPasswordVisibility_Click(object sender, EventArgs e)
+        {
+            // dispose of current image the box is set to (prevents memory leak)
+            pictureBoxPasswordVisibility.Image.Dispose();
+
+            // if password is hidden, set password character to null and change image icon
+            if (textBoxPassword.PasswordChar == '*')
+            {
+                textBoxPassword.PasswordChar = '\0';
+                pictureBoxPasswordVisibility.Image = Properties.Resources.showPassword;
+            }
+            // else censor password and change image icon
+            else
+            {
+                textBoxPassword.PasswordChar = '*';
+                pictureBoxPasswordVisibility.Image = Properties.Resources.hidePassword;
+            }
+        }
 
         private void linkLabelForgotPassword_Click(object sender, EventArgs e)
         {

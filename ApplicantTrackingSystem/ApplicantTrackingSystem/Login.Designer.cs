@@ -32,12 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogIn = new System.Windows.Forms.Button();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.comboBoxEmail = new System.Windows.Forms.ComboBox();
             this.linkLabelForgotPassword = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.pictureBoxPasswordVisibility = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordVisibility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPassword
@@ -64,16 +66,6 @@
             this.buttonLogIn.UseVisualStyleBackColor = true;
             this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = global::ApplicantTrackingSystem.Properties.Resources.Logo;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(42, 45);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(200, 100);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // errorProvider
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
@@ -88,6 +80,8 @@
             this.comboBoxEmail.FormattingEnabled = true;
             this.errorProvider.SetIconPadding(this.comboBoxEmail, -20);
             this.comboBoxEmail.Location = new System.Drawing.Point(31, 178);
+            this.comboBoxEmail.MaxDropDownItems = 3;
+            this.comboBoxEmail.MaxLength = 100;
             this.comboBoxEmail.Name = "comboBoxEmail";
             this.comboBoxEmail.Size = new System.Drawing.Size(222, 31);
             this.comboBoxEmail.TabIndex = 1;
@@ -108,6 +102,27 @@
             this.linkLabelForgotPassword.Text = "Forgot Password?";
             this.linkLabelForgotPassword.Click += new System.EventHandler(this.linkLabelForgotPassword_Click);
             // 
+            // pictureBoxPasswordVisibility
+            // 
+            this.pictureBoxPasswordVisibility.Image = global::ApplicantTrackingSystem.Properties.Resources.showPassword;
+            this.pictureBoxPasswordVisibility.Location = new System.Drawing.Point(231, 220);
+            this.pictureBoxPasswordVisibility.Name = "pictureBoxPasswordVisibility";
+            this.pictureBoxPasswordVisibility.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxPasswordVisibility.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPasswordVisibility.TabIndex = 4;
+            this.pictureBoxPasswordVisibility.TabStop = false;
+            this.pictureBoxPasswordVisibility.Click += new System.EventHandler(this.pictureBoxPasswordVisibility_Click);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::ApplicantTrackingSystem.Properties.Resources.Logo;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(42, 45);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(200, 100);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // Login
             // 
             this.AcceptButton = this.buttonLogIn;
@@ -115,6 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(284, 361);
+            this.Controls.Add(this.pictureBoxPasswordVisibility);
             this.Controls.Add(this.comboBoxEmail);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.buttonLogIn);
@@ -129,8 +145,9 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Page";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordVisibility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +161,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.LinkLabel linkLabelForgotPassword;
         private System.Windows.Forms.ComboBox comboBoxEmail;
+        private System.Windows.Forms.PictureBox pictureBoxPasswordVisibility;
     }
 }

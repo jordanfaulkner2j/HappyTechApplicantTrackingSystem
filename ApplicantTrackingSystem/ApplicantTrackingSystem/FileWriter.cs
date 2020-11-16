@@ -13,6 +13,11 @@ namespace ApplicantTrackingSystem
         // constant value for temporary file name
         private static string TEMP_FILE = "temp.txt";
 
+        /// <summary>
+        /// write a line to specified file by its name
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
+        /// <param name="line">string containing single line</param>
         public static void Write(string fileName, string line)
         {
             using (StreamWriter writer = new StreamWriter(fileName, true))
@@ -21,6 +26,12 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        /// <summary>
+        /// insert line before specified line number and specified file
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
+        /// <param name="line">string containing single line</param>
+        /// <param name="beforeLineNumber">line number before which to insert the included line</param>
         public static void Insert(string fileName, string line, int beforeLineNumber)
         {
             if (!File.Exists(fileName) || File.ReadLines(fileName).Count() == 0)
@@ -60,6 +71,11 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        /// <summary>
+        /// insert line at the beginning of specified file
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
+        /// <param name="line">string containing single line</param>
         public static void InsertAtBeginning(string fileName, string line)
         {
             Insert(fileName, line, 1);
@@ -87,6 +103,12 @@ namespace ApplicantTrackingSystem
             return 0;
         }
 
+        /// <summary>
+        /// return line at specified line from specified file
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
+        /// <param name="lineNumber">line number</param>
+        /// <returns>string containing single line</returns>
         public static string GetLine(string fileName, int lineNumber)
         {
             if (!File.Exists(fileName) || lineNumber < 1)
@@ -107,6 +129,11 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        /// <summary>
+        /// delete specified line in specified file
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
+        /// <param name="lineNumber">line number</param>
         public static void DeleteLine(string fileName, int lineNumber)
         {
             if (!File.Exists(fileName) || lineNumber < 1)
@@ -162,6 +189,10 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        /// <summary>
+        /// delete the last line in specified file
+        /// </summary>
+        /// <param name="fileName">name of the file</param>
         public static void DropLine(string fileName)
         {
             DeleteLine(fileName, File.ReadLines(fileName).Count());
