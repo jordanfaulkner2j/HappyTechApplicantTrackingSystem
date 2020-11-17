@@ -15,6 +15,32 @@ namespace ApplicantTrackingSystem
     {
         // private string of the employee currently logged in
         private static string loggedInEmployeeEmail;
+        // private object of the current user control displayed
+        private static UserControl runtimePage;
+
+        public Main(string employeeEmail)
+        {
+            InitializeComponent();
+
+            // store signed employee's email
+            loggedInEmployeeEmail = employeeEmail;
+
+            // if employee has admin privileges, show menu item for managing employees
+            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_IS_ADMIN, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, loggedInEmployeeEmail)))
+            {
+                manageEmployeesToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                manageEmployeesToolStripMenuItem.Visible = false;
+            }
+
+            // display employee's name on application
+            labelEmployeeName.Text = "Welcome "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, loggedInEmployeeEmail));
+
+            // open applications page on start
+            applicationsToolStripMenuItem.PerformClick();
+        }
 
         public static string employeeEmail
         {
@@ -25,67 +51,45 @@ namespace ApplicantTrackingSystem
             }
         }
 
-        public Main(string employeeEmail)
+        private void openPage(UserControl page)
         {
-            InitializeComponent();
-
-            // store signed employee's email
-            loggedInEmployeeEmail = employeeEmail;
-
-            // if employee has admin privileges, show menu item for managing employees
-            if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.IS_ADMIN, loggedInEmployeeEmail)))
+            if (runtimePage != null)
             {
-                manageEmployeesToolStripMenuItem.Visible = true;
+                runtimePage.Dispose();
             }
-            else
-            {
-                manageEmployeesToolStripMenuItem.Visible = false;
-            }
-
-            // display employee's name on application
-            labelEmployeeName.Text = "Welcome "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.EMPLOYEE_NAME, loggedInEmployeeEmail));
-
-            // open applications page on start
-            applicationsToolStripMenuItem.PerformClick();
+            runtimePage = page;
+            panelBody.Controls.Add(runtimePage);
+            runtimePage.Dock = DockStyle.Fill;
         }
 
         private void createNewTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with form for creating templates
-            pageCreateEditTemplate.BringToFront();
+            openPage(new UserControlCreateEditTemplate());
         }
 
         private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of existing templates
-            pageTemplates.BringToFront();
-
-            // update list of applications from the database
-            pageTemplates.UpdateTemplatesTable();
+            openPage(new UserControlTemplates());
         }
 
         private void applicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of applications
-            pageApplications.BringToFront();
-
-            // update list of applications from the database
-            pageApplications.UpdateApplicationsTable();
+            openPage(new UserControlApplications());
         }
 
         private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of employees
-            pageEmployees.BringToFront();
-
-            // update list of employees from the database
-            pageEmployees.UpdateEmployeesTable();
+            openPage(new UserControlEmployees());
         }
 
         private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // display my profile's settings
-            pageMyProfile.BringToFront();
+            // display my profile settings
+            openPage(new UserControlMyProfile());
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

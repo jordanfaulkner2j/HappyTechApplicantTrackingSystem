@@ -57,6 +57,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlEmployees";
             this.Size = new System.Drawing.Size(968, 384);
+            this.Load += new System.EventHandler(this.UserControlEmployees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
 

@@ -32,7 +32,7 @@
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.buttonUploadPhoto = new System.Windows.Forms.Button();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
-            this.textBoxMobileNumber = new System.Windows.Forms.TextBox();
+            this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
             this.textBoxWorkNumber = new System.Windows.Forms.TextBox();
             this.textBoxEmailAddress = new System.Windows.Forms.TextBox();
             this.buttonDiscard = new System.Windows.Forms.Button();
@@ -42,12 +42,13 @@
             this.textBoxNewPassword = new System.Windows.Forms.TextBox();
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.comboBoxTitle = new System.Windows.Forms.ComboBox();
+            this.textBoxMiddleNames = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(391, 74);
+            this.textBoxFirstName.Location = new System.Drawing.Point(669, 26);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(258, 29);
             this.textBoxFirstName.TabIndex = 1;
@@ -77,12 +78,12 @@
             this.textBoxLastName.Size = new System.Drawing.Size(258, 29);
             this.textBoxLastName.TabIndex = 4;
             // 
-            // textBoxMobileNumber
+            // textBoxPhoneNumber
             // 
-            this.textBoxMobileNumber.Location = new System.Drawing.Point(391, 122);
-            this.textBoxMobileNumber.Name = "textBoxMobileNumber";
-            this.textBoxMobileNumber.Size = new System.Drawing.Size(258, 29);
-            this.textBoxMobileNumber.TabIndex = 5;
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(391, 122);
+            this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
+            this.textBoxPhoneNumber.Size = new System.Drawing.Size(258, 29);
+            this.textBoxPhoneNumber.TabIndex = 5;
             // 
             // textBoxWorkNumber
             // 
@@ -153,16 +154,24 @@
             // comboBoxTitle
             // 
             this.comboBoxTitle.FormattingEnabled = true;
-            this.comboBoxTitle.Location = new System.Drawing.Point(391, 26);
+            this.comboBoxTitle.Location = new System.Drawing.Point(528, 26);
             this.comboBoxTitle.Name = "comboBoxTitle";
             this.comboBoxTitle.Size = new System.Drawing.Size(121, 29);
             this.comboBoxTitle.TabIndex = 16;
             this.comboBoxTitle.Text = "Title";
             // 
+            // textBoxMiddleNames
+            // 
+            this.textBoxMiddleNames.Location = new System.Drawing.Point(391, 74);
+            this.textBoxMiddleNames.Name = "textBoxMiddleNames";
+            this.textBoxMiddleNames.Size = new System.Drawing.Size(258, 29);
+            this.textBoxMiddleNames.TabIndex = 17;
+            // 
             // UserControlMyProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBoxMiddleNames);
             this.Controls.Add(this.comboBoxTitle);
             this.Controls.Add(this.buttonChangePassword);
             this.Controls.Add(this.textBoxNewPasswordConfirmed);
@@ -172,7 +181,7 @@
             this.Controls.Add(this.buttonDiscard);
             this.Controls.Add(this.textBoxEmailAddress);
             this.Controls.Add(this.textBoxWorkNumber);
-            this.Controls.Add(this.textBoxMobileNumber);
+            this.Controls.Add(this.textBoxPhoneNumber);
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.buttonUploadPhoto);
             this.Controls.Add(this.pictureBoxPhoto);
@@ -194,7 +203,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPhoto;
         private System.Windows.Forms.Button buttonUploadPhoto;
         private System.Windows.Forms.TextBox textBoxLastName;
-        private System.Windows.Forms.TextBox textBoxMobileNumber;
+        private System.Windows.Forms.TextBox textBoxPhoneNumber;
         private System.Windows.Forms.TextBox textBoxWorkNumber;
         private System.Windows.Forms.TextBox textBoxEmailAddress;
         private System.Windows.Forms.Button buttonDiscard;
@@ -204,5 +213,6 @@
         private System.Windows.Forms.TextBox textBoxNewPassword;
         private System.Windows.Forms.Button buttonChangePassword;
         private System.Windows.Forms.ComboBox comboBoxTitle;
+        private System.Windows.Forms.TextBox textBoxMiddleNames;
     }
 }

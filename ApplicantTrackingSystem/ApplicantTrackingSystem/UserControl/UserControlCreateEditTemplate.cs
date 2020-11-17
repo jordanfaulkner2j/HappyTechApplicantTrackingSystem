@@ -11,10 +11,10 @@ using System.Windows.Forms.VisualStyles;
 
 namespace ApplicantTrackingSystem
 {
-    public partial class UserControlCreateTemplate : UserControl
+    public partial class UserControlCreateEditTemplate : UserControl
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
-        public UserControlCreateTemplate()
+        public UserControlCreateEditTemplate()
         {
             InitializeComponent();
         }

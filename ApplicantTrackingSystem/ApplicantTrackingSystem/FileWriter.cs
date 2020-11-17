@@ -10,8 +10,10 @@ namespace ApplicantTrackingSystem
 {
     class FileWriter
     {
-        // constant value for temporary file name
+        // constant name of temporary file
         private static string TEMP_FILE = "temp.txt";
+        // constant name of log file
+        private const string LOG_FILE = "eventLog.csv";
 
         /// <summary>
         /// write a line to specified file by its name
@@ -23,6 +25,19 @@ namespace ApplicantTrackingSystem
             using (StreamWriter writer = new StreamWriter(fileName, true))
             {
                 writer.WriteLine(line);
+            }
+        }
+
+        /// <summary>
+        /// write an error message to log file
+        /// </summary>
+        /// <param name="errorEvent">error or event to note</param>
+        public static void WriteLog(string errorEvent)
+        {
+            using (StreamWriter writer = new StreamWriter(LOG_FILE, true))
+            {
+                writer.WriteLine(string.Format(errorEvent, DateTime.Now.ToString("hh:mm dd/mm/yyyy")));
+                // add user to the error entries (preferably without having to pass it as a variable)
             }
         }
 

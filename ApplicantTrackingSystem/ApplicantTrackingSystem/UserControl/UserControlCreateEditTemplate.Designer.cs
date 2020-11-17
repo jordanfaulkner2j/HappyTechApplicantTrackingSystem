@@ -1,6 +1,6 @@
 ﻿namespace ApplicantTrackingSystem
 {
-    partial class UserControlCreateTemplate
+    partial class UserControlCreateEditTemplate
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCreateTemplate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCreateEditTemplate));
             this.pnlComments = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();

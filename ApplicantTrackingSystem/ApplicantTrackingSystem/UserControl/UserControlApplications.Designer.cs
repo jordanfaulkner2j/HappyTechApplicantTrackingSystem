@@ -107,7 +107,7 @@
             this.comboBoxViewOnly.Name = "comboBoxViewOnly";
             this.comboBoxViewOnly.Size = new System.Drawing.Size(179, 29);
             this.comboBoxViewOnly.TabIndex = 10;
-            this.comboBoxViewOnly.Text = "View only";
+            this.comboBoxViewOnly.Text = "View only interviewed";
             // 
             // UserControlApplications
             // 
@@ -123,6 +123,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlApplications";
             this.Size = new System.Drawing.Size(968, 384);
+            this.Load += new System.EventHandler(this.UserControlApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

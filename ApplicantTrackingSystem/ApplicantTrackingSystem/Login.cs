@@ -15,8 +15,8 @@ namespace ApplicantTrackingSystem
         // constant values for default text box fields
         private const string DEFAULT_EMAIL_TEXT = "Employee Email";
         private const string DEFAULT_PASSWORT_TEXT = "Password";
-        // constant values for file names
-        private const string LOG_FILE = "eventLog.csv";
+
+        // constant name of log file storing recent email addresses
         private const string MAIL_LOG_FILE = "mailLog.txt";
         // constant value for maximum number of items in combo box
         private const int MAIL_LOG_FILE_MAX = 3;
@@ -29,12 +29,19 @@ namespace ApplicantTrackingSystem
 
         private void LoadDefaultSettings()
         {
-            // set default values for text boxes
+            // set default value of email text box
             comboBoxEmail.Text = DEFAULT_EMAIL_TEXT;
-            textBoxPassword.Text = DEFAULT_PASSWORT_TEXT;
+            // set the maximum number of drop down items to defined constant value
+            comboBoxEmail.MaxDropDownItems = MAIL_LOG_FILE_MAX;
+            // clear error message if flagged
+            errorProvider.SetError(comboBoxEmail, string.Empty);
 
+            // set default value of password text box
+            textBoxPassword.Text = DEFAULT_PASSWORT_TEXT;
             // enable password visibility with null character
             textBoxPassword.PasswordChar = '\0';
+            // clear error message if flagged
+            errorProvider.SetError(textBoxPassword, string.Empty);
 
             // clear recent emails from combo text box
             comboBoxEmail.Items.Clear();
@@ -55,6 +62,9 @@ namespace ApplicantTrackingSystem
             // set image to password visible
             pictureBoxPasswordVisibility.Image = Properties.Resources.showPassword;
 
+            // disable tabbing to the link label saying forgot password
+            linkLabelForgotPassword.TabStop = false;
+
             //change focus to login button
             buttonLogIn.Focus();
         }
@@ -74,9 +84,9 @@ namespace ApplicantTrackingSystem
             }
 
             // check if password was not left blank before continuing
-            if (string.IsNullOrWhiteSpace(textBoxPassword.Text) || textBoxPassword.PasswordChar != '*')
+            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
             {
-                errorProvider.SetError(textBoxPassword, "Password must not be blank!");
+                errorProvider.SetError(textBoxPassword, "Password must not be left blank!");
                 return;
             }
 
@@ -87,7 +97,7 @@ namespace ApplicantTrackingSystem
             if (emailValid && passwordValid)
             {
                 // add logon entry to log file
-                FileWriter.Write(LOG_FILE, string.Format("login, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+                FileWriter.WriteLog("login");
 
                 // if email address already occurs in the log file, delete it
                 FileWriter.DeleteLine(MAIL_LOG_FILE, FileWriter.ContainsLine(MAIL_LOG_FILE, employeeEmail));
@@ -101,13 +111,12 @@ namespace ApplicantTrackingSystem
                 using (Main MainApplication = new Main(employeeEmail))
                     MainApplication.ShowDialog();
 
-                // add logoff entry to log file
-                FileWriter.Write(LOG_FILE, string.Format("logout, {0}, {1}", DateTime.Now.ToString("hh:mm dd/mm/yyyy"), employeeEmail));
+                // once main application closes, add logoff entry to event file
+                FileWriter.WriteLog("logout");
 
-                // once main application closes, open login page again
+                // open login page again
                 this.Show();
-
-                // load default settings of the form
+                // load default settings of the login page
                 LoadDefaultSettings();
             }
             // else if email incorrect
@@ -123,6 +132,7 @@ namespace ApplicantTrackingSystem
             // in case of any inexpected errors
             else
             {
+                FileWriter.WriteLog("login validation error");
                 MessageBox.Show("Please report this error to your manager.", "Unexpected Error");
             }
         }
@@ -138,37 +148,6 @@ namespace ApplicantTrackingSystem
             // clear error message if flagged
             errorProvider.SetError(comboBoxEmail, string.Empty);
         }
-
-        /*
-        private void textBoxEmail_Leave(object sender, EventArgs e)
-        {
-            // disable login button until text box content is validated
-            buttonLogIn.Enabled = false;
-
-            // if text box for email is empty, display error and keep login button disabled
-            if (string.IsNullOrWhiteSpace(textBoxEmail.Text))
-            {
-                errorProvider.SetError(textBoxEmail, "Missing employee email!");
-            }
-            // else check if email contains @ character
-            else
-            {
-                foreach (char character in textBoxEmail.Text)
-                {
-                    // if true, enable login button and quit validation
-                    if (character == '@')
-                    {
-                        buttonLogIn.Enabled = true;
-                        return;
-                    }
-                }
-
-                // else change text box font color and display appropriate error message
-                textBoxEmail.ForeColor = Color.DarkRed;
-                errorProvider.SetError(textBoxEmail, "Please enter your full email address.");
-            }
-        }
-        */
 
         private void textBoxPassword_Enter(object sender, EventArgs e)
         {
@@ -188,26 +167,6 @@ namespace ApplicantTrackingSystem
             // clear error message if flagged
             errorProvider.SetError(textBoxPassword, string.Empty);
         }
-
-        /*
-        private void textBoxPassword_Leave(object sender, EventArgs e)
-        {
-            // disable login button until text box content is validated
-            buttonLogIn.Enabled = false;
-
-            // if text box for password is blank, display error
-            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
-            {
-                errorProvider.SetError(textBoxPassword, "Password is blank!");
-            }
-            // if text box is not empty and email text box has no errors active, enable login button
-            else if (string.IsNullOrWhiteSpace(errorProvider.GetError(textBoxEmail)))
-            {
-                errorProvider.SetError(textBoxPassword, string.Empty);
-                buttonLogIn.Enabled = true;
-            }
-        }
-        */
 
         private void pictureBoxPasswordVisibility_Click(object sender, EventArgs e)
         {
@@ -231,7 +190,9 @@ namespace ApplicantTrackingSystem
         private void linkLabelForgotPassword_Click(object sender, EventArgs e)
         {
             // display bow with a message when user clicks on forgot password
-            MessageBox.Show("Please contact your manager.", "Forgot Password");
+            MessageBox.Show("Please try again or contact your manager.", "Forgot Password");
+            // load default settings of the login page
+            LoadDefaultSettings();
         }
     }
 }

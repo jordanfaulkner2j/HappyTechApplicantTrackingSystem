@@ -33,13 +33,10 @@ namespace ApplicantTrackingSystem
         public const string EMPLOYEE_PASSWORD = "SELECT employee.password FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
         // attribute called administrator (checkbox whether employee has admin privileges)
-        public const string IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+        public const string EMPLOYEE_IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
-        /// <summary>
-        /// insert queries
-        /// </summary>
-        // example insert query
-        const string INSERT_EMPLOYEE = "INSERT INTO employee (employee_id, user_id, job_title, password, administrator) VALUES (NULL, '1', 'HappyTech Administrator', 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f', '1')";
+        // attribute called administrator (checkbox whether employee has admin privileges)
+        public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
 
         /// <summary>
         /// retrieve complete query for retrieving employee details with specified email address
@@ -47,9 +44,33 @@ namespace ApplicantTrackingSystem
         /// <param name="sqlQuery">basic query listing the attributes to search for</param>
         /// <param name="employeeEmail">search by specified employee's email</param>
         /// <returns>fully joined query</returns>
-        public static string GetEmployeeUsingEmail(string sqlQuery, string employeeEmail)
+        public static string GetRecord(string baseQuery, string whereQuery, string whereAttribute)
         {
-            return string.Format("{0} WHERE users.email_address = '{1}'", sqlQuery, employeeEmail);
+            return string.Join(" ", baseQuery, string.Format(whereQuery, whereAttribute));
         }
+
+        /// <summary>
+        /// update queries
+        /// </summary>
+        // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
+        public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE users SET users.first_name = '{0}', users.middle_names = '{1}', users.last_name = '{2}', users.email_address = '{3}', users.mobile_number = '{4}', users.work_number = '{5}'";
+
+        /// <summary>
+        /// retrieve complete query for updating employee details with specified email address
+        /// </summary>
+        /// <param name="sqlQuery">basic query with the list of attributes to update</param>
+        /// <param name="listOfAttributes">attributes to merge with the query</param>
+        /// <param name="employeeEmail">update employee details with specified email address</param>
+        /// <returns></returns>
+        public static string UpdateRecord(string baseQuery, string[] listOfAttributes, string whereQuere, string whereAttribute)
+        {
+            return string.Join(" ", string.Format(baseQuery, listOfAttributes), string.Format(whereQuere, whereAttribute));
+        }
+
+        /// <summary>
+        /// insert queries
+        /// </summary>
+        // example insert query
+        //const string INSERT_EMPLOYEE = "INSERT INTO employee (employee_id, user_id, job_title, password, administrator) VALUES (NULL, '1', 'HappyTech Administrator', 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f', '1')";
     }
 }

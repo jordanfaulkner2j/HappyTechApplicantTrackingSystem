@@ -16,7 +16,7 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
         }
-        public void UpdateEmployeesTable()
+        private void UserControlEmployees_Load(object sender, EventArgs e)
         {
             // get dataset from database based on provided SQL query
             dgvEmployees.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.EMPLOYEES).Tables[0];

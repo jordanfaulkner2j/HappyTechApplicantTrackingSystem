@@ -18,7 +18,7 @@ namespace ApplicantTrackingSystem
         public static (Boolean emailValid, Boolean passwordValid) ValidateCredentials(string enteredEmail, string enteredPassword)
         {
             // retrieve hash from database (entered password never leaves the application)
-            string hashedPassword = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetEmployeeUsingEmail(DatabaseQueries.EMPLOYEE_PASSWORD, enteredEmail));
+            string hashedPassword = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_PASSWORD, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, enteredEmail));
 
             // if hash returns null due to no available records based on the query, email address entered is invalid
             if (hashedPassword == null)

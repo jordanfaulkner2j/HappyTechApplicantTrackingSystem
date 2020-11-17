@@ -44,7 +44,6 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.AcceptsReturn = true;
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorProvider.SetIconPadding(this.textBoxPassword, -20);
             this.textBoxPassword.Location = new System.Drawing.Point(31, 215);

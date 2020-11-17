@@ -54,6 +54,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlTemplates";
             this.Size = new System.Drawing.Size(968, 384);
+            this.Load += new System.EventHandler(this.UserControlTemplates_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).EndInit();
             this.ResumeLayout(false);
 

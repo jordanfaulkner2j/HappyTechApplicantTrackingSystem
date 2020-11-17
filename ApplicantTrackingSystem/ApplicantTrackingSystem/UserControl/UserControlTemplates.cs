@@ -17,7 +17,7 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
 
-        public void UpdateTemplatesTable()
+        private void UserControlTemplates_Load(object sender, EventArgs e)
         {
             // get dataset from database based on provided SQL query
             dgvTemplates.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.TEMPLATES).Tables[0];

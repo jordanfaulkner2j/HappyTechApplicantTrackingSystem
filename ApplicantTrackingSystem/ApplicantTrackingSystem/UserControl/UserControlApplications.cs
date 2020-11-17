@@ -21,7 +21,7 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
 
-        public void UpdateApplicationsTable()
+        private void UserControlApplications_Load(object sender, EventArgs e)
         {
             // get dataset from database based on provided SQL query
             dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
