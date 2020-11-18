@@ -278,6 +278,7 @@
             this.clbApplicationResult.Name = "clbApplicationResult";
             this.clbApplicationResult.Size = new System.Drawing.Size(303, 36);
             this.clbApplicationResult.TabIndex = 7;
+            this.clbApplicationResult.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbApplicationResult_ItemCheck);
             // 
             // lblApplicationResult
             // 
@@ -615,7 +616,7 @@
             this.tbxTemplateName.Click += new System.EventHandler(this.tbxTemplateName_Click);
             this.tbxTemplateName.MouseLeave += new System.EventHandler(this.tbxTemplateName_MouseLeave);
             // 
-            // UserControlCreateTemplate
+            // UserControlCreateEditTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -627,7 +628,7 @@
             this.Controls.Add(this.pnlComments);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UserControlCreateTemplate";
+            this.Name = "UserControlCreateEditTemplate";
             this.Size = new System.Drawing.Size(968, 384);
             this.pnlComments.ResumeLayout(false);
             this.pnlComments.PerformLayout();

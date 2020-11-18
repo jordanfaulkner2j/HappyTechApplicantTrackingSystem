@@ -14,9 +14,13 @@ namespace ApplicantTrackingSystem
     public partial class UserControlCreateEditTemplate : UserControl
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
+        public string defaultHeaderText = "Dear [ApplicantName], Thank you for applying for a position at HappyTech. I am emailing you to inform you that your [application type] has been further reviewed and your application was [applicationSuccess]. The feedback from this is as follows:";
+        public string applicationType;
+        public string applicationResult;
         public UserControlCreateEditTemplate()
         {
             InitializeComponent();
+            tbxHeader.Text = defaultHeaderText;
         }
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
@@ -79,8 +83,72 @@ namespace ApplicantTrackingSystem
         // if an option has been selected, prevent another from being selected as well using a for loop
         private void clbTemplateTypeItemCheck(object sender, ItemCheckEventArgs e)
         {
-            for (int i = 0; i < clbTemplateType.Items.Count; i++)
+            int i;
+            for (i = 0; i < clbTemplateType.Items.Count; i++)
             if (i != e.Index) clbTemplateType.SetItemChecked(i, false);
+            if (clbTemplateType.GetItemCheckState(0) == CheckState.Unchecked)
+            {
+                applicationType = "CV";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(0) == CheckState.Checked)
+            {
+                applicationType = "[application type]";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(1) == CheckState.Unchecked)
+            {
+                applicationType = "Interview";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(1) == CheckState.Checked)
+            {
+                applicationType = "[application type]";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(2) == CheckState.Unchecked)
+            {
+                applicationType = "Technical Interview";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(2) == CheckState.Checked)
+            {
+                applicationType = "[application type]";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+        }
+
+        private void clbApplicationResult_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int i;
+            for (i = 0; i < clbApplicationResult.Items.Count; i++)
+                if (i != e.Index) clbApplicationResult.SetItemChecked(i, false);
+            if (clbTemplateType.GetItemCheckState(0) == CheckState.Unchecked)
+            {
+                applicationResult = "successful";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(0) == CheckState.Checked)
+            {
+                applicationResult = "[successful/unsuccessful]";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(1) == CheckState.Unchecked)
+            {
+                applicationResult = "unsuccessful";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+            else if (clbTemplateType.GetItemCheckState(1) == CheckState.Checked)
+            {
+                applicationResult = "[successful/unsuccessful]";
+                UpdateHeaderText(applicationType, applicationResult);
+            }
+        }
+        private void UpdateHeaderText(string applicationType, string applicationResult)
+        {
+            string apt = applicationType;
+            string apr = applicationResult;
+            tbxHeader.Text = "Dear [ApplicantName], Thank you for applying for a position at HappyTech. I am emailing you to inform you that your " + apt + " has been further reviewed and your application was " + apr + ". The feedback from this is as follows:";
         }
     }
 }
