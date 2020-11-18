@@ -13,14 +13,21 @@ namespace ApplicantTrackingSystem
 {
     public partial class Main : Form
     {
-        // private string of the employee currently logged in
-        private static string loggedInEmployeeEmail;
+        // private object holding this form
+        private static Main mainPage;
         // private object of the current user control displayed
-        private static UserControl runtimePage;
+        private UserControl runtimePage;
+        // private object of the previous user control accessed
+        private UserControl previousPage;
+        // private string of the employee currently logged in
+        private string loggedInEmployeeEmail;
 
         public Main(string employeeEmail)
         {
             InitializeComponent();
+
+            // store this form in a variable to be used as reference later on
+            mainPage = this;
 
             // store signed employee's email
             loggedInEmployeeEmail = employeeEmail;
@@ -35,61 +42,130 @@ namespace ApplicantTrackingSystem
                 manageEmployeesToolStripMenuItem.Visible = false;
             }
 
-            // display employee's name on application
-            labelEmployeeName.Text = "Welcome "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, loggedInEmployeeEmail));
+            // update information displayed on main page
+            UpdateStatus();
 
             // open applications page on start
-            applicationsToolStripMenuItem.PerformClick();
+            OpenPage(new UserControlApplications());
         }
 
-        public static string employeeEmail
+        public static Main mainApplication
         {
             get
             {
-                // function which returns the content of the string if another class requests it
+                return mainPage;
+            }
+        }
+
+        public string employeeEmail
+        {
+            get
+            {
                 return loggedInEmployeeEmail;
             }
         }
 
-        private void openPage(UserControl page)
+        /// <summary>
+        /// update information on banner on main form
+        /// </summary>
+        public void UpdateStatus()
+        {
+            // display employee's name on application
+            labelEmployeeName.Text = "Welcome " + DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, loggedInEmployeeEmail));
+            // display number of completed applications
+            labelNumberCompleted.Text = "8";
+            // display number of remaining applications to be reviewed
+            labelNumberRemaining.Text = "1";
+        }
+
+        /// <summary>
+        /// refresh current page selected from the menu
+        /// </summary>
+        public void RefreshPage()
         {
             if (runtimePage != null)
             {
-                runtimePage.Dispose();
+                runtimePage.Refresh();
             }
+        }
+
+        /// <summary>
+        /// open requested page
+        /// </summary>
+        /// <param name="page">user control object</param>
+        public void OpenPage(UserControl page)
+        {
+            // if current page exists
+            if (runtimePage != null)
+            {
+                // if previous page exists
+                if (previousPage != null)
+                {
+                    // destroy current previous page
+                    previousPage.Dispose();
+                }
+                // store currently opened page as previous page
+                previousPage = runtimePage;
+            }
+            // set current page to requested page
             runtimePage = page;
+            // close previous page
+            panelBody.Controls.Clear();
+            // add requested page
             panelBody.Controls.Add(runtimePage);
+            // adjust docking to fill the panel
+            runtimePage.Dock = DockStyle.Fill;
+        }
+
+        /// <summary>
+        /// open previous page if exists
+        /// </summary>
+        public void GoBackPage()
+        {
+            // if previous page exists
+            if (previousPage != null)
+            {
+                // swap positions of current and previous page
+                UserControl tempPage = runtimePage;
+                runtimePage = previousPage;
+                previousPage = tempPage;
+            }
+            // close previous page
+            panelBody.Controls.Clear();
+            // add requested page
+            panelBody.Controls.Add(runtimePage);
+            // adjust docking to fill the panel
             runtimePage.Dock = DockStyle.Fill;
         }
 
         private void createNewTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with form for creating templates
-            openPage(new UserControlCreateEditTemplate());
+            OpenPage(new UserControlCreateEditTemplate());
         }
 
         private void templatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of existing templates
-            openPage(new UserControlTemplates());
+            OpenPage(new UserControlTemplates());
         }
 
         private void applicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of applications
-            openPage(new UserControlApplications());
+            OpenPage(new UserControlApplications());
         }
 
         private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display page with list of employees
-            openPage(new UserControlEmployees());
+            OpenPage(new UserControlEmployees());
         }
 
         private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display my profile settings
-            openPage(new UserControlMyProfile());
+            OpenPage(new UserControlMyProfile());
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

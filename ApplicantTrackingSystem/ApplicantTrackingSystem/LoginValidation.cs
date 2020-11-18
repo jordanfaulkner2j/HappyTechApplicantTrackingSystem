@@ -85,11 +85,47 @@ namespace ApplicantTrackingSystem
         }
 
         /// <summary>
+        /// check if password is strong enough
+        /// </summary>
+        /// <param name="password">password to be checked</param>
+        /// <returns>error message or null if valid</returns>
+        public static string CheckPasswordStrength(string password)
+        {
+            // check if password was not left blank
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                return "Password must not be left blank!";
+            }
+
+            // check if password is at least 8 characters long
+            if (password.Length < 8)
+            {
+                return "Password must be at least 8 characters long.";
+            }
+
+            // check if password contains at least one lowercase or uppercase letter
+            if (password == password.ToLower() || password == password.ToUpper())
+            {
+                return "Password must contain at least one lowercase or one uppercase letter.";
+            }
+
+            // check if password contains digit (could be extended to check for special character)
+            foreach (char letter in password)
+            {
+                if (char.IsDigit(letter))
+                {
+                    return null;
+                }
+            }
+            return "Password must contain at least one numerical character.";
+        }
+
+        /// <summary>
         /// calculate hash on enetered string
         /// </summary>
         /// <param name="plainTextPassword">plaintext to hash</param>
         /// <returns>hash as string in hexidecimal format</returns>
-        private static string HashPassword(string plainTextPassword)
+        public static string HashPassword(string plainTextPassword)
         {
             // create SHA256 object
             using (SHA256 sha256Hash = SHA256.Create())

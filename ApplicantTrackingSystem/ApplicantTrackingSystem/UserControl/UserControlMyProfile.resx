@@ -117,4 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="errorProvider.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAABtMQAAb5cAAG7ZAABu+gAAbvkAAG7ZAABulwAAcDAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAHEJAABvmgAAb/4AAG//AABv/wAAb/8AAG//AABv/wAAb/8AAG/+AABvmgAA
+        cQkAAAAAAAAAAAAAAAAAAHEJAABuwgAAb/8AAG//AABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/wAA
+        b/8AAG/BAABxCQAAAAAAAAAAAABumwAAb/8AAG//AABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/wAA
+        b/8AAG//AABv/wAAcJkAAAAAAABtMQAAb/4AAG//AABv/7u71f+srM3/AABv/wAAb/8AAG//AABv/6ur
+        zP+8vNb/Bwdw/wAAb/8AAG/+AABwMAAAb5gAAG//AABv/wAAb/+5udL//////42NxP8AAG//AABv/5aW
+        x///////wMDV/wQEb/8AAG//AABv/wAAbpcAAG/aAABv/wAAb/8AAG//AwNw/6urzP/+/v7/k5PG/5aW
+        x///////r6/N/wYGcf8AAG//AABv/wAAb/8AAG7ZAABv+gAAb/8AAG//AABv/wAAb/8GBnH/tLTQ////
+        ////////qKjL/wUFcP8AAG//AABv/wAAb/8AAG//AABu+QAAb/oAAG//AABv/wAAb/8AAG//AgJv/52d
+        yP///////v7+/6amyv8CAm//AABv/wAAb/8AAG//AABv/wAAbvoAAG/aAABv/wAAb/8AAG//BARw/6Oj
+        yf//////sLDO/6Ojyf//////n5/I/wEBb/8AAG//AABv/wAAb/8AAG7ZAABvmAAAb/8AAG//BgZw/7Oz
+        z///////qqrL/wYGcf8CAm//nJzI//////+pqcv/AABv/wAAb/8AAG//AABvlwAAcDIAAG/+AABv/wwM
+        cv/X1+L/ra3M/wQEcP8AAG//AABv/wAAb/+vr83/uLjT/wAAb/8AAG//AABv/gAAbTEAAAAAAABvnAAA
+        b/8AAG//CAhx/wICb/8AAG//AABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/wAAb5oAAAAAAAAAAAAA
+        ZgoAAG7CAABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/wAAbsIAAHEJAAAAAAAA
+        AAAAAAAAAABmCgAAb5wAAG/+AABv/wAAb/8AAG//AABv/wAAb/8AAG//AABv/gAAbpsAAHEJAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAABwMgAAb5gAAG/aAABv+gAAb/oAAG/aAABvmAAAbTEAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

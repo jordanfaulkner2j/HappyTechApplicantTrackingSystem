@@ -55,16 +55,33 @@ namespace ApplicantTrackingSystem
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
         public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE users SET users.first_name = '{0}', users.middle_names = '{1}', users.last_name = '{2}', users.email_address = '{3}', users.mobile_number = '{4}', users.work_number = '{5}'";
 
+        // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
+        public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
         /// <summary>
-        /// retrieve complete query for updating employee details with specified email address
+        /// retrieve complete query for updating record
         /// </summary>
-        /// <param name="sqlQuery">basic query with the list of attributes to update</param>
+        /// <param name="baseQuery">basic query with the list of attributes to update</param>
         /// <param name="listOfAttributes">attributes to merge with the query</param>
-        /// <param name="employeeEmail">update employee details with specified email address</param>
+        /// <param name="whereQuere">where condition</param>
+        /// <param name="whereAttribute">where specified value</param>
         /// <returns></returns>
         public static string UpdateRecord(string baseQuery, string[] listOfAttributes, string whereQuere, string whereAttribute)
         {
             return string.Join(" ", string.Format(baseQuery, listOfAttributes), string.Format(whereQuere, whereAttribute));
+        }
+
+        /// <summary>
+        /// overload method for retrieving complete query for updating single attribute
+        /// </summary>
+        /// <param name="baseQuery">basic query with the list of attributes to update</param>
+        /// <param name="attribute">single attribute</param>
+        /// <param name="whereQuere">where condition</param>
+        /// <param name="whereAttribute">where specified value</param>
+        /// <returns></returns>
+        public static string UpdateRecord(string baseQuery, string attribute, string whereQuere, string whereAttribute)
+        {
+            return string.Join(" ", string.Format(baseQuery, attribute), string.Format(whereQuere, whereAttribute));
         }
 
         /// <summary>

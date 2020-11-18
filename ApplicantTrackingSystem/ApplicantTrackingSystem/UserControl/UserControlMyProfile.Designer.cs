@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMyProfile));
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.buttonUploadPhoto = new System.Windows.Forms.Button();
@@ -43,7 +45,9 @@
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.comboBoxTitle = new System.Windows.Forms.ComboBox();
             this.textBoxMiddleNames = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxFirstName
@@ -67,7 +71,7 @@
             this.buttonUploadPhoto.Location = new System.Drawing.Point(42, 328);
             this.buttonUploadPhoto.Name = "buttonUploadPhoto";
             this.buttonUploadPhoto.Size = new System.Drawing.Size(269, 29);
-            this.buttonUploadPhoto.TabIndex = 3;
+            this.buttonUploadPhoto.TabIndex = 13;
             this.buttonUploadPhoto.Text = "Upload Photo";
             this.buttonUploadPhoto.UseVisualStyleBackColor = true;
             // 
@@ -76,80 +80,88 @@
             this.textBoxLastName.Location = new System.Drawing.Point(669, 74);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(258, 29);
-            this.textBoxLastName.TabIndex = 4;
+            this.textBoxLastName.TabIndex = 3;
             // 
             // textBoxPhoneNumber
             // 
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(391, 122);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(258, 29);
-            this.textBoxPhoneNumber.TabIndex = 5;
+            this.textBoxPhoneNumber.TabIndex = 4;
             // 
             // textBoxWorkNumber
             // 
             this.textBoxWorkNumber.Location = new System.Drawing.Point(669, 122);
             this.textBoxWorkNumber.Name = "textBoxWorkNumber";
             this.textBoxWorkNumber.Size = new System.Drawing.Size(258, 29);
-            this.textBoxWorkNumber.TabIndex = 6;
+            this.textBoxWorkNumber.TabIndex = 5;
             // 
             // textBoxEmailAddress
             // 
             this.textBoxEmailAddress.Location = new System.Drawing.Point(391, 170);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
             this.textBoxEmailAddress.Size = new System.Drawing.Size(536, 29);
-            this.textBoxEmailAddress.TabIndex = 8;
+            this.textBoxEmailAddress.TabIndex = 6;
             // 
             // buttonDiscard
             // 
             this.buttonDiscard.Location = new System.Drawing.Point(391, 218);
             this.buttonDiscard.Name = "buttonDiscard";
             this.buttonDiscard.Size = new System.Drawing.Size(258, 29);
-            this.buttonDiscard.TabIndex = 9;
+            this.buttonDiscard.TabIndex = 7;
             this.buttonDiscard.Text = "Discard";
             this.buttonDiscard.UseVisualStyleBackColor = true;
+            this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(669, 217);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(258, 29);
-            this.buttonSave.TabIndex = 10;
+            this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxNewPasswordConfirmed
             // 
+            this.errorProvider.SetIconPadding(this.textBoxNewPasswordConfirmed, -20);
             this.textBoxNewPasswordConfirmed.Location = new System.Drawing.Point(391, 329);
             this.textBoxNewPasswordConfirmed.Name = "textBoxNewPasswordConfirmed";
             this.textBoxNewPasswordConfirmed.Size = new System.Drawing.Size(258, 29);
-            this.textBoxNewPasswordConfirmed.TabIndex = 13;
+            this.textBoxNewPasswordConfirmed.TabIndex = 10;
             this.textBoxNewPasswordConfirmed.Text = "New Password Confirmed";
+            this.textBoxNewPasswordConfirmed.Enter += new System.EventHandler(this.textBoxNewPasswordConfirmed_Enter);
             // 
             // textBoxCurrentPassword
             // 
+            this.errorProvider.SetIconPadding(this.textBoxCurrentPassword, -20);
             this.textBoxCurrentPassword.Location = new System.Drawing.Point(669, 281);
             this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
             this.textBoxCurrentPassword.Size = new System.Drawing.Size(258, 29);
-            this.textBoxCurrentPassword.TabIndex = 12;
+            this.textBoxCurrentPassword.TabIndex = 11;
             this.textBoxCurrentPassword.Text = "Current Password";
+            this.textBoxCurrentPassword.Enter += new System.EventHandler(this.textBoxCurrentPassword_Enter);
             // 
             // textBoxNewPassword
             // 
+            this.errorProvider.SetIconPadding(this.textBoxNewPassword, -20);
             this.textBoxNewPassword.Location = new System.Drawing.Point(391, 281);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(258, 29);
-            this.textBoxNewPassword.TabIndex = 11;
+            this.textBoxNewPassword.TabIndex = 9;
             this.textBoxNewPassword.Text = "New Password";
+            this.textBoxNewPassword.Enter += new System.EventHandler(this.textBoxNewPassword_Enter);
             // 
             // buttonChangePassword
             // 
             this.buttonChangePassword.Location = new System.Drawing.Point(669, 328);
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(258, 29);
-            this.buttonChangePassword.TabIndex = 14;
+            this.buttonChangePassword.TabIndex = 12;
             this.buttonChangePassword.Text = "Change Password";
             this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 
             // comboBoxTitle
             // 
@@ -157,7 +169,7 @@
             this.comboBoxTitle.Location = new System.Drawing.Point(528, 26);
             this.comboBoxTitle.Name = "comboBoxTitle";
             this.comboBoxTitle.Size = new System.Drawing.Size(121, 29);
-            this.comboBoxTitle.TabIndex = 16;
+            this.comboBoxTitle.TabIndex = 0;
             this.comboBoxTitle.Text = "Title";
             // 
             // textBoxMiddleNames
@@ -165,7 +177,13 @@
             this.textBoxMiddleNames.Location = new System.Drawing.Point(391, 74);
             this.textBoxMiddleNames.Name = "textBoxMiddleNames";
             this.textBoxMiddleNames.Size = new System.Drawing.Size(258, 29);
-            this.textBoxMiddleNames.TabIndex = 17;
+            this.textBoxMiddleNames.TabIndex = 2;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
             // UserControlMyProfile
             // 
@@ -192,6 +210,7 @@
             this.Size = new System.Drawing.Size(968, 384);
             this.Load += new System.EventHandler(this.UserControlMyProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +233,6 @@
         private System.Windows.Forms.Button buttonChangePassword;
         private System.Windows.Forms.ComboBox comboBoxTitle;
         private System.Windows.Forms.TextBox textBoxMiddleNames;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
