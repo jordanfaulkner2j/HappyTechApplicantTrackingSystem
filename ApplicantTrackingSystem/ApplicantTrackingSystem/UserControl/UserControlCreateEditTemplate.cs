@@ -144,7 +144,7 @@ namespace ApplicantTrackingSystem
                 UpdateHeaderText(applicationType, applicationResult);
             }
         }
-        private void UpdateHeadeText(string applicationType, string applicationResult)
+        private void UpdateHeaderText(string applicationType, string applicationResult)
         {
             string apt = applicationType;
             string apr = applicationResult;

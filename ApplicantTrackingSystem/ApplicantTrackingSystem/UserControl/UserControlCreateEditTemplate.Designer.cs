@@ -514,7 +514,6 @@
             this.tbxHeader.Size = new System.Drawing.Size(446, 98);
             this.tbxHeader.TabIndex = 4;
             this.tbxHeader.Text = resources.GetString("tbxHeader.Text");
-            this.tbxHeader.TextChanged += new System.EventHandler(this.tbxHeader_TextChanged);
             // 
             // lblHeaderPreview
             // 
