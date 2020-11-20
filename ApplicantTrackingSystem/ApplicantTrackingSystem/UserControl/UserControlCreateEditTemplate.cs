@@ -144,11 +144,12 @@ namespace ApplicantTrackingSystem
                 UpdateHeaderText(applicationType, applicationResult);
             }
         }
-        private void UpdateHeaderText(string applicationType, string applicationResult)
+        private void UpdateHeadeText(string applicationType, string applicationResult)
         {
             string apt = applicationType;
             string apr = applicationResult;
             tbxHeader.Text = "Dear [ApplicantName], Thank you for applying for a position at HappyTech. I am emailing you to inform you that your " + apt + " has been further reviewed and your application was " + apr + ". The feedback from this is as follows:";
         }
+
     }
 }

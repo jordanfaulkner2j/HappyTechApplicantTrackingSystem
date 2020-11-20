@@ -22,5 +22,10 @@ namespace ApplicantTrackingSystem
             // get dataset from database based on provided SQL query
             dgvTemplates.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.TEMPLATES).Tables[0];
         }
+
+        private void dgvTemplates_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

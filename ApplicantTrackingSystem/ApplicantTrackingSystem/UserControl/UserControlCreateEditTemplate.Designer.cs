@@ -131,7 +131,7 @@
             "Q03 - Applicant could answer most questions"});
             this.checkedListBox3.Location = new System.Drawing.Point(7, 28);
             this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox3.Size = new System.Drawing.Size(303, 40);
             this.checkedListBox3.TabIndex = 4;
             // 
             // lblQuestions
@@ -140,7 +140,7 @@
             this.lblQuestions.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuestions.Location = new System.Drawing.Point(4, 7);
             this.lblQuestions.Name = "lblQuestions";
-            this.lblQuestions.Size = new System.Drawing.Size(149, 16);
+            this.lblQuestions.Size = new System.Drawing.Size(167, 19);
             this.lblQuestions.TabIndex = 2;
             this.lblQuestions.Text = "Applicant Questions";
             // 
@@ -167,7 +167,7 @@
             "I03 - Applicant was very prepared and focused"});
             this.checkedListBox1.Location = new System.Drawing.Point(7, 28);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox1.Size = new System.Drawing.Size(303, 40);
             this.checkedListBox1.TabIndex = 4;
             // 
             // lblImpression
@@ -176,7 +176,7 @@
             this.lblImpression.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblImpression.Location = new System.Drawing.Point(4, 7);
             this.lblImpression.Name = "lblImpression";
-            this.lblImpression.Size = new System.Drawing.Size(172, 16);
+            this.lblImpression.Size = new System.Drawing.Size(192, 19);
             this.lblImpression.TabIndex = 2;
             this.lblImpression.Text = "Impression of Applicant";
             // 
@@ -203,7 +203,7 @@
             "U03 - Great understanding of HappyTech\'s values"});
             this.checkedListBox2.Location = new System.Drawing.Point(7, 28);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(303, 48);
+            this.checkedListBox2.Size = new System.Drawing.Size(303, 40);
             this.checkedListBox2.TabIndex = 4;
             // 
             // lblUnderstanding
@@ -212,7 +212,7 @@
             this.lblUnderstanding.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblUnderstanding.Location = new System.Drawing.Point(4, 7);
             this.lblUnderstanding.Name = "lblUnderstanding";
-            this.lblUnderstanding.Size = new System.Drawing.Size(210, 16);
+            this.lblUnderstanding.Size = new System.Drawing.Size(237, 19);
             this.lblUnderstanding.TabIndex = 2;
             this.lblUnderstanding.Text = "Understanding of HappyTech";
             // 
@@ -238,7 +238,7 @@
             "F02 - Kind regards"});
             this.clbFooter.Location = new System.Drawing.Point(9, 30);
             this.clbFooter.Name = "clbFooter";
-            this.clbFooter.Size = new System.Drawing.Size(285, 36);
+            this.clbFooter.Size = new System.Drawing.Size(285, 22);
             this.clbFooter.TabIndex = 4;
             // 
             // lblFooter
@@ -247,7 +247,7 @@
             this.lblFooter.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblFooter.Location = new System.Drawing.Point(4, 7);
             this.lblFooter.Name = "lblFooter";
-            this.lblFooter.Size = new System.Drawing.Size(55, 16);
+            this.lblFooter.Size = new System.Drawing.Size(61, 19);
             this.lblFooter.TabIndex = 2;
             this.lblFooter.Text = "Footer";
             // 
@@ -276,7 +276,7 @@
             "Unsuccessful"});
             this.clbApplicationResult.Location = new System.Drawing.Point(7, 137);
             this.clbApplicationResult.Name = "clbApplicationResult";
-            this.clbApplicationResult.Size = new System.Drawing.Size(303, 36);
+            this.clbApplicationResult.Size = new System.Drawing.Size(303, 22);
             this.clbApplicationResult.TabIndex = 7;
             this.clbApplicationResult.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbApplicationResult_ItemCheck);
             // 
@@ -286,7 +286,7 @@
             this.lblApplicationResult.Font = new System.Drawing.Font("Arial", 10F);
             this.lblApplicationResult.Location = new System.Drawing.Point(6, 115);
             this.lblApplicationResult.Name = "lblApplicationResult";
-            this.lblApplicationResult.Size = new System.Drawing.Size(112, 16);
+            this.lblApplicationResult.Size = new System.Drawing.Size(132, 19);
             this.lblApplicationResult.TabIndex = 6;
             this.lblApplicationResult.Text = "Application Was:";
             // 
@@ -296,7 +296,7 @@
             this.lblTemplateType.Font = new System.Drawing.Font("Arial", 10F);
             this.lblTemplateType.Location = new System.Drawing.Point(4, 30);
             this.lblTemplateType.Name = "lblTemplateType";
-            this.lblTemplateType.Size = new System.Drawing.Size(109, 16);
+            this.lblTemplateType.Size = new System.Drawing.Size(125, 19);
             this.lblTemplateType.TabIndex = 5;
             this.lblTemplateType.Text = "Template Is For:";
             // 
@@ -312,7 +312,7 @@
             "Technical Interview"});
             this.clbTemplateType.Location = new System.Drawing.Point(7, 49);
             this.clbTemplateType.Name = "clbTemplateType";
-            this.clbTemplateType.Size = new System.Drawing.Size(303, 54);
+            this.clbTemplateType.Size = new System.Drawing.Size(303, 44);
             this.clbTemplateType.TabIndex = 4;
             this.clbTemplateType.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbTemplateTypeItemCheck);
             // 
@@ -322,7 +322,7 @@
             this.lblHeader.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblHeader.Location = new System.Drawing.Point(4, 7);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(59, 16);
+            this.lblHeader.Size = new System.Drawing.Size(65, 19);
             this.lblHeader.TabIndex = 2;
             this.lblHeader.Text = "Header";
             // 
@@ -332,7 +332,7 @@
             this.lblSections.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblSections.Location = new System.Drawing.Point(21, 8);
             this.lblSections.Name = "lblSections";
-            this.lblSections.Size = new System.Drawing.Size(69, 16);
+            this.lblSections.Size = new System.Drawing.Size(77, 19);
             this.lblSections.TabIndex = 0;
             this.lblSections.Text = "Sections";
             // 
@@ -378,7 +378,7 @@
             this.lblFooterPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblFooterPreview.Location = new System.Drawing.Point(6, 6);
             this.lblFooterPreview.Name = "lblFooterPreview";
-            this.lblFooterPreview.Size = new System.Drawing.Size(55, 16);
+            this.lblFooterPreview.Size = new System.Drawing.Size(61, 19);
             this.lblFooterPreview.TabIndex = 2;
             this.lblFooterPreview.Text = "Footer";
             // 
@@ -408,7 +408,7 @@
             this.lblQuestionsPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblQuestionsPreview.Location = new System.Drawing.Point(6, 6);
             this.lblQuestionsPreview.Name = "lblQuestionsPreview";
-            this.lblQuestionsPreview.Size = new System.Drawing.Size(149, 16);
+            this.lblQuestionsPreview.Size = new System.Drawing.Size(167, 19);
             this.lblQuestionsPreview.TabIndex = 2;
             this.lblQuestionsPreview.Text = "Applicant Questions";
             // 
@@ -438,7 +438,7 @@
             this.lblImpressionPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblImpressionPreview.Location = new System.Drawing.Point(6, 6);
             this.lblImpressionPreview.Name = "lblImpressionPreview";
-            this.lblImpressionPreview.Size = new System.Drawing.Size(172, 16);
+            this.lblImpressionPreview.Size = new System.Drawing.Size(192, 19);
             this.lblImpressionPreview.TabIndex = 2;
             this.lblImpressionPreview.Text = "Impression of Applicant";
             // 
@@ -468,7 +468,7 @@
             this.lblUnderstandingPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblUnderstandingPreview.Location = new System.Drawing.Point(6, 6);
             this.lblUnderstandingPreview.Name = "lblUnderstandingPreview";
-            this.lblUnderstandingPreview.Size = new System.Drawing.Size(210, 16);
+            this.lblUnderstandingPreview.Size = new System.Drawing.Size(237, 19);
             this.lblUnderstandingPreview.TabIndex = 2;
             this.lblUnderstandingPreview.Text = "Understanding of HappyTech";
             // 
@@ -488,9 +488,9 @@
             // tbxApplicantName
             // 
             this.tbxApplicantName.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxApplicantName.Location = new System.Drawing.Point(122, 24);
+            this.tbxApplicantName.Location = new System.Drawing.Point(135, 24);
             this.tbxApplicantName.Name = "tbxApplicantName";
-            this.tbxApplicantName.Size = new System.Drawing.Size(298, 23);
+            this.tbxApplicantName.Size = new System.Drawing.Size(285, 27);
             this.tbxApplicantName.TabIndex = 2;
             this.tbxApplicantName.Text = "Enter a name...";
             this.tbxApplicantName.Click += new System.EventHandler(this.tbxApplicantName_Click);
@@ -501,7 +501,7 @@
             this.lblApplicantName.Font = new System.Drawing.Font("Arial", 10F);
             this.lblApplicantName.Location = new System.Drawing.Point(6, 27);
             this.lblApplicantName.Name = "lblApplicantName";
-            this.lblApplicantName.Size = new System.Drawing.Size(110, 16);
+            this.lblApplicantName.Size = new System.Drawing.Size(128, 19);
             this.lblApplicantName.TabIndex = 8;
             this.lblApplicantName.Text = "Applicant Name:";
             // 
@@ -514,6 +514,7 @@
             this.tbxHeader.Size = new System.Drawing.Size(446, 98);
             this.tbxHeader.TabIndex = 4;
             this.tbxHeader.Text = resources.GetString("tbxHeader.Text");
+            this.tbxHeader.TextChanged += new System.EventHandler(this.tbxHeader_TextChanged);
             // 
             // lblHeaderPreview
             // 
@@ -521,7 +522,7 @@
             this.lblHeaderPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblHeaderPreview.Location = new System.Drawing.Point(6, 6);
             this.lblHeaderPreview.Name = "lblHeaderPreview";
-            this.lblHeaderPreview.Size = new System.Drawing.Size(59, 16);
+            this.lblHeaderPreview.Size = new System.Drawing.Size(65, 19);
             this.lblHeaderPreview.TabIndex = 2;
             this.lblHeaderPreview.Text = "Header";
             // 
@@ -531,7 +532,7 @@
             this.lblPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblPreview.Location = new System.Drawing.Point(19, 8);
             this.lblPreview.Name = "lblPreview";
-            this.lblPreview.Size = new System.Drawing.Size(65, 16);
+            this.lblPreview.Size = new System.Drawing.Size(71, 19);
             this.lblPreview.TabIndex = 0;
             this.lblPreview.Text = "Preview";
             // 
@@ -601,16 +602,16 @@
             this.lblTemplateName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemplateName.Location = new System.Drawing.Point(17, 14);
             this.lblTemplateName.Name = "lblTemplateName";
-            this.lblTemplateName.Size = new System.Drawing.Size(112, 16);
+            this.lblTemplateName.Size = new System.Drawing.Size(134, 19);
             this.lblTemplateName.TabIndex = 1;
             this.lblTemplateName.Text = "Template Name:";
             // 
             // tbxTemplateName
             // 
             this.tbxTemplateName.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxTemplateName.Location = new System.Drawing.Point(133, 11);
+            this.tbxTemplateName.Location = new System.Drawing.Point(157, 11);
             this.tbxTemplateName.Name = "tbxTemplateName";
-            this.tbxTemplateName.Size = new System.Drawing.Size(358, 23);
+            this.tbxTemplateName.Size = new System.Drawing.Size(334, 27);
             this.tbxTemplateName.TabIndex = 0;
             this.tbxTemplateName.Text = "Enter a name for this template...";
             this.tbxTemplateName.Click += new System.EventHandler(this.tbxTemplateName_Click);
@@ -618,7 +619,7 @@
             // 
             // UserControlCreateEditTemplate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.pnlNaming);

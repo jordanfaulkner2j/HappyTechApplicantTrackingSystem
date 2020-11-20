@@ -44,10 +44,11 @@
             this.dgvTemplates.RowTemplate.Height = 33;
             this.dgvTemplates.Size = new System.Drawing.Size(968, 384);
             this.dgvTemplates.TabIndex = 6;
+            this.dgvTemplates.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTemplates_CellContentClick);
             // 
             // UserControlTemplates
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvTemplates);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
