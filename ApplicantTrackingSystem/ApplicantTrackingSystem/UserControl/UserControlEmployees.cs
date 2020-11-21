@@ -22,9 +22,14 @@ namespace ApplicantTrackingSystem
             dgvEmployees.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.EMPLOYEES).Tables[0];
         }
 
-        private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvEmployees_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // disable header row selection
+            if (e.RowIndex >= 0)
+            {
+                // when a record is selected, open page with their details
+                Main.mainApplication.OpenPage(new UserControlMyProfile(dgvEmployees.Rows[e.RowIndex].Cells["Email Address"].Value.ToString()));
+            }
         }
     }
 }

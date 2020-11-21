@@ -61,5 +61,23 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        private void dgvApplications_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // disable header row selection
+            if (e.RowIndex >= 0)
+            {
+                // try converting string value of applicant ID to integer
+                if (Int32.TryParse(dgvApplications.Rows[e.RowIndex].Cells[0].Value.ToString(), out int applicantID))
+                {
+                    // when application selected for review, open new page with all necessary details
+                    Main.mainApplication.OpenPage(new UserControlFeedback(applicantID));
+                }
+                else
+                {
+                    // else display error message
+                    MessageBox.Show("Invalid application selected.", "Error Message");
+                }
+            }
+        }
     }
 }

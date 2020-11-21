@@ -73,9 +73,9 @@ namespace ApplicantTrackingSystem
             // display employee's name on application
             labelEmployeeName.Text = "Welcome " + DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, loggedInEmployeeEmail));
             // display number of completed applications
-            labelNumberCompleted.Text = "8";
+            labelNumberCompleted.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute("SELECT COUNT(*) FROM applications WHERE applications.feedback_left = 1").ToString();
             // display number of remaining applications to be reviewed
-            labelNumberRemaining.Text = "1";
+            labelNumberRemaining.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute("SELECT COUNT(*) FROM applications WHERE applications.feedback_left = 0").ToString();
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace ApplicantTrackingSystem
         private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display my profile settings
-            OpenPage(new UserControlMyProfile());
+            OpenPage(new UserControlMyProfile(loggedInEmployeeEmail));
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
