@@ -52,7 +52,7 @@ namespace ApplicantTrackingSystem
         {
             // ask the employee if they want to discard their changes
             // use a messagebox with yes and no buttons to confirm their choice
-            // if they click yes, take them to the templates page
+            // if they click yes, take them back to the previous page
             // if they click no, do nothing
             string title = "Discard Changes";
             string message = "Are you sure you want to discard all changes made?";
@@ -60,7 +60,8 @@ namespace ApplicantTrackingSystem
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                // bring the templates page to the front
+                // go back to previous page
+                Main.mainApplication.GoBackPage();
             }
         }
         // clear the template name text box when the employee clicks on it so they can name the template
