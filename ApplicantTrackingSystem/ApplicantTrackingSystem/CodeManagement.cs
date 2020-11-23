@@ -19,7 +19,6 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
         }
-
         private void AddCode_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'databaseDataSet.section' table. You can move, or remove it, as needed.
@@ -45,7 +44,7 @@ namespace ApplicantTrackingSystem
                 string message = "Comment could not be saved. Please make sure all fields have been entered.";
                 MessageBox.Show(message, title);
             }
-            else if (code == DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + code + "'"))
+            else if (code == DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " code = '" + code + "'"))
             {
                 string title = "Code Already Exists";
                 string message = "A comment with this code already exists.";
@@ -64,6 +63,14 @@ namespace ApplicantTrackingSystem
                 tbxComment.Clear();
             }
         }
+        // when the delete code button is clicked
+        // check to see if the code text box has been left empty; if so, display a message box asking for a code to be entered into the text box
+        // once a code is entered, get the comment_id with the WHERE condition as code = 'code'
+        // get the comment with the WHERE condition as code = 'code'
+        // get the section_id with the WHERE condition as code = 'code'
+        // display a message box asking the employee if they are sure about deleting the comment that matches the code they entered
+        // the section_id, code and comment are part of the message so that it is easier for the employee to double-check that they entered the right code
+        // if they clicked 'Yes', then delete the code and make a message box pop up informing them that the comment has been deleted and refresh the data grid view; if they clicked 'No', do nothing
         private void btnDeleteCode_Click(object sender, EventArgs e)
         {
             code = tbxCode.Text;
@@ -78,17 +85,17 @@ namespace ApplicantTrackingSystem
             }
             else
             {
-                string commentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT_ID + code + "'"));
-                comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + code + "'");
-                sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + code + "'"));
-                string section = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION + sectionID + "'");
+                string commentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT_ID + " code = '" + code + "'"));
+                comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " code = '" + code + "'");
+                sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + " code = '" + code + "'"));
+                string section = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION + " section_ID = '" + sectionID + "'");
                 title = "Delete Comment";
                 message = "Are you sure you want to delete the following comment?" + '\n' + '\n' + "Section: " + section + '\n' + "ID: " + commentID + ", Code: " + code + ", Comment: " + comment;
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.Yes)
                 {
-                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.DELETE_COMMENT + commentID + "'");
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.DELETE_COMMENT + " comment_id = '" + commentID + "'");
                     title = "Delete Comment";
                     message = "Comment successfully deleted from table.";
                     MessageBox.Show(message, title);

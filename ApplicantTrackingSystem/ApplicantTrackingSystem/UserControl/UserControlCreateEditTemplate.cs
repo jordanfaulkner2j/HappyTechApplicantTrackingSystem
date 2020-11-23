@@ -22,6 +22,53 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
             tbxHeader.Text = defaultHeaderText;
+            InitialiseComments();
+        }
+        // get the highest value of the comment_id primary key
+        // create a for loop that iterates for as long as the highest value (so that all records are included in each iteration)
+        // get the section ID of the comment by using its comment ID
+        // if the comment ID is missing (e.g. if record containing comment has been deleted), increment by 1 and check to see if the section id of the next comment ID value can be retrieved (iterates until the highest value is reached)
+        // once the section ID is retrieved, get the section's title by using its section ID as a SELECT WHERE query
+        // if the section title equals the name of a label, get the code and comment values using its comment ID
+        // add each comment that was found into the checkbox list that matches the section the comment is from
+        private void InitialiseComments()
+        {
+            int highestCommentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.MAX_COMMENT_ID);
+            int i;
+            int commentID = 1;
+            for (i = 0; i < highestCommentID; i++)
+            {
+                int sectionID = 1;
+                string getSectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + " comment_id = '" + commentID + "'"));
+                bool recordExists = int.TryParse(getSectionID, out sectionID);
+                if (recordExists == true)
+                {
+                    string sectionTitle = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION + " section_id = '" + getSectionID + "'");
+                    if (sectionTitle == lblUnderstanding.Text)
+                    {
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
+                        clbUnderstanding.Items.Add(code + " - " + comment);
+                    }
+                    else if (sectionTitle == lblImpression.Text)
+                    {
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
+                        clbImpression.Items.Add(code + " - " + comment);
+                    }
+                    else if (sectionTitle == lblQuestions.Text)
+                    {
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
+                        clbQuestions.Items.Add(code + " - " + comment);
+                    }
+                    commentID++;
+                }
+                else
+                {
+                    commentID++;
+                }
+            }
         }
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
@@ -179,8 +226,8 @@ namespace ApplicantTrackingSystem
         {
             CodeManagement addCode = new CodeManagement();
             string title = "Understanding of HappyTech";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + title + "'"));
-            addCode.ShowDialog();
+            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
+            addCode.Show();
         }
         // if the button to add a new code is clicked
         // save the title of the section as string
@@ -191,7 +238,7 @@ namespace ApplicantTrackingSystem
         {
             CodeManagement addCode = new CodeManagement();
             string title = "Impression of Applicant";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + title + "'"));
+            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
             addCode.ShowDialog();
         }
         // if the button to add a new code is clicked
@@ -203,7 +250,7 @@ namespace ApplicantTrackingSystem
         {
             CodeManagement addCode = new CodeManagement();
             string title = "Applicant Questions";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + title + "'"));
+            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
             addCode.ShowDialog();
         }
     }

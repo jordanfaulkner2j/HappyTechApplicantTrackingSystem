@@ -130,10 +130,6 @@
             this.clbQuestions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clbQuestions.Font = new System.Drawing.Font("Arial", 9F);
             this.clbQuestions.FormattingEnabled = true;
-            this.clbQuestions.Items.AddRange(new object[] {
-            "Q01 - Applicant could not answer many questions",
-            "Q02 - Applicant could answer some questions",
-            "Q03 - Applicant could answer most questions"});
             this.clbQuestions.Location = new System.Drawing.Point(7, 28);
             this.clbQuestions.Name = "clbQuestions";
             this.clbQuestions.Size = new System.Drawing.Size(303, 48);
@@ -182,10 +178,6 @@
             this.clbImpression.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clbImpression.Font = new System.Drawing.Font("Arial", 9F);
             this.clbImpression.FormattingEnabled = true;
-            this.clbImpression.Items.AddRange(new object[] {
-            "I01 - Applicant did not seem to be prepared",
-            "I02 - Applicant was quite prepared",
-            "I03 - Applicant was very prepared and focused"});
             this.clbImpression.Location = new System.Drawing.Point(7, 28);
             this.clbImpression.Name = "clbImpression";
             this.clbImpression.Size = new System.Drawing.Size(303, 48);
@@ -234,10 +226,6 @@
             this.clbUnderstanding.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clbUnderstanding.Font = new System.Drawing.Font("Arial", 9F);
             this.clbUnderstanding.FormattingEnabled = true;
-            this.clbUnderstanding.Items.AddRange(new object[] {
-            "U01 - Little understanding of HappyTech\'s values",
-            "U02 - Some understanding of HappyTech\'s values",
-            "U03 - Great understanding of HappyTech\'s values"});
             this.clbUnderstanding.Location = new System.Drawing.Point(7, 28);
             this.clbUnderstanding.Name = "clbUnderstanding";
             this.clbUnderstanding.Size = new System.Drawing.Size(303, 48);
@@ -608,7 +596,6 @@
         private System.Windows.Forms.CheckedListBox clbImpression;
         private System.Windows.Forms.Label lblImpression;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckedListBox clbUnderstanding;
         private System.Windows.Forms.Label lblUnderstanding;
         private System.Windows.Forms.CheckedListBox clbApplicationResult;
         private System.Windows.Forms.Label lblApplicationResult;
@@ -619,5 +606,6 @@
         private System.Windows.Forms.Button btnAddImpressionCode;
         private System.Windows.Forms.Button btnAddUnderstandingCode;
         private System.Windows.Forms.Button btnAddQuestionsCode;
+        public System.Windows.Forms.CheckedListBox clbUnderstanding;
     }
 }

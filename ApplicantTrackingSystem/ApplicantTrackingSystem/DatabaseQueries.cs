@@ -34,23 +34,26 @@ namespace ApplicantTrackingSystem
 
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
-
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
-        // attribute called code
-        public const string GET_CODE = "SELECT code FROM comment WHERE code = '";
+        // attribute called code with WHERE condition
+        public const string GET_CODE = "SELECT code FROM comment WHERE";
         // attribute called comment_id
-        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE code = '";
+        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE";
         // attribute called comment
-        public const string GET_COMMENT = "SELECT comment FROM comment WHERE code = '";
+        public const string GET_COMMENT = "SELECT comment FROM comment WHERE";
         // attribute called section_id
-        public const string GET_SECTION = "SELECT title FROM section WHERE section_ID = '";
+        public const string GET_SECTION = "SELECT title FROM section WHERE";
         // attribute called section_id, retrieved from comment table
-        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE code = '";
+        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE";
         // attribute called section_id, retrieved from section table (used to get section_id for CodeManagement form by using title of section)
-        public const string GET_SECTION_ID_SECTION = "SELECT section_id FROM section WHERE title = '";
+        public const string GET_SECTION_ID_SECTION = "SELECT section_id FROM section WHERE";
         // delete record from comment table
-        public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '";
+        public const string DELETE_COMMENT = "DELETE FROM comment WHERE";
+        // get highest comment_id from comment table
+        public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
+        // count sections
+        public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
 
         /// <summary>
         /// retrieve complete query for retrieving employee details with specified email address
