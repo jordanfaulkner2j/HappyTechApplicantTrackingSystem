@@ -88,6 +88,6 @@ namespace ApplicantTrackingSystem
         /// insert queries
         /// </summary>
         // example insert query
-        //const string INSERT_EMPLOYEE = "INSERT INTO employee (employee_id, user_id, job_title, password, administrator) VALUES (NULL, '1', 'HappyTech Administrator', 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f', '1')";
+        public const string INSERT_TEMPLATE = "INSERT INTO template (title, header, footer) VALUES (";
     }
 }
