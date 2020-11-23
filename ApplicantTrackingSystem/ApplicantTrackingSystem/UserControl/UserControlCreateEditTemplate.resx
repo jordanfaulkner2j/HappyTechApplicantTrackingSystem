@@ -120,8 +120,7 @@
   <data name="tbxHeader.Text" xml:space="preserve">
     <value>Dear [ApplicantName],
 Thank you for applying for a position at HappyTech. I am emailing
-you to inform you that your [applicationType] has been further reviewed
-and your application was [applicationSuccess]. The feedback from this is
-as follows:</value>
+you to inform you that your [templateType] has been further reviewed
+and your application was [successful/unsuccessful]. The feedback from this is as follows:</value>
   </data>
 </root>

@@ -37,6 +37,20 @@ namespace ApplicantTrackingSystem
 
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
+        // attribute called code
+        public const string GET_CODE = "SELECT code FROM comment WHERE code = '";
+        // attribute called comment_id
+        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE code = '";
+        // attribute called comment
+        public const string GET_COMMENT = "SELECT comment FROM comment WHERE code = '";
+        // attribute called section_id
+        public const string GET_SECTION = "SELECT title FROM section WHERE section_ID = '";
+        // attribute called section_id, retrieved from comment table
+        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE code = '";
+        // attribute called section_id, retrieved from section table (used to get section_id for CodeManagement form by using title of section)
+        public const string GET_SECTION_ID_SECTION = "SELECT section_id FROM section WHERE title = '";
+        // delete record from comment table
+        public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '";
 
         /// <summary>
         /// retrieve complete query for retrieving employee details with specified email address
@@ -89,5 +103,6 @@ namespace ApplicantTrackingSystem
         /// </summary>
         // example insert query
         public const string INSERT_TEMPLATE = "INSERT INTO template (title, header, footer) VALUES (";
+        public const string INSERT_COMMENT = "INSERT INTO comment (section_id, code, comment) VALUES (";
     }
 }

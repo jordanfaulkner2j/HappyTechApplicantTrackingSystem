@@ -63,6 +63,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeManagement.Designer.cs">
+      <DependentUpon>CodeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseCommentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseCommentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseQueries.cs" />
     <Compile Include="FileWriter.cs" />
     <Compile Include="Login.cs">
@@ -122,6 +138,9 @@
     <Compile Include="UserControl\UserControlApplications.Designer.cs">
       <DependentUpon>UserControlApplications.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CodeManagement.resx">
+      <DependentUpon>CodeManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +176,28 @@
       <DependentUpon>UserControlApplications.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="DatabaseCommentDataSet.xsc">
+      <DependentUpon>DatabaseCommentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseCommentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseCommentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseCommentDataSet.xss">
+      <DependentUpon>DatabaseCommentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet.xsc">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet.xss">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

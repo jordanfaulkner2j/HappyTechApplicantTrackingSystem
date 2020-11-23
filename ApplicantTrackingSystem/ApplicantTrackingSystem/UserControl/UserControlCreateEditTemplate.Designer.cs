@@ -31,12 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCreateEditTemplate));
             this.pnlComments = new System.Windows.Forms.Panel();
             this.pnlApplicantQuestions = new System.Windows.Forms.Panel();
+            this.btnAddQuestionsCode = new System.Windows.Forms.Button();
             this.clbQuestions = new System.Windows.Forms.CheckedListBox();
             this.lblQuestions = new System.Windows.Forms.Label();
             this.pnlImpression = new System.Windows.Forms.Panel();
+            this.btnAddImpressionCode = new System.Windows.Forms.Button();
             this.clbImpression = new System.Windows.Forms.CheckedListBox();
             this.lblImpression = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddUnderstandingCode = new System.Windows.Forms.Button();
             this.clbUnderstanding = new System.Windows.Forms.CheckedListBox();
             this.lblUnderstanding = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
@@ -47,21 +50,12 @@
             this.lblApplicationResult = new System.Windows.Forms.Label();
             this.lblTemplateType = new System.Windows.Forms.Label();
             this.clbTemplateType = new System.Windows.Forms.CheckedListBox();
-            this.lblHeader = new System.Windows.Forms.Label();
+            this.lblTemplateSettings = new System.Windows.Forms.Label();
             this.lblSections = new System.Windows.Forms.Label();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.pnlFooterPreview = new System.Windows.Forms.Panel();
             this.tbxFooter = new System.Windows.Forms.TextBox();
             this.lblFooterPreview = new System.Windows.Forms.Label();
-            this.pnlQuestionsPreview = new System.Windows.Forms.Panel();
-            this.tbxQuestions = new System.Windows.Forms.TextBox();
-            this.lblQuestionsPreview = new System.Windows.Forms.Label();
-            this.pnlImpressionPreview = new System.Windows.Forms.Panel();
-            this.tbxImpression = new System.Windows.Forms.TextBox();
-            this.lblImpressionPreview = new System.Windows.Forms.Label();
-            this.pnlUnderstandingPreview = new System.Windows.Forms.Panel();
-            this.tbxUnderstanding = new System.Windows.Forms.TextBox();
-            this.lblUnderstandingPreview = new System.Windows.Forms.Label();
             this.pnlHeaderPreview = new System.Windows.Forms.Panel();
             this.tbxHeader = new System.Windows.Forms.TextBox();
             this.lblHeaderPreview = new System.Windows.Forms.Label();
@@ -81,9 +75,6 @@
             this.pnlHeader.SuspendLayout();
             this.pnlPreview.SuspendLayout();
             this.pnlFooterPreview.SuspendLayout();
-            this.pnlQuestionsPreview.SuspendLayout();
-            this.pnlImpressionPreview.SuspendLayout();
-            this.pnlUnderstandingPreview.SuspendLayout();
             this.pnlHeaderPreview.SuspendLayout();
             this.pnlDiscard.SuspendLayout();
             this.pnlSaveTemplate.SuspendLayout();
@@ -110,12 +101,28 @@
             // 
             this.pnlApplicantQuestions.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.pnlApplicantQuestions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlApplicantQuestions.Controls.Add(this.btnAddQuestionsCode);
             this.pnlApplicantQuestions.Controls.Add(this.clbQuestions);
             this.pnlApplicantQuestions.Controls.Add(this.lblQuestions);
-            this.pnlApplicantQuestions.Location = new System.Drawing.Point(20, 410);
+            this.pnlApplicantQuestions.Location = new System.Drawing.Point(20, 406);
             this.pnlApplicantQuestions.Name = "pnlApplicantQuestions";
-            this.pnlApplicantQuestions.Size = new System.Drawing.Size(312, 84);
+            this.pnlApplicantQuestions.Size = new System.Drawing.Size(312, 83);
             this.pnlApplicantQuestions.TabIndex = 10;
+            // 
+            // btnAddQuestionsCode
+            // 
+            this.btnAddQuestionsCode.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddQuestionsCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddQuestionsCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddQuestionsCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddQuestionsCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddQuestionsCode.Location = new System.Drawing.Point(283, -2);
+            this.btnAddQuestionsCode.Name = "btnAddQuestionsCode";
+            this.btnAddQuestionsCode.Size = new System.Drawing.Size(27, 26);
+            this.btnAddQuestionsCode.TabIndex = 9;
+            this.btnAddQuestionsCode.Text = "+";
+            this.btnAddQuestionsCode.UseVisualStyleBackColor = false;
+            this.btnAddQuestionsCode.Click += new System.EventHandler(this.btnAddQuestionsCode_Click);
             // 
             // clbQuestions
             // 
@@ -131,7 +138,6 @@
             this.clbQuestions.Name = "clbQuestions";
             this.clbQuestions.Size = new System.Drawing.Size(303, 48);
             this.clbQuestions.TabIndex = 4;
-            this.clbQuestions.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbQuestions_ItemCheck);
             // 
             // lblQuestions
             // 
@@ -147,12 +153,28 @@
             // 
             this.pnlImpression.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.pnlImpression.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlImpression.Controls.Add(this.btnAddImpressionCode);
             this.pnlImpression.Controls.Add(this.clbImpression);
             this.pnlImpression.Controls.Add(this.lblImpression);
-            this.pnlImpression.Location = new System.Drawing.Point(20, 320);
+            this.pnlImpression.Location = new System.Drawing.Point(20, 315);
             this.pnlImpression.Name = "pnlImpression";
-            this.pnlImpression.Size = new System.Drawing.Size(312, 84);
+            this.pnlImpression.Size = new System.Drawing.Size(312, 85);
             this.pnlImpression.TabIndex = 9;
+            // 
+            // btnAddImpressionCode
+            // 
+            this.btnAddImpressionCode.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddImpressionCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddImpressionCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddImpressionCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddImpressionCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddImpressionCode.Location = new System.Drawing.Point(283, -2);
+            this.btnAddImpressionCode.Name = "btnAddImpressionCode";
+            this.btnAddImpressionCode.Size = new System.Drawing.Size(27, 26);
+            this.btnAddImpressionCode.TabIndex = 7;
+            this.btnAddImpressionCode.Text = "+";
+            this.btnAddImpressionCode.UseVisualStyleBackColor = false;
+            this.btnAddImpressionCode.Click += new System.EventHandler(this.btnAddImpressionCode_Click);
             // 
             // clbImpression
             // 
@@ -168,7 +190,6 @@
             this.clbImpression.Name = "clbImpression";
             this.clbImpression.Size = new System.Drawing.Size(303, 48);
             this.clbImpression.TabIndex = 4;
-            this.clbImpression.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbImpression_ItemCheck);
             // 
             // lblImpression
             // 
@@ -184,12 +205,28 @@
             // 
             this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnAddUnderstandingCode);
             this.panel1.Controls.Add(this.clbUnderstanding);
             this.panel1.Controls.Add(this.lblUnderstanding);
             this.panel1.Location = new System.Drawing.Point(20, 224);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 84);
+            this.panel1.Size = new System.Drawing.Size(312, 85);
             this.panel1.TabIndex = 8;
+            // 
+            // btnAddUnderstandingCode
+            // 
+            this.btnAddUnderstandingCode.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddUnderstandingCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddUnderstandingCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUnderstandingCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddUnderstandingCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddUnderstandingCode.Location = new System.Drawing.Point(283, -2);
+            this.btnAddUnderstandingCode.Name = "btnAddUnderstandingCode";
+            this.btnAddUnderstandingCode.Size = new System.Drawing.Size(27, 26);
+            this.btnAddUnderstandingCode.TabIndex = 5;
+            this.btnAddUnderstandingCode.Text = "+";
+            this.btnAddUnderstandingCode.UseVisualStyleBackColor = false;
+            this.btnAddUnderstandingCode.Click += new System.EventHandler(this.btnAddUnderstandingCode_Click);
             // 
             // clbUnderstanding
             // 
@@ -205,7 +242,6 @@
             this.clbUnderstanding.Name = "clbUnderstanding";
             this.clbUnderstanding.Size = new System.Drawing.Size(303, 48);
             this.clbUnderstanding.TabIndex = 4;
-            this.clbUnderstanding.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbUnderstanding_ItemCheck);
             // 
             // lblUnderstanding
             // 
@@ -223,7 +259,7 @@
             this.pnlFooter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlFooter.Controls.Add(this.clbFooter);
             this.pnlFooter.Controls.Add(this.lblFooter);
-            this.pnlFooter.Location = new System.Drawing.Point(20, 501);
+            this.pnlFooter.Location = new System.Drawing.Point(20, 495);
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(312, 78);
             this.pnlFooter.TabIndex = 11;
@@ -261,7 +297,7 @@
             this.pnlHeader.Controls.Add(this.lblApplicationResult);
             this.pnlHeader.Controls.Add(this.lblTemplateType);
             this.pnlHeader.Controls.Add(this.clbTemplateType);
-            this.pnlHeader.Controls.Add(this.lblHeader);
+            this.pnlHeader.Controls.Add(this.lblTemplateSettings);
             this.pnlHeader.Location = new System.Drawing.Point(20, 32);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(312, 182);
@@ -318,15 +354,15 @@
             this.clbTemplateType.TabIndex = 4;
             this.clbTemplateType.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbTemplateTypeItemCheck);
             // 
-            // lblHeader
+            // lblTemplateSettings
             // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblHeader.Location = new System.Drawing.Point(4, 7);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(59, 16);
-            this.lblHeader.TabIndex = 2;
-            this.lblHeader.Text = "Header";
+            this.lblTemplateSettings.AutoSize = true;
+            this.lblTemplateSettings.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTemplateSettings.Location = new System.Drawing.Point(4, 7);
+            this.lblTemplateSettings.Name = "lblTemplateSettings";
+            this.lblTemplateSettings.Size = new System.Drawing.Size(133, 16);
+            this.lblTemplateSettings.TabIndex = 2;
+            this.lblTemplateSettings.Text = "Template Settings";
             // 
             // lblSections
             // 
@@ -344,9 +380,6 @@
             this.pnlPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
             this.pnlPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlPreview.Controls.Add(this.pnlFooterPreview);
-            this.pnlPreview.Controls.Add(this.pnlQuestionsPreview);
-            this.pnlPreview.Controls.Add(this.pnlImpressionPreview);
-            this.pnlPreview.Controls.Add(this.pnlUnderstandingPreview);
             this.pnlPreview.Controls.Add(this.pnlHeaderPreview);
             this.pnlPreview.Controls.Add(this.lblPreview);
             this.pnlPreview.Location = new System.Drawing.Point(444, 18);
@@ -360,7 +393,7 @@
             this.pnlFooterPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlFooterPreview.Controls.Add(this.tbxFooter);
             this.pnlFooterPreview.Controls.Add(this.lblFooterPreview);
-            this.pnlFooterPreview.Location = new System.Drawing.Point(20, 604);
+            this.pnlFooterPreview.Location = new System.Drawing.Point(20, 175);
             this.pnlFooterPreview.Name = "pnlFooterPreview";
             this.pnlFooterPreview.Size = new System.Drawing.Size(465, 137);
             this.pnlFooterPreview.TabIndex = 12;
@@ -384,96 +417,6 @@
             this.lblFooterPreview.TabIndex = 2;
             this.lblFooterPreview.Text = "Footer";
             // 
-            // pnlQuestionsPreview
-            // 
-            this.pnlQuestionsPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.pnlQuestionsPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlQuestionsPreview.Controls.Add(this.tbxQuestions);
-            this.pnlQuestionsPreview.Controls.Add(this.lblQuestionsPreview);
-            this.pnlQuestionsPreview.Location = new System.Drawing.Point(20, 461);
-            this.pnlQuestionsPreview.Name = "pnlQuestionsPreview";
-            this.pnlQuestionsPreview.Size = new System.Drawing.Size(465, 137);
-            this.pnlQuestionsPreview.TabIndex = 11;
-            // 
-            // tbxQuestions
-            // 
-            this.tbxQuestions.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxQuestions.Location = new System.Drawing.Point(9, 27);
-            this.tbxQuestions.Multiline = true;
-            this.tbxQuestions.Name = "tbxQuestions";
-            this.tbxQuestions.Size = new System.Drawing.Size(446, 97);
-            this.tbxQuestions.TabIndex = 4;
-            // 
-            // lblQuestionsPreview
-            // 
-            this.lblQuestionsPreview.AutoSize = true;
-            this.lblQuestionsPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblQuestionsPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblQuestionsPreview.Name = "lblQuestionsPreview";
-            this.lblQuestionsPreview.Size = new System.Drawing.Size(149, 16);
-            this.lblQuestionsPreview.TabIndex = 2;
-            this.lblQuestionsPreview.Text = "Applicant Questions";
-            // 
-            // pnlImpressionPreview
-            // 
-            this.pnlImpressionPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.pnlImpressionPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlImpressionPreview.Controls.Add(this.tbxImpression);
-            this.pnlImpressionPreview.Controls.Add(this.lblImpressionPreview);
-            this.pnlImpressionPreview.Location = new System.Drawing.Point(20, 318);
-            this.pnlImpressionPreview.Name = "pnlImpressionPreview";
-            this.pnlImpressionPreview.Size = new System.Drawing.Size(465, 137);
-            this.pnlImpressionPreview.TabIndex = 10;
-            // 
-            // tbxImpression
-            // 
-            this.tbxImpression.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxImpression.Location = new System.Drawing.Point(9, 27);
-            this.tbxImpression.Multiline = true;
-            this.tbxImpression.Name = "tbxImpression";
-            this.tbxImpression.Size = new System.Drawing.Size(446, 97);
-            this.tbxImpression.TabIndex = 4;
-            // 
-            // lblImpressionPreview
-            // 
-            this.lblImpressionPreview.AutoSize = true;
-            this.lblImpressionPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblImpressionPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblImpressionPreview.Name = "lblImpressionPreview";
-            this.lblImpressionPreview.Size = new System.Drawing.Size(172, 16);
-            this.lblImpressionPreview.TabIndex = 2;
-            this.lblImpressionPreview.Text = "Impression of Applicant";
-            // 
-            // pnlUnderstandingPreview
-            // 
-            this.pnlUnderstandingPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
-            this.pnlUnderstandingPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlUnderstandingPreview.Controls.Add(this.tbxUnderstanding);
-            this.pnlUnderstandingPreview.Controls.Add(this.lblUnderstandingPreview);
-            this.pnlUnderstandingPreview.Location = new System.Drawing.Point(20, 175);
-            this.pnlUnderstandingPreview.Name = "pnlUnderstandingPreview";
-            this.pnlUnderstandingPreview.Size = new System.Drawing.Size(465, 137);
-            this.pnlUnderstandingPreview.TabIndex = 9;
-            // 
-            // tbxUnderstanding
-            // 
-            this.tbxUnderstanding.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbxUnderstanding.Location = new System.Drawing.Point(9, 27);
-            this.tbxUnderstanding.Multiline = true;
-            this.tbxUnderstanding.Name = "tbxUnderstanding";
-            this.tbxUnderstanding.Size = new System.Drawing.Size(446, 97);
-            this.tbxUnderstanding.TabIndex = 4;
-            // 
-            // lblUnderstandingPreview
-            // 
-            this.lblUnderstandingPreview.AutoSize = true;
-            this.lblUnderstandingPreview.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUnderstandingPreview.Location = new System.Drawing.Point(6, 6);
-            this.lblUnderstandingPreview.Name = "lblUnderstandingPreview";
-            this.lblUnderstandingPreview.Size = new System.Drawing.Size(210, 16);
-            this.lblUnderstandingPreview.TabIndex = 2;
-            this.lblUnderstandingPreview.Text = "Understanding of HappyTech";
-            // 
             // pnlHeaderPreview
             // 
             this.pnlHeaderPreview.AutoScrollMargin = new System.Drawing.Size(0, 25);
@@ -482,7 +425,7 @@
             this.pnlHeaderPreview.Controls.Add(this.lblHeaderPreview);
             this.pnlHeaderPreview.Location = new System.Drawing.Point(20, 32);
             this.pnlHeaderPreview.Name = "pnlHeaderPreview";
-            this.pnlHeaderPreview.Size = new System.Drawing.Size(465, 135);
+            this.pnlHeaderPreview.Size = new System.Drawing.Size(465, 134);
             this.pnlHeaderPreview.TabIndex = 1;
             // 
             // tbxHeader
@@ -491,7 +434,7 @@
             this.tbxHeader.Location = new System.Drawing.Point(9, 28);
             this.tbxHeader.Multiline = true;
             this.tbxHeader.Name = "tbxHeader";
-            this.tbxHeader.Size = new System.Drawing.Size(446, 98);
+            this.tbxHeader.Size = new System.Drawing.Size(446, 97);
             this.tbxHeader.TabIndex = 4;
             this.tbxHeader.Text = resources.GetString("tbxHeader.Text");
             // 
@@ -542,7 +485,7 @@
             // 
             // btnSaveTemplate
             // 
-            this.btnSaveTemplate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSaveTemplate.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveTemplate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSaveTemplate.FlatAppearance.BorderSize = 5;
             this.btnSaveTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -626,12 +569,6 @@
             this.pnlPreview.PerformLayout();
             this.pnlFooterPreview.ResumeLayout(false);
             this.pnlFooterPreview.PerformLayout();
-            this.pnlQuestionsPreview.ResumeLayout(false);
-            this.pnlQuestionsPreview.PerformLayout();
-            this.pnlImpressionPreview.ResumeLayout(false);
-            this.pnlImpressionPreview.PerformLayout();
-            this.pnlUnderstandingPreview.ResumeLayout(false);
-            this.pnlUnderstandingPreview.PerformLayout();
             this.pnlHeaderPreview.ResumeLayout(false);
             this.pnlHeaderPreview.PerformLayout();
             this.pnlDiscard.ResumeLayout(false);
@@ -646,7 +583,7 @@
 
         private System.Windows.Forms.Panel pnlComments;
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Label lblTemplateSettings;
         private System.Windows.Forms.Label lblSections;
         private System.Windows.Forms.Panel pnlPreview;
         private System.Windows.Forms.Panel pnlHeaderPreview;
@@ -679,14 +616,8 @@
         private System.Windows.Forms.Panel pnlFooterPreview;
         private System.Windows.Forms.TextBox tbxFooter;
         private System.Windows.Forms.Label lblFooterPreview;
-        private System.Windows.Forms.Panel pnlQuestionsPreview;
-        private System.Windows.Forms.TextBox tbxQuestions;
-        private System.Windows.Forms.Label lblQuestionsPreview;
-        private System.Windows.Forms.Panel pnlImpressionPreview;
-        private System.Windows.Forms.TextBox tbxImpression;
-        private System.Windows.Forms.Label lblImpressionPreview;
-        private System.Windows.Forms.Panel pnlUnderstandingPreview;
-        private System.Windows.Forms.TextBox tbxUnderstanding;
-        private System.Windows.Forms.Label lblUnderstandingPreview;
+        private System.Windows.Forms.Button btnAddImpressionCode;
+        private System.Windows.Forms.Button btnAddUnderstandingCode;
+        private System.Windows.Forms.Button btnAddQuestionsCode;
     }
 }
