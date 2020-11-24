@@ -14,7 +14,8 @@ namespace ApplicantTrackingSystem
     public partial class UserControlCreateEditTemplate : UserControl
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
-        public string defaultHeaderText = "Dear [ApplicantName],\n Thank you for applying for a position at HappyTech. I am emailing you to inform you that your [application type] has been further reviewed and your application was [application success]. The feedback from this is as follows:";
+        public string defaultHeaderText = "Select an option for the template type and application success from the 'Template Settings' section or type your own header text here...";
+        public string defaultFooterText = "Select an option from the 'Footer' section or type your own footer text here...";
         public static string headerText;
         public static string footerText;
         public static string templateName;
@@ -35,6 +36,7 @@ namespace ApplicantTrackingSystem
             else
             {
                 tbxHeader.Text = defaultHeaderText;
+                tbxFooter.Text = defaultFooterText;
             }
             InitialiseComments();
         }
@@ -95,6 +97,7 @@ namespace ApplicantTrackingSystem
         // if a 'templateName' has been given, proceed with saving the template to the database
         // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
         // display a pop up message box to inform the user it has been saved successfully
+        // take the employee to the 'Templates' page
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
             if (editingTemplate == true)
@@ -105,6 +108,7 @@ namespace ApplicantTrackingSystem
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show(message, title, buttons);
                 editingTemplate = false;
+                Main.mainApplication.OpenPage(new UserControlTemplates());
             }
             else
             {
@@ -123,6 +127,7 @@ namespace ApplicantTrackingSystem
                     string message = "Template has been saved as '" + templateName + "' successfully.";
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     MessageBox.Show(message, title, buttons);
+                    Main.mainApplication.OpenPage(new UserControlTemplates());
                 }
             }
         }
@@ -146,7 +151,7 @@ namespace ApplicantTrackingSystem
         }
         // ask the employee if they want to discard their changes
         // use a messagebox with yes and no buttons to confirm their choice
-        // if they click yes, take them back to the templates page
+        // if they click yes, take them to the templates page
         // if they click no, do nothing
         private void btnDiscardChanges_Click(object sender, EventArgs e)
         {

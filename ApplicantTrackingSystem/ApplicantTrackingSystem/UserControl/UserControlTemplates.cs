@@ -41,7 +41,7 @@ namespace ApplicantTrackingSystem
         // display a message box asking the employee to confirm their choice of action
         // if they click the 'Yes' button, get the template's ID and delete the template from the database that matches the ID
         // make another message box pop up confirming that the template has been deleted
-        // if they click the 'No' button, do nothing
+        // if they click the 'No' button, display a message box stating that the template was not deleted
         private void btnDeleteTemplate_Click(object sender, EventArgs e)
         {
             string templateTitle = cmbSelectedTemplateTitle.Text;
@@ -57,6 +57,12 @@ namespace ApplicantTrackingSystem
                 title = "Delete Template";
                 MessageBox.Show(message, title);
                 UpdateTable();
+            }
+            else
+            {
+                message = "Template '" + templateTitle + "' has not been deleted.";
+                title = "Delete Template";
+                MessageBox.Show(message, title);
             }
         }
         // refreshes the template table inside of the data grid
