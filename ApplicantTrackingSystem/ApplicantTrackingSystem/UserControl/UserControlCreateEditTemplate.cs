@@ -256,6 +256,7 @@ namespace ApplicantTrackingSystem
         private void EditTemplate(string title, string header, string footer)
         {
             int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_ID + " title = '" + title + "'");
+            title = tbxTemplateName.Text;
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UPDATE_TEMPLATE + " title = '" + title + "', header = '" + header + "', footer = '" + footer + "' WHERE template_id = '" + templateID + "'");
         }
         // if the button to add a new code is clicked
