@@ -14,7 +14,7 @@ namespace ApplicantTrackingSystem
     public partial class UserControlCreateEditTemplate : UserControl
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
-        public string defaultHeaderText = "Dear [ApplicantName], " + '\n' + "Thank you for applying for a position at HappyTech. I am emailing you to inform you that your [application type] has been further reviewed and your application was [application success]. The feedback from this is as follows:";
+        public string defaultHeaderText = "Dear [ApplicantName],\n Thank you for applying for a position at HappyTech. I am emailing you to inform you that your [application type] has been further reviewed and your application was [application success]. The feedback from this is as follows:";
         public string templateType = "[application type]";
         public string applicationResult = "[successful/unsuccessful]";
         public string selectedCode = "";
@@ -225,8 +225,6 @@ namespace ApplicantTrackingSystem
         private void btnAddUnderstandingCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
-            string title = "Understanding of HappyTech";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
             addCode.Show();
         }
         // if the button to add a new code is clicked
@@ -237,8 +235,6 @@ namespace ApplicantTrackingSystem
         private void btnAddImpressionCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
-            string title = "Impression of Applicant";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
             addCode.ShowDialog();
         }
         // if the button to add a new code is clicked
@@ -249,8 +245,6 @@ namespace ApplicantTrackingSystem
         private void btnAddQuestionsCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
-            string title = "Applicant Questions";
-            CodeManagement.sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + title + "'"));
             addCode.ShowDialog();
         }
     }

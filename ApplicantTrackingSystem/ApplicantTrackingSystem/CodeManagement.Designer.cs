@@ -36,6 +36,7 @@
             this.sectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSet = new ApplicantTrackingSystem.DatabaseDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbSectionTitle = new System.Windows.Forms.ComboBox();
             this.btnDeleteCode = new System.Windows.Forms.Button();
             this.btnAddCode = new System.Windows.Forms.Button();
             this.lblAddCode = new System.Windows.Forms.Label();
@@ -50,8 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbxCode = new System.Windows.Forms.TextBox();
             this.lblEnterCode = new System.Windows.Forms.Label();
-            this.tbxSectionID = new System.Windows.Forms.TextBox();
-            this.lblEnterSectionID = new System.Windows.Forms.Label();
+            this.lblSelectSection = new System.Windows.Forms.Label();
             this.commentTableAdapter = new ApplicantTrackingSystem.DatabaseCommentDataSetTableAdapters.commentTableAdapter();
             this.sectionTableAdapter = new ApplicantTrackingSystem.DatabaseDataSetTableAdapters.sectionTableAdapter();
             this.pnlBackground.SuspendLayout();
@@ -86,6 +86,7 @@
             this.dgvSection.DataSource = this.sectionBindingSource;
             this.dgvSection.Location = new System.Drawing.Point(9, 309);
             this.dgvSection.Name = "dgvSection";
+            this.dgvSection.RowHeadersWidth = 82;
             this.dgvSection.Size = new System.Drawing.Size(776, 127);
             this.dgvSection.TabIndex = 0;
             // 
@@ -93,6 +94,7 @@
             // 
             this.sectionidDataGridViewTextBoxColumn1.DataPropertyName = "section_id";
             this.sectionidDataGridViewTextBoxColumn1.HeaderText = "section_id";
+            this.sectionidDataGridViewTextBoxColumn1.MinimumWidth = 10;
             this.sectionidDataGridViewTextBoxColumn1.Name = "sectionidDataGridViewTextBoxColumn1";
             this.sectionidDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -100,6 +102,7 @@
             // 
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
             this.titleDataGridViewTextBoxColumn.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             // 
             // sectionBindingSource
@@ -114,6 +117,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cmbSectionTitle);
             this.panel2.Controls.Add(this.btnDeleteCode);
             this.panel2.Controls.Add(this.btnAddCode);
             this.panel2.Controls.Add(this.lblAddCode);
@@ -122,20 +126,33 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tbxCode);
             this.panel2.Controls.Add(this.lblEnterCode);
-            this.panel2.Controls.Add(this.tbxSectionID);
-            this.panel2.Controls.Add(this.lblEnterSectionID);
+            this.panel2.Controls.Add(this.lblSelectSection);
             this.panel2.Location = new System.Drawing.Point(9, 10);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 260);
             this.panel2.TabIndex = 1;
+            // 
+            // cmbSectionTitle
+            // 
+            this.cmbSectionTitle.DataSource = this.sectionBindingSource;
+            this.cmbSectionTitle.DisplayMember = "title";
+            this.cmbSectionTitle.Font = new System.Drawing.Font("Arial", 8F);
+            this.cmbSectionTitle.FormattingEnabled = true;
+            this.cmbSectionTitle.Location = new System.Drawing.Point(18, 60);
+            this.cmbSectionTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSectionTitle.Name = "cmbSectionTitle";
+            this.cmbSectionTitle.Size = new System.Drawing.Size(157, 22);
+            this.cmbSectionTitle.TabIndex = 9;
+            this.cmbSectionTitle.ValueMember = "title";
             // 
             // btnDeleteCode
             // 
             this.btnDeleteCode.BackColor = System.Drawing.Color.DarkRed;
             this.btnDeleteCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDeleteCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteCode.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.btnDeleteCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDeleteCode.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDeleteCode.Location = new System.Drawing.Point(722, 56);
             this.btnDeleteCode.Name = "btnDeleteCode";
             this.btnDeleteCode.Size = new System.Drawing.Size(44, 28);
@@ -149,7 +166,7 @@
             this.btnAddCode.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnAddCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAddCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCode.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddCode.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAddCode.Location = new System.Drawing.Point(672, 56);
             this.btnAddCode.Name = "btnAddCode";
@@ -184,6 +201,7 @@
             this.dgvComment.DataSource = this.commentBindingSource;
             this.dgvComment.Location = new System.Drawing.Point(0, 93);
             this.dgvComment.Name = "dgvComment";
+            this.dgvComment.RowHeadersWidth = 82;
             this.dgvComment.Size = new System.Drawing.Size(776, 167);
             this.dgvComment.TabIndex = 0;
             // 
@@ -191,6 +209,7 @@
             // 
             this.commentidDataGridViewTextBoxColumn.DataPropertyName = "comment_id";
             this.commentidDataGridViewTextBoxColumn.HeaderText = "comment_id";
+            this.commentidDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.commentidDataGridViewTextBoxColumn.Name = "commentidDataGridViewTextBoxColumn";
             this.commentidDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -198,18 +217,21 @@
             // 
             this.sectionidDataGridViewTextBoxColumn.DataPropertyName = "section_id";
             this.sectionidDataGridViewTextBoxColumn.HeaderText = "section_id";
+            this.sectionidDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.sectionidDataGridViewTextBoxColumn.Name = "sectionidDataGridViewTextBoxColumn";
             // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
             this.codeDataGridViewTextBoxColumn.HeaderText = "code";
+            this.codeDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             // 
             // commentDataGridViewTextBoxColumn
             // 
             this.commentDataGridViewTextBoxColumn.DataPropertyName = "comment";
             this.commentDataGridViewTextBoxColumn.HeaderText = "comment";
+            this.commentDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             // 
             // commentBindingSource
@@ -243,7 +265,7 @@
             // tbxCode
             // 
             this.tbxCode.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxCode.Location = new System.Drawing.Point(166, 60);
+            this.tbxCode.Location = new System.Drawing.Point(199, 60);
             this.tbxCode.Name = "tbxCode";
             this.tbxCode.Size = new System.Drawing.Size(60, 20);
             this.tbxCode.TabIndex = 3;
@@ -252,29 +274,21 @@
             // 
             this.lblEnterCode.AutoSize = true;
             this.lblEnterCode.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblEnterCode.Location = new System.Drawing.Point(163, 43);
+            this.lblEnterCode.Location = new System.Drawing.Point(196, 43);
             this.lblEnterCode.Name = "lblEnterCode";
             this.lblEnterCode.Size = new System.Drawing.Size(72, 15);
             this.lblEnterCode.TabIndex = 2;
             this.lblEnterCode.Text = "Enter Code:";
             // 
-            // tbxSectionID
+            // lblSelectSection
             // 
-            this.tbxSectionID.Font = new System.Drawing.Font("Arial", 8F);
-            this.tbxSectionID.Location = new System.Drawing.Point(18, 60);
-            this.tbxSectionID.Name = "tbxSectionID";
-            this.tbxSectionID.Size = new System.Drawing.Size(85, 20);
-            this.tbxSectionID.TabIndex = 1;
-            // 
-            // lblEnterSectionID
-            // 
-            this.lblEnterSectionID.AutoSize = true;
-            this.lblEnterSectionID.Font = new System.Drawing.Font("Arial", 9F);
-            this.lblEnterSectionID.Location = new System.Drawing.Point(15, 43);
-            this.lblEnterSectionID.Name = "lblEnterSectionID";
-            this.lblEnterSectionID.Size = new System.Drawing.Size(98, 15);
-            this.lblEnterSectionID.TabIndex = 0;
-            this.lblEnterSectionID.Text = "Enter Section ID:";
+            this.lblSelectSection.AutoSize = true;
+            this.lblSelectSection.Font = new System.Drawing.Font("Arial", 9F);
+            this.lblSelectSection.Location = new System.Drawing.Point(15, 43);
+            this.lblSelectSection.Name = "lblSelectSection";
+            this.lblSelectSection.Size = new System.Drawing.Size(88, 15);
+            this.lblSelectSection.TabIndex = 0;
+            this.lblSelectSection.Text = "Select Section:";
             // 
             // commentTableAdapter
             // 
@@ -312,8 +326,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbxCode;
         private System.Windows.Forms.Label lblEnterCode;
-        private System.Windows.Forms.TextBox tbxSectionID;
-        private System.Windows.Forms.Label lblEnterSectionID;
+        private System.Windows.Forms.Label lblSelectSection;
         private System.Windows.Forms.DataGridView dgvComment;
         private DatabaseCommentDataSet databaseCommentDataSet;
         private System.Windows.Forms.BindingSource commentBindingSource;
@@ -333,5 +346,6 @@
         private System.Windows.Forms.Button btnAddCode;
         private System.Windows.Forms.Label lblAddCode;
         private System.Windows.Forms.Button btnDeleteCode;
+        private System.Windows.Forms.ComboBox cmbSectionTitle;
     }
 }

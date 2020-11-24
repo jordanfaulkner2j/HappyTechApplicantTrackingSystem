@@ -12,9 +12,9 @@ namespace ApplicantTrackingSystem
 {
     public partial class CodeManagement : Form
     {
-        public static string sectionID;
         string code;
         string comment;
+        int sectionID;
         public CodeManagement()
         {
             InitializeComponent();
@@ -25,7 +25,6 @@ namespace ApplicantTrackingSystem
             this.sectionTableAdapter.Fill(this.databaseDataSet.section);
             // TODO: This line of code loads data into the 'databaseCommentDataSet.comment' table. You can move, or remove it, as needed.
             this.commentTableAdapter.Fill(this.databaseCommentDataSet.comment);
-            tbxSectionID.Text = sectionID.Trim();
         }
         // when the add code button is clicked
         // catch the values in the text boxes and store them as string
@@ -38,7 +37,9 @@ namespace ApplicantTrackingSystem
             code = code.Trim();
             comment = tbxComment.Text;
             comment = comment.Trim();
-            if (sectionID == "" || code == "" || comment == "")
+            string sectionTitle = cmbSectionTitle.Text;
+            int sectionID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + sectionTitle + "'");
+            if (sectionID == 0 || code == "" || comment == "")
             {
                 string title = "Missing Data";
                 string message = "Comment could not be saved. Please make sure all fields have been entered.";
@@ -58,7 +59,7 @@ namespace ApplicantTrackingSystem
                 string message = "The code has been added successfully.";
                 MessageBox.Show(message, title);
                 UpdateTables();
-                tbxSectionID.Clear();
+                cmbSectionTitle.Text = "";
                 tbxCode.Clear();
                 tbxComment.Clear();
             }
@@ -87,7 +88,7 @@ namespace ApplicantTrackingSystem
             {
                 string commentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT_ID + " code = '" + code + "'"));
                 comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " code = '" + code + "'");
-                sectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + " code = '" + code + "'"));
+                sectionID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + " code = '" + code + "'");
                 string section = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION + " section_ID = '" + sectionID + "'");
                 title = "Delete Comment";
                 message = "Are you sure you want to delete the following comment?" + '\n' + '\n' + "Section: " + section + '\n' + "ID: " + commentID + ", Code: " + code + ", Comment: " + comment;
