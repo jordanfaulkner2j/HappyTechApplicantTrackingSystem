@@ -102,6 +102,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TemplateDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemplateDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateTitleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemplateTitleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UserControlFeedback.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +211,28 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TemplateDataSet.xsc">
+      <DependentUpon>TemplateDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TemplateDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TemplateDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TemplateDataSet.xss">
+      <DependentUpon>TemplateDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TemplateTitleDataSet.xsc">
+      <DependentUpon>TemplateTitleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TemplateTitleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TemplateTitleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TemplateTitleDataSet.xss">
+      <DependentUpon>TemplateTitleDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

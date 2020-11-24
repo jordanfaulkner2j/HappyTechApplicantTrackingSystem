@@ -15,13 +15,27 @@ namespace ApplicantTrackingSystem
     {
         public string defaultTemplateNameText = "Enter a name for this template...";
         public string defaultHeaderText = "Dear [ApplicantName],\n Thank you for applying for a position at HappyTech. I am emailing you to inform you that your [application type] has been further reviewed and your application was [application success]. The feedback from this is as follows:";
+        public static string headerText;
+        public static string footerText;
+        public static string templateName;
+        public static bool editingTemplate;
         public string templateType = "[application type]";
         public string applicationResult = "[successful/unsuccessful]";
         public string selectedCode = "";
         public UserControlCreateEditTemplate()
         {
             InitializeComponent();
-            tbxHeader.Text = defaultHeaderText;
+            if (editingTemplate == true)
+            {
+                tbxHeader.Text = headerText;
+                tbxFooter.Text = footerText;
+                tbxTemplateName.Text = templateName;
+                btnSaveTemplate.Text = "UPDATE TEMPLATE";
+            }
+            else
+            {
+                tbxHeader.Text = defaultHeaderText;
+            }
             InitialiseComments();
         }
         // get the highest value of the comment_id primary key
@@ -70,29 +84,46 @@ namespace ApplicantTrackingSystem
                 }
             }
         }
+        // if the boolean value for editing the template is equal to true
+        // run the EditTemplate method with the templateName, preview Header text and preview Footer text as parameters
+        // display a message box stating that the template has been updated successfully
+        // set the boolean value for editing the template back to false (so that it won't keep editing the same template each time the page is loaded)
+        // if the boolean value for editing the template is already equal to false
+        // check to see if a name for the template has been given by the employee
+        // save contents of template name text box as a string called 'templateName'
+        // if 'templateName' is blank or contains the default text, display a prompt telling them to enter a name into the text box
+        // if a 'templateName' has been given, proceed with saving the template to the database
+        // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
+        // display a pop up message box to inform the user it has been saved successfully
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            // check to see if a name for the template has been given by the employee
-            // save contents of template name text box as a string called 'templateName'
-            // if 'templateName' is blank or contains the default text, display a prompt telling them to enter a name into the text box
-            // if a 'templateName' has been given, proceed with saving the template to the database
-            // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
-            // display a pop up message box to inform the user it has been saved successfully
-            string templateName = tbxTemplateName.Text;
-            templateName = templateName.Trim();
-            if (templateName == "" || templateName == defaultTemplateNameText)
+            if (editingTemplate == true)
             {
-                string title = "No Template Name";
-                string message = "Please enter a name for this template before saving.";
-                MessageBox.Show(message, title);
+                EditTemplate(templateName, tbxHeader.Text, tbxFooter.Text);
+                string title = "Template Updated";
+                string message = "Template '" + templateName + "' has been updated successfully.";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(message, title, buttons);
+                editingTemplate = false;
             }
             else
             {
-                SaveTemplate(templateName, tbxHeader.Text, tbxFooter.Text);
-                string title = "Template Saved";
-                string message = "Template has been saved as '" + templateName + "' successfully.";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show(message, title, buttons);
+                string templateName = tbxTemplateName.Text;
+                templateName = templateName.Trim();
+                if (templateName == "" || templateName == defaultTemplateNameText)
+                {
+                    string title = "No Template Name";
+                    string message = "Please enter a name for this template before saving.";
+                    MessageBox.Show(message, title);
+                }
+                else
+                {
+                    SaveTemplate(templateName, tbxHeader.Text, tbxFooter.Text);
+                    string title = "Template Saved";
+                    string message = "Template has been saved as '" + templateName + "' successfully.";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(message, title, buttons);
+                }
             }
         }
         // clear the template name text box when the employee clicks on it so they can name the template
@@ -113,20 +144,21 @@ namespace ApplicantTrackingSystem
                 tbxTemplateName.Text = defaultTemplateNameText;
             }
         }
+        // ask the employee if they want to discard their changes
+        // use a messagebox with yes and no buttons to confirm their choice
+        // if they click yes, take them back to the templates page
+        // if they click no, do nothing
         private void btnDiscardChanges_Click(object sender, EventArgs e)
         {
-            // ask the employee if they want to discard their changes
-            // use a messagebox with yes and no buttons to confirm their choice
-            // if they click yes, take them back to the previous page
-            // if they click no, do nothing
             string title = "Discard Changes";
             string message = "Are you sure you want to discard all changes made?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                // go back to previous page
+                // go back to templates page
                 Main.mainApplication.OpenPage(new UserControlTemplates());
+                editingTemplate = false;
             }
         }
         // if an option has been selected, prevent another from being selected at the same time using a for loop
@@ -216,6 +248,15 @@ namespace ApplicantTrackingSystem
         {
             string data = "'" + title + "', '" + header + "', '" + footer + "')";
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.INSERT_TEMPLATE + data);
+        }
+        // catch parameters as title, header and footer
+        // get the template_id attribute using the title and store this as an integer
+        // connect to the database and call the UpdateRecord method in the DatabaseManagement class
+        // use the UPDATE_TEMPLATE query from the DatabaseQueries class with the template title, header and footer variables as parameters, and a WHERE clause with the template_id as a parameter
+        private void EditTemplate(string title, string header, string footer)
+        {
+            int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_ID + " title = '" + title + "'");
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UPDATE_TEMPLATE + " title = '" + title + "', header = '" + header + "', footer = '" + footer + "' WHERE template_id = '" + templateID + "'");
         }
         // if the button to add a new code is clicked
         // save the title of the section as string

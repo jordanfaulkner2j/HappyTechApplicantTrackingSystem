@@ -38,7 +38,7 @@ namespace ApplicantTrackingSystem
             comment = tbxComment.Text;
             comment = comment.Trim();
             string sectionTitle = cmbSectionTitle.Text;
-            int sectionID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_SECTION + " title = '" + sectionTitle + "'");
+            int sectionID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID + " title = '" + sectionTitle + "'");
             if (sectionID == 0 || code == "" || comment == "")
             {
                 string title = "Missing Data";

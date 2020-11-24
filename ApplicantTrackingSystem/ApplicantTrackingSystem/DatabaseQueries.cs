@@ -42,18 +42,26 @@ namespace ApplicantTrackingSystem
         public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE";
         // attribute called comment
         public const string GET_COMMENT = "SELECT comment FROM comment WHERE";
-        // attribute called section_id
+        // attribute called section_title
         public const string GET_SECTION = "SELECT title FROM section WHERE";
+        // attribute called section_id
+        public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE";
         // attribute called section_id, retrieved from comment table
         public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE";
-        // attribute called section_id, retrieved from section table (used to get section_id for CodeManagement form by using title of section)
-        public const string GET_SECTION_ID_SECTION = "SELECT section_id FROM section WHERE";
         // delete record from comment table
         public const string DELETE_COMMENT = "DELETE FROM comment WHERE";
         // get highest comment_id from comment table
         public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
         // count sections
         public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
+        // get template_id
+        public const string GET_TEMPLATE_ID = "SELECT template_id FROM template WHERE";
+        // get template_header
+        public const string GET_TEMPLATE_HEADER = "SELECT header FROM template WHERE";
+        // get template_header
+        public const string GET_TEMPLATE_FOOTER = "SELECT footer FROM template WHERE";
+        // delete record from template table
+        public const string DELETE_TEMPLATE = "DELETE FROM template WHERE";
 
         /// <summary>
         /// retrieve complete query for retrieving employee details with specified email address
@@ -74,6 +82,8 @@ namespace ApplicantTrackingSystem
 
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+        // attributes (template_id, title, header, footer)
+        public const string UPDATE_TEMPLATE = "UPDATE template SET";
 
         /// <summary>
         /// retrieve complete query for updating record
