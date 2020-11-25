@@ -112,11 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TemplateTitleDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserControlFeedback.cs">
+    <Compile Include="UserControl\UserControlGenerateFeedback.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserControlFeedback.Designer.cs">
-      <DependentUpon>UserControlFeedback.cs</DependentUpon>
+    <Compile Include="UserControl\UserControlGenerateFeedback.Designer.cs">
+      <DependentUpon>UserControlGenerateFeedback.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UserControlMyProfile.cs">
       <SubType>UserControl</SubType>
@@ -167,8 +167,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControl\UserControlFeedback.resx">
-      <DependentUpon>UserControlFeedback.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\UserControlGenerateFeedback.resx">
+      <DependentUpon>UserControlGenerateFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UserControlMyProfile.resx">
       <DependentUpon>UserControlMyProfile.cs</DependentUpon>
