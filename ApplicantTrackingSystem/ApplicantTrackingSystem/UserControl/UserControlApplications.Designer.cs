@@ -75,21 +75,23 @@
             // 
             this.comboBoxSortBy.FormattingEnabled = true;
             this.comboBoxSortBy.Items.AddRange(new object[] {
-            "Sort by date",
-            "Sort by job position",
-            "Sort by first name",
-            "Sort by last name"});
+            "No Sort",
+            "Sort by Date",
+            "Sort by Job Position",
+            "Sort by First Name",
+            "Sort by Last Name"});
             this.comboBoxSortBy.Location = new System.Drawing.Point(629, 11);
             this.comboBoxSortBy.Name = "comboBoxSortBy";
             this.comboBoxSortBy.Size = new System.Drawing.Size(141, 36);
             this.comboBoxSortBy.TabIndex = 8;
-            this.comboBoxSortBy.Text = "Sort by date";
+            this.comboBoxSortBy.Text = "Select Sort Option";
+            this.comboBoxSortBy.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSortBy_SelectionChangeCommitted);
             // 
             // comboBoxJobPositions
             // 
             this.comboBoxJobPositions.FormattingEnabled = true;
             this.comboBoxJobPositions.Items.AddRange(new object[] {
-            "All",        
+            "All",
             "Software Engineer",
             "Marketing Manager"});
             this.comboBoxJobPositions.Location = new System.Drawing.Point(447, 11);

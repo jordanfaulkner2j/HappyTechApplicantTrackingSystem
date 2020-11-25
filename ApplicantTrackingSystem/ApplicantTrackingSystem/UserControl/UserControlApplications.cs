@@ -130,5 +130,40 @@ namespace ApplicantTrackingSystem
             }
         }
 
+        private void comboBoxSortBy_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // sort filter to sort the dataGridView based on the combo box selection
+            if (comboBoxSortBy.SelectedItem.ToString() == "No Sort")
+            {
+                // if No sort option is selected
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+
+            }else if (comboBoxSortBy.SelectedItem.ToString() == "Sort by First Name")
+            {
+                // sorts the dataGridView based on the first name
+                dgvApplications.Sort(dgvApplications.Columns[1], ListSortDirection.Ascending);
+
+            }else if (comboBoxSortBy.SelectedItem.ToString() == "Sort by Last Name")
+            {
+                // sorts the dataGridView based on the last name
+                dgvApplications.Sort(dgvApplications.Columns[3], ListSortDirection.Ascending);
+
+            }else if (comboBoxSortBy.SelectedItem.ToString() == "Sort by Date")
+            {
+                // sorts the dataGridView based on the Date
+                dgvApplications.Sort(dgvApplications.Columns[6], ListSortDirection.Ascending);
+
+            }else if (comboBoxSortBy.SelectedItem.ToString() == "Sort by Job Position")
+            {
+                // sorts the dataGridView based on the Job Position
+                dgvApplications.Sort(dgvApplications.Columns[4], ListSortDirection.Ascending);
+
+            }else
+            { 
+                // displays the table with no sorting to remove erros when filtering the data using other options 
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+
+        }
     }
 }
