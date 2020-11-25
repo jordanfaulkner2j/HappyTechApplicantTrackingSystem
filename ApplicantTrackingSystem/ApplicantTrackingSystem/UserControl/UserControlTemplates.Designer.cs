@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvTemplates = new System.Windows.Forms.DataGridView();
-            this.lblSelectTemplate = new System.Windows.Forms.Label();
-            this.cmbSelectedTemplateTitle = new System.Windows.Forms.ComboBox();
-            this.btnEditTemplate = new System.Windows.Forms.Button();
             this.btnDeleteTemplate = new System.Windows.Forms.Button();
-            this.templateDataSet = new ApplicantTrackingSystem.TemplateDataSet();
+            this.btnEditTemplate = new System.Windows.Forms.Button();
+            this.cmbSelectedTemplateTitle = new System.Windows.Forms.ComboBox();
             this.templateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.templateDataSet = new ApplicantTrackingSystem.TemplateDataSet();
+            this.lblSelectTemplate = new System.Windows.Forms.Label();
+            this.dgvTemplates = new System.Windows.Forms.DataGridView();
             this.templateTableAdapter = new ApplicantTrackingSystem.TemplateDataSetTableAdapters.templateTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.templateDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templateBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.templateDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,37 +56,20 @@
             this.panel1.Size = new System.Drawing.Size(965, 384);
             this.panel1.TabIndex = 7;
             // 
-            // dgvTemplates
+            // btnDeleteTemplate
             // 
-            this.dgvTemplates.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTemplates.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvTemplates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTemplates.Location = new System.Drawing.Point(0, 0);
-            this.dgvTemplates.Name = "dgvTemplates";
-            this.dgvTemplates.Size = new System.Drawing.Size(965, 284);
-            this.dgvTemplates.TabIndex = 0;
-            // 
-            // lblSelectTemplate
-            // 
-            this.lblSelectTemplate.AutoSize = true;
-            this.lblSelectTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSelectTemplate.Location = new System.Drawing.Point(33, 305);
-            this.lblSelectTemplate.Name = "lblSelectTemplate";
-            this.lblSelectTemplate.Size = new System.Drawing.Size(135, 16);
-            this.lblSelectTemplate.TabIndex = 1;
-            this.lblSelectTemplate.Text = "Select a Template:";
-            // 
-            // cmbSelectedTemplateTitle
-            // 
-            this.cmbSelectedTemplateTitle.DataSource = this.templateBindingSource;
-            this.cmbSelectedTemplateTitle.DisplayMember = "title";
-            this.cmbSelectedTemplateTitle.Font = new System.Drawing.Font("Arial", 10F);
-            this.cmbSelectedTemplateTitle.FormattingEnabled = true;
-            this.cmbSelectedTemplateTitle.Location = new System.Drawing.Point(36, 333);
-            this.cmbSelectedTemplateTitle.Name = "cmbSelectedTemplateTitle";
-            this.cmbSelectedTemplateTitle.Size = new System.Drawing.Size(699, 24);
-            this.cmbSelectedTemplateTitle.TabIndex = 2;
-            this.cmbSelectedTemplateTitle.ValueMember = "title";
+            this.btnDeleteTemplate.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteTemplate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDeleteTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteTemplate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDeleteTemplate.Location = new System.Drawing.Point(860, 333);
+            this.btnDeleteTemplate.Name = "btnDeleteTemplate";
+            this.btnDeleteTemplate.Size = new System.Drawing.Size(85, 29);
+            this.btnDeleteTemplate.TabIndex = 4;
+            this.btnDeleteTemplate.Text = "DELETE";
+            this.btnDeleteTemplate.UseVisualStyleBackColor = false;
+            this.btnDeleteTemplate.Click += new System.EventHandler(this.btnDeleteTemplate_Click);
             // 
             // btnEditTemplate
             // 
@@ -103,30 +86,48 @@
             this.btnEditTemplate.UseVisualStyleBackColor = false;
             this.btnEditTemplate.Click += new System.EventHandler(this.btnEditTemplate_Click);
             // 
-            // btnDeleteTemplate
+            // cmbSelectedTemplateTitle
             // 
-            this.btnDeleteTemplate.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteTemplate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDeleteTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDeleteTemplate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDeleteTemplate.Location = new System.Drawing.Point(860, 333);
-            this.btnDeleteTemplate.Name = "btnDeleteTemplate";
-            this.btnDeleteTemplate.Size = new System.Drawing.Size(77, 29);
-            this.btnDeleteTemplate.TabIndex = 4;
-            this.btnDeleteTemplate.Text = "DELETE";
-            this.btnDeleteTemplate.UseVisualStyleBackColor = false;
-            this.btnDeleteTemplate.Click += new System.EventHandler(this.btnDeleteTemplate_Click);
+            this.cmbSelectedTemplateTitle.DataSource = this.templateBindingSource;
+            this.cmbSelectedTemplateTitle.DisplayMember = "title";
+            this.cmbSelectedTemplateTitle.Font = new System.Drawing.Font("Arial", 10F);
+            this.cmbSelectedTemplateTitle.FormattingEnabled = true;
+            this.cmbSelectedTemplateTitle.Location = new System.Drawing.Point(36, 333);
+            this.cmbSelectedTemplateTitle.Name = "cmbSelectedTemplateTitle";
+            this.cmbSelectedTemplateTitle.Size = new System.Drawing.Size(699, 27);
+            this.cmbSelectedTemplateTitle.TabIndex = 2;
+            this.cmbSelectedTemplateTitle.ValueMember = "title";
+            // 
+            // templateBindingSource
+            // 
+            this.templateBindingSource.DataMember = "template";
+            this.templateBindingSource.DataSource = this.templateDataSet;
             // 
             // templateDataSet
             // 
             this.templateDataSet.DataSetName = "TemplateDataSet";
             this.templateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // templateBindingSource
+            // lblSelectTemplate
             // 
-            this.templateBindingSource.DataMember = "template";
-            this.templateBindingSource.DataSource = this.templateDataSet;
+            this.lblSelectTemplate.AutoSize = true;
+            this.lblSelectTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSelectTemplate.Location = new System.Drawing.Point(33, 305);
+            this.lblSelectTemplate.Name = "lblSelectTemplate";
+            this.lblSelectTemplate.Size = new System.Drawing.Size(152, 19);
+            this.lblSelectTemplate.TabIndex = 1;
+            this.lblSelectTemplate.Text = "Select a Template:";
+            // 
+            // dgvTemplates
+            // 
+            this.dgvTemplates.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTemplates.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTemplates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTemplates.Location = new System.Drawing.Point(0, 0);
+            this.dgvTemplates.Name = "dgvTemplates";
+            this.dgvTemplates.RowHeadersWidth = 51;
+            this.dgvTemplates.Size = new System.Drawing.Size(965, 284);
+            this.dgvTemplates.TabIndex = 0;
             // 
             // templateTableAdapter
             // 
@@ -134,7 +135,7 @@
             // 
             // UserControlTemplates
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,9 +145,9 @@
             this.Load += new System.EventHandler(this.UserControlTemplates_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.templateDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templateBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.templateDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).EndInit();
             this.ResumeLayout(false);
 
         }

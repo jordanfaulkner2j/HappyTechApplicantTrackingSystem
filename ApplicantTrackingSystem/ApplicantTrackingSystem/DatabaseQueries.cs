@@ -63,6 +63,19 @@ namespace ApplicantTrackingSystem
         // delete record from template table
         public const string DELETE_TEMPLATE = "DELETE FROM template WHERE";
 
+        // header from template table
+        public const string GET_HEADER = "SELECT header FROM template WHERE title ='";
+
+        // footer from template table
+        public const string GET_FOOTER = "SELECT footer FROM template WHERE title ='";
+
+        // get template title from template table
+        public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE template_id ='{0}'";
+
+        // count number of records in template table
+        public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
+
+
         /// <summary>
         /// retrieve complete query for retrieving employee details with specified email address
         /// </summary>

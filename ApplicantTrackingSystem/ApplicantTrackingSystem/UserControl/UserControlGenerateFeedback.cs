@@ -32,21 +32,19 @@ namespace ApplicantTrackingSystem
             // empty combo box
             comboBoxTemplates.Items.Clear();
 
-
-
             // for number of records in table of templates
-            for (int i = 1; i <= DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute("SELECT COUNT(*) FROM template"); i++)
+            for (int i = 1; i <= DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.COUNT_TEMPLATES); i++)
             {
                 // add template title to combo box
-                comboBoxTemplates.Items.Add(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format("SELECT title FROM template WHERE template_id ='{0}'", i)));
+                comboBoxTemplates.Items.Add(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, i)));
             }
         }
         private void comboBoxTemplates_SelectedIndexChanged(object sender, EventArgs e)
         {
             // update text fields based on data from selected template
-            textBoxHeader.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format("SELECT header FROM template WHERE title ='" + comboBoxTemplates.SelectedItem.ToString() + "'"));
+            textBoxHeader.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_HEADER + comboBoxTemplates.SelectedItem.ToString() + "'");
 
-            textBoxFooter.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format("SELECT footer FROM template WHERE title ='" + comboBoxTemplates.SelectedItem.ToString() + "'"));
+            textBoxFooter.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute( DatabaseQueries.GET_FOOTER + comboBoxTemplates.SelectedItem.ToString() + "'");
         }
 
         private void buttonGenerateFeedback_Click(object sender, EventArgs e)

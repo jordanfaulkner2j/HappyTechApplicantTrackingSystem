@@ -81,24 +81,30 @@
             // 
             // buttonDiscard
             // 
-            this.buttonDiscard.Location = new System.Drawing.Point(458, 231);
+            this.buttonDiscard.BackColor = System.Drawing.Color.DarkRed;
+            this.buttonDiscard.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDiscard.ForeColor = System.Drawing.Color.White;
+            this.buttonDiscard.Location = new System.Drawing.Point(458, 241);
             this.buttonDiscard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(147, 33);
+            this.buttonDiscard.Size = new System.Drawing.Size(136, 33);
             this.buttonDiscard.TabIndex = 11;
             this.buttonDiscard.Text = "Discard";
-            this.buttonDiscard.UseVisualStyleBackColor = true;
+            this.buttonDiscard.UseVisualStyleBackColor = false;
             this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
             // buttonGenerateFeedback
             // 
-            this.buttonGenerateFeedback.Location = new System.Drawing.Point(611, 231);
+            this.buttonGenerateFeedback.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonGenerateFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGenerateFeedback.ForeColor = System.Drawing.Color.White;
+            this.buttonGenerateFeedback.Location = new System.Drawing.Point(600, 241);
             this.buttonGenerateFeedback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGenerateFeedback.Name = "buttonGenerateFeedback";
-            this.buttonGenerateFeedback.Size = new System.Drawing.Size(156, 33);
+            this.buttonGenerateFeedback.Size = new System.Drawing.Size(167, 33);
             this.buttonGenerateFeedback.TabIndex = 12;
             this.buttonGenerateFeedback.Text = "Generate Feedback";
-            this.buttonGenerateFeedback.UseVisualStyleBackColor = true;
+            this.buttonGenerateFeedback.UseVisualStyleBackColor = false;
             this.buttonGenerateFeedback.Click += new System.EventHandler(this.buttonGenerateFeedback_Click);
             // 
             // UserControlGenerateFeedback2
@@ -111,9 +117,9 @@
             this.Controls.Add(this.textBoxFooter);
             this.Controls.Add(this.textBoxHeader);
             this.Controls.Add(this.comboBoxTemplates);
-            this.Load += new System.EventHandler(this.UserControlGenerateFeedback2_Load);
             this.Name = "UserControlGenerateFeedback2";
             this.Size = new System.Drawing.Size(794, 309);
+            this.Load += new System.EventHandler(this.UserControlGenerateFeedback2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
