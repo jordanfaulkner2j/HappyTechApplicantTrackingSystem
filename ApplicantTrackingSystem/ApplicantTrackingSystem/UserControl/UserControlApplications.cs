@@ -29,10 +29,26 @@ namespace ApplicantTrackingSystem
 
         private void textBoxFirstName_TextChanged(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgvApplications.DataSource;
-            bs.Filter = string.Format("CONVERT(" + dgvApplications.Columns[1].DataPropertyName + ", System.String) like '%" + textBoxFirstName.Text.Replace("'", "''") + "%'");
-            dgvApplications.DataSource = bs;
+            // to check if the text box is blank 
+            if (textBoxFirstName.Text == "")
+            {
+                // displays all the records if the text box is left empty
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+            else
+            {
+                // Creating a new BindingSource
+                BindingSource bs = new BindingSource();
+
+                // Selecting the DataGridView as the DataSource, In this case dgvApplications is the DataSource
+                bs.DataSource = dgvApplications.DataSource;
+
+                // sqlQuery to perform the filtering using CONVERT
+                bs.Filter = string.Format("CONVERT(" + dgvApplications.Columns[1].DataPropertyName + ", System.String) like '%" + textBoxFirstName.Text.Replace("'", "''") + "%'");
+
+                // Run the filter option in the dgvApplications 
+                dgvApplications.DataSource = bs;
+            }
         }
 
         private void textBoxFirstName_Enter(object sender, EventArgs e)
@@ -40,16 +56,34 @@ namespace ApplicantTrackingSystem
             // if text box is set to default, clear its content
             if (textBoxFirstName.Text == DEFAULT_FIRST_NAME_TEXT)
             {
+                // clears the text box 
                 textBoxFirstName.Clear();
             }
         }
 
         private void textBoxLastName_TextChanged(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgvApplications.DataSource;
-            bs.Filter = string.Format("CONVERT(" + dgvApplications.Columns[3].DataPropertyName + ", System.String) like '%" + textBoxLastName.Text.Replace("'", "''") + "%'");
-            dgvApplications.DataSource = bs;
+            // to check if the text box is blank 
+            if (textBoxLastName.Text == "")
+            {
+                // displays all the records if the text box is left empty 
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+            else
+            {
+                // Creating a new BindingSource
+                BindingSource bs = new BindingSource();
+
+                // Selecting the DataGridView as the DataSource, In this case dgvApplications is the DataSource
+                bs.DataSource = dgvApplications.DataSource;
+
+                // sqlQuery to perform the filtering using CONVERT
+                bs.Filter = string.Format("CONVERT(" + dgvApplications.Columns[3].DataPropertyName + ", System.String) like '%" + textBoxLastName.Text.Replace("'", "''") + "%'");
+
+                // Run the filter option in the dgvApplications 
+                dgvApplications.DataSource = bs;
+
+            }
         }
 
         private void textBoxLastName_Enter(object sender, EventArgs e)
@@ -57,7 +91,23 @@ namespace ApplicantTrackingSystem
             // if text box is set to default, clear its content
             if (textBoxLastName.Text == DEFAULT_LAST_NAME_TEXT)
             {
+                // clears the text box
                 textBoxLastName.Clear();
+            }
+        }
+
+        private void comboBoxJobPositions_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // filtering data based on combo box selection
+            if (comboBoxJobPositions.SelectedItem.ToString() == "All")
+            {
+                // displays all records if "All" option is selected
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+            else
+            {
+                // Row filter that displays the record that the user selects in the combo box
+                (dgvApplications.DataSource as DataTable).DefaultView.RowFilter = string.Format("title= '{0}'", comboBoxJobPositions.SelectedItem.ToString());
             }
         }
 
@@ -79,5 +129,6 @@ namespace ApplicantTrackingSystem
                 }
             }
         }
+
     }
 }
