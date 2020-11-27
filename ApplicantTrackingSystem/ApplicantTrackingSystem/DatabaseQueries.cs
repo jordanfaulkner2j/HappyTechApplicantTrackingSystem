@@ -84,7 +84,7 @@ namespace ApplicantTrackingSystem
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
         // attributes (template_id, title, header, footer)
-        public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = {2}' WHERE template_id = '{3}'";
+        public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = '{2}' WHERE template_id = '{3}'";
 
         /// <summary>
         /// retrieve complete query for updating record
