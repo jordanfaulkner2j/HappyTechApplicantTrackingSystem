@@ -37,41 +37,29 @@ namespace ApplicantTrackingSystem
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
         // attribute called code with WHERE condition
-        public const string GET_CODE = "SELECT code FROM comment WHERE";
+        public const string GET_CODE = "SELECT code FROM comment WHERE {0} = '{1}'";
         // attribute called comment_id
-        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE";
+        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE code = '{0}'";
         // attribute called comment
-        public const string GET_COMMENT = "SELECT comment FROM comment WHERE";
+        public const string GET_COMMENT = "SELECT comment FROM comment WHERE {0} = '{1}'";
         // attribute called section_title
-        public const string GET_SECTION = "SELECT title FROM section WHERE";
+        public const string GET_SECTION = "SELECT title FROM section WHERE section_id = '{0}'";
         // attribute called section_id
-        public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE";
+        public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE title = '{0}'";
         // attribute called section_id, retrieved from comment table
-        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE";
-        // delete record from comment table
-        public const string DELETE_COMMENT = "DELETE FROM comment WHERE";
+        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE {0} = '{1}'";
         // get highest comment_id from comment table
         public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
         // count sections
         public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
         // get template_id
-        public const string GET_TEMPLATE_ID = "SELECT template_id FROM template WHERE";
-        // get template_header
-        public const string GET_TEMPLATE_HEADER = "SELECT header FROM template WHERE";
-        // get template_header
-        public const string GET_TEMPLATE_FOOTER = "SELECT footer FROM template WHERE";
-        // delete record from template table
-        public const string DELETE_TEMPLATE = "DELETE FROM template WHERE";
-
-        // header from template table
-        public const string GET_HEADER = "SELECT header FROM template WHERE title ='";
-
-        // footer from template table
-        public const string GET_FOOTER = "SELECT footer FROM template WHERE title ='";
-
-        // get template title from template table
-        public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE template_id ='{0}'";
-
+        public const string GET_TEMPLATE_ID = "SELECT template_id FROM template WHERE title = '{0}'";
+        // get template header
+        public const string GET_TEMPLATE_HEADER = "SELECT header FROM template WHERE title ='{0}'";
+        // get template footer
+        public const string GET_TEMPLATE_FOOTER = "SELECT footer FROM template WHERE title ='{0}'";
+        // get template title
+        public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE {0} ='{1}'";
         // count number of records in template table
         public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
 
@@ -96,7 +84,7 @@ namespace ApplicantTrackingSystem
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
         // attributes (template_id, title, header, footer)
-        public const string UPDATE_TEMPLATE = "UPDATE template SET";
+        public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = {2}' WHERE template_id = '{3}'";
 
         /// <summary>
         /// retrieve complete query for updating record
@@ -128,7 +116,14 @@ namespace ApplicantTrackingSystem
         /// insert queries
         /// </summary>
         // example insert query
-        public const string INSERT_TEMPLATE = "INSERT INTO template (title, header, footer) VALUES (";
-        public const string INSERT_COMMENT = "INSERT INTO comment (section_id, code, comment) VALUES (";
+        public const string INSERT_TEMPLATE = "INSERT INTO template (title, header, footer) VALUES ('{0}', '{1}', '{2}')";
+        public const string INSERT_COMMENT = "INSERT INTO comment (section_id, code, comment) VALUES ('{0}', '{1}', '{2}')";
+        /// <summary>
+        /// delete queries
+        /// </summary>
+        // delete record from template table
+        public const string DELETE_TEMPLATE = "DELETE FROM template WHERE template_id = '{0}'";
+        // delete record from comment table
+        public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '{0}'";
     }
 }
