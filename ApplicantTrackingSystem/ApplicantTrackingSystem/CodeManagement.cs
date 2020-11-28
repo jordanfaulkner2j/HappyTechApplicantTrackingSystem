@@ -21,6 +21,8 @@ namespace ApplicantTrackingSystem
         }
         private void AddCode_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'listOfCommentsDataSet.list_of_comments' table. You can move, or remove it, as needed.
+            this.list_of_commentsTableAdapter.Fill(this.listOfCommentsDataSet.list_of_comments);
             // TODO: This line of code loads data into the 'databaseDataSet.section' table. You can move, or remove it, as needed.
             this.sectionTableAdapter.Fill(this.databaseDataSet.section);
             // TODO: This line of code loads data into the 'databaseCommentDataSet.comment' table. You can move, or remove it, as needed.
@@ -85,7 +87,7 @@ namespace ApplicantTrackingSystem
             }
             else
             {
-                string commentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, code)));
+                string commentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", code)));
                 comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT, "code", code));
                 sectionID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_SECTION_ID_COMMENT, "code", code));
                 string section = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_SECTION, sectionID));

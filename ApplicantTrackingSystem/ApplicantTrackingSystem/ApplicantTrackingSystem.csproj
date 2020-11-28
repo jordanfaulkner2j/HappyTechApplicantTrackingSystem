@@ -81,6 +81,11 @@
     </Compile>
     <Compile Include="DatabaseQueries.cs" />
     <Compile Include="FileWriter.cs" />
+    <Compile Include="ListOfCommentsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListOfCommentsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +212,17 @@
     </None>
     <None Include="DatabaseDataSet.xss">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ListOfCommentsDataSet.xsc">
+      <DependentUpon>ListOfCommentsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ListOfCommentsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ListOfCommentsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ListOfCommentsDataSet.xss">
+      <DependentUpon>ListOfCommentsDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

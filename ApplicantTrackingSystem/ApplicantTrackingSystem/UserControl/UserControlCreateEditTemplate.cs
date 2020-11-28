@@ -255,10 +255,52 @@ namespace ApplicantTrackingSystem
         // catch parameters as title, header and footer
         // store these in the correct sql format as a string called data
         // connect to the database and call the UpdateRecord method in the DatabaseManagement class
-        // use the INSERT_TEMPLATE query from the DatabaseQueries class with the data string as a parameter
+        // use the INSERT_TEMPLATE query from the DatabaseQueries class with the title, header and footer as parameters
+        // get the newly-inserted template's id
+        // create a for loop for each checkbox list that runs for as long as the items in each list (items.count)
+        // get the code of the selected comment
+        // get the comment_id of the comment by using a SELECT WHERE query with the code as the parameter
+        // set the INSERT_IDENTITY property in the 'list_of_comments' table to 'ON'
+        // insert each comment's id along with the template's id as a record in the 'list_of_comments' table
         private void SaveTemplate(string title, string header, string footer)
         {
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_TEMPLATE, title, header, footer));
+            // insert into list of comments
+            int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+            int i;
+            for (i = 0; i < clbUnderstanding.Items.Count; i++)
+            {
+                if (clbUnderstanding.GetItemChecked(i) == true)
+                {
+                    string itemCode= clbUnderstanding.SelectedItem.ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                }
+            }
+            for (i = 0; i < clbImpression.Items.Count; i++)
+            {
+                if (clbImpression.GetItemChecked(i) == true)
+                {
+                    string itemCode = clbImpression.SelectedItem.ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                }
+                for (i = 0; i < clbQuestions.Items.Count; i++)
+                {
+                    if (clbQuestions.GetItemChecked(i) == true)
+                    {
+                        string itemCode = clbQuestions.SelectedItem.ToString();
+                        itemCode = itemCode.Substring(0, 3);
+                        int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                        string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                    }
+                }
+            }
         }
         // catch parameters as title, header and footer
         // get the template_id attribute using the title and store this as an integer
