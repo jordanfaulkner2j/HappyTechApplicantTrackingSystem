@@ -63,6 +63,10 @@ namespace ApplicantTrackingSystem
             {
                 return loggedInEmployeeEmail;
             }
+            set
+            {
+                loggedInEmployeeEmail = value;
+            }
         }
 
         /// <summary>

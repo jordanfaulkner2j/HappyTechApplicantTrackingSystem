@@ -71,11 +71,11 @@
             // textBoxAddComments
             // 
             this.textBoxAddComments.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBoxAddComments.Location = new System.Drawing.Point(458, 59);
+            this.textBoxAddComments.Location = new System.Drawing.Point(458, 127);
             this.textBoxAddComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAddComments.Multiline = true;
             this.textBoxAddComments.Name = "textBoxAddComments";
-            this.textBoxAddComments.Size = new System.Drawing.Size(309, 159);
+            this.textBoxAddComments.Size = new System.Drawing.Size(309, 110);
             this.textBoxAddComments.TabIndex = 9;
             this.textBoxAddComments.Text = "Additonal Comments";
             // 

@@ -39,12 +39,16 @@
             // 
             // dgvApplications
             // 
+            this.dgvApplications.AllowUserToOrderColumns = true;
             this.dgvApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvApplications.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvApplications.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvApplications.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvApplications.Location = new System.Drawing.Point(0, 51);
             this.dgvApplications.Margin = new System.Windows.Forms.Padding(2);
             this.dgvApplications.Name = "dgvApplications";
+            this.dgvApplications.RowHeadersVisible = false;
             this.dgvApplications.RowHeadersWidth = 100;
             this.dgvApplications.RowTemplate.Height = 33;
             this.dgvApplications.Size = new System.Drawing.Size(968, 333);
@@ -89,6 +93,7 @@
             // 
             // comboBoxJobPositions
             // 
+            this.comboBoxJobPositions.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxJobPositions.FormattingEnabled = true;
             this.comboBoxJobPositions.Items.AddRange(new object[] {
             "All",
@@ -105,14 +110,15 @@
             // 
             this.comboBoxViewOnly.FormattingEnabled = true;
             this.comboBoxViewOnly.Items.AddRange(new object[] {
+            "View all",
             "View only interviewed",
-            "View only reviewed",
             "View only completed"});
             this.comboBoxViewOnly.Location = new System.Drawing.Point(776, 11);
             this.comboBoxViewOnly.Name = "comboBoxViewOnly";
             this.comboBoxViewOnly.Size = new System.Drawing.Size(179, 36);
             this.comboBoxViewOnly.TabIndex = 10;
             this.comboBoxViewOnly.Text = "View only interviewed";
+            this.comboBoxViewOnly.SelectedIndexChanged += new System.EventHandler(this.comboBoxViewOnly_SelectedIndexChanged);
             // 
             // UserControlApplications
             // 

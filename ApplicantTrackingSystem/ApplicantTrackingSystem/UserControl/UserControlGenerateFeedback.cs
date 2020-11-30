@@ -36,7 +36,7 @@ namespace ApplicantTrackingSystem
             for (int i = 1; i <= DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.COUNT_TEMPLATES); i++)
             {
                 // add template title to combo box
-                comboBoxTemplates.Items.Add(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, i)));
+                comboBoxTemplates.Items.Add(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, "template_id", i)));
             }
         }
         private void comboBoxTemplates_SelectedIndexChanged(object sender, EventArgs e)

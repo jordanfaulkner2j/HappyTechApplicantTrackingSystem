@@ -105,10 +105,12 @@ namespace ApplicantTrackingSystem
                 }
             }
         }
+        // refresh the data grid views with the data inside the corresponding table of the database
         private void UpdateTables()
         {
             this.sectionTableAdapter.Fill(this.databaseDataSet.section);
             this.commentTableAdapter.Fill(this.databaseCommentDataSet.comment);
+            this.list_of_commentsTableAdapter.Fill(this.listOfCommentsDataSet.list_of_comments);
         }
     }
 }

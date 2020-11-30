@@ -165,5 +165,30 @@ namespace ApplicantTrackingSystem
             }
 
         }
+
+        private void comboBoxViewOnly_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // filtering data based on combo box selection
+            if (comboBoxViewOnly.SelectedItem.ToString() == "View all")
+            {
+                // displays all records if "All" option is selected
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+            else if(comboBoxViewOnly.SelectedItem.ToString() == "View only interviewed")
+            {
+                // Row filter that displays the applicants that have been interviewed 
+                (dgvApplications.DataSource as DataTable).DefaultView.RowFilter = string.Format("interviewed = 1", comboBoxViewOnly.SelectedItem.ToString());
+            }
+            else if(comboBoxViewOnly.SelectedItem.ToString() == "View only completed")
+            {
+                // Row filter that displays all the applications that have been completely reviewed and feedback is sent
+                (dgvApplications.DataSource as DataTable).DefaultView.RowFilter = string.Format("feedback_sent = 1", comboBoxViewOnly.SelectedItem.ToString());
+            }
+            else
+            {
+                // displays all the applications
+                dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            }
+        }
     }
 }

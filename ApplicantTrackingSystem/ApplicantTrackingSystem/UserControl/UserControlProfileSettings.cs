@@ -61,6 +61,8 @@ namespace ApplicantTrackingSystem
         {
             // store content of text boxes in an array
             employeeDetails = new string[] { comboBoxTitle.SelectedItem.ToString(), textBoxFirstName.Text, textBoxMiddleNames.Text, textBoxLastName.Text, textBoxPhoneNumber.Text.ToString(), textBoxWorkNumber.Text.ToString(), textBoxEmailAddress.Text };
+            // store updated email address for later use
+            string newEmployeeEmail = employeeDetails[6];
 
             // if title was not selected, update it to null
             if (comboBoxTitle.SelectedItem.ToString() == "None")
@@ -89,8 +91,36 @@ namespace ApplicantTrackingSystem
                 }
             }
 
+            // check if the email address was changed
+            if (employeeEmail != newEmployeeEmail)
+            {
+                // check if email address matches required format, else return error message
+                if (string.IsNullOrEmpty(LoginValidation.ValidateEmail(newEmployeeEmail)))
+                {
+                    // check if email address is not used by someone else
+                    if (!string.IsNullOrEmpty(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, newEmployeeEmail))))
+                    {
+                        MessageBox.Show("Email address already taken.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email address does not have valid format.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+
             // update employee with specified email address using attributes retrieved from text fields
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, employeeDetails, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
+
+            // if email address was updated, change the email address of logged in employee
+            if (employeeEmail != newEmployeeEmail)
+            {
+                Main.mainApplication.employeeEmail = newEmployeeEmail;
+            }
+
             // update name on main form
             Main.mainApplication.UpdateStatus();
             // update current page
