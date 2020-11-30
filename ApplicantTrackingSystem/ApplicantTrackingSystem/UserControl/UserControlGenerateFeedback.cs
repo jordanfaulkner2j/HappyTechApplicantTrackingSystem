@@ -42,9 +42,9 @@ namespace ApplicantTrackingSystem
         private void comboBoxTemplates_SelectedIndexChanged(object sender, EventArgs e)
         {
             // update text fields based on data from selected template
-            textBoxHeader.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_HEADER, comboBoxTemplates.SelectedItem.ToString()));
+            textBoxHeader.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_HEADER + comboBoxTemplates.SelectedItem.ToString() + "'");
 
-            textBoxFooter.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_FOOTER, comboBoxTemplates.SelectedItem.ToString()));
+            textBoxFooter.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute( DatabaseQueries.GET_FOOTER + comboBoxTemplates.SelectedItem.ToString() + "'");
         }
 
         private void buttonGenerateFeedback_Click(object sender, EventArgs e)

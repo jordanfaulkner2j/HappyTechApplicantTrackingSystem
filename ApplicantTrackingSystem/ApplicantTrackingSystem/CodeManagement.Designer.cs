@@ -54,14 +54,6 @@
             this.lblSelectSection = new System.Windows.Forms.Label();
             this.commentTableAdapter = new ApplicantTrackingSystem.DatabaseCommentDataSetTableAdapters.commentTableAdapter();
             this.sectionTableAdapter = new ApplicantTrackingSystem.DatabaseDataSetTableAdapters.sectionTableAdapter();
-            this.lblSections = new System.Windows.Forms.Label();
-            this.dgvListOfComments = new System.Windows.Forms.DataGridView();
-            this.lblListOfComments = new System.Windows.Forms.Label();
-            this.listOfCommentsDataSet = new ApplicantTrackingSystem.ListOfCommentsDataSet();
-            this.listofcommentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.list_of_commentsTableAdapter = new ApplicantTrackingSystem.ListOfCommentsDataSetTableAdapters.list_of_commentsTableAdapter();
-            this.commentidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.templateidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource)).BeginInit();
@@ -70,30 +62,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseCommentDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfComments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listOfCommentsDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listofcommentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBackground
             // 
-            this.pnlBackground.AutoScroll = true;
             this.pnlBackground.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlBackground.Controls.Add(this.lblListOfComments);
-            this.pnlBackground.Controls.Add(this.dgvListOfComments);
-            this.pnlBackground.Controls.Add(this.lblSections);
             this.pnlBackground.Controls.Add(this.dgvSection);
             this.pnlBackground.Controls.Add(this.panel2);
             this.pnlBackground.Location = new System.Drawing.Point(1, 0);
             this.pnlBackground.Name = "pnlBackground";
-            this.pnlBackground.Size = new System.Drawing.Size(814, 499);
+            this.pnlBackground.Size = new System.Drawing.Size(800, 452);
             this.pnlBackground.TabIndex = 0;
             // 
             // dgvSection
             // 
             this.dgvSection.AutoGenerateColumns = false;
             this.dgvSection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSection.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSection.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvSection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -155,7 +139,7 @@
             this.cmbSectionTitle.Font = new System.Drawing.Font("Arial", 8F);
             this.cmbSectionTitle.FormattingEnabled = true;
             this.cmbSectionTitle.Location = new System.Drawing.Point(18, 60);
-            this.cmbSectionTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSectionTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbSectionTitle.Name = "cmbSectionTitle";
             this.cmbSectionTitle.Size = new System.Drawing.Size(157, 22);
             this.cmbSectionTitle.TabIndex = 9;
@@ -206,7 +190,6 @@
             // 
             this.dgvComment.AutoGenerateColumns = false;
             this.dgvComment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvComment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvComment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvComment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -315,79 +298,16 @@
             // 
             this.sectionTableAdapter.ClearBeforeFill = true;
             // 
-            // lblSections
-            // 
-            this.lblSections.AutoSize = true;
-            this.lblSections.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSections.Location = new System.Drawing.Point(27, 282);
-            this.lblSections.Name = "lblSections";
-            this.lblSections.Size = new System.Drawing.Size(69, 16);
-            this.lblSections.TabIndex = 10;
-            this.lblSections.Text = "Sections";
-            // 
-            // dgvListOfComments
-            // 
-            this.dgvListOfComments.AutoGenerateColumns = false;
-            this.dgvListOfComments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListOfComments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvListOfComments.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvListOfComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListOfComments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.commentidDataGridViewTextBoxColumn1,
-            this.templateidDataGridViewTextBoxColumn});
-            this.dgvListOfComments.DataSource = this.listofcommentsBindingSource;
-            this.dgvListOfComments.Location = new System.Drawing.Point(9, 480);
-            this.dgvListOfComments.Name = "dgvListOfComments";
-            this.dgvListOfComments.Size = new System.Drawing.Size(776, 116);
-            this.dgvListOfComments.TabIndex = 11;
-            // 
-            // lblListOfComments
-            // 
-            this.lblListOfComments.AutoSize = true;
-            this.lblListOfComments.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblListOfComments.Location = new System.Drawing.Point(27, 451);
-            this.lblListOfComments.Name = "lblListOfComments";
-            this.lblListOfComments.Size = new System.Drawing.Size(129, 16);
-            this.lblListOfComments.TabIndex = 12;
-            this.lblListOfComments.Text = "List of Comments";
-            // 
-            // listOfCommentsDataSet
-            // 
-            this.listOfCommentsDataSet.DataSetName = "ListOfCommentsDataSet";
-            this.listOfCommentsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // listofcommentsBindingSource
-            // 
-            this.listofcommentsBindingSource.DataMember = "list_of_comments";
-            this.listofcommentsBindingSource.DataSource = this.listOfCommentsDataSet;
-            // 
-            // list_of_commentsTableAdapter
-            // 
-            this.list_of_commentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // commentidDataGridViewTextBoxColumn1
-            // 
-            this.commentidDataGridViewTextBoxColumn1.DataPropertyName = "comment_id";
-            this.commentidDataGridViewTextBoxColumn1.HeaderText = "comment_id";
-            this.commentidDataGridViewTextBoxColumn1.Name = "commentidDataGridViewTextBoxColumn1";
-            // 
-            // templateidDataGridViewTextBoxColumn
-            // 
-            this.templateidDataGridViewTextBoxColumn.DataPropertyName = "template_id";
-            this.templateidDataGridViewTextBoxColumn.HeaderText = "template_id";
-            this.templateidDataGridViewTextBoxColumn.Name = "templateidDataGridViewTextBoxColumn";
-            // 
             // CodeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 497);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlBackground);
             this.Name = "CodeManagement";
             this.Text = "Code Management";
             this.Load += new System.EventHandler(this.AddCode_Load);
             this.pnlBackground.ResumeLayout(false);
-            this.pnlBackground.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
@@ -396,9 +316,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvComment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseCommentDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfComments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listOfCommentsDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listofcommentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -430,13 +347,5 @@
         private System.Windows.Forms.Label lblAddCode;
         private System.Windows.Forms.Button btnDeleteCode;
         private System.Windows.Forms.ComboBox cmbSectionTitle;
-        private System.Windows.Forms.Label lblListOfComments;
-        private System.Windows.Forms.DataGridView dgvListOfComments;
-        private System.Windows.Forms.Label lblSections;
-        private ListOfCommentsDataSet listOfCommentsDataSet;
-        private System.Windows.Forms.BindingSource listofcommentsBindingSource;
-        private ListOfCommentsDataSetTableAdapters.list_of_commentsTableAdapter list_of_commentsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentidDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn templateidDataGridViewTextBoxColumn;
     }
 }

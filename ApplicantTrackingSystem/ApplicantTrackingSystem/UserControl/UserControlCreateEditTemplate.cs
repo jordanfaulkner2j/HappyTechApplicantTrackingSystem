@@ -55,27 +55,27 @@ namespace ApplicantTrackingSystem
             for (i = 0; i < highestCommentID; i++)
             {
                 int sectionID = 1;
-                string getSectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_SECTION_ID_COMMENT, "comment_id", commentID)));
+                string getSectionID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION_ID_COMMENT + " comment_id = '" + commentID + "'"));
                 bool recordExists = int.TryParse(getSectionID, out sectionID);
                 if (recordExists == true)
                 {
-                    string sectionTitle = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_SECTION, getSectionID));
+                    string sectionTitle = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_SECTION + " section_id = '" + getSectionID + "'");
                     if (sectionTitle == lblUnderstanding.Text)
                     {
-                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_CODE, "comment_id", commentID));
-                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT, "comment_id", commentID));
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
                         clbUnderstanding.Items.Add(code + " - " + comment);
                     }
                     else if (sectionTitle == lblImpression.Text)
                     {
-                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_CODE, "comment_id", commentID));
-                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT, "comment_id", commentID));
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
                         clbImpression.Items.Add(code + " - " + comment);
                     }
                     else if (sectionTitle == lblQuestions.Text)
                     {
-                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_CODE, "comment_id", commentID));
-                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT, "comment_id", commentID));
+                        string code = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_CODE + " comment_id = '" + commentID + "'");
+                        string comment = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_COMMENT + " comment_id = '" + commentID + "'");
                         clbQuestions.Items.Add(code + " - " + comment);
                     }
                     commentID++;
@@ -94,7 +94,6 @@ namespace ApplicantTrackingSystem
         // check to see if a name for the template has been given by the employee
         // save contents of template name text box as a string called 'templateName'
         // if 'templateName' is blank or contains the default text, display a prompt telling them to enter a name into the text box
-        // if 'templateName' has the same name as an existing template, display a prompt stating that a template with the same name already exists
         // if a 'templateName' has been given, proceed with saving the template to the database
         // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
         // display a pop up message box to inform the user it has been saved successfully
@@ -119,12 +118,6 @@ namespace ApplicantTrackingSystem
                 {
                     string title = "No Template Name";
                     string message = "Please enter a name for this template before saving.";
-                    MessageBox.Show(message, title);
-                }
-                else if (templateName == DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, "title", templateName)))
-                {
-                    string title = "Template Already Exists";
-                    string message = "A template with this name already exists.";
                     MessageBox.Show(message, title);
                 }
                 else
@@ -255,52 +248,11 @@ namespace ApplicantTrackingSystem
         // catch parameters as title, header and footer
         // store these in the correct sql format as a string called data
         // connect to the database and call the UpdateRecord method in the DatabaseManagement class
-        // use the INSERT_TEMPLATE query from the DatabaseQueries class with the title, header and footer as parameters
-        // get the newly-inserted template's id
-        // create a for loop for each checkbox list that runs for as long as the items in each list (items.count)
-        // get the code of the selected comment
-        // get the comment_id of the comment by using a SELECT WHERE query with the code as the parameter
-        // set the INSERT_IDENTITY property in the 'list_of_comments' table to 'ON'
-        // insert each comment's id along with the template's id as a record in the 'list_of_comments' table
+        // use the INSERT_TEMPLATE query from the DatabaseQueries class with the data string as a parameter
         private void SaveTemplate(string title, string header, string footer)
         {
-            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_TEMPLATE, title, header, footer));
-            // insert into list of comments
-            int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
-            int i;
-            for (i = 0; i < clbUnderstanding.Items.Count; i++)
-            {
-                if (clbUnderstanding.GetItemChecked(i) == true)
-                {
-                    string itemCode= clbUnderstanding.SelectedItem.ToString();
-                    itemCode = itemCode.Substring(0, 3);
-                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
-                }
-            }
-            for (i = 0; i < clbImpression.Items.Count; i++)
-            {
-                if (clbImpression.GetItemChecked(i) == true)
-                {
-                    string itemCode = clbImpression.SelectedItem.ToString();
-                    itemCode = itemCode.Substring(0, 3);
-                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
-                }
-                for (i = 0; i < clbQuestions.Items.Count; i++)
-                {
-                    if (clbQuestions.GetItemChecked(i) == true)
-                    {
-                        string itemCode = clbQuestions.SelectedItem.ToString();
-                        itemCode = itemCode.Substring(0, 3);
-                        int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                        string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
-                    }
-                }
-            }
+            string data = "'" + title + "', '" + header + "', '" + footer + "')";
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.INSERT_TEMPLATE + data);
         }
         // catch parameters as title, header and footer
         // get the template_id attribute using the title and store this as an integer
@@ -308,9 +260,9 @@ namespace ApplicantTrackingSystem
         // use the UPDATE_TEMPLATE query from the DatabaseQueries class with the template title, header and footer variables as parameters, and a WHERE clause with the template_id as a parameter
         private void EditTemplate(string title, string header, string footer)
         {
-            int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+            int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_ID + " title = '" + title + "'");
             title = tbxTemplateName.Text;
-            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.UPDATE_TEMPLATE, title, header, footer, templateID));
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UPDATE_TEMPLATE + " title = '" + title + "', header = '" + header + "', footer = '" + footer + "' WHERE template_id = '" + templateID + "'");
         }
         // if the button to add a new code is clicked
         // save the title of the section as string
