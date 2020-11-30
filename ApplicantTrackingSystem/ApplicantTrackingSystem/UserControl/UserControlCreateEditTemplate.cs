@@ -275,8 +275,7 @@ namespace ApplicantTrackingSystem
                     string itemCode= clbUnderstanding.SelectedItem.ToString();
                     itemCode = itemCode.Substring(0, 3);
                     int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                 }
             }
             for (i = 0; i < clbImpression.Items.Count; i++)
@@ -286,8 +285,7 @@ namespace ApplicantTrackingSystem
                     string itemCode = clbImpression.SelectedItem.ToString();
                     itemCode = itemCode.Substring(0, 3);
                     int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                    string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                 }
                 for (i = 0; i < clbQuestions.Items.Count; i++)
                 {
@@ -296,8 +294,7 @@ namespace ApplicantTrackingSystem
                         string itemCode = clbQuestions.SelectedItem.ToString();
                         itemCode = itemCode.Substring(0, 3);
                         int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                        string set_identity_insert = string.Format(DatabaseQueries.IDENTITY_INSERT, "list_of_comments", "ON ");
-                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(set_identity_insert, DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID, commentID));
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                     }
                 }
             }
