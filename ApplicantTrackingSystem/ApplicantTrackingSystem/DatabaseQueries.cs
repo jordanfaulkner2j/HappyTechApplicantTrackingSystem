@@ -121,8 +121,6 @@ namespace ApplicantTrackingSystem
         public const string INSERT_COMMENT = "INSERT INTO comment (section_id, code, comment) VALUES ('{0}', '{1}', '{2}')";
         // insert into list_of_comments
         public const string INSERT_LIST_OF_COMMENTS = "INSERT INTO list_of_comments (comment_id, template_id) VALUES ('{0}', '{1}')";
-        // set insert identity to on
-        public const string IDENTITY_INSERT = "SET IDENTITY_INSERT {0} {1}";
         /// <summary>
         /// delete queries
         /// </summary>
