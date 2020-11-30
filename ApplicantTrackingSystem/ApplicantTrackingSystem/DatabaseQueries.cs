@@ -21,10 +21,10 @@ namespace ApplicantTrackingSystem
         public const string TEMPLATES = "SELECT * FROM template";
 
         // table of applicants and their details from the table of users (id, first name, middle names, last name, email address, mobile number, work number)
-        public const string APPLICANT_DETAILS = "SELECT * FROM users applicant INNER JOIN users ON applicant.user_id = users.user_id";
+        public const string APPLICANT_DETAILS = "SELECT * FROM users INNER JOIN users ON applicant.user_id = users.user_id";
 
         // table of employees and their details from the table of users (id, first name, middle names, last name, email address, mobile number, work number)
-        public const string EMPLOYEE_DETAILS = "SELECT * FROM users employee INNER JOIN users ON employee.user_id = users.user_id";
+        public const string USER_DETAILS = "SELECT users.title, users.first_name, users.middle_names, users.last_name, users.mobile_number, users.work_number, users.email_address FROM users";
 
         // attribute which merges first, middle and last name
         public const string EMPLOYEE_NAME = "SELECT CONCAT(users.first_name, ' ', CASE WHEN users.middle_names IS NOT NULL THEN CONCAT(users.middle_names, ' ') END, users.last_name) AS full_name FROM users INNER JOIN employee ON users.user_id = employee.user_id";
@@ -34,8 +34,10 @@ namespace ApplicantTrackingSystem
 
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
+
         // attribute called code with WHERE condition
         public const string GET_CODE = "SELECT code FROM comment WHERE {0} = '{1}'";
         // attribute called comment_id
@@ -63,13 +65,13 @@ namespace ApplicantTrackingSystem
         // count number of records in template table
         public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
 
-
         /// <summary>
-        /// retrieve complete query for retrieving employee details with specified email address
+        /// get complete query for retrieving specified record
         /// </summary>
-        /// <param name="sqlQuery">basic query listing the attributes to search for</param>
-        /// <param name="employeeEmail">search by specified employee's email</param>
-        /// <returns>fully joined query</returns>
+        /// <param name="baseQuery">basic query listing the attributes to output</param>
+        /// <param name="whereQuery">search for record based on specified attribute</param>
+        /// <param name="whereAttribute">specified attribute</param>
+        /// <returns>fully joined search query</returns>
         public static string GetRecord(string baseQuery, string whereQuery, string whereAttribute)
         {
             return string.Join(" ", baseQuery, string.Format(whereQuery, whereAttribute));
@@ -79,10 +81,11 @@ namespace ApplicantTrackingSystem
         /// update queries
         /// </summary>
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
-        public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE users SET users.first_name = '{0}', users.middle_names = '{1}', users.last_name = '{2}', users.email_address = '{3}', users.mobile_number = '{4}', users.work_number = '{5}'";
+        public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE users SET users.title = CASE WHEN '{0}' = '' THEN NULL ELSE '{0}' END, users.first_name = '{1}', users.middle_names = CASE WHEN '{2}' = '' THEN NULL ELSE '{2}' END, users.last_name = '{3}', users.mobile_number = '{4}', users.work_number = CASE WHEN '{5}' = '' THEN NULL ELSE '{5}' END, users.email_address = '{6}'";
 
         // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
         // attributes (template_id, title, header, footer)
         public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = '{2}' WHERE template_id = '{3}'";
 
@@ -93,7 +96,7 @@ namespace ApplicantTrackingSystem
         /// <param name="listOfAttributes">attributes to merge with the query</param>
         /// <param name="whereQuere">where condition</param>
         /// <param name="whereAttribute">where specified value</param>
-        /// <returns></returns>
+        /// <returns>full update query</returns>
         public static string UpdateRecord(string baseQuery, string[] listOfAttributes, string whereQuere, string whereAttribute)
         {
             return string.Join(" ", string.Format(baseQuery, listOfAttributes), string.Format(whereQuere, whereAttribute));
@@ -106,7 +109,7 @@ namespace ApplicantTrackingSystem
         /// <param name="attribute">single attribute</param>
         /// <param name="whereQuere">where condition</param>
         /// <param name="whereAttribute">where specified value</param>
-        /// <returns></returns>
+        /// <returns>full update query for single attribute</returns>
         public static string UpdateRecord(string baseQuery, string attribute, string whereQuere, string whereAttribute)
         {
             return string.Join(" ", string.Format(baseQuery, attribute), string.Format(whereQuere, whereAttribute));
@@ -123,6 +126,7 @@ namespace ApplicantTrackingSystem
         public const string INSERT_LIST_OF_COMMENTS = "INSERT INTO list_of_comments (comment_id, template_id) VALUES ('{0}', '{1}')";
         // set insert identity to on
         public const string IDENTITY_INSERT = "SET IDENTITY_INSERT {0} {1}";
+
         /// <summary>
         /// delete queries
         /// </summary>

@@ -14,6 +14,10 @@ namespace ApplicantTrackingSystem
     {
         // private string for employee's email used for retrieving and updating their record
         private string employeeEmail;
+        // private array of strings holding contents of text boxes
+        private string[] employeeDetails;
+        // private array of strings containing default titles
+        private readonly string[] listOfTitles = { "None", "Mr", "Mrs", "Ms", "Miss", "Dr" };
 
         public UserControlMyProfile(string selectedEmployeeEmail)
         {
@@ -21,26 +25,70 @@ namespace ApplicantTrackingSystem
 
             // store selected employee's email
             employeeEmail = selectedEmployeeEmail;
+
+            // add predefined list of titles to combo box
+            comboBoxTitle.Items.AddRange(listOfTitles);
+            // select default title
+            comboBoxTitle.SelectedItem = "None";
         }
 
         private void UserControlMyProfile_Load(object sender, EventArgs e)
         {
             // retrieve array of strings containing employee details based on their email address
-            string[] record = DatabaseManagement.GetInstanceOfDatabaseConnection().GetEntireRecord(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_DETAILS, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
-            
-            // set strings to text boxes using the following index starting from 0 (id, first name, middle names, last name, email address, mobile number, work number)
-            textBoxFirstName.Text = record[1];
-            textBoxMiddleNames.Text = record[2];
-            textBoxLastName.Text = record[3];
-            textBoxPhoneNumber.Text = record[5];
-            textBoxWorkNumber.Text = record[6];
-            textBoxEmailAddress.Text = record[4];
+            employeeDetails = DatabaseManagement.GetInstanceOfDatabaseConnection().GetEntireRecord(DatabaseQueries.GetRecord(DatabaseQueries.USER_DETAILS, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
+
+            // select title from the combo box
+            foreach (string option in comboBoxTitle.Items)
+            {
+                // if title already exists in the list, select it
+                if (option == employeeDetails[0])
+                {
+                    //comboBoxTitle.SelectedIndex = i;
+                    comboBoxTitle.SelectedItem = option;
+                }
+            }
+
+            // set strings to text boxes using the following index starting from 0 (title, first name, middle names, last name, mobile number, work number, email address)
+            textBoxFirstName.Text = employeeDetails[1];
+            textBoxMiddleNames.Text = employeeDetails[2];
+            textBoxLastName.Text = employeeDetails[3];
+            textBoxPhoneNumber.Text = employeeDetails[4];
+            textBoxWorkNumber.Text = employeeDetails[5];
+            textBoxEmailAddress.Text = employeeDetails[6];
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             // store content of text boxes in an array
-            string[] employeeDetails = { textBoxFirstName.Text, textBoxMiddleNames.Text, textBoxLastName.Text, textBoxEmailAddress.Text, textBoxPhoneNumber.Text, textBoxWorkNumber.Text };
+            employeeDetails = new string[] { comboBoxTitle.SelectedItem.ToString(), textBoxFirstName.Text, textBoxMiddleNames.Text, textBoxLastName.Text, textBoxPhoneNumber.Text.ToString(), textBoxWorkNumber.Text.ToString(), textBoxEmailAddress.Text };
+
+            // if title was not selected, update it to null
+            if (comboBoxTitle.SelectedItem.ToString() == "None")
+            {
+                employeeDetails[0] = null;
+            }
+
+            // loop through all employee's details except title which was already validated
+            for (int i = 1; i < employeeDetails.Length; i++)
+            {
+                // check if required fields were not left blank
+                if (string.IsNullOrEmpty(employeeDetails[i]))
+                {
+                    // except middle name and work phone number that are allowed to be null
+                    if (i == 2 || i == 5)
+                    {
+                        // in case the text box contains an empty space, set value manually to null
+                        employeeDetails[i] = null;
+                    }
+                    else
+                    {
+                        // else return error message
+                        MessageBox.Show("Fields marked with asterisk are required.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
             // update employee with specified email address using attributes retrieved from text fields
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, employeeDetails, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
             // update name on main form
