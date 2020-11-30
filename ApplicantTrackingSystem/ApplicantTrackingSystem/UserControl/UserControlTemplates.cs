@@ -33,8 +33,8 @@ namespace ApplicantTrackingSystem
         {
             string templateName = cmbSelectedTemplateTitle.Text;
             UserControlCreateEditTemplate.templateName = templateName;
-            UserControlCreateEditTemplate.headerText = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_HEADER + " title = '" + templateName + "'");
-            UserControlCreateEditTemplate.footerText = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_FOOTER + " title = '" + templateName + "'");
+            UserControlCreateEditTemplate.headerText = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_HEADER, templateName));
+            UserControlCreateEditTemplate.footerText = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_FOOTER, templateName));
             UserControlCreateEditTemplate.editingTemplate = true;
             Main.mainApplication.OpenPage(new UserControlCreateEditTemplate());
         }
@@ -51,8 +51,8 @@ namespace ApplicantTrackingSystem
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GET_TEMPLATE_ID + " title = '" + templateTitle + "'");
-                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.DELETE_TEMPLATE + " template_id = '" + templateID + "'");
+                int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, templateTitle));
+                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_TEMPLATE, templateID));
                 message = "Template was deleted successfully.";
                 title = "Delete Template";
                 MessageBox.Show(message, title);
