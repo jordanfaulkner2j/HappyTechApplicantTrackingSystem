@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ApplicantTrackingSystem.UserControlApplications">
+    <Position X="13" Y="2.5" Width="3" />
+    <Members>
+      <Field Name="comboBoxJobPositions" Hidden="true" />
+      <Field Name="comboBoxSortBy" Hidden="true" />
+      <Field Name="comboBoxViewOnly" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dgvApplications" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="textBoxFirstName" Hidden="true" />
+      <Field Name="textBoxLastName" Hidden="true" />
+      <Method Name="UserControlApplications" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAAwAEAAAKAAAAAAAAGAgARCAAAEAIBCAAEAAAIggAA=</HashCode>
+      <FileName>UserControl\UserControlApplications.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlCreateEditTemplate">
+    <Position X="9.25" Y="5" Width="2.5" />
+    <Members>
+      <Field Name="btnAddImpressionCode" Hidden="true" />
+      <Field Name="btnAddQuestionsCode" Hidden="true" />
+      <Field Name="btnAddUnderstandingCode" Hidden="true" />
+      <Field Name="btnDiscardChanges" Hidden="true" />
+      <Field Name="btnSaveTemplate" Hidden="true" />
+      <Field Name="clbApplicationResult" Hidden="true" />
+      <Field Name="clbFooter" Hidden="true" />
+      <Field Name="clbImpression" Hidden="true" />
+      <Field Name="clbQuestions" Hidden="true" />
+      <Field Name="clbTemplateType" Hidden="true" />
+      <Field Name="clbUnderstanding" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="lblApplicationResult" Hidden="true" />
+      <Field Name="lblFooter" Hidden="true" />
+      <Field Name="lblFooterPreview" Hidden="true" />
+      <Field Name="lblHeaderPreview" Hidden="true" />
+      <Field Name="lblImpression" Hidden="true" />
+      <Field Name="lblPreview" Hidden="true" />
+      <Field Name="lblQuestions" Hidden="true" />
+      <Field Name="lblSections" Hidden="true" />
+      <Field Name="lblTemplateName" Hidden="true" />
+      <Field Name="lblTemplateSettings" Hidden="true" />
+      <Field Name="lblTemplateType" Hidden="true" />
+      <Field Name="lblUnderstanding" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="pnlApplicantQuestions" Hidden="true" />
+      <Field Name="pnlComments" Hidden="true" />
+      <Field Name="pnlDiscard" Hidden="true" />
+      <Field Name="pnlFooter" Hidden="true" />
+      <Field Name="pnlFooterPreview" Hidden="true" />
+      <Field Name="pnlHeader" Hidden="true" />
+      <Field Name="pnlHeaderPreview" Hidden="true" />
+      <Field Name="pnlImpression" Hidden="true" />
+      <Field Name="pnlNaming" Hidden="true" />
+      <Field Name="pnlPreview" Hidden="true" />
+      <Field Name="pnlSaveTemplate" Hidden="true" />
+      <Field Name="tbxFooter" Hidden="true" />
+      <Field Name="tbxHeader" Hidden="true" />
+      <Field Name="tbxTemplateName" Hidden="true" />
+      <Method Name="UserControlCreateEditTemplate" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IECZIAKggCIAAGABBQGAAAkjFCMwEdhBEKNAEWEikBs=</HashCode>
+      <FileName>UserControl\UserControlCreateEditTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlEmployees">
+    <Position X="4.75" Y="0.5" Width="3.25" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dgvEmployees" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAACAAAAAAAACAAAACAAQYAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControl\UserControlEmployees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlMyProfile">
+    <Position X="0.75" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="buttonChangePassword" Hidden="true" />
+      <Field Name="buttonDiscard" Hidden="true" />
+      <Field Name="buttonSave" Hidden="true" />
+      <Field Name="buttonUploadPhoto" Hidden="true" />
+      <Field Name="comboBoxTitle" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="labelEmailAddress" Hidden="true" />
+      <Field Name="labelFirstName" Hidden="true" />
+      <Field Name="labelLastName" Hidden="true" />
+      <Field Name="labelMiddleNames" Hidden="true" />
+      <Field Name="labelMobileNumber" Hidden="true" />
+      <Field Name="labelTitle" Hidden="true" />
+      <Field Name="labelWorkNumber" Hidden="true" />
+      <Field Name="pictureBoxPhoto" Hidden="true" />
+      <Field Name="textBoxCurrentPassword" Hidden="true" />
+      <Field Name="textBoxEmailAddress" Hidden="true" />
+      <Field Name="textBoxFirstName" Hidden="true" />
+      <Field Name="textBoxLastName" Hidden="true" />
+      <Field Name="textBoxMiddleNames" Hidden="true" />
+      <Field Name="textBoxNewPassword" Hidden="true" />
+      <Field Name="textBoxNewPasswordConfirmed" Hidden="true" />
+      <Field Name="textBoxPhoneNumber" Hidden="true" />
+      <Field Name="textBoxWorkNumber" Hidden="true" />
+      <Method Name="UserControlMyProfile" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAgAAACQAAZIkABDABoBCAYIAgAJAMEESBAAQIAI=</HashCode>
+      <FileName>UserControl\UserControlProfileSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlTemplates">
+    <Position X="5.25" Y="8.5" Width="2.25" />
+    <Members>
+      <Field Name="btnDeleteTemplate" Hidden="true" />
+      <Field Name="btnEditTemplate" Hidden="true" />
+      <Field Name="cmbSelectedTemplateTitle" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dgvTemplates" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="lblSelectTemplate" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="templateBindingSource" Hidden="true" />
+      <Field Name="templateDataSet" Hidden="true" />
+      <Field Name="templateTableAdapter" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AmAAAAgBACAAAAAAAACAAAwCiAAAAAgAAAABAQAAAAg=</HashCode>
+      <FileName>UserControl\UserControlTemplates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.CodeManagement">
+    <Position X="9" Y="11.75" Width="3" />
+    <Members>
+      <Field Name="btnAddCode" Hidden="true" />
+      <Field Name="btnDeleteCode" Hidden="true" />
+      <Field Name="cmbSectionTitle" Hidden="true" />
+      <Field Name="codeDataGridViewTextBoxColumn" Hidden="true" />
+      <Method Name="CodeManagement" Hidden="true" />
+      <Field Name="commentBindingSource" Hidden="true" />
+      <Field Name="commentDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="commentidDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="commentidDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="commentTableAdapter" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="databaseCommentDataSet" Hidden="true" />
+      <Field Name="databaseDataSet" Hidden="true" />
+      <Field Name="dgvComment" Hidden="true" />
+      <Field Name="dgvListOfComments" Hidden="true" />
+      <Field Name="dgvSection" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="lblAddCode" Hidden="true" />
+      <Field Name="lblEnterCode" Hidden="true" />
+      <Field Name="lblListOfComments" Hidden="true" />
+      <Field Name="lblSections" Hidden="true" />
+      <Field Name="lblSelectSection" Hidden="true" />
+      <Field Name="list_of_commentsTableAdapter" Hidden="true" />
+      <Field Name="listofcommentsBindingSource" Hidden="true" />
+      <Field Name="listOfCommentsDataSet" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="pnlBackground" Hidden="true" />
+      <Field Name="sectionBindingSource" Hidden="true" />
+      <Field Name="sectionidDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="sectionidDataGridViewTextBoxColumn1" Hidden="true" />
+      <Field Name="sectionTableAdapter" Hidden="true" />
+      <Field Name="tbxCode" Hidden="true" />
+      <Field Name="tbxComment" Hidden="true" />
+      <Field Name="templateidDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="titleDataGridViewTextBoxColumn" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AA0AAAgQACg4ABSgBICQgASCIAQAABQBAhTRIchAgIA=</HashCode>
+      <FileName>CodeManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.Login">
+    <Position X="0.75" Y="4.5" Width="3.25" />
+    <Members>
+      <Field Name="buttonLogIn" Hidden="true" />
+      <Field Name="comboBoxEmail" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="linkLabelForgotPassword" Hidden="true" />
+      <Method Name="Login" Hidden="true" />
+      <Field Name="pictureBoxLogo" Hidden="true" />
+      <Field Name="pictureBoxPasswordVisibility" Hidden="true" />
+      <Field Name="textBoxPassword" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIAIAgRCCAJwAAgABaAAAACAAAAAAgAAQAQAAAAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.LoginValidation">
+    <Position X="1" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAEAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoginValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.Main">
+    <Position X="4.75" Y="3" Width="3.25" />
+    <Members>
+      <Field Name="applicationsToolStripMenuItem" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="createNewTemplateToolStripMenuItem" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="labelApplicationsCompleted" Hidden="true" />
+      <Field Name="labelApplicationsRemaining" Hidden="true" />
+      <Field Name="labelEmployeeName" Hidden="true" />
+      <Field Name="labelNumberCompleted" Hidden="true" />
+      <Field Name="labelNumberRemaining" Hidden="true" />
+      <Field Name="logOutToolStripMenuItem" Hidden="true" />
+      <Method Name="Main" Hidden="true" />
+      <Field Name="manageEmployeesToolStripMenuItem" Hidden="true" />
+      <Field Name="menuBar" Hidden="true" />
+      <Field Name="myProfileSettingsToolStripMenuItem" Hidden="true" />
+      <Field Name="panelBody" Hidden="true" />
+      <Field Name="panelWelcome" Hidden="true" />
+      <Field Name="pictureBoxLogo" Hidden="true" />
+      <Field Name="templatesToolStripMenuItem" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAZgAQgEACAEAYCkEACIKIACAEBgCCgUCBAAggAACAA=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.DatabaseManagement">
+    <Position X="17" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAMAAAoCAAAAAAAAABAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DatabaseManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.DatabaseQueries">
+    <Position X="21.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>SJIAAgBAAAQAACBAEgAFQAAAAAoJgYBEQAIIAAAACAA=</HashCode>
+      <FileName>DatabaseQueries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlGenerateFeedback2">
+    <Position X="9" Y="1.25" Width="3.25" />
+    <Members>
+      <Field Name="buttonDiscard" Hidden="true" />
+      <Field Name="buttonGenerateFeedback" Hidden="true" />
+      <Field Name="comboBoxTemplates" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="textBoxAddComments" Hidden="true" />
+      <Field Name="textBoxFooter" Hidden="true" />
+      <Field Name="textBoxHeader" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABQAAAAASAAAAQgAACAAAACAgCAAAAAEAAAAIACAAA=</HashCode>
+      <FileName>UserControl\UserControlGenerateFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

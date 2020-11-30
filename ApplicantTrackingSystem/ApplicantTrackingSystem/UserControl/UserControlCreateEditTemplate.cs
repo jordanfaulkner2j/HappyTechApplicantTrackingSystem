@@ -260,7 +260,6 @@ namespace ApplicantTrackingSystem
         // create a for loop for each checkbox list that runs for as long as the items in each list (items.count)
         // get the code of the selected comment
         // get the comment_id of the comment by using a SELECT WHERE query with the code as the parameter
-        // set the INSERT_IDENTITY property in the 'list_of_comments' table to 'ON'
         // insert each comment's id along with the template's id as a record in the 'list_of_comments' table
         private void SaveTemplate(string title, string header, string footer)
         {
