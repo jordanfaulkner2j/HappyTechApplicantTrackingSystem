@@ -28,8 +28,14 @@ namespace ApplicantTrackingSystem
             if (e.RowIndex >= 0)
             {
                 // when a record is selected, open page with their details
-                Main.mainApplication.OpenPage(new UserControlMyProfile(dgvEmployees.Rows[e.RowIndex].Cells["Email Address"].Value.ToString()));
+                Main.mainApplication.OpenPage(new UserControlProfileSettings(dgvEmployees.Rows[e.RowIndex].Cells["Email Address"].Value.ToString(), true));
             }
+        }
+
+        private void buttonAddEmployee_Click(object sender, EventArgs e)
+        {
+            // open page for profile settings without specifying employee email and instead, open default settings for creating new account
+            Main.mainApplication.OpenPage(new UserControlProfileSettings(null, true));
         }
     }
 }

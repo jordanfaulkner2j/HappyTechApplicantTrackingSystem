@@ -23,7 +23,7 @@ namespace ApplicantTrackingSystem
         // table of applicants and their details from the table of users (id, first name, middle names, last name, email address, mobile number, work number)
         public const string APPLICANT_DETAILS = "SELECT * FROM users INNER JOIN users ON applicant.user_id = users.user_id";
 
-        // table of employees and their details from the table of users (id, first name, middle names, last name, email address, mobile number, work number)
+        // table of users and their details from the table of users (first name, middle names, last name, mobile number, work number, email address)
         public const string USER_DETAILS = "SELECT users.title, users.first_name, users.middle_names, users.last_name, users.mobile_number, users.work_number, users.email_address FROM users";
 
         // attribute which merges first, middle and last name
@@ -35,33 +35,48 @@ namespace ApplicantTrackingSystem
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_IS_ADMIN = "SELECT employee.administrator FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
+        // attribute called job position
+        public const string EMPLOYEE_JOB_POSITION = "SELECT employee.job_title FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
 
         // attribute called code with WHERE condition
         public const string GET_CODE = "SELECT code FROM comment WHERE {0} = '{1}'";
+
         // attribute called comment_id
         public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE {0} = '{1}'";
+
         // attribute called comment
         public const string GET_COMMENT = "SELECT comment FROM comment WHERE {0} = '{1}'";
+
         // attribute called section_title
         public const string GET_SECTION = "SELECT title FROM section WHERE section_id = '{0}'";
+
         // attribute called section_id
         public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE title = '{0}'";
+
         // attribute called section_id, retrieved from comment table
         public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE {0} = '{1}'";
+
         // get highest comment_id from comment table
         public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
+
         // count sections
         public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
+
         // get template_id
         public const string GET_TEMPLATE_ID = "SELECT template_id FROM template WHERE title = '{0}'";
+
         // get template header
         public const string GET_TEMPLATE_HEADER = "SELECT header FROM template WHERE title ='{0}'";
+
         // get template footer
         public const string GET_TEMPLATE_FOOTER = "SELECT footer FROM template WHERE title ='{0}'";
+
         // get template title
         public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE {0} ='{1}'";
+
         // count number of records in template table
         public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
 
@@ -80,13 +95,16 @@ namespace ApplicantTrackingSystem
         /// <summary>
         /// update queries
         /// </summary>
-        // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
+        // update (title, first, middle and last names, phone number, work number, email address) for employee with specified email address
         public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE users SET users.title = CASE WHEN '{0}' = '' THEN NULL ELSE '{0}' END, users.first_name = '{1}', users.middle_names = CASE WHEN '{2}' = '' THEN NULL ELSE '{2}' END, users.last_name = '{3}', users.mobile_number = '{4}', users.work_number = CASE WHEN '{5}' = '' THEN NULL ELSE '{5}' END, users.email_address = '{6}'";
 
-        // attributes (first, middle and last names, email address, phone number, work number) for employee with specified email address
+        // update (job title and administrator privillages) for employee with specified email address
+        public const string UPDATE_EMPLOYEE_ROLE = "UPDATE employee SET employee.job_title = '{0}', employee.administrator = '{1}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
+        // update password for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
-        // attributes (template_id, title, header, footer)
+        // update (template_id, title, header, footer)
         public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = '{2}' WHERE template_id = '{3}'";
 
         /// <summary>
@@ -118,10 +136,18 @@ namespace ApplicantTrackingSystem
         /// <summary>
         /// insert queries
         /// </summary>
+        // insert (title, first, middle and last names, mobile number, work number and email address) into table of users
+        public const string INSERT_EMPLOYEE = "INSERT INTO users (title, first_name, middle_names, last_name, mobile_number, work_number, email_address) VALUES (CASE WHEN '{0}' = '' THEN NULL ELSE '{0}' END, '{1}', CASE WHEN '{2}' = '' THEN NULL ELSE '{2}' END, '{3}', '{4}', CASE WHEN '{5}' = '' THEN NULL ELSE '{5}' END, '{6}')";
+
+        // insert (user id, job title, password hash and administrator privillages) into employee using employee's email address to get their user id
+        public const string INSERT_EMPLOYEE_ROLE = "INSERT INTO employee (user_id, job_title, password, administrator) VALUES ((SELECT user_id FROM users WHERE users.email_address = '{0}'), '{1}', '{2}', '{3}')";
+
         // insert into template
         public const string INSERT_TEMPLATE = "INSERT INTO template (title, header, footer) VALUES ('{0}', '{1}', '{2}')";
+
         // insert into comment
         public const string INSERT_COMMENT = "INSERT INTO comment (section_id, code, comment) VALUES ('{0}', '{1}', '{2}')";
+
         // insert into list_of_comments
         public const string INSERT_LIST_OF_COMMENTS = "INSERT INTO list_of_comments (comment_id, template_id) VALUES ('{0}', '{1}')";
 
@@ -130,6 +156,7 @@ namespace ApplicantTrackingSystem
         /// </summary>
         // delete record from template table
         public const string DELETE_TEMPLATE = "DELETE FROM template WHERE template_id = '{0}'";
+
         // delete record from comment table
         public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '{0}'";
     }

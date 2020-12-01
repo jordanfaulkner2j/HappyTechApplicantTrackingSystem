@@ -169,7 +169,7 @@ namespace ApplicantTrackingSystem
         private void myProfileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display my profile settings
-            OpenPage(new UserControlMyProfile(loggedInEmployeeEmail));
+            OpenPage(new UserControlProfileSettings(loggedInEmployeeEmail, false));
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

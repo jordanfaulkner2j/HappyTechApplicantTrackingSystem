@@ -1,6 +1,6 @@
 ﻿namespace ApplicantTrackingSystem
 {
-    partial class UserControlMyProfile
+    partial class UserControlProfileSettings
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMyProfile));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlProfileSettings));
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
@@ -40,12 +40,9 @@
             this.textBoxNewPasswordConfirmed = new System.Windows.Forms.TextBox();
             this.textBoxCurrentPassword = new System.Windows.Forms.TextBox();
             this.textBoxNewPassword = new System.Windows.Forms.TextBox();
-            this.buttonChangePassword = new System.Windows.Forms.Button();
             this.comboBoxTitle = new System.Windows.Forms.ComboBox();
             this.textBoxMiddleNames = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
-            this.buttonUploadPhoto = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelMiddleNames = new System.Windows.Forms.Label();
@@ -53,8 +50,18 @@
             this.labelMobileNumber = new System.Windows.Forms.Label();
             this.labelWorkNumber = new System.Windows.Forms.Label();
             this.labelEmailAddress = new System.Windows.Forms.Label();
+            this.labelJobTitle = new System.Windows.Forms.Label();
+            this.textBoxJobTitle = new System.Windows.Forms.TextBox();
+            this.labelAdminRights = new System.Windows.Forms.Label();
+            this.comboBoxAdminRights = new System.Windows.Forms.ComboBox();
+            this.buttonDeleteAccount = new System.Windows.Forms.Button();
+            this.buttonResetPassword = new System.Windows.Forms.Button();
+            this.panelAdvancedSettings = new System.Windows.Forms.Panel();
+            this.panelChangePassword = new System.Windows.Forms.Panel();
+            this.buttonChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
+            this.panelAdvancedSettings.SuspendLayout();
+            this.panelChangePassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxFirstName
@@ -115,7 +122,7 @@
             // textBoxNewPasswordConfirmed
             // 
             this.errorProvider.SetIconPadding(this.textBoxNewPasswordConfirmed, -20);
-            this.textBoxNewPasswordConfirmed.Location = new System.Drawing.Point(42, 269);
+            this.textBoxNewPasswordConfirmed.Location = new System.Drawing.Point(31, 205);
             this.textBoxNewPasswordConfirmed.Name = "textBoxNewPasswordConfirmed";
             this.textBoxNewPasswordConfirmed.Size = new System.Drawing.Size(258, 29);
             this.textBoxNewPasswordConfirmed.TabIndex = 10;
@@ -125,7 +132,7 @@
             // textBoxCurrentPassword
             // 
             this.errorProvider.SetIconPadding(this.textBoxCurrentPassword, -20);
-            this.textBoxCurrentPassword.Location = new System.Drawing.Point(42, 187);
+            this.textBoxCurrentPassword.Location = new System.Drawing.Point(31, 110);
             this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
             this.textBoxCurrentPassword.Size = new System.Drawing.Size(258, 29);
             this.textBoxCurrentPassword.TabIndex = 11;
@@ -135,22 +142,12 @@
             // textBoxNewPassword
             // 
             this.errorProvider.SetIconPadding(this.textBoxNewPassword, -20);
-            this.textBoxNewPassword.Location = new System.Drawing.Point(42, 234);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(31, 169);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(258, 29);
             this.textBoxNewPassword.TabIndex = 9;
             this.textBoxNewPassword.Text = "New Password";
             this.textBoxNewPassword.Enter += new System.EventHandler(this.textBoxNewPassword_Enter);
-            // 
-            // buttonChangePassword
-            // 
-            this.buttonChangePassword.Location = new System.Drawing.Point(42, 314);
-            this.buttonChangePassword.Name = "buttonChangePassword";
-            this.buttonChangePassword.Size = new System.Drawing.Size(258, 29);
-            this.buttonChangePassword.TabIndex = 12;
-            this.buttonChangePassword.Text = "Change Password";
-            this.buttonChangePassword.UseVisualStyleBackColor = true;
-            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 
             // comboBoxTitle
             // 
@@ -172,24 +169,6 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
-            // 
-            // pictureBoxPhoto
-            // 
-            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(42, 28);
-            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(258, 105);
-            this.pictureBoxPhoto.TabIndex = 2;
-            this.pictureBoxPhoto.TabStop = false;
-            // 
-            // buttonUploadPhoto
-            // 
-            this.buttonUploadPhoto.Location = new System.Drawing.Point(42, 139);
-            this.buttonUploadPhoto.Name = "buttonUploadPhoto";
-            this.buttonUploadPhoto.Size = new System.Drawing.Size(258, 29);
-            this.buttonUploadPhoto.TabIndex = 13;
-            this.buttonUploadPhoto.Text = "Upload Photo";
-            this.buttonUploadPhoto.UseVisualStyleBackColor = true;
             // 
             // labelTitle
             // 
@@ -261,7 +240,94 @@
             this.labelEmailAddress.TabIndex = 20;
             this.labelEmailAddress.Text = "Email Address*";
             // 
-            // UserControlMyProfile
+            // labelJobTitle
+            // 
+            this.labelJobTitle.AutoSize = true;
+            this.labelJobTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJobTitle.Location = new System.Drawing.Point(27, 45);
+            this.labelJobTitle.Name = "labelJobTitle";
+            this.labelJobTitle.Size = new System.Drawing.Size(79, 21);
+            this.labelJobTitle.TabIndex = 18;
+            this.labelJobTitle.Text = "Job Title*";
+            // 
+            // textBoxJobTitle
+            // 
+            this.textBoxJobTitle.Location = new System.Drawing.Point(31, 69);
+            this.textBoxJobTitle.Name = "textBoxJobTitle";
+            this.textBoxJobTitle.Size = new System.Drawing.Size(258, 29);
+            this.textBoxJobTitle.TabIndex = 17;
+            // 
+            // labelAdminRights
+            // 
+            this.labelAdminRights.AutoSize = true;
+            this.labelAdminRights.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdminRights.Location = new System.Drawing.Point(27, 113);
+            this.labelAdminRights.Name = "labelAdminRights";
+            this.labelAdminRights.Size = new System.Drawing.Size(161, 21);
+            this.labelAdminRights.TabIndex = 15;
+            this.labelAdminRights.Text = "Administrator Rights";
+            // 
+            // comboBoxAdminRights
+            // 
+            this.comboBoxAdminRights.FormattingEnabled = true;
+            this.comboBoxAdminRights.Location = new System.Drawing.Point(31, 137);
+            this.comboBoxAdminRights.Name = "comboBoxAdminRights";
+            this.comboBoxAdminRights.Size = new System.Drawing.Size(258, 29);
+            this.comboBoxAdminRights.TabIndex = 10;
+            // 
+            // buttonDeleteAccount
+            // 
+            this.buttonDeleteAccount.Location = new System.Drawing.Point(31, 263);
+            this.buttonDeleteAccount.Name = "buttonDeleteAccount";
+            this.buttonDeleteAccount.Size = new System.Drawing.Size(258, 29);
+            this.buttonDeleteAccount.TabIndex = 9;
+            this.buttonDeleteAccount.Text = "Delete Account";
+            this.buttonDeleteAccount.UseVisualStyleBackColor = true;
+            // 
+            // buttonResetPassword
+            // 
+            this.buttonResetPassword.Location = new System.Drawing.Point(31, 204);
+            this.buttonResetPassword.Name = "buttonResetPassword";
+            this.buttonResetPassword.Size = new System.Drawing.Size(258, 29);
+            this.buttonResetPassword.TabIndex = 8;
+            this.buttonResetPassword.Text = "Reset Password";
+            this.buttonResetPassword.UseVisualStyleBackColor = true;
+            // 
+            // panelAdvancedSettings
+            // 
+            this.panelAdvancedSettings.Controls.Add(this.labelJobTitle);
+            this.panelAdvancedSettings.Controls.Add(this.buttonResetPassword);
+            this.panelAdvancedSettings.Controls.Add(this.textBoxJobTitle);
+            this.panelAdvancedSettings.Controls.Add(this.buttonDeleteAccount);
+            this.panelAdvancedSettings.Controls.Add(this.comboBoxAdminRights);
+            this.panelAdvancedSettings.Controls.Add(this.labelAdminRights);
+            this.panelAdvancedSettings.Location = new System.Drawing.Point(45, 51);
+            this.panelAdvancedSettings.Name = "panelAdvancedSettings";
+            this.panelAdvancedSettings.Size = new System.Drawing.Size(316, 292);
+            this.panelAdvancedSettings.TabIndex = 22;
+            // 
+            // panelChangePassword
+            // 
+            this.panelChangePassword.Controls.Add(this.buttonChangePassword);
+            this.panelChangePassword.Controls.Add(this.textBoxNewPasswordConfirmed);
+            this.panelChangePassword.Controls.Add(this.textBoxNewPassword);
+            this.panelChangePassword.Controls.Add(this.textBoxCurrentPassword);
+            this.panelChangePassword.Location = new System.Drawing.Point(45, 51);
+            this.panelChangePassword.Name = "panelChangePassword";
+            this.panelChangePassword.Size = new System.Drawing.Size(316, 292);
+            this.panelChangePassword.TabIndex = 23;
+            // 
+            // buttonChangePassword
+            // 
+            this.buttonChangePassword.Location = new System.Drawing.Point(31, 263);
+            this.buttonChangePassword.Name = "buttonChangePassword";
+            this.buttonChangePassword.Size = new System.Drawing.Size(258, 29);
+            this.buttonChangePassword.TabIndex = 12;
+            this.buttonChangePassword.Text = "Change Password";
+            this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
+            // 
+            // UserControlProfileSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -274,26 +340,24 @@
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.textBoxMiddleNames);
             this.Controls.Add(this.comboBoxTitle);
-            this.Controls.Add(this.buttonChangePassword);
-            this.Controls.Add(this.textBoxNewPasswordConfirmed);
-            this.Controls.Add(this.textBoxCurrentPassword);
-            this.Controls.Add(this.textBoxNewPassword);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonDiscard);
             this.Controls.Add(this.textBoxEmailAddress);
             this.Controls.Add(this.textBoxWorkNumber);
             this.Controls.Add(this.textBoxPhoneNumber);
             this.Controls.Add(this.textBoxLastName);
-            this.Controls.Add(this.buttonUploadPhoto);
-            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.textBoxFirstName);
+            this.Controls.Add(this.panelAdvancedSettings);
+            this.Controls.Add(this.panelChangePassword);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UserControlMyProfile";
+            this.Name = "UserControlProfileSettings";
             this.Size = new System.Drawing.Size(968, 384);
-            this.Load += new System.EventHandler(this.UserControlMyProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
+            this.panelAdvancedSettings.ResumeLayout(false);
+            this.panelAdvancedSettings.PerformLayout();
+            this.panelChangePassword.ResumeLayout(false);
+            this.panelChangePassword.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +375,6 @@
         private System.Windows.Forms.TextBox textBoxNewPasswordConfirmed;
         private System.Windows.Forms.TextBox textBoxCurrentPassword;
         private System.Windows.Forms.TextBox textBoxNewPassword;
-        private System.Windows.Forms.Button buttonChangePassword;
         private System.Windows.Forms.ComboBox comboBoxTitle;
         private System.Windows.Forms.TextBox textBoxMiddleNames;
         private System.Windows.Forms.ErrorProvider errorProvider;
@@ -322,7 +385,14 @@
         private System.Windows.Forms.Label labelMiddleNames;
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Button buttonUploadPhoto;
-        private System.Windows.Forms.PictureBox pictureBoxPhoto;
+        private System.Windows.Forms.Label labelJobTitle;
+        private System.Windows.Forms.TextBox textBoxJobTitle;
+        private System.Windows.Forms.Label labelAdminRights;
+        private System.Windows.Forms.ComboBox comboBoxAdminRights;
+        private System.Windows.Forms.Button buttonDeleteAccount;
+        private System.Windows.Forms.Button buttonResetPassword;
+        private System.Windows.Forms.Panel panelChangePassword;
+        private System.Windows.Forms.Button buttonChangePassword;
+        private System.Windows.Forms.Panel panelAdvancedSettings;
     }
 }

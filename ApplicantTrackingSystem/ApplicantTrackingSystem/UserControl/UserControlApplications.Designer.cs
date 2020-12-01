@@ -59,7 +59,7 @@
             // 
             this.textBoxFirstName.Location = new System.Drawing.Point(11, 11);
             this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(217, 34);
+            this.textBoxFirstName.Size = new System.Drawing.Size(217, 29);
             this.textBoxFirstName.TabIndex = 6;
             this.textBoxFirstName.Text = "Search by first name";
             this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
@@ -69,7 +69,7 @@
             // 
             this.textBoxLastName.Location = new System.Drawing.Point(234, 11);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(207, 34);
+            this.textBoxLastName.Size = new System.Drawing.Size(207, 29);
             this.textBoxLastName.TabIndex = 7;
             this.textBoxLastName.Text = "Search by last name";
             this.textBoxLastName.TextChanged += new System.EventHandler(this.textBoxLastName_TextChanged);
@@ -86,7 +86,7 @@
             "Sort by Last Name"});
             this.comboBoxSortBy.Location = new System.Drawing.Point(629, 11);
             this.comboBoxSortBy.Name = "comboBoxSortBy";
-            this.comboBoxSortBy.Size = new System.Drawing.Size(141, 36);
+            this.comboBoxSortBy.Size = new System.Drawing.Size(141, 29);
             this.comboBoxSortBy.TabIndex = 8;
             this.comboBoxSortBy.Text = "Select Sort Option";
             this.comboBoxSortBy.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSortBy_SelectionChangeCommitted);
@@ -101,7 +101,7 @@
             "Marketing Manager"});
             this.comboBoxJobPositions.Location = new System.Drawing.Point(447, 11);
             this.comboBoxJobPositions.Name = "comboBoxJobPositions";
-            this.comboBoxJobPositions.Size = new System.Drawing.Size(176, 36);
+            this.comboBoxJobPositions.Size = new System.Drawing.Size(176, 29);
             this.comboBoxJobPositions.TabIndex = 9;
             this.comboBoxJobPositions.Text = "Select job position";
             this.comboBoxJobPositions.SelectionChangeCommitted += new System.EventHandler(this.comboBoxJobPositions_SelectionChangeCommitted);
@@ -115,14 +115,14 @@
             "View only completed"});
             this.comboBoxViewOnly.Location = new System.Drawing.Point(776, 11);
             this.comboBoxViewOnly.Name = "comboBoxViewOnly";
-            this.comboBoxViewOnly.Size = new System.Drawing.Size(179, 36);
+            this.comboBoxViewOnly.Size = new System.Drawing.Size(179, 29);
             this.comboBoxViewOnly.TabIndex = 10;
             this.comboBoxViewOnly.Text = "View only interviewed";
             this.comboBoxViewOnly.SelectedIndexChanged += new System.EventHandler(this.comboBoxViewOnly_SelectedIndexChanged);
             // 
             // UserControlApplications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBoxViewOnly);
             this.Controls.Add(this.comboBoxJobPositions);

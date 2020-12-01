@@ -10,29 +10,68 @@ using System.Windows.Forms;
 
 namespace ApplicantTrackingSystem
 {
-    public partial class UserControlMyProfile : UserControl
+    public partial class UserControlProfileSettings : UserControl
     {
         // private string for employee's email used for retrieving and updating their record
         private string employeeEmail;
+        // private boolean value used for opening advanced panel for administrator
+        private Boolean isAdminManaging;
         // private array of strings holding contents of text boxes
         private string[] employeeDetails;
         // private array of strings containing default titles
-        private readonly string[] listOfTitles = { "None", "Mr", "Mrs", "Ms", "Miss", "Dr" };
+        private readonly string[] titles = { "None", "Mr", "Mrs", "Ms", "Miss", "Dr" };
+        // private array of strings containing permission levels
+        private readonly string[] adminRights = { "True", "False" };
 
-        public UserControlMyProfile(string selectedEmployeeEmail)
+        public UserControlProfileSettings(string selectedEmployeeEmail, Boolean openInManagingMode)
         {
             InitializeComponent();
 
             // store selected employee's email
             employeeEmail = selectedEmployeeEmail;
 
+            // if admin is in state of managing accounts, open panel with additional settings
+            if (openInManagingMode)
+            {
+                panelChangePassword.Hide();
+                panelAdvancedSettings.Show();
+
+                // clear content of combo boxes
+                comboBoxAdminRights.Items.Clear();
+                // add predefined list of permission levels to combo box
+                comboBoxAdminRights.Items.AddRange(adminRights);
+                // select default permission level
+                comboBoxAdminRights.SelectedIndex = 0;
+            }
+            else
+            {
+                panelAdvancedSettings.Hide();
+                panelChangePassword.Show();
+            }
+
+            // clear content of combo boxes
+            comboBoxTitle.Items.Clear();
             // add predefined list of titles to combo box
-            comboBoxTitle.Items.AddRange(listOfTitles);
+            comboBoxTitle.Items.AddRange(titles);
             // select default title
-            comboBoxTitle.SelectedItem = "None";
+            comboBoxTitle.SelectedIndex = 0;
+
+            // if admin has selected an account, retrieve user's details
+            if (!string.IsNullOrEmpty(employeeEmail))
+            {
+                RetrieveEmployeeDetails();
+            }
+            // otherwise, set default values for creating a new account
+            else
+            {
+                buttonResetPassword.Enabled = false;
+                buttonDeleteAccount.Enabled = false;
+                textBoxJobTitle.Text = "HappyTech Employee";
+                textBoxEmailAddress.Text = "example@happytech.com";
+            }
         }
 
-        private void UserControlMyProfile_Load(object sender, EventArgs e)
+        private void RetrieveEmployeeDetails()
         {
             // retrieve array of strings containing employee details based on their email address
             employeeDetails = DatabaseManagement.GetInstanceOfDatabaseConnection().GetEntireRecord(DatabaseQueries.GetRecord(DatabaseQueries.USER_DETAILS, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
@@ -47,7 +86,7 @@ namespace ApplicantTrackingSystem
                     comboBoxTitle.SelectedItem = option;
                 }
             }
-
+            
             // set strings to text boxes using the following index starting from 0 (title, first name, middle names, last name, mobile number, work number, email address)
             textBoxFirstName.Text = employeeDetails[1];
             textBoxMiddleNames.Text = employeeDetails[2];
@@ -55,6 +94,22 @@ namespace ApplicantTrackingSystem
             textBoxPhoneNumber.Text = employeeDetails[4];
             textBoxWorkNumber.Text = employeeDetails[5];
             textBoxEmailAddress.Text = employeeDetails[6];
+
+            if (isAdminManaging)
+            {
+                // set employee's job title from the database
+                textBoxJobTitle.Text = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_JOB_POSITION, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
+
+                // set employee's permission level based on the data from database
+                if (DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_IS_ADMIN, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail)))
+                {
+                    comboBoxAdminRights.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBoxAdminRights.SelectedIndex = 1;
+                }
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -91,6 +146,13 @@ namespace ApplicantTrackingSystem
                 }
             }
 
+            // if job title has been left empty, display an error message
+            if (string.IsNullOrEmpty(textBoxJobTitle.Text))
+            {
+                MessageBox.Show("Job title is a required field. Please fill in.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // check if the email address was changed
             if (employeeEmail != newEmployeeEmail)
             {
@@ -111,12 +173,34 @@ namespace ApplicantTrackingSystem
                 }
             }
 
+            // convert selected permission level to string for easier manipulation when updating records
+            string adminRights;
+            if (comboBoxAdminRights.SelectedIndex == 0)
+            {
+                adminRights = "1";
+            }
+            else
+            {
+                adminRights = "0";
+            }
 
-            // update employee with specified email address using attributes retrieved from text fields
+            // if employee has not been selected, create a new account
+            if (string.IsNullOrEmpty(employeeEmail))
+            {
+                AddNewAccount(newEmployeeEmail, adminRights);
+                MessageBox.Show("New account created successfully!", "New Account Confirmation");
+                Main.mainApplication.OpenPage(new UserControlEmployees());
+                return;
+            }
+            
+            // first update employee's job title and permission level
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_ROLE, new string[] { textBoxJobTitle.Text, adminRights }, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
+
+            // then update the rest of employee's details with specified email address using attributes retrieved from text fields
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, employeeDetails, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
 
-            // if email address was updated, change the email address of logged in employee
-            if (employeeEmail != newEmployeeEmail)
+            // if email address was updated for current user, change the email address of logged in employee
+            if (Main.mainApplication.employeeEmail != employeeEmail)
             {
                 Main.mainApplication.employeeEmail = newEmployeeEmail;
             }
@@ -130,6 +214,14 @@ namespace ApplicantTrackingSystem
             MessageBox.Show("All settings were saved successfully.", "Settings Saved");
             // go back to previous page
             Main.mainApplication.GoBackPage();
+        }
+
+        private void AddNewAccount(string newAccountEmail, string adminRights)
+        {
+            // insert employee into the table of users first
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_EMPLOYEE, employeeDetails));
+            // insert employee into the table of employees and link it using the user id from previous query (password belongs employee's phone number)
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_EMPLOYEE_ROLE, new string[] { newAccountEmail, textBoxJobTitle.Text, LoginValidation.HashPassword(textBoxPhoneNumber.Text), adminRights }));
         }
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
