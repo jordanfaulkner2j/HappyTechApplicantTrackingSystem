@@ -267,32 +267,39 @@ namespace ApplicantTrackingSystem
             // insert into list of comments
             int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
             int i;
+            string itemCode;
+            int commentID;
             for (i = 0; i < clbUnderstanding.Items.Count; i++)
             {
-                if (clbUnderstanding.GetItemChecked(i) == true)
+                if (clbUnderstanding.GetItemCheckState(i) == CheckState.Checked)
                 {
-                    string itemCode= clbUnderstanding.SelectedItem.ToString();
+                    itemCode = clbUnderstanding.Items[i].ToString();
                     itemCode = itemCode.Substring(0, 3);
-                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    string message = commentID + ", " + templateID;
+                    MessageBox.Show(message);
                     DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                 }
             }
             for (i = 0; i < clbImpression.Items.Count; i++)
             {
-                if (clbImpression.GetItemChecked(i) == true)
+                if (clbImpression.GetItemCheckState(i) == CheckState.Checked)
                 {
-                    string itemCode = clbImpression.SelectedItem.ToString();
+                    itemCode = clbUnderstanding.Items[i].ToString();
                     itemCode = itemCode.Substring(0, 3);
-                    int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
                     DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                 }
                 for (i = 0; i < clbQuestions.Items.Count; i++)
                 {
-                    if (clbQuestions.GetItemChecked(i) == true)
+                    if (clbQuestions.GetItemCheckState(i) == CheckState.Checked)
                     {
-                        string itemCode = clbQuestions.SelectedItem.ToString();
+                        itemCode = clbUnderstanding.Items[i].ToString();
                         itemCode = itemCode.Substring(0, 3);
-                        int commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                        itemCode = itemCode.Trim();
+                        commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
                         DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                     }
                 }

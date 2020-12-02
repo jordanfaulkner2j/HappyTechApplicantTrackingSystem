@@ -165,5 +165,8 @@ namespace ApplicantTrackingSystem
 
         // delete record from comment table
         public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '{0}'";
+
+        // delete record from list_of_comments table
+        public const string DELETE_LIST_OF_COMMENTS = "DELETE FROM list_of_comments WHERE template_id = '{0}'";
     }
 }
