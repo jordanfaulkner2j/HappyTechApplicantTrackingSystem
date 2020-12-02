@@ -283,6 +283,7 @@
             this.buttonDeleteAccount.TabIndex = 9;
             this.buttonDeleteAccount.Text = "Delete Account";
             this.buttonDeleteAccount.UseVisualStyleBackColor = true;
+            this.buttonDeleteAccount.Click += new System.EventHandler(this.buttonDeleteAccount_Click);
             // 
             // buttonResetPassword
             // 
@@ -292,6 +293,7 @@
             this.buttonResetPassword.TabIndex = 8;
             this.buttonResetPassword.Text = "Reset Password";
             this.buttonResetPassword.UseVisualStyleBackColor = true;
+            this.buttonResetPassword.Click += new System.EventHandler(this.buttonResetPassword_Click);
             // 
             // panelAdvancedSettings
             // 

@@ -38,6 +38,9 @@ namespace ApplicantTrackingSystem
         // attribute called job position
         public const string EMPLOYEE_JOB_POSITION = "SELECT employee.job_title FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
+        // attribute called mobile number
+        public const string EMPLOYEE_PHONE_NUMBER = "SELECT employee.mobile_number FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
 
@@ -154,7 +157,10 @@ namespace ApplicantTrackingSystem
         /// <summary>
         /// delete queries
         /// </summary>
-        // delete record from template table
+        // delete employee's account from the users table (cascade relationship deletes linked record from employee table)
+        public const string DELETE_EMPLOYEE = "DELETE FROM users WHERE users.email_address = '{0}'";
+        
+        // delete record from template 
         public const string DELETE_TEMPLATE = "DELETE FROM template WHERE template_id = '{0}'";
 
         // delete record from comment table

@@ -4,5 +4,5 @@
     [code]       VARCHAR (1) NOT NULL,
     [comment]    TEXT        NOT NULL,
     PRIMARY KEY CLUSTERED ([comment_id] ASC), 
-    CONSTRAINT [FK_comment_ToTable] FOREIGN KEY ([section_id]) REFERENCES [dbo].[section] ([section_id])
+    CONSTRAINT [FK_comment_ToTable] FOREIGN KEY ([section_id]) REFERENCES [dbo].[section] ([section_id]) ON DELETE CASCADE
 );

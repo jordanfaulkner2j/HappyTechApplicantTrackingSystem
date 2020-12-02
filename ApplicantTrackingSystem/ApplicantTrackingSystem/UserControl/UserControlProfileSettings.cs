@@ -13,9 +13,9 @@ namespace ApplicantTrackingSystem
     public partial class UserControlProfileSettings : UserControl
     {
         // private string for employee's email used for retrieving and updating their record
-        private string employeeEmail;
+        private readonly string employeeEmail;
         // private boolean value used for opening advanced panel for administrator
-        private Boolean isAdminManaging;
+        private readonly Boolean isAdminManaging;
         // private array of strings holding contents of text boxes
         private string[] employeeDetails;
         // private array of strings containing default titles
@@ -29,6 +29,7 @@ namespace ApplicantTrackingSystem
 
             // store selected employee's email
             employeeEmail = selectedEmployeeEmail;
+            isAdminManaging = openInManagingMode;
 
             // if admin is in state of managing accounts, open panel with additional settings
             if (openInManagingMode)
@@ -41,7 +42,7 @@ namespace ApplicantTrackingSystem
                 // add predefined list of permission levels to combo box
                 comboBoxAdminRights.Items.AddRange(adminRights);
                 // select default permission level
-                comboBoxAdminRights.SelectedIndex = 0;
+                comboBoxAdminRights.SelectedIndex = 1;
             }
             else
             {
@@ -245,7 +246,7 @@ namespace ApplicantTrackingSystem
                         // change password
                         DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_PASSWORD, LoginValidation.HashPassword(textBoxNewPassword.Text), DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail));
                         // display message box to notify user
-                        MessageBox.Show("Password changed successfully.", "Password Confirmation");
+                        MessageBox.Show("Password changed successfully.", "Password Change Confirmation");
                         // and go back to previous page
                         Main.mainApplication.GoBackPage();
                     }
@@ -262,6 +263,29 @@ namespace ApplicantTrackingSystem
             else
             {
                 errorProvider.SetError(textBoxNewPasswordConfirmed, "Passwords do not match!");
+            }
+        }
+
+        private void buttonResetPassword_Click(object sender, EventArgs e)
+        {
+            // change employee's password to their primary phone number
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_PASSWORD, LoginValidation.HashPassword(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_PHONE_NUMBER, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail))), DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail));
+            // display confirmation message
+            MessageBox.Show("Password successfully reset.", "Password Reset Confirmation");
+        }
+
+        private void buttonDeleteAccount_Click(object sender, EventArgs e)
+        {
+            // open message box asking for confirmation
+            DialogResult choice = MessageBox.Show("Are you sure you want to delete "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail)) + "'s account?", "Confirm Deletion", MessageBoxButtons.YesNo);
+
+            // if answer to above message box was yes
+            if (choice == DialogResult.Yes)
+            {
+                // delete employee account
+                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_EMPLOYEE, employeeEmail));
+                // go back to previous page
+                Main.mainApplication.GoBackPage();
             }
         }
 

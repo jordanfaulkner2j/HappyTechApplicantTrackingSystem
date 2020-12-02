@@ -270,6 +270,7 @@
     <None Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\addPhoto.png" />
     <Content Include="Database.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -277,7 +278,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\addPhoto.png" />
     <Content Include="Resources\hidePassword.png" />
     <Content Include="Resources\showPassword.png" />
   </ItemGroup>
