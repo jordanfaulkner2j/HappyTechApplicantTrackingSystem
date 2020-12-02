@@ -40,11 +40,12 @@ namespace ApplicantTrackingSystem
             }
             InitialiseComments();
         }
-        // get the highest value of the comment_id primary key
+        // get the highest value of the comment_id primary key from the 'comment' table
         // create a for loop that iterates for as long as the highest value (so that all records are included in each iteration)
         // get the section ID of the comment by using its comment ID
         // if the comment ID is missing (e.g. if record containing comment has been deleted), increment by 1 and check to see if the section id of the next comment ID value can be retrieved (iterates until the highest value is reached)
-        // once the section ID is retrieved, get the section's title by using its section ID as a SELECT WHERE query
+        // TryParse is used so that the program will not crash if the record does not exist
+        // once the section ID is retrieved, get the section's title by using its section ID as a parameter for the SELECT WHERE query
         // if the section title equals the name of a label, get the code and comment values using its comment ID
         // add each comment that was found into the checkbox list that matches the section the comment is from
         private void InitialiseComments()
@@ -95,7 +96,7 @@ namespace ApplicantTrackingSystem
         // save contents of template name text box as a string called 'templateName'
         // if 'templateName' is blank or contains the default text, display a prompt telling them to enter a name into the text box
         // if 'templateName' has the same name as an existing template, display a prompt stating that a template with the same name already exists
-        // if a 'templateName' has been given, proceed with saving the template to the database
+        // if a unique 'templateName' has been given, proceed with saving the template to the database
         // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
         // display a pop up message box to inform the user it has been saved successfully
         // take the employee to the 'Templates' page
@@ -159,6 +160,7 @@ namespace ApplicantTrackingSystem
         // ask the employee if they want to discard their changes
         // use a messagebox with yes and no buttons to confirm their choice
         // if they click yes, take them to the templates page
+        // set the editingTemplate boolean value to false
         // if they click no, do nothing
         private void btnDiscardChanges_Click(object sender, EventArgs e)
         {
@@ -173,8 +175,8 @@ namespace ApplicantTrackingSystem
                 editingTemplate = false;
             }
         }
-        // if an option has been selected, prevent another from being selected at the same time using a for loop
-        // set templateType depending on the option selected (e.g. if the checkbox next to 'CV' is selected, set templateType to CV)
+        // if an option has been checked, prevent another from being checked at the same time using a for loop
+        // set templateType depending on the checked option (e.g. if the checkbox next to 'CV' is checked, set templateType to CV)
         // update the header preview text by calling the UpdateHeaderText method with templateType and applicationResult as parameters
         private void clbTemplateTypeItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -258,13 +260,13 @@ namespace ApplicantTrackingSystem
         // use the INSERT_TEMPLATE query from the DatabaseQueries class with the title, header and footer as parameters
         // get the newly-inserted template's id
         // create a for loop for each checkbox list that runs for as long as the items in each list (items.count)
-        // get the code of the selected comment
+        // get the code of the checked comment
         // get the comment_id of the comment by using a SELECT WHERE query with the code as the parameter
         // insert each comment's id along with the template's id as a record in the 'list_of_comments' table
         private void SaveTemplate(string title, string header, string footer)
         {
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_TEMPLATE, title, header, footer));
-            // insert into list of comments
+            // inserting into list of comments
             int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
             int i;
             string itemCode;
@@ -315,31 +317,22 @@ namespace ApplicantTrackingSystem
             title = tbxTemplateName.Text;
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.UPDATE_TEMPLATE, title, header, footer, templateID));
         }
-        // if the button to add a new code is clicked
-        // save the title of the section as string
-        // get the section ID by running an SQL query that selects the ID based on the section's title
-        // set the public attribute 'sectionID' from the form to the result found by the query
-        // show the AddCode form
+        // if the button to add a new code within the Understanding of HappyTech's Values section is clicked
+        // show the CodeManagement form
         private void btnAddUnderstandingCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
             addCode.Show();
         }
-        // if the button to add a new code is clicked
-        // save the title of the section as string
-        // get the section ID by running an SQL query that selects the ID based on the section's title
-        // set the public attribute 'sectionID' from the form to the result found by the query
-        // show the AddCode form
+        // if the button to add a new code within the Impression of Applicant section is clicked
+        // show the CodeManagement form
         private void btnAddImpressionCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
             addCode.ShowDialog();
         }
-        // if the button to add a new code is clicked
-        // save the title of the section as string
-        // get the section ID by running an SQL query that selects the ID based on the section's title
-        // set the public attribute 'sectionID' from the form to the result found by the query
-        // show the AddCode form
+        // if the button to add a new code within the Applicant Questions section is clicked
+        // show the CodeManagement form
         private void btnAddQuestionsCode_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
