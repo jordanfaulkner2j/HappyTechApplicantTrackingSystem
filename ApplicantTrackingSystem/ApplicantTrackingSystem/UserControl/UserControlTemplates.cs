@@ -53,7 +53,7 @@ namespace ApplicantTrackingSystem
             {
                 int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, templateTitle));
                 DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_TEMPLATE, templateID));
-                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_LIST_OF_COMMENTS, templateID));
+                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_LIST_OF_COMMENTS, "template_id", templateID));
                 message = "Template was deleted successfully.";
                 title = "Delete Template";
                 MessageBox.Show(message, title);
