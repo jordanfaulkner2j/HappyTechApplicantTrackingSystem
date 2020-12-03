@@ -401,13 +401,16 @@ namespace ApplicantTrackingSystem
         // check to see if the comment has already been inserted into the list_of_comments table
         // TryParse is used so that the program won't crash
         // if it hasn't, insert it into the table with the comment_id and template_id as parameters
-        // if it does exist, update the records that match the comment_id and template_id
+        // run a for loop for each checkbox list that iterates for as long as the number of items (using clb.Count to get this value)
+        // get the comment ID for each unchecked comment
+        // check to see if the comment has already been inserted into the list_of_comments table
+        // if it has, remove it from the list_of_comments table using a DELETE FROM query with the comment_id and template_id as parameters
         private void EditTemplate(string title, string header, string footer)
         {
             int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
             title = tbxTemplateName.Text;
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.UPDATE_TEMPLATE, title, header, footer, templateID));
-            // updating, inserting or deleting records in list_of_comments table
+            // inserting or deleting records in list_of_comments table
             int i;
             string itemCode;
             int commentID;
@@ -428,12 +431,27 @@ namespace ApplicantTrackingSystem
                         DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                     }
                 }
+                else if (clbUnderstanding.GetItemCheckState(i) == CheckState.Unchecked)
+                {
+                    itemCode = clbUnderstanding.Items[i].ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                    int existingCommentID;
+                    string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                    bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                    if (commentExists == true)
+                    {
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_LIST_OF_COMMENTS, "comment_id", commentID, "template_id", templateID));
+                    }
+                }
             }
             for (i = 0; i < clbImpression.Items.Count; i++)
             {
                 if (clbImpression.GetItemCheckState(i) == CheckState.Checked)
                 {
-                    itemCode = clbUnderstanding.Items[i].ToString();
+                    itemCode = clbImpression.Items[i].ToString();
                     itemCode = itemCode.Substring(0, 3);
                     itemCode = itemCode.Trim();
                     commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
@@ -446,11 +464,26 @@ namespace ApplicantTrackingSystem
                         DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                     }
                 }
+                else if (clbImpression.GetItemCheckState(i) == CheckState.Unchecked)
+                {
+                    itemCode = clbImpression.Items[i].ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                    int existingCommentID;
+                    string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                    bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                    if (commentExists == true)
+                    {
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_LIST_OF_COMMENTS, "comment_id", commentID, "template_id", templateID));
+                    }
+                }
                 for (i = 0; i < clbQuestions.Items.Count; i++)
                 {
                     if (clbQuestions.GetItemCheckState(i) == CheckState.Checked)
                     {
-                        itemCode = clbUnderstanding.Items[i].ToString();
+                        itemCode = clbQuestions.Items[i].ToString();
                         itemCode = itemCode.Substring(0, 3);
                         itemCode = itemCode.Trim();
                         commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
@@ -458,9 +491,24 @@ namespace ApplicantTrackingSystem
                         int existingCommentID;
                         string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
                         bool commentExists = int.TryParse(getCommentID, out existingCommentID);
-                        if (commentExists == false)
+                        if (commentExists == true)
                         {
                             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
+                        }
+                    }
+                    else if (clbQuestions.GetItemCheckState(i) == CheckState.Unchecked)
+                    {
+                        itemCode = clbQuestions.Items[i].ToString();
+                        itemCode = itemCode.Substring(0, 3);
+                        itemCode = itemCode.Trim();
+                        commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                        templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                        int existingCommentID;
+                        string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                        bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                        if (commentExists == true)
+                        {
+                            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.DELETE_LIST_OF_COMMENTS, "comment_id", commentID, "template_id", templateID));
                         }
                     }
                 }
