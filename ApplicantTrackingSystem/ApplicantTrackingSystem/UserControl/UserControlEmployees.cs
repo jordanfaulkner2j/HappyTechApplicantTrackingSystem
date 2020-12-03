@@ -16,10 +16,18 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
         }
+
         private void UserControlEmployees_Load(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        public override void Refresh()
         {
             // get dataset from database based on provided SQL query
             dgvEmployees.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.EMPLOYEES).Tables[0];
+            // run parent method
+            base.Refresh();
         }
 
         private void dgvEmployees_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

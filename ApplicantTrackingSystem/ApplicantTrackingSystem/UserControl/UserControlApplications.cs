@@ -23,8 +23,15 @@ namespace ApplicantTrackingSystem
 
         private void UserControlApplications_Load(object sender, EventArgs e)
         {
+            Refresh();
+        }
+
+        public override void Refresh()
+        {
             // get dataset from database based on provided SQL query
             dgvApplications.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.APPLICANTS).Tables[0];
+            // run parent method
+            base.Refresh();
         }
 
         private void textBoxFirstName_TextChanged(object sender, EventArgs e)

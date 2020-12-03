@@ -140,6 +140,8 @@ namespace ApplicantTrackingSystem
             panelBody.Controls.Add(runtimePage);
             // adjust docking to fill the panel
             runtimePage.Dock = DockStyle.Fill;
+            // reload page
+            runtimePage.Refresh();
         }
 
         private void createNewTemplateToolStripMenuItem_Click(object sender, EventArgs e)
