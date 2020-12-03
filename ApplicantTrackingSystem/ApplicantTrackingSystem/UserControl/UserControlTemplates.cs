@@ -19,10 +19,18 @@ namespace ApplicantTrackingSystem
 
         private void UserControlTemplates_Load(object sender, EventArgs e)
         {
+            Refresh();
+        }
+
+        public override void Refresh()
+        {
             // get dataset from database based on provided SQL query
             dgvTemplates.DataSource = DatabaseManagement.GetInstanceOfDatabaseConnection().GetDataSet(DatabaseQueries.TEMPLATES).Tables[0];
             this.templateTableAdapter.Fill(this.templateDataSet.template);
+            // execute parent method
+            base.Refresh();
         }
+
         // when the edit button is clicked
         // store the template title as string - this is taken from the text value of the combo box that is used to select the template
         // set the public header text string variable in the CreateEditTemplate UserControl as the header value of the existing template
@@ -38,6 +46,7 @@ namespace ApplicantTrackingSystem
             UserControlCreateEditTemplate.editingTemplate = true;
             Main.mainApplication.OpenPage(new UserControlCreateEditTemplate());
         }
+
         // display a message box asking the employee to confirm their choice of action
         // if they click the 'Yes' button, get the template's ID and delete the template from the database that matches the ID
         // make another message box pop up confirming that the template has been deleted
@@ -66,6 +75,7 @@ namespace ApplicantTrackingSystem
                 MessageBox.Show(message, title);
             }
         }
+
         // refreshes the template table inside of the data grid
         private void UpdateTable()
         {

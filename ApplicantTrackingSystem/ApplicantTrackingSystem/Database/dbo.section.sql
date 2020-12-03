@@ -3,3 +3,4 @@
     [title]      VARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([section_id] ASC)
 );
+

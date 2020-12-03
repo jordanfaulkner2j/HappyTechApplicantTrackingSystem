@@ -39,7 +39,7 @@ namespace ApplicantTrackingSystem
         public const string EMPLOYEE_JOB_POSITION = "SELECT employee.job_title FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
         // attribute called mobile number
-        public const string EMPLOYEE_PHONE_NUMBER = "SELECT employee.mobile_number FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+        public const string EMPLOYEE_PHONE_NUMBER = "SELECT users.mobile_number FROM users INNER JOIN employee ON users.user_id = employee.user_id";
 
         // attribute called administrator (checkbox whether employee has admin privileges)
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";

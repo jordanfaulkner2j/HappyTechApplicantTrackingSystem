@@ -7,6 +7,7 @@
     [feedback_left]  BIT  NOT NULL,
     [feedback_sent]  BIT  NOT NULL,
     PRIMARY KEY CLUSTERED ([application_id] ASC),
-    CONSTRAINT [FK_applications_ToTable] FOREIGN KEY ([applicant_id]) REFERENCES [dbo].[applicant] ([applicant_id]),
-    CONSTRAINT [FK_applications_ToTable_1] FOREIGN KEY ([employee_id]) REFERENCES [dbo].[employee] ([employee_id])
+    CONSTRAINT [FK_applications_ToTable] FOREIGN KEY ([applicant_id]) REFERENCES [dbo].[applicant] ([applicant_id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_applications_ToTable_1] FOREIGN KEY ([employee_id]) REFERENCES [dbo].[employee] ([employee_id]) ON DELETE NO ACTION
 );
+

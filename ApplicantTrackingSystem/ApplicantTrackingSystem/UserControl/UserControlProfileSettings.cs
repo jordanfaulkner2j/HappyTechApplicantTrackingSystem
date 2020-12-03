@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ApplicantTrackingSystem
@@ -87,7 +80,7 @@ namespace ApplicantTrackingSystem
                     comboBoxTitle.SelectedItem = option;
                 }
             }
-            
+
             // set strings to text boxes using the following index starting from 0 (title, first name, middle names, last name, mobile number, work number, email address)
             textBoxFirstName.Text = employeeDetails[1];
             textBoxMiddleNames.Text = employeeDetails[2];
@@ -96,6 +89,7 @@ namespace ApplicantTrackingSystem
             textBoxWorkNumber.Text = employeeDetails[5];
             textBoxEmailAddress.Text = employeeDetails[6];
 
+            // if administrator is managing other employees and has access to advanced settings, retrieve additional information
             if (isAdminManaging)
             {
                 // set employee's job title from the database
@@ -119,6 +113,31 @@ namespace ApplicantTrackingSystem
             employeeDetails = new string[] { comboBoxTitle.SelectedItem.ToString(), textBoxFirstName.Text, textBoxMiddleNames.Text, textBoxLastName.Text, textBoxPhoneNumber.Text.ToString(), textBoxWorkNumber.Text.ToString(), textBoxEmailAddress.Text };
             // store updated email address for later use
             string newEmployeeEmail = employeeDetails[6];
+
+            // convert selected permission level to string for easier manipulation when updating records
+            string adminRights;
+            if (comboBoxAdminRights.SelectedIndex == 0)
+            {
+                adminRights = "1";
+            }
+            else
+            {
+                adminRights = "0";
+            }
+
+            // if administrator is managing other employees and has access to advanced settings, update them first, then continue updating the rest of details
+            if (isAdminManaging)
+            {
+                // if job title has been left empty, display an error message
+                if (string.IsNullOrEmpty(textBoxJobTitle.Text))
+                {
+                    MessageBox.Show("Job title is a required field. Please fill in.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // update employee's job title and permission level
+                DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_ROLE, new string[] { textBoxJobTitle.Text, adminRights }, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
+            }
 
             // if title was not selected, update it to null
             if (comboBoxTitle.SelectedItem.ToString() == "None")
@@ -147,13 +166,6 @@ namespace ApplicantTrackingSystem
                 }
             }
 
-            // if job title has been left empty, display an error message
-            if (string.IsNullOrEmpty(textBoxJobTitle.Text))
-            {
-                MessageBox.Show("Job title is a required field. Please fill in.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             // check if the email address was changed
             if (employeeEmail != newEmployeeEmail)
             {
@@ -174,17 +186,6 @@ namespace ApplicantTrackingSystem
                 }
             }
 
-            // convert selected permission level to string for easier manipulation when updating records
-            string adminRights;
-            if (comboBoxAdminRights.SelectedIndex == 0)
-            {
-                adminRights = "1";
-            }
-            else
-            {
-                adminRights = "0";
-            }
-
             // if employee has not been selected, create a new account
             if (string.IsNullOrEmpty(employeeEmail))
             {
@@ -193,11 +194,8 @@ namespace ApplicantTrackingSystem
                 Main.mainApplication.OpenPage(new UserControlEmployees());
                 return;
             }
-            
-            // first update employee's job title and permission level
-            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_ROLE, new string[] { textBoxJobTitle.Text, adminRights }, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
 
-            // then update the rest of employee's details with specified email address using attributes retrieved from text fields
+            // update the rest of employee's details with specified email address using attributes retrieved from text fields
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, employeeDetails, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
 
             // if email address was updated for current user, change the email address of logged in employee
@@ -269,15 +267,15 @@ namespace ApplicantTrackingSystem
         private void buttonResetPassword_Click(object sender, EventArgs e)
         {
             // change employee's password to their primary phone number
-            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_PASSWORD, LoginValidation.HashPassword(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_PHONE_NUMBER, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail))), DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail));
+            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_PASSWORD, LoginValidation.HashPassword(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_PHONE_NUMBER, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail))), DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
             // display confirmation message
-            MessageBox.Show("Password successfully reset.", "Password Reset Confirmation");
+            MessageBox.Show("Password successfully reset to employee's phone number.", "Password Reset Confirmation");
         }
 
         private void buttonDeleteAccount_Click(object sender, EventArgs e)
         {
             // open message box asking for confirmation
-            DialogResult choice = MessageBox.Show("Are you sure you want to delete "+ DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail)) + "'s account?", "Confirm Deletion", MessageBoxButtons.YesNo);
+            DialogResult choice = MessageBox.Show("Are you sure you want to delete " + DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail)) + "'s account?", "Confirm Deletion", MessageBoxButtons.YesNo);
 
             // if answer to above message box was yes
             if (choice == DialogResult.Yes)
@@ -293,7 +291,7 @@ namespace ApplicantTrackingSystem
         {
             // open message box with a question
             DialogResult choice = MessageBox.Show("Are you sure you want to discard all changes?", "Discard Changes", MessageBoxButtons.YesNo);
-            
+
             // if answer to above message box was yes
             if (choice == DialogResult.Yes)
             {
