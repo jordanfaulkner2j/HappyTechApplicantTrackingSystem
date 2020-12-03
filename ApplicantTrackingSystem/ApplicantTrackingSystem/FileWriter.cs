@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Text;
 using System.Threading.Tasks;
 using System.CodeDom.Compiler;
@@ -11,7 +13,7 @@ namespace ApplicantTrackingSystem
     class FileWriter
     {
         // constant name of temporary file
-        private static string TEMP_FILE = "temp.txt";
+        private const string TEMP_FILE = "temp.txt";
         // constant name of log file
         private const string LOG_FILE = "eventLog.csv";
 
@@ -211,6 +213,44 @@ namespace ApplicantTrackingSystem
         public static void DropLine(string fileName)
         {
             DeleteLine(fileName, File.ReadLines(fileName).Count());
+        }
+
+        /// <summary>
+        /// create and write to a PDF file
+        /// </summary>
+        /// <param name="fileName">name of the file without file type</param>
+        /// <param name="splitText">array of strings (paragraphs split into sections)</param>
+        /// <reference link="https://www.c-sharpcorner.com/UploadFile/f4f047/generating-pdf-file-using-C-Sharp/">Generating PDF File Using C#</reference>
+        public static void GeneratePDF(string fileName, string[] splitText)
+        {
+            // create document of A4 size with margin of 30 pixels from left, right, top, bottom
+            using (Document document = new Document(PageSize.A4, 30, 30, 30, 30))
+            using (FileStream fileStream = File.Create(fileName + ".pdf"))
+            using (PdfWriter writer = PdfWriter.GetInstance(document, fileStream))
+            {
+                document.Open();
+
+                // paragraph formatting
+                Paragraph paragraph = new Paragraph
+                {
+                    SpacingBefore = 10,
+                    SpacingAfter = 10,
+                    Alignment = Element.ALIGN_LEFT,
+                    Font = FontFactory.GetFont(FontFactory.HELVETICA, 15f, BaseColor.BLACK)
+                };
+
+                // add each section to be written to the file and separate them with blank line
+                foreach (string section in splitText)
+                {
+                    paragraph.Add(section);
+                    paragraph.Add(Chunk.NEWLINE);
+                    paragraph.Add(Chunk.NEWLINE);
+                }
+
+                // add sections to file and close
+                document.Add(paragraph);
+                document.Close();
+            }
         }
     }
 }

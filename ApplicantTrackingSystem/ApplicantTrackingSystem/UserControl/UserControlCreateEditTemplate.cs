@@ -279,8 +279,6 @@ namespace ApplicantTrackingSystem
                     itemCode = itemCode.Substring(0, 3);
                     itemCode = itemCode.Trim();
                     commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
-                    string message = commentID + ", " + templateID;
-                    MessageBox.Show(message);
                     DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
                 }
             }

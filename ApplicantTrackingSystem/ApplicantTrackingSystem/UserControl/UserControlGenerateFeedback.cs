@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,12 +13,13 @@ namespace ApplicantTrackingSystem
 {
     public partial class UserControlGenerateFeedback2 : UserControl
     {
+        // private integer for applicant's ID for which the feedback is given
+        private readonly int applicantID;
+
         public UserControlGenerateFeedback2()
         {
             InitializeComponent();
         }
-        // private integer for applicant's ID for which the feedback is given
-        private int applicantID;
 
         public UserControlGenerateFeedback2(int selectedApplicantID)
         {
@@ -49,7 +51,28 @@ namespace ApplicantTrackingSystem
 
         private void buttonGenerateFeedback_Click(object sender, EventArgs e)
         {
-            // save feedback to file
+            // check if template was selected, otherwise, display an error message because there is no feedback available to be saved
+            if (comboBoxTemplates.SelectedItem != null) 
+            {
+                // create a separate directory for PDF files containing feedback for applicants
+                if (!Directory.Exists("Feedback\\"))
+                {
+                    Directory.CreateDirectory("Feedback\\");
+                }
+
+                // save to PDF file
+                FileWriter.GeneratePDF("Feedback\\" + applicantID.ToString(), new string[] { textBoxHeader.Text, textBoxFooter.Text });
+
+                // display confirmation message
+                MessageBox.Show("Feedback successfully saved into a PDF file.", "Feedback Saved");
+                // go back to previous page
+                Main.mainApplication.GoBackPage();
+            }
+            else
+            {
+                // display error message
+                MessageBox.Show("Template not selected. No feedback available to be saved.", "Missing Template");
+            }
         }
 
         private void buttonDiscard_Click(object sender, EventArgs e)
