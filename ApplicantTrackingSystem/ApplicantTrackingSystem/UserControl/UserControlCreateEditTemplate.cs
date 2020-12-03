@@ -32,13 +32,15 @@ namespace ApplicantTrackingSystem
                 tbxFooter.Text = footerText;
                 tbxTemplateName.Text = templateName;
                 btnSaveTemplate.Text = "UPDATE TEMPLATE";
+                InitialiseComments();
+                InitialiseEditingState(templateName);
             }
             else
             {
                 tbxHeader.Text = defaultHeaderText;
                 tbxFooter.Text = defaultFooterText;
+                InitialiseComments();
             }
-            InitialiseComments();
         }
         // get the highest value of the comment_id primary key from the 'comment' table
         // create a for loop that iterates for as long as the highest value (so that all records are included in each iteration)
@@ -87,16 +89,81 @@ namespace ApplicantTrackingSystem
                 }
             }
         }
+        // run a for loop that iterates for as long as the items in each section's checklist box
+        // set each item's checked state to false
+        // get the comment ID using each item's code
+        // see if the comment already exists in the list_of_comments table (TryParse is used so that the program will not crash)
+        // if the comment does exist, set the item's checked state to true
+        private void InitialiseEditingState(string title)
+        {
+            int templateID;
+            int commentID;
+            int commentIDFromList;
+            string itemCode;
+            int i;
+            for (i = 0; i < clbUnderstanding.Items.Count; i++)
+            {
+                clbUnderstanding.SetItemChecked(i, false);
+                templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                itemCode = clbUnderstanding.Items[i].ToString();
+                itemCode = itemCode.Substring(0, 3);
+                itemCode = itemCode.Trim();
+                commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                string getCommentIDFromList = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                bool commentSelected = int.TryParse(getCommentIDFromList, out commentIDFromList);
+                if (commentSelected == true)
+                {
+                    clbUnderstanding.SetItemChecked(i, true);
+                }
+            }
+            for (i = 0; i < clbImpression.Items.Count; i++)
+            {
+                clbImpression.SetItemChecked(i, false);
+                templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                itemCode = clbImpression.Items[i].ToString();
+                itemCode = itemCode.Substring(0, 3);
+                itemCode = itemCode.Trim();
+                commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                string getCommentIDFromList = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                bool commentSelected = int.TryParse(getCommentIDFromList, out commentIDFromList);
+                if (commentSelected == true)
+                {
+                    clbImpression.SetItemChecked(i, true);
+                }
+            }
+            for (i = 0; i < clbQuestions.Items.Count; i++)
+            {
+                clbQuestions.SetItemChecked(i, false);
+                templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                itemCode = clbQuestions.Items[i].ToString();
+                itemCode = itemCode.Substring(0, 3);
+                itemCode = itemCode.Trim();
+                commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                string getCommentIDFromList = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                bool commentSelected = int.TryParse(getCommentIDFromList, out commentIDFromList);
+                if (commentSelected == true)
+                {
+                    clbQuestions.SetItemChecked(i, true);
+                }
+            }
+        }
         // if the boolean value for editing the template is equal to true
         // run the EditTemplate method with the templateName, preview Header text and preview Footer text as parameters
         // display a message box stating that the template has been updated successfully
         // set the boolean value for editing the template back to false (so that it won't keep editing the same template each time the page is loaded)
         // if the boolean value for editing the template is already equal to false
-        // check to see if a name for the template has been given by the employee
+        // take the employee to the templates page
+        // if the boolean value for editing the template is equal to false
         // save contents of template name text box as a string called 'templateName'
+        // save contents of header text box as a string called 'header'
+        // save contents of footer name text box as a string called 'footer'
+        // check to see if a header for the template has been given by the employee
+        // check to see if a footer for the template has been given by the employee
+        // if 'header' contains the default header text, display a prompt telling them to enter a header for the template
+        // if 'footer' contains the default footer text, display a prompt telling them to enter a footer for the template
         // if 'templateName' is blank or contains the default text, display a prompt telling them to enter a name into the text box
         // if 'templateName' has the same name as an existing template, display a prompt stating that a template with the same name already exists
-        // if a unique 'templateName' has been given, proceed with saving the template to the database
+        // if all cgecks pass, proceed with saving the template to the database
         // call method SaveTemplate with templateName, tbxHeader.Text and tbxFooter.Text as parameters
         // display a pop up message box to inform the user it has been saved successfully
         // take the employee to the 'Templates' page
@@ -115,6 +182,8 @@ namespace ApplicantTrackingSystem
             else
             {
                 string templateName = tbxTemplateName.Text;
+                string footer = tbxFooter.Text;
+                string header = tbxHeader.Text;
                 templateName = templateName.Trim();
                 if (templateName == "" || templateName == defaultTemplateNameText)
                 {
@@ -126,6 +195,18 @@ namespace ApplicantTrackingSystem
                 {
                     string title = "Template Already Exists";
                     string message = "A template with this name already exists.";
+                    MessageBox.Show(message, title);
+                }
+                else if (header == defaultHeaderText)
+                {
+                    string title = "No Template Header";
+                    string message = "Please enter a header for this template.";
+                    MessageBox.Show(message, title);
+                }
+                else if (footer == defaultFooterText)
+                {
+                    string title = "No Template Footer";
+                    string message = "Please enter a footer for this template.";
                     MessageBox.Show(message, title);
                 }
                 else
@@ -183,7 +264,11 @@ namespace ApplicantTrackingSystem
             int i;
             for (i = 0; i < clbTemplateType.Items.Count; i++)
             {
-                if (i != e.Index) clbTemplateType.SetItemChecked(i, false);
+                if (i != e.Index)
+                {
+                    clbTemplateType.SetItemChecked(i, false);
+                }
+
                 if (clbTemplateType.GetSelected(0) == true)
                 {
                     templateType = "CV";
@@ -207,7 +292,10 @@ namespace ApplicantTrackingSystem
             int i;
             for (i = 0; i < clbApplicationResult.Items.Count; i++)
             {
-                if (i != e.Index) clbApplicationResult.SetItemChecked(i, false);
+                if (i != e.Index)
+                {
+                    clbApplicationResult.SetItemChecked(i, false);
+                }
                 if (clbApplicationResult.GetSelected(0) == true)
                 {
                     applicationResult = "successful";
@@ -255,7 +343,6 @@ namespace ApplicantTrackingSystem
             tbxFooter.Text = code;
         }
         // catch parameters as title, header and footer
-        // store these in the correct sql format as a string called data
         // connect to the database and call the UpdateRecord method in the DatabaseManagement class
         // use the INSERT_TEMPLATE query from the DatabaseQueries class with the title, header and footer as parameters
         // get the newly-inserted template's id
@@ -286,7 +373,7 @@ namespace ApplicantTrackingSystem
             {
                 if (clbImpression.GetItemCheckState(i) == CheckState.Checked)
                 {
-                    itemCode = clbUnderstanding.Items[i].ToString();
+                    itemCode = clbImpression.Items[i].ToString();
                     itemCode = itemCode.Substring(0, 3);
                     itemCode = itemCode.Trim();
                     commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
@@ -296,7 +383,7 @@ namespace ApplicantTrackingSystem
                 {
                     if (clbQuestions.GetItemCheckState(i) == CheckState.Checked)
                     {
-                        itemCode = clbUnderstanding.Items[i].ToString();
+                        itemCode = clbQuestions.Items[i].ToString();
                         itemCode = itemCode.Substring(0, 3);
                         itemCode = itemCode.Trim();
                         commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
@@ -309,11 +396,75 @@ namespace ApplicantTrackingSystem
         // get the template_id attribute using the title and store this as an integer
         // connect to the database and call the UpdateRecord method in the DatabaseManagement class
         // use the UPDATE_TEMPLATE query from the DatabaseQueries class with the template title, header and footer variables as parameters, and a WHERE clause with the template_id as a parameter
+        // run a for loop for each checkbox list that iterates for as long as the number of items (using clb.Count to get this value)
+        // get the comment ID for each checked comment
+        // check to see if the comment has already been inserted into the list_of_comments table
+        // TryParse is used so that the program won't crash
+        // if it hasn't, insert it into the table with the comment_id and template_id as parameters
+        // if it does exist, update the records that match the comment_id and template_id
         private void EditTemplate(string title, string header, string footer)
         {
             int templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
             title = tbxTemplateName.Text;
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.UPDATE_TEMPLATE, title, header, footer, templateID));
+            // updating, inserting or deleting records in list_of_comments table
+            int i;
+            string itemCode;
+            int commentID;
+            for (i = 0; i < clbUnderstanding.Items.Count; i++)
+            {
+                if (clbUnderstanding.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    itemCode = clbUnderstanding.Items[i].ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                    int existingCommentID;
+                    string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                    bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                    if (commentExists == false)
+                    {
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
+                    }
+                }
+            }
+            for (i = 0; i < clbImpression.Items.Count; i++)
+            {
+                if (clbImpression.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    itemCode = clbUnderstanding.Items[i].ToString();
+                    itemCode = itemCode.Substring(0, 3);
+                    itemCode = itemCode.Trim();
+                    commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                    templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                    int existingCommentID;
+                    string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                    bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                    if (commentExists == false)
+                    {
+                        DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
+                    }
+                }
+                for (i = 0; i < clbQuestions.Items.Count; i++)
+                {
+                    if (clbQuestions.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        itemCode = clbUnderstanding.Items[i].ToString();
+                        itemCode = itemCode.Substring(0, 3);
+                        itemCode = itemCode.Trim();
+                        commentID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID, "code", itemCode));
+                        templateID = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_ID, title));
+                        int existingCommentID;
+                        string getCommentID = Convert.ToString(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_COMMENT_ID_LIST, "comment_id", commentID, "template_id", templateID)));
+                        bool commentExists = int.TryParse(getCommentID, out existingCommentID);
+                        if (commentExists == false)
+                        {
+                            DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.INSERT_LIST_OF_COMMENTS, commentID, templateID));
+                        }
+                    }
+                }
+            }
         }
         // if the button to add a new code within the Understanding of HappyTech's Values section is clicked
         // show the CodeManagement form

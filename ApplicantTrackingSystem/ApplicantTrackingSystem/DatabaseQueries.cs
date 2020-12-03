@@ -80,6 +80,9 @@ namespace ApplicantTrackingSystem
         // get template title
         public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE {0} ='{1}'";
 
+        // attribute called comment_id
+        public const string GET_COMMENT_ID_LIST = "SELECT comment_id FROM list_of_comments WHERE {0} = '{1}' AND {2} = '{3}'";
+
         // count number of records in template table
         public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
 
@@ -109,6 +112,9 @@ namespace ApplicantTrackingSystem
 
         // update (template_id, title, header, footer)
         public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = '{2}' WHERE template_id = '{3}'";
+
+        // update list_of_comments (comment_id, template_id)
+        public const string UPDATE_LIST_OF_COMMENTS = "UPDATE list_of_comments SET comment_id = '{0}', template_id = '{1}' WHERE comment_id = '{2}' AND template_id = '{3}'";
 
         /// <summary>
         /// retrieve complete query for updating record
@@ -167,6 +173,6 @@ namespace ApplicantTrackingSystem
         public const string DELETE_COMMENT = "DELETE FROM comment WHERE comment_id = '{0}'";
 
         // delete record from list_of_comments table
-        public const string DELETE_LIST_OF_COMMENTS = "DELETE FROM list_of_comments WHERE template_id = '{0}'";
+        public const string DELETE_LIST_OF_COMMENTS = "DELETE FROM list_of_comments WHERE {0} = '{1}'";
     }
 }
