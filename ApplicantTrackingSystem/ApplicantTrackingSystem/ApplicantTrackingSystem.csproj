@@ -23,8 +23,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>https://github.com/jordanfaulkner2j/HappyTechApplicantTrackingSystem/tree/main/ApplicantTrackingSystem/ApplicantTrackingSystem/</UpdateUrl>
-    <ApplicationRevision>1</ApplicationRevision>
+    <UpdateUrl>https://github.com/jordanfaulkner2j/HappyTechApplicantTrackingSystem/tree/main/ApplicantTrackingSystem/</UpdateUrl>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

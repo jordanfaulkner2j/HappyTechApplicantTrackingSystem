@@ -17,6 +17,14 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
 
+        public UserControlCreateEditTemplate UserControlCreateEditTemplate
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void UserControlTemplates_Load(object sender, EventArgs e)
         {
             Refresh();

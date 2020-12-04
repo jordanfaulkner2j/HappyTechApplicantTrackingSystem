@@ -461,7 +461,7 @@
             this.btnDiscardChanges.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDiscardChanges.FlatAppearance.BorderSize = 5;
             this.btnDiscardChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscardChanges.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnDiscardChanges.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnDiscardChanges.ForeColor = System.Drawing.Color.White;
             this.btnDiscardChanges.Location = new System.Drawing.Point(-2, -2);
             this.btnDiscardChanges.Name = "btnDiscardChanges";
@@ -477,7 +477,7 @@
             this.btnSaveTemplate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSaveTemplate.FlatAppearance.BorderSize = 5;
             this.btnSaveTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveTemplate.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnSaveTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnSaveTemplate.ForeColor = System.Drawing.Color.White;
             this.btnSaveTemplate.Location = new System.Drawing.Point(-2, -2);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
