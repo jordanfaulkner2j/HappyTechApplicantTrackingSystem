@@ -55,10 +55,10 @@
             // 
             this.comboBoxTemplates.FormattingEnabled = true;
             this.comboBoxTemplates.ItemHeight = 16;
-            this.comboBoxTemplates.Location = new System.Drawing.Point(41, 22);
-            this.comboBoxTemplates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxTemplates.Location = new System.Drawing.Point(39, 27);
+            this.comboBoxTemplates.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.comboBoxTemplates.Name = "comboBoxTemplates";
-            this.comboBoxTemplates.Size = new System.Drawing.Size(241, 21);
+            this.comboBoxTemplates.Size = new System.Drawing.Size(336, 24);
             this.comboBoxTemplates.TabIndex = 1;
             this.comboBoxTemplates.Text = "Select Template";
             this.comboBoxTemplates.SelectedIndexChanged += new System.EventHandler(this.comboBoxTemplates_SelectedIndexChanged);
@@ -66,31 +66,31 @@
             // textBoxHeader
             // 
             this.textBoxHeader.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBoxHeader.Location = new System.Drawing.Point(29, 53);
-            this.textBoxHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxHeader.Location = new System.Drawing.Point(39, 65);
+            this.textBoxHeader.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textBoxHeader.Multiline = true;
             this.textBoxHeader.Name = "textBoxHeader";
-            this.textBoxHeader.Size = new System.Drawing.Size(320, 112);
+            this.textBoxHeader.Size = new System.Drawing.Size(336, 86);
             this.textBoxHeader.TabIndex = 6;
             // 
             // textBoxFooter
             // 
             this.textBoxFooter.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBoxFooter.Location = new System.Drawing.Point(29, 177);
-            this.textBoxFooter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxFooter.Location = new System.Drawing.Point(39, 171);
+            this.textBoxFooter.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textBoxFooter.Multiline = true;
             this.textBoxFooter.Name = "textBoxFooter";
-            this.textBoxFooter.Size = new System.Drawing.Size(320, 111);
+            this.textBoxFooter.Size = new System.Drawing.Size(336, 100);
             this.textBoxFooter.TabIndex = 7;
             // 
             // textBoxAddComments
             // 
             this.textBoxAddComments.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBoxAddComments.Location = new System.Drawing.Point(413, 203);
-            this.textBoxAddComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxAddComments.Location = new System.Drawing.Point(399, 178);
+            this.textBoxAddComments.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textBoxAddComments.Multiline = true;
             this.textBoxAddComments.Name = "textBoxAddComments";
-            this.textBoxAddComments.Size = new System.Drawing.Size(435, 48);
+            this.textBoxAddComments.Size = new System.Drawing.Size(403, 58);
             this.textBoxAddComments.TabIndex = 9;
             this.textBoxAddComments.Text = "Additional Comments";
             this.textBoxAddComments.Enter += new System.EventHandler(this.textBoxAddComments_Enter);
@@ -101,10 +101,10 @@
             this.buttonDiscard.BackColor = System.Drawing.Color.DarkRed;
             this.buttonDiscard.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDiscard.ForeColor = System.Drawing.Color.White;
-            this.buttonDiscard.Location = new System.Drawing.Point(413, 255);
-            this.buttonDiscard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonDiscard.Location = new System.Drawing.Point(399, 240);
+            this.buttonDiscard.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(102, 27);
+            this.buttonDiscard.Size = new System.Drawing.Size(136, 33);
             this.buttonDiscard.TabIndex = 11;
             this.buttonDiscard.Text = "Discard";
             this.buttonDiscard.UseVisualStyleBackColor = false;
@@ -115,10 +115,10 @@
             this.buttonGenerateFeedback.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonGenerateFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGenerateFeedback.ForeColor = System.Drawing.Color.White;
-            this.buttonGenerateFeedback.Location = new System.Drawing.Point(681, 255);
-            this.buttonGenerateFeedback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGenerateFeedback.Location = new System.Drawing.Point(635, 240);
+            this.buttonGenerateFeedback.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonGenerateFeedback.Name = "buttonGenerateFeedback";
-            this.buttonGenerateFeedback.Size = new System.Drawing.Size(125, 27);
+            this.buttonGenerateFeedback.Size = new System.Drawing.Size(167, 33);
             this.buttonGenerateFeedback.TabIndex = 12;
             this.buttonGenerateFeedback.Text = "Generate Feedback";
             this.buttonGenerateFeedback.UseVisualStyleBackColor = false;
@@ -128,17 +128,19 @@
             // 
             this.clbUnderstandingComments.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.clbUnderstandingComments.FormattingEnabled = true;
-            this.clbUnderstandingComments.Location = new System.Drawing.Point(3, 7);
+            this.clbUnderstandingComments.Location = new System.Drawing.Point(4, 9);
+            this.clbUnderstandingComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbUnderstandingComments.Name = "clbUnderstandingComments";
             this.clbUnderstandingComments.ScrollAlwaysVisible = true;
-            this.clbUnderstandingComments.Size = new System.Drawing.Size(330, 72);
+            this.clbUnderstandingComments.Size = new System.Drawing.Size(328, 72);
             this.clbUnderstandingComments.TabIndex = 2;
             // 
             // btnAddUnderstanding
             // 
-            this.btnAddUnderstanding.Location = new System.Drawing.Point(339, 7);
+            this.btnAddUnderstanding.Location = new System.Drawing.Point(340, 9);
+            this.btnAddUnderstanding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddUnderstanding.Name = "btnAddUnderstanding";
-            this.btnAddUnderstanding.Size = new System.Drawing.Size(28, 30);
+            this.btnAddUnderstanding.Size = new System.Drawing.Size(37, 37);
             this.btnAddUnderstanding.TabIndex = 1;
             this.btnAddUnderstanding.Text = "+";
             this.btnAddUnderstanding.UseVisualStyleBackColor = true;
@@ -148,9 +150,10 @@
             // 
             this.panelUnderstanding.Controls.Add(this.clbUnderstandingComments);
             this.panelUnderstanding.Controls.Add(this.btnAddUnderstanding);
-            this.panelUnderstanding.Location = new System.Drawing.Point(3, 16);
+            this.panelUnderstanding.Location = new System.Drawing.Point(4, 20);
+            this.panelUnderstanding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelUnderstanding.Name = "panelUnderstanding";
-            this.panelUnderstanding.Size = new System.Drawing.Size(376, 87);
+            this.panelUnderstanding.Size = new System.Drawing.Size(501, 107);
             this.panelUnderstanding.TabIndex = 0;
             // 
             // panelComments
@@ -161,35 +164,39 @@
             this.panelComments.Controls.Add(this.panelImpression);
             this.panelComments.Controls.Add(this.label1);
             this.panelComments.Controls.Add(this.panelUnderstanding);
-            this.panelComments.Location = new System.Drawing.Point(413, 15);
+            this.panelComments.Location = new System.Drawing.Point(399, 24);
+            this.panelComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelComments.Name = "panelComments";
-            this.panelComments.Size = new System.Drawing.Size(435, 183);
+            this.panelComments.Size = new System.Drawing.Size(403, 144);
             this.panelComments.TabIndex = 14;
             // 
             // panelQuestions
             // 
             this.panelQuestions.Controls.Add(this.clbQuestionsComments);
             this.panelQuestions.Controls.Add(this.btnAddQuestions);
-            this.panelQuestions.Location = new System.Drawing.Point(3, 149);
+            this.panelQuestions.Location = new System.Drawing.Point(4, 183);
+            this.panelQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelQuestions.Name = "panelQuestions";
-            this.panelQuestions.Size = new System.Drawing.Size(376, 84);
+            this.panelQuestions.Size = new System.Drawing.Size(501, 103);
             this.panelQuestions.TabIndex = 15;
             // 
             // clbQuestionsComments
             // 
             this.clbQuestionsComments.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.clbQuestionsComments.FormattingEnabled = true;
-            this.clbQuestionsComments.Location = new System.Drawing.Point(3, 7);
+            this.clbQuestionsComments.Location = new System.Drawing.Point(4, 9);
+            this.clbQuestionsComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbQuestionsComments.Name = "clbQuestionsComments";
             this.clbQuestionsComments.ScrollAlwaysVisible = true;
-            this.clbQuestionsComments.Size = new System.Drawing.Size(330, 72);
+            this.clbQuestionsComments.Size = new System.Drawing.Size(328, 72);
             this.clbQuestionsComments.TabIndex = 2;
             // 
             // btnAddQuestions
             // 
-            this.btnAddQuestions.Location = new System.Drawing.Point(339, 7);
+            this.btnAddQuestions.Location = new System.Drawing.Point(340, 9);
+            this.btnAddQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddQuestions.Name = "btnAddQuestions";
-            this.btnAddQuestions.Size = new System.Drawing.Size(28, 30);
+            this.btnAddQuestions.Size = new System.Drawing.Size(37, 37);
             this.btnAddQuestions.TabIndex = 1;
             this.btnAddQuestions.Text = "+";
             this.btnAddQuestions.UseVisualStyleBackColor = true;
@@ -199,26 +206,29 @@
             // 
             this.panelImpression.Controls.Add(this.clbImpressionComments);
             this.panelImpression.Controls.Add(this.btnAddImpression);
-            this.panelImpression.Location = new System.Drawing.Point(3, 83);
+            this.panelImpression.Location = new System.Drawing.Point(4, 102);
+            this.panelImpression.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelImpression.Name = "panelImpression";
-            this.panelImpression.Size = new System.Drawing.Size(376, 87);
+            this.panelImpression.Size = new System.Drawing.Size(501, 107);
             this.panelImpression.TabIndex = 3;
             // 
             // clbImpressionComments
             // 
             this.clbImpressionComments.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.clbImpressionComments.FormattingEnabled = true;
-            this.clbImpressionComments.Location = new System.Drawing.Point(3, 7);
+            this.clbImpressionComments.Location = new System.Drawing.Point(4, 9);
+            this.clbImpressionComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbImpressionComments.Name = "clbImpressionComments";
             this.clbImpressionComments.ScrollAlwaysVisible = true;
-            this.clbImpressionComments.Size = new System.Drawing.Size(330, 72);
+            this.clbImpressionComments.Size = new System.Drawing.Size(328, 72);
             this.clbImpressionComments.TabIndex = 2;
             // 
             // btnAddImpression
             // 
-            this.btnAddImpression.Location = new System.Drawing.Point(339, 7);
+            this.btnAddImpression.Location = new System.Drawing.Point(340, 9);
+            this.btnAddImpression.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddImpression.Name = "btnAddImpression";
-            this.btnAddImpression.Size = new System.Drawing.Size(28, 30);
+            this.btnAddImpression.Size = new System.Drawing.Size(37, 37);
             this.btnAddImpression.TabIndex = 1;
             this.btnAddImpression.Text = "+";
             this.btnAddImpression.UseVisualStyleBackColor = true;
@@ -227,7 +237,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 3);
+            this.label1.Location = new System.Drawing.Point(0, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 1;
@@ -235,7 +246,7 @@
             // 
             // UserControlGenerateFeedback
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelComments);
             this.Controls.Add(this.buttonGenerateFeedback);
@@ -244,8 +255,9 @@
             this.Controls.Add(this.textBoxFooter);
             this.Controls.Add(this.textBoxHeader);
             this.Controls.Add(this.comboBoxTemplates);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserControlGenerateFeedback";
-            this.Size = new System.Drawing.Size(901, 337);
+            this.Size = new System.Drawing.Size(827, 293);
             this.Load += new System.EventHandler(this.UserControlGenerateFeedback_Load);
             this.panelUnderstanding.ResumeLayout(false);
             this.panelComments.ResumeLayout(false);

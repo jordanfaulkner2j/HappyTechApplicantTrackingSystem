@@ -49,71 +49,10 @@ namespace ApplicantTrackingSystem
 
             textBoxFooter.Text = string.Format(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_FOOTER, comboBoxTemplates.SelectedItem.ToString())), DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail)), DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_JOB_POSITION, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail)));
 
-            templateName = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, comboBoxTemplates.SelectedItem.ToString()));
+            templateName = comboBoxTemplates.SelectedItem.ToString();
             // Displays pre-defined comments for a template
             CheckedComments(templateName);
         }
-
-        private void buttonGenerateFeedback_Click(object sender, EventArgs e)
-        {
-            // check if template was selected, otherwise, display an error message because there is no feedback available to be saved
-            if (comboBoxTemplates.SelectedItem != null) 
-            {
-                // create a separate directory for PDF files containing feedback for applicants
-                if (!Directory.Exists("Feedback\\"))
-                {
-                    Directory.CreateDirectory("Feedback\\");
-                }
-
-                // create dynamic array for writing feedback letter
-                List<string> letter = new List<string>();
-
-                // header
-                letter.Add(textBoxHeader.Text);
-
-                // list of comments
-                letter.Add("Please view a short summary for your feedback below.");
-
-                // for each selected comment, add it to the letter
-
-                // additional comments if any
-                if (!string.IsNullOrEmpty(textBoxAddComments.Text))
-                {
-                    letter.Add(textBoxAddComments.Text);
-                }
-
-                //footer
-                letter.Add(textBoxFooter.Text);
-
-                // save to PDF file
-                FileWriter.GeneratePDF("Feedback\\" + applicantID.ToString(), letter.ToArray());
-
-                // display confirmation message
-                MessageBox.Show("Feedback successfully saved.", "Feedback Saved");
-                // go back to previous page
-                Main.mainApplication.GoBackPage();
-            }
-            else
-            {
-                // display error message
-                MessageBox.Show("Template not selected. No feedback available to be saved.", "Missing Template");
-            }
-        }
-
-        private void buttonDiscard_Click(object sender, EventArgs e)
-        {
-            // open message box with a question
-            DialogResult choice = MessageBox.Show("Are you sure you want to continue without saving changes?\nProgress will be lost!", "Discard Changes", MessageBoxButtons.YesNo);
-
-            // if answer to above message box was yes
-            if (choice == DialogResult.Yes)
-            {
-                // go back to previous page
-                Main.mainApplication.GoBackPage();
-            }
-        }
-
-
         private void Comments()
         {
             string Understanding = "Understanding of HappyTech";
@@ -211,6 +150,8 @@ namespace ApplicantTrackingSystem
             }
         }
 
+
+
         private void btnAddUnderstanding_Click(object sender, EventArgs e)
         {
             CodeManagement addCode = new CodeManagement();
@@ -242,6 +183,88 @@ namespace ApplicantTrackingSystem
             if (textBoxAddComments.Text == "")
             {
                 textBoxAddComments.Text = defaultAddCommentstext;
+            }
+        }
+
+        private void buttonGenerateFeedback_Click(object sender, EventArgs e)
+        {
+            // check if template was selected, otherwise, display an error message because there is no feedback available to be saved
+            if (comboBoxTemplates.SelectedItem != null)
+            {
+                // create a separate directory for PDF files containing feedback for applicants
+                if (!Directory.Exists("Feedback\\"))
+                {
+                    Directory.CreateDirectory("Feedback\\");
+                }
+
+                // create dynamic array for writing feedback letter
+                List<string> letter = new List<string>();
+
+                // header
+                letter.Add(textBoxHeader.Text);
+
+                // list of comments
+                letter.Add("Please view a short summary for your feedback below.");
+
+                // for each selected comment, add it to the letter
+                int i;
+                for (i = 0; i < clbUnderstandingComments.Items.Count; i++)
+                    if (clbUnderstandingComments.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        string item = clbUnderstandingComments.Items[i].ToString();
+                        string comment = item.Remove(0, 6);
+                        letter.Add(comment);
+                    }
+                for (i = 0; i < clbImpressionComments.Items.Count; i++)
+                    if (clbImpressionComments.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        string item = clbUnderstandingComments.Items[i].ToString();
+                        string comment = item.Remove(0, 6);
+                        letter.Add(comment);
+                    }
+                for (i = 0; i < clbQuestionsComments.Items.Count; i++)
+                    if (clbQuestionsComments.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        string item = clbQuestionsComments.Items[i].ToString();
+                        string comment = item.Remove(0, 6);
+                        letter.Add(comment);
+                    }
+
+
+                // additional comments if any
+                if (!string.IsNullOrEmpty(textBoxAddComments.Text))
+                {
+                    letter.Add(textBoxAddComments.Text);
+                }
+
+                //footer
+                letter.Add(textBoxFooter.Text);
+
+                // save to PDF file
+                FileWriter.GeneratePDF("Feedback\\" + applicantID.ToString(), letter.ToArray());
+
+                // display confirmation message
+                MessageBox.Show("Feedback successfully saved.", "Feedback Saved");
+                // go back to previous page
+                Main.mainApplication.GoBackPage();
+            }
+            else
+            {
+                // display error message
+                MessageBox.Show("Template not selected. No feedback available to be saved.", "Missing Template");
+            }
+        }
+
+        private void buttonDiscard_Click(object sender, EventArgs e)
+        {
+            // open message box with a question
+            DialogResult choice = MessageBox.Show("Are you sure you want to continue without saving changes?\nProgress will be lost!", "Discard Changes", MessageBoxButtons.YesNo);
+
+            // if answer to above message box was yes
+            if (choice == DialogResult.Yes)
+            {
+                // go back to previous page
+                Main.mainApplication.GoBackPage();
             }
         }
     }
