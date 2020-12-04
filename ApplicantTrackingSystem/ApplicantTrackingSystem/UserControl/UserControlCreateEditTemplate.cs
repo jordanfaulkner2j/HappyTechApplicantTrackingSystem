@@ -42,6 +42,15 @@ namespace ApplicantTrackingSystem
                 InitialiseComments();
             }
         }
+
+        public CodeManagement CodeManagement
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // get the highest value of the comment_id primary key from the 'comment' table
         // create a for loop that iterates for as long as the highest value (so that all records are included in each iteration)
         // get the section ID of the comment by using its comment ID

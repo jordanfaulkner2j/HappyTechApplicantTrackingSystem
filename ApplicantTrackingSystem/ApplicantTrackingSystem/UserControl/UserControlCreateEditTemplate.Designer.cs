@@ -450,9 +450,9 @@
             // 
             this.pnlDiscard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDiscard.Controls.Add(this.btnDiscardChanges);
-            this.pnlDiscard.Location = new System.Drawing.Point(480, 335);
+            this.pnlDiscard.Location = new System.Drawing.Point(444, 335);
             this.pnlDiscard.Name = "pnlDiscard";
-            this.pnlDiscard.Size = new System.Drawing.Size(200, 38);
+            this.pnlDiscard.Size = new System.Drawing.Size(229, 38);
             this.pnlDiscard.TabIndex = 16;
             // 
             // btnDiscardChanges
@@ -461,11 +461,11 @@
             this.btnDiscardChanges.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDiscardChanges.FlatAppearance.BorderSize = 5;
             this.btnDiscardChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscardChanges.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnDiscardChanges.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnDiscardChanges.ForeColor = System.Drawing.Color.White;
             this.btnDiscardChanges.Location = new System.Drawing.Point(-2, -2);
             this.btnDiscardChanges.Name = "btnDiscardChanges";
-            this.btnDiscardChanges.Size = new System.Drawing.Size(200, 38);
+            this.btnDiscardChanges.Size = new System.Drawing.Size(229, 38);
             this.btnDiscardChanges.TabIndex = 0;
             this.btnDiscardChanges.Text = "DISCARD CHANGES";
             this.btnDiscardChanges.UseVisualStyleBackColor = false;
@@ -477,11 +477,11 @@
             this.btnSaveTemplate.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSaveTemplate.FlatAppearance.BorderSize = 5;
             this.btnSaveTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveTemplate.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnSaveTemplate.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btnSaveTemplate.ForeColor = System.Drawing.Color.White;
             this.btnSaveTemplate.Location = new System.Drawing.Point(-2, -2);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(200, 38);
+            this.btnSaveTemplate.Size = new System.Drawing.Size(229, 38);
             this.btnSaveTemplate.TabIndex = 1;
             this.btnSaveTemplate.Text = "SAVE TEMPLATE";
             this.btnSaveTemplate.UseVisualStyleBackColor = false;
@@ -491,9 +491,9 @@
             // 
             this.pnlSaveTemplate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSaveTemplate.Controls.Add(this.btnSaveTemplate);
-            this.pnlSaveTemplate.Location = new System.Drawing.Point(731, 335);
+            this.pnlSaveTemplate.Location = new System.Drawing.Point(721, 335);
             this.pnlSaveTemplate.Name = "pnlSaveTemplate";
-            this.pnlSaveTemplate.Size = new System.Drawing.Size(200, 38);
+            this.pnlSaveTemplate.Size = new System.Drawing.Size(229, 38);
             this.pnlSaveTemplate.TabIndex = 17;
             // 
             // pnlNaming
