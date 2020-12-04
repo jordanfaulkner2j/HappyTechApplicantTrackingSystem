@@ -38,7 +38,6 @@ namespace ApplicantTrackingSystem
                 // add template title to combo box
                 comboBoxTemplates.Items.Add(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, "template_id", i)));
 
-                templateName = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, "template_id", i));
             }
          
            
@@ -50,6 +49,7 @@ namespace ApplicantTrackingSystem
 
             textBoxFooter.Text = string.Format(DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_FOOTER, comboBoxTemplates.SelectedItem.ToString())), DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_NAME, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail)), DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(DatabaseQueries.GetRecord(DatabaseQueries.EMPLOYEE_JOB_POSITION, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, Main.mainApplication.employeeEmail)));
 
+            templateName = DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_TEMPLATE_TITLE, comboBoxTemplates.SelectedItem.ToString()));
             // Displays pre-defined comments for a template
             CheckedComments(templateName);
         }
