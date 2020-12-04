@@ -58,6 +58,7 @@ namespace ApplicantTrackingSystem
             // otherwise, set default values for creating a new account
             else
             {
+                buttonSave.Text = "Create New Account";
                 buttonResetPassword.Enabled = false;
                 buttonDeleteAccount.Enabled = false;
                 textBoxJobTitle.Text = "HappyTech Employee";
@@ -198,16 +199,20 @@ namespace ApplicantTrackingSystem
             // update the rest of employee's details with specified email address using attributes retrieved from text fields
             DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(DatabaseQueries.UpdateRecord(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, employeeDetails, DatabaseQueries.EMPLOYEE_WHERE_EMAIL, employeeEmail));
 
-            // if email address was updated for current user, change the email address of logged in employee
-            if (Main.mainApplication.employeeEmail != employeeEmail)
+            // if admin is updating own account
+            if (!isAdminManaging || Main.mainApplication.employeeEmail == employeeEmail)
             {
-                Main.mainApplication.employeeEmail = newEmployeeEmail;
-            }
+                // if email address was updated for current user, change the email address of logged in employee
+                if (Main.mainApplication.employeeEmail != employeeEmail)
+                {
+                    Main.mainApplication.employeeEmail = newEmployeeEmail;
+                }
 
-            // update name on main form
-            Main.mainApplication.UpdateStatus();
-            // update current page
-            Main.mainApplication.RefreshPage();
+                // update name on main form
+                Main.mainApplication.UpdateStatus();
+                // update current page
+                Main.mainApplication.RefreshPage();
+            }
 
             // display message box
             MessageBox.Show("All settings were saved successfully.", "Settings Saved");

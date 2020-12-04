@@ -322,7 +322,7 @@ namespace ApplicantTrackingSystem
         {
             string apt = applicationType;
             string apr = applicationResult;
-            tbxHeader.Text = "Dear [ApplicantName], Thank you for applying for a position at HappyTech. I am emailing you to inform you that your " + apt + " has been further reviewed and your application was " + apr + ". The feedback from this is as follows:";
+            tbxHeader.Text = "Dear {0},\r\n\r\nThank you for applying as {1} at HappyTech. I am emailing you to inform you that your " + apt + " has been further reviewed and your application was " + apr + ".";
         }
         // store all codes as string, holding a value of the comment that forms the pair
         // if an option has been selected, prevent another from being selected at the same time using a for loop
@@ -331,8 +331,8 @@ namespace ApplicantTrackingSystem
         private void clbFooter_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             int i;
-            string F01 = "Best wishes for the future.";
-            string F02 = "Kind regards.";
+            string F01 = "Best wishes for the future,\r\n{0}\r\n{1}";
+            string F02 = "Kind regards,\r\n{0}\r\n{1}";
             for (i = 0; i < clbFooter.Items.Count; i++)
             {
                 if (i != e.Index) clbFooter.SetItemChecked(i, false);

@@ -10,23 +10,14 @@ namespace ApplicantTrackingSystem
     {
         /// <summary>
         /// search queries
-        /// </summary>
-        // table of employees (full name, email address, job title, administrator privileges)
-        public const string EMPLOYEES = "SELECT CONCAT(users.first_name, ' ', CASE WHEN users.middle_names IS NOT NULL THEN CONCAT(users.middle_names, ' ') END, users.last_name) AS 'Full Name', users.email_address AS 'Email Address', employee.job_title AS 'Job Title', CASE WHEN employee.administrator = 1 THEN 'Administrator' ELSE 'User' END AS 'Privileges' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
-
-        // table of applicants (id, full name, email address, job position, date submitted, checkboxes for interviewed, feedback given and feedback sent)
-        public const string APPLICANTS = "SELECT applicant.applicant_id, users.first_name, users.middle_names, users.last_name, users.email_address, job_position.title, applications.date_submitted, applications.interviewed, applications.feedback_left, applications.feedback_sent FROM((((applicant INNER JOIN users ON applicant.user_id = users.user_id) INNER JOIN applications ON applicant.applicant_id = applications.applicant_id) INNER JOIN application_for_job_position on applications.application_id = application_for_job_position.application_id) INNER JOIN job_position on application_for_job_position.job_position_id = job_position.job_position_id)";
-
-        // table of templates (id, title, header, footer)
-        public const string TEMPLATES = "SELECT * FROM template";
-
-        // table of applicants and their details from the table of users (id, first name, middle names, last name, email address, mobile number, work number)
-        public const string APPLICANT_DETAILS = "SELECT * FROM users INNER JOIN users ON applicant.user_id = users.user_id";
-
+        /// </summary
         // table of users and their details from the table of users (first name, middle names, last name, mobile number, work number, email address)
         public const string USER_DETAILS = "SELECT users.title, users.first_name, users.middle_names, users.last_name, users.mobile_number, users.work_number, users.email_address FROM users";
 
-        // attribute which merges first, middle and last name
+        // table of employees (full name, email address, job title, administrator privileges)
+        public const string EMPLOYEES = "SELECT CONCAT(users.first_name, ' ', CASE WHEN users.middle_names IS NOT NULL THEN CONCAT(users.middle_names, ' ') END, users.last_name) AS 'Full Name', users.email_address AS 'Email Address', employee.job_title AS 'Job Title', CASE WHEN employee.administrator = 1 THEN 'Administrator' ELSE 'User' END AS 'Privileges' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
+
+        // attribute which merges employee's first, middle and last name
         public const string EMPLOYEE_NAME = "SELECT CONCAT(users.first_name, ' ', CASE WHEN users.middle_names IS NOT NULL THEN CONCAT(users.middle_names, ' ') END, users.last_name) AS full_name FROM users INNER JOIN employee ON users.user_id = employee.user_id";
 
         // attribute called password
@@ -41,32 +32,23 @@ namespace ApplicantTrackingSystem
         // attribute called mobile number
         public const string EMPLOYEE_PHONE_NUMBER = "SELECT users.mobile_number FROM users INNER JOIN employee ON users.user_id = employee.user_id";
 
-        // attribute called administrator (checkbox whether employee has admin privileges)
+        // query for selecting specific employee based on their email address
         public const string EMPLOYEE_WHERE_EMAIL = "WHERE users.email_address = '{0}'";
 
-        // attribute called code with WHERE condition
-        public const string GET_CODE = "SELECT code FROM comment WHERE {0} = '{1}'";
+        // table of applicants (id, full name, email address, job position, date submitted, checkboxes for interviewed, feedback given and feedback sent)
+        public const string APPLICANTS = "SELECT applicant.applicant_id, users.first_name, users.middle_names, users.last_name, users.email_address, job_position.title, applications.date_submitted, applications.interviewed, applications.feedback_left, applications.feedback_sent FROM ((((applicant INNER JOIN users ON applicant.user_id = users.user_id) INNER JOIN applications ON applicant.applicant_id = applications.applicant_id) INNER JOIN application_for_job_position on applications.application_id = application_for_job_position.application_id) INNER JOIN job_position on application_for_job_position.job_position_id = job_position.job_position_id)";
 
-        // attribute called comment_id
-        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE {0} = '{1}'";
+        // attribute which merges applicant's first, middle and last name
+        public const string APPLICANT_NAME = "SELECT CONCAT(users.first_name, ' ', CASE WHEN users.middle_names IS NOT NULL THEN CONCAT(users.middle_names, ' ') END, users.last_name) AS full_name FROM users INNER JOIN applicant ON users.user_id = applicant.user_id";
 
-        // attribute called comment
-        public const string GET_COMMENT = "SELECT comment FROM comment WHERE {0} = '{1}'";
+        // attribute called job position
+        public const string APPLICANT_JOB_POSITION = "SELECT job_position.title FROM (((job_position INNER JOIN application_for_job_position ON job_position.job_position_id = application_for_job_position.job_position_id) INNER JOIN applications ON application_for_job_position.application_id = applications.application_id) INNER JOIN applicant ON applications.applicant_id = applicant.applicant_id)";
 
-        // attribute called section_title
-        public const string GET_SECTION = "SELECT title FROM section WHERE section_id = '{0}'";
+        // query for selecting specific applicant based on their id
+        public const string APPLICANT_WHERE_ID = "WHERE applicant.applicant_id = '{0}'";
 
-        // attribute called section_id
-        public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE title = '{0}'";
-
-        // attribute called section_id, retrieved from comment table
-        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE {0} = '{1}'";
-
-        // get highest comment_id from comment table
-        public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
-
-        // count sections
-        public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
+        // table of templates (id, title, header, footer)
+        public const string TEMPLATES = "SELECT * FROM template";
 
         // get template_id
         public const string GET_TEMPLATE_ID = "SELECT template_id FROM template WHERE title = '{0}'";
@@ -80,11 +62,35 @@ namespace ApplicantTrackingSystem
         // get template title
         public const string GET_TEMPLATE_TITLE = "SELECT title FROM template WHERE {0} ='{1}'";
 
+        // count number of records in template table
+        public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
+
         // attribute called comment_id
         public const string GET_COMMENT_ID_LIST = "SELECT comment_id FROM list_of_comments WHERE {0} = '{1}' AND {2} = '{3}'";
 
-        // count number of records in template table
-        public const string COUNT_TEMPLATES = "SELECT COUNT(*) FROM template";
+        // attribute called comment_id
+        public const string GET_COMMENT_ID = "SELECT comment_id FROM comment WHERE {0} = '{1}'";
+
+        // attribute called comment
+        public const string GET_COMMENT = "SELECT comment FROM comment WHERE {0} = '{1}'";
+
+        // attribute called code with WHERE condition
+        public const string GET_CODE = "SELECT code FROM comment WHERE {0} = '{1}'";
+
+        // get highest comment_id from comment table
+        public const string MAX_COMMENT_ID = "SELECT MAX(comment_id) FROM comment";
+
+        // attribute called section_title
+        public const string GET_SECTION = "SELECT title FROM section WHERE section_id = '{0}'";
+
+        // attribute called section_id
+        public const string GET_SECTION_ID = "SELECT section_id FROM section WHERE title = '{0}'";
+
+        // attribute called section_id, retrieved from comment table
+        public const string GET_SECTION_ID_COMMENT = "SELECT section_id FROM comment WHERE {0} = '{1}'";
+
+        // count sections
+        public const string COUNT_SECTIONS = "SELECT COUNT(*) FROM section";
 
         /// <summary>
         /// get complete query for retrieving specified record

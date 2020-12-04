@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCreateEditTemplate));
             this.pnlComments = new System.Windows.Forms.Panel();
             this.pnlApplicantQuestions = new System.Windows.Forms.Panel();
             this.btnAddQuestionsCode = new System.Windows.Forms.Button();
@@ -388,6 +387,7 @@
             // 
             // tbxFooter
             // 
+            this.tbxFooter.AcceptsReturn = true;
             this.tbxFooter.Font = new System.Drawing.Font("Arial", 10F);
             this.tbxFooter.Location = new System.Drawing.Point(9, 27);
             this.tbxFooter.Multiline = true;
@@ -418,13 +418,13 @@
             // 
             // tbxHeader
             // 
+            this.tbxHeader.AcceptsReturn = true;
             this.tbxHeader.Font = new System.Drawing.Font("Arial", 10F);
             this.tbxHeader.Location = new System.Drawing.Point(9, 28);
             this.tbxHeader.Multiline = true;
             this.tbxHeader.Name = "tbxHeader";
             this.tbxHeader.Size = new System.Drawing.Size(446, 97);
             this.tbxHeader.TabIndex = 4;
-            this.tbxHeader.Text = resources.GetString("tbxHeader.Text");
             // 
             // lblHeaderPreview
             // 

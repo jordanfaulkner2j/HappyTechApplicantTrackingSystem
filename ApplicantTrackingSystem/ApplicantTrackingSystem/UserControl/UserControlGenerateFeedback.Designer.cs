@@ -55,10 +55,10 @@
             // 
             this.comboBoxTemplates.FormattingEnabled = true;
             this.comboBoxTemplates.ItemHeight = 16;
-            this.comboBoxTemplates.Location = new System.Drawing.Point(29, 16);
+            this.comboBoxTemplates.Location = new System.Drawing.Point(41, 22);
             this.comboBoxTemplates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxTemplates.Name = "comboBoxTemplates";
-            this.comboBoxTemplates.Size = new System.Drawing.Size(320, 24);
+            this.comboBoxTemplates.Size = new System.Drawing.Size(241, 21);
             this.comboBoxTemplates.TabIndex = 1;
             this.comboBoxTemplates.Text = "Select Template";
             this.comboBoxTemplates.SelectedIndexChanged += new System.EventHandler(this.comboBoxTemplates_SelectedIndexChanged);
@@ -104,7 +104,7 @@
             this.buttonDiscard.Location = new System.Drawing.Point(413, 255);
             this.buttonDiscard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(136, 33);
+            this.buttonDiscard.Size = new System.Drawing.Size(102, 27);
             this.buttonDiscard.TabIndex = 11;
             this.buttonDiscard.Text = "Discard";
             this.buttonDiscard.UseVisualStyleBackColor = false;
@@ -118,7 +118,7 @@
             this.buttonGenerateFeedback.Location = new System.Drawing.Point(681, 255);
             this.buttonGenerateFeedback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGenerateFeedback.Name = "buttonGenerateFeedback";
-            this.buttonGenerateFeedback.Size = new System.Drawing.Size(167, 33);
+            this.buttonGenerateFeedback.Size = new System.Drawing.Size(125, 27);
             this.buttonGenerateFeedback.TabIndex = 12;
             this.buttonGenerateFeedback.Text = "Generate Feedback";
             this.buttonGenerateFeedback.UseVisualStyleBackColor = false;
@@ -235,7 +235,7 @@
             // 
             // UserControlGenerateFeedback
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelComments);
             this.Controls.Add(this.buttonGenerateFeedback);
