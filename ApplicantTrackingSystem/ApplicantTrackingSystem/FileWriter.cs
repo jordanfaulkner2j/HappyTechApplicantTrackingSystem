@@ -223,8 +223,8 @@ namespace ApplicantTrackingSystem
         /// <reference link="https://www.c-sharpcorner.com/UploadFile/f4f047/generating-pdf-file-using-C-Sharp/">Generating PDF File Using C#</reference>
         public static void GeneratePDF(string fileName, string[] splitText)
         {
-            // create document of A4 size with margin of 30 pixels from left, right, top, bottom
-            using (Document document = new Document(PageSize.A4, 30, 30, 30, 30))
+            // create document of A4 size with margin of 60 pixels from left, right, top, bottom
+            using (Document document = new Document(PageSize.A4, 60, 60, 60, 60))
             using (FileStream fileStream = File.Create(fileName + ".pdf"))
             using (PdfWriter writer = PdfWriter.GetInstance(document, fileStream))
             {
