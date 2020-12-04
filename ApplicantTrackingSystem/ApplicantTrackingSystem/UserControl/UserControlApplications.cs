@@ -127,7 +127,7 @@ namespace ApplicantTrackingSystem
                 if (Int32.TryParse(dgvApplications.Rows[e.RowIndex].Cells[0].Value.ToString(), out int applicantID))
                 {
                     // when application selected for review, open new page with all necessary details
-                    Main.mainApplication.OpenPage(new UserControlGenerateFeedback2(applicantID));
+                    Main.mainApplication.OpenPage(new UserControlGenerateFeedback(applicantID));
                 }
                 else
                 {
