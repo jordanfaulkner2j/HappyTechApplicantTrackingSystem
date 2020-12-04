@@ -50,8 +50,17 @@ namespace ApplicantTrackingSystem
             else if (code == DatabaseManagement.GetInstanceOfDatabaseConnection().GetSingleAttribute(string.Format(DatabaseQueries.GET_CODE, "code", code)))
             {
                 string title = "Code Already Exists";
-                string message = "A comment with this code already exists.";
-                MessageBox.Show(message, title);
+                string message = "A comment with this code already exists. Do you wish to update this comment?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    DatabaseManagement.GetInstanceOfDatabaseConnection().UpdateRecord(string.Format(DatabaseQueries.UPDATE_COMMENT, comment, code));
+                    title = "Comment Updated";
+                    message = "The comment with code '" + code + "' has been updated.";
+                    MessageBox.Show(message, title);
+                    UpdateTables();
+                }
             }
             else
             {

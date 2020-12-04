@@ -110,7 +110,10 @@ namespace ApplicantTrackingSystem
         // update password for employee with specified email address
         public const string UPDATE_EMPLOYEE_PASSWORD = "UPDATE employee SET employee.password = '{0}' FROM employee INNER JOIN users ON employee.user_id = users.user_id";
 
-        // update (template_id, title, header, footer)
+        // update comment (code, comment)
+        public const string UPDATE_COMMENT = "UPDATE comment SET comment = '{0}' WHERE code = '{1}'";
+
+        // update template (template_id, title, header, footer)
         public const string UPDATE_TEMPLATE = "UPDATE template SET title = '{0}', header = '{1}', footer = '{2}' WHERE template_id = '{3}'";
 
         // update list_of_comments (comment_id, template_id)
