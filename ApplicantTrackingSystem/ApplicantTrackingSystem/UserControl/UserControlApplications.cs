@@ -21,7 +21,7 @@ namespace ApplicantTrackingSystem
             InitializeComponent();
         }
 
-        private void UserControlApplications_Load(object sender, EventArgs e)
+        public void UserControlApplications_Load(object sender, EventArgs e)
         {
             Refresh();
         }
@@ -34,7 +34,7 @@ namespace ApplicantTrackingSystem
             base.Refresh();
         }
 
-        private void textBoxFirstName_TextChanged(object sender, EventArgs e)
+        public void textBoxFirstName_TextChanged(object sender, EventArgs e)
         {
             // to check if the text box is blank 
             if (textBoxFirstName.Text == "")

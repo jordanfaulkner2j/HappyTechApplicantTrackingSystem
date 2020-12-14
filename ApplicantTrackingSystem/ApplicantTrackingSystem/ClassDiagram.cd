@@ -1,25 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ApplicantTrackingSystem.UserControlApplications">
-    <Position X="12" Y="0.5" Width="3" />
-    <Members>
-      <Field Name="comboBoxJobPositions" Hidden="true" />
-      <Field Name="comboBoxSortBy" Hidden="true" />
-      <Field Name="comboBoxViewOnly" Hidden="true" />
-      <Field Name="components" Hidden="true" />
-      <Field Name="dgvApplications" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
-      <Field Name="textBoxFirstName" Hidden="true" />
-      <Field Name="textBoxLastName" Hidden="true" />
-      <Method Name="UserControlApplications" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>QAAwAEAAAKBAAAAAAAGAgARCAAAEAIBCAAEAAAIggAA=</HashCode>
-      <FileName>UserControl\UserControlApplications.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ApplicantTrackingSystem.UserControlCreateEditTemplate">
-    <Position X="9.25" Y="5" Width="2.5" />
+    <Position X="11.75" Y="0.75" Width="2.5" />
     <Members>
       <Field Name="btnAddImpressionCode" Hidden="true" />
       <Field Name="btnAddQuestionsCode" Hidden="true" />
@@ -61,11 +43,9 @@
       <Field Name="tbxFooter" Hidden="true" />
       <Field Name="tbxHeader" Hidden="true" />
       <Field Name="tbxTemplateName" Hidden="true" />
-      <Method Name="UserControlCreateEditTemplate" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>IECZIAKggCIAAGABBQGAAAkjFCMwEdhBEKNAEWEikBs=</HashCode>
-      <FileName>UserControl\UserControlCreateEditTemplate.cs</FileName>
+      <HashCode>IEAJIAAgACAAAAABBQGAAAkjFAAgEFhBEINAEUAAABs=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.UserControlEmployees">
@@ -81,7 +61,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.UserControlTemplates">
-    <Position X="5.25" Y="8.75" Width="2.25" />
+    <Position X="15.25" Y="7" Width="2.25" />
     <Members>
       <Field Name="btnDeleteTemplate" Hidden="true" />
       <Field Name="btnEditTemplate" Hidden="true" />
@@ -96,12 +76,11 @@
       <Field Name="templateTableAdapter" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AmAAAAgBACBAAAAAAACAAAwCiAAAAAgAAAABAQAAAAg=</HashCode>
-      <FileName>UserControl\UserControlTemplates.cs</FileName>
+      <HashCode>AkAAAAgAACAAAAAAAACAAAgCiAAAAAgAAAABAQAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.CodeManagement">
-    <Position X="9" Y="11.75" Width="3" />
+    <Position X="14.75" Y="0.5" Width="3" />
     <Members>
       <Field Name="btnAddCode" Hidden="true" />
       <Field Name="btnDeleteCode" Hidden="true" />
@@ -163,13 +142,6 @@
       <FileName>Login.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ApplicantTrackingSystem.LoginValidation">
-    <Position X="0.75" Y="10.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAEAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>LoginValidation.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ApplicantTrackingSystem.Main">
     <Position X="4.75" Y="3.5" Width="3.25" />
     <Members>
@@ -198,34 +170,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.DatabaseManagement">
-    <Position X="18" Y="3" Width="2.5" />
+    <Position X="15" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>QAAMAAAoCAAAAAAAAABAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>DatabaseManagement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.DatabaseQueries">
-    <Position X="21.5" Y="0.75" Width="2.5" />
+    <Position X="18" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>SJJAAgBAAAUQAGBAEgQFRAAAAAoNgYBEQAJIAAAACAA=</HashCode>
+      <HashCode>SJJAAgBAAEUQAGBAEhQFBAABAAoNgYBEQAJMAAAACAA=</HashCode>
       <FileName>DatabaseQueries.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ApplicantTrackingSystem.UserControlGenerateFeedback2">
-    <Position X="8.5" Y="0.5" Width="3.25" />
-    <Members>
-      <Field Name="buttonDiscard" Hidden="true" />
-      <Field Name="buttonGenerateFeedback" Hidden="true" />
-      <Field Name="comboBoxTemplates" Hidden="true" />
-      <Field Name="components" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
-      <Field Name="textBoxAddComments" Hidden="true" />
-      <Field Name="textBoxFooter" Hidden="true" />
-      <Field Name="textBoxHeader" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>AABQAAAAASAAAAQgAACAAAACAgCAAAAAEAAAAIACAAA=</HashCode>
-      <FileName>UserControl\UserControlGenerateFeedback.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ApplicantTrackingSystem.UserControlProfileSettings">
@@ -264,6 +219,33 @@
     <TypeIdentifier>
       <HashCode>IAgACgAKQCwAIbIkCBDBAoBCAIIBgAJANEUSAIAQIAI=</HashCode>
       <FileName>UserControl\UserControlProfileSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlGenerateFeedback">
+    <Position X="8.5" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>IMBQAAEAAaQAQBQpAACAEIAGCkACAAgAEAAAAIACJAA=</HashCode>
+      <FileName>UserControl\UserControlGenerateFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.UserControlApplications">
+    <Position X="11.75" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAAAAAAAACAAARCAAAAAABCAAAAAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.FileWriter">
+    <Position X="11.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAAAEAAAgEAgAAQAAAAAAAAAAAAAAAEAADI=</HashCode>
+      <FileName>FileWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApplicantTrackingSystem.Program">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
